@@ -26,6 +26,7 @@ Route::get('/future_calculation', function () {
 
 Route::get('/privacy_policy', function () {
     return view('privacy_policy');
+
 });
 
 //Route::get('/privacy_policy', [ModalController::class, 'privacy_policy']);
