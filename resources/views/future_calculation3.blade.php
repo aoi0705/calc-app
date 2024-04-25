@@ -50,7 +50,8 @@
 
 <!-- Page Content -->
 <div class="container mt-5 p-lg-5 bg-light">
-    <form class="needs-validation" novalidate>
+    <form class="needs-validation" action="{{ url('result_screen') }}" method="post">
+    @csrf
         <div class="form-group">
            <label for="text">マイホームを購入したのはいつですか3件。</label><br>
            <input type="text" id="myhome-buy" name="myhome-buy" class="form-control"><label for="text">年</label>
@@ -98,7 +99,7 @@
 
         <div class="form-group">
            <label for="text">毎年の旅行費はどれくらいですか？（ざっくりでかまいません。）</label><br>
-           <input type="text" id="trip" name="trip class="form-control"><label for="text">万円</label>
+           <input type="text" id="trip" name="trip" class="form-control"><label for="text">万円</label>
         </div>
 
         <div class="form-group">
@@ -130,7 +131,7 @@
                     <input type="radio" name="Severance-pay" id="Severance-pay" autocomplete="off" checked>ある
                 </label>
                 <label class="btn btn-primary">
-                    <input type="radio" name="not-Severance-pay" id="not-Severance-pay" autocomplete="off">ない
+                    <input type="radio" name="Severance-pay" id="not-Severance-pay" autocomplete="off">ない
                 </label>
             </div>
         </div>
@@ -157,7 +158,7 @@
                     <input type="radio" name="spouse-Severance-pay" id="spouse-Severance-pay" autocomplete="off" checked>ある
                 </label>
                 <label class="btn btn-primary">
-                    <input type="radio" name="not-spouse-Severance-pay" id="spouse-Severance-pay" autocomplete="off">ない
+                    <input type="radio" name="spouse-Severance-pay" id="spouse-Severance-pay" autocomplete="off">ない
                 </label>
             </div>
         </div>
@@ -281,7 +282,7 @@
                     </div>
                     <div class="modal-body">
                         <section>
-                            <h3>１. 個人情報</h3>
+                            <h3>情報共有の同意のお願い/h3>
                                 <p>お客様の未来家計簿情報をもとに、専門的なアドバイスを提供するためには、家計見直しのプロ（ファイナンシャルプランナー：FP）および<br>
                                     資産運用のプロ（独立金融アドバイザー：IFA）と情報を共有する必要があります。<br><br>
 
@@ -297,7 +298,7 @@
                                 </p>
                         </section>
                         <div class="modal-footer">
-                            <button onclick="location.href='./future_calculation'" type="button" class="btn btn-primary mx-auto d-block" >同意してサービスを利用する</button>
+                            <button type="submit" class="btn btn-primary mx-auto d-block" >同意してサービスを利用する</button>
                         </div>
                     </div>
                 </div>

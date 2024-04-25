@@ -50,7 +50,8 @@
 
 <!-- Page Content -->
 <div class="container mt-5 p-lg-5 bg-light">
-    <form class="needs-validation" novalidate>
+    <form class="needs-validation" action="form2.php" method="post">
+    @csrf
         <div class="form-group">
            <label for="text">あなたの年収を教えてください</label><br>
            <input type="text" id="annual-income" name="annual-income" class="form-control"><label for="text">万円</label>
