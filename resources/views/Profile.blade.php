@@ -2,10 +2,15 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>派遣会社向け 無料ホームページテンプレート tp_haken1</title>
+<title>株式会社Wealth Journey Navigatore</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="ここにサイト説明を入れます">
+<meta name="description" content="構築中">
 <link rel="stylesheet" href="css/style.css">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="js/main.js"></script>
 </head>
 
 <body>
@@ -14,7 +19,7 @@
 
 <header>
 
-<h1 id="logo"><a href="index.html"><img src="images/logo.png" alt="サンプル派遣会社"></a></h1>
+<h1 id="logo"><a href="{{ url('/') }}"><img src="images/logo.png" alt="ロゴ"></a></h1>
 
 <!--メニュー-->
 <div id="menubar">
@@ -28,7 +33,7 @@
 </nav>
 
 <div class="sh">
-<p>小さな端末でのみ表示させたいものがあれば、ここを使って下さい。</p>
+<p>小さな端末でのみ表示</p>
 </div>
 <!--/.sh-->
 
@@ -44,7 +49,6 @@
 <h2>Company Profile<span>会社概要</span></h2>
 
 <table class="ta1">
-<caption>大見出しが必要ならここを使います</caption>
 <tr>
 <th>会社名</th>
 <td>株式会社Wealth Journey Navigators</td>
@@ -83,8 +87,7 @@
 
 <div class="text l">
 <h2>小見出し<span>小見出しの補足。</span></h2>
-<p>左右で使う場合は、外側に必ず&lt;div <span class="color-check">class=&quot;c2&quot;</span>&gt;を作ります。その中に、<span class="color-check">class=&quot;text&quot;</span>と<span class="color-check">class=&quot;image&quot;</span>でテキストブロックと画像ブロックを分けます。テキストブロックと画像ブロックのどちらを左右によせるかは、セットで記載する<span class="color-check">l</span>か<span class="color-check">r</span>によって振り分けできます。<span class="color-check">l</span>はLeft(左)で、<span class="color-check">r</span>はRight(右)です。このブロックの場合、&lt;div class=&quot;text <span class="color-check">l</span>&quot;&gt;と&lt;div class=&quot;image <span class="color-check">r</span>&quot;&gt;で指定しているので、テキストが左で画像が右にきます。</p>
-<p>尚、小さな端末では、常にテキストが冒頭にきます。</p>
+<p>サンプルテキスト</p>
 </div>
 <!--/.text-->
 
@@ -138,8 +141,7 @@
 
 <footer>
 
-<small>Copyright&copy; <a href="index.html">サンプル派遣会社</a> All Rights Reserved.</small>
-<span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
+<small>フッター</small>
 
 </footer>
 
@@ -163,10 +165,6 @@
 <!--パララックス（inview）-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
 <script src="js/jquery.inview_set.js"></script>
-
-<!--スライドショー（slick）-->
-<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script src="js/slick.js"></script>
 
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>派遣会社向け 無料ホームページテンプレート tp_haken1</title>
+<title>株式会社Wealth Journey Navigatore</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="ここにサイト説明を入れます">
 <link rel="stylesheet" href="css/style.css">
@@ -18,7 +18,7 @@
 
 <header>
 
-<h1 id="logo"><a href="index.html"><img src="images/logo.png" alt="サンプル派遣会社"></a></h1>
+<h1 id="logo"><a href="{{ url('/') }}"><img src="images/logo.png" alt="ロゴ"></a></h1>
 
 <!--メニュー-->
 <div id="menubar">
@@ -32,7 +32,7 @@
 </nav>
 
 <div class="sh">
-<p>小さな端末でのみ表示させたいものがあれば、ここを使って下さい。</p>
+<p>小さな端末でのみ表示。</p>
 </div>
 <!--/.sh-->
 
@@ -245,8 +245,7 @@
 
 <footer>
 
-<small>Copyright&copy; <a href="index.html">サンプル派遣会社</a> All Rights Reserved.</small>
-<span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
+<small>フッター</small>
 
 </footer>
 
@@ -270,10 +269,6 @@
 <!--パララックス（inview）-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
 <script src="js/jquery.inview_set.js"></script>
-
-<!--スライドショー（slick）-->
-<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script src="js/slick.js"></script>
 
 </body>
 </html>
