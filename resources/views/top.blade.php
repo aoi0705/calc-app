@@ -45,9 +45,8 @@
 <section id="mainimg">
 <div id="text">
 <div>
-<h2>自身の家計の将来を<br>
-無料で可視化！</h2>
-<p class="text pc">正しい資産形成とリスクマネジメントを全力で支援します！</p>
+<h2>自身の家計の将来を無料で可視化！<br>
+正しい資産形成とリスクマネジメントを全力で支援します！</h2>
 <p><button class="btn1 large radius" type="button" data-target="#modal1" data-toggle="modal"><span class="pc">未来家計簿を作る</span><i class="btn1 large radius"></i></button></p>
 <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
     <div class="modal-dialog" role="document">

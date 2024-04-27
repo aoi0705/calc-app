@@ -22,10 +22,10 @@ class Debug extends Component
     protected $messages = [
         'hisuonly.required' => '入力してください',
         'birth.required' => '入力してください',
-        'birth.digits:8' => '数字8桁で入力して下さい',
+        'birth.digits' => '数字8桁で入力して下さい',
         'birth.integer' => '半角数字で入力して下さい',
         'postnumber.required' => '入力してください',
-        'postnumber.digits:7' => '数字7桁で入力して下さい',
+        'postnumber.digits' => '数字7桁で入力して下さい',
         'postnumber.integer' => '半角数字で入力して下さい'
     ];
     protected $validationAttributes = [
@@ -33,11 +33,10 @@ class Debug extends Component
         'birth' => '20001231',
         'postnumber' => '0000000'
     ];
-    public function update()
+
+    public function updated($propertyName)
     {
     // エラーがあったら
-        if($this->getErrorBag()->any()) {
-            $error = $this->getErrorBag()->first('sample');
-        }
+        $this->validateOnly($propertyName);
     }
 }

@@ -7,13 +7,15 @@
 @import url("https://unpkg.com/sanitize.css");
 
 /*Font Awesomeの読み込み
----------------------------------------------------------------------------*/
+---------------------------------------------------------------------------
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+*/
 
 /*Google Fontsの読み込み
----------------------------------------------------------------------------*/
+---------------------------------------------------------------------------
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+*/
 
 /*slick.cssの読み込み
 ---------------------------------------------------------------------------*/
@@ -35,7 +37,7 @@ html,body {
 }
 
 body {
-	font-family: 'Lato', 'M PLUS 1 Code', "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", Meiryo, "メイリオ", "Osaka", "MS PGothic", "ＭＳ Ｐゴシック", sans-serif;	/*フォント種類*/
+	font-family: 'メイリオ', 'Meiryo', sans-serif;	/*フォント種類*/
 	-webkit-text-size-adjust: none;
 	letter-spacing: 0.05em;
 	background: #fff;	/*背景色*/
@@ -111,7 +113,7 @@ header {
 	display: flex;					/*flexボックスを使う指定*/
 	justify-content: space-between;	/*並びかたの種類の指定*/
 	align-items: center;			/*垂直揃えの指定。天地中央に配置されるように。*/
-	background: #ed7d0f;			/*背景色*/
+	background: #FF9696;			/*背景色*/
 	position: fixed; z-index: 1;	/*スクロールしても動かないようにする指定*/
 	width: 100%;
 	padding: 0 3%;					/*上下、左右へのヘッダー内の余白*/
@@ -120,7 +122,7 @@ header {
 
 /*ヘッダーのリンクテキストの文字色*/
 header a {
-	color: #fff;
+	color: #000000;
 }
 
 /*ロゴ画像*/
@@ -142,7 +144,7 @@ header #logo {
 	position: relative;
 	top: 50px;	/*headerのheightの数値と合わせて下さい。*/
 	overflow: hidden;
-	background: #ed7d0f url(../images/mainimg.png) no-repeat center center / 100%;	/*背景色、背景画像の読み込み、最後の100%は画像幅。*/
+	background: #FF9696 url(../images/mainimg.png) no-repeat center center / 100%;	/*背景色、背景画像の読み込み、最後の100%は画像幅。*/
 	color: #fff;	/*文字色*/
 }
 
@@ -161,7 +163,7 @@ header #logo {
 #mainimg #text h2 {
 	margin: 0;
 	font-weight: 500;	/*文字の太さ。数値が大きいほど太くなります。*/
-	font-size: 3.8vw;	/*文字サイズ。画面幅に対する単位です。*/
+	font-size: 2.7vw;	/*文字サイズ。画面幅に対する単位です。*/
 	text-shadow: 1px 1px 2px rgba(0,0,0,0.3);	/*テキストの影。右へ、下へ、ぼかし幅。0,0,0は黒の事で0.3は色が30%出た状態。*/
 }
 
@@ -278,8 +280,8 @@ main h2 {
 	font-size: 3em;			/*文字サイズ。3倍。*/
 	text-align: center;		/*文字をセンタリング*/
 	letter-spacing: 0.2em;	/*文字間隔を少しだけ広くとる設定*/
-	color: #ed7d0f;			/*文字色*/
-	font-family: 'Lato';	/*GoogleFontsの指定*/
+	color: #FF9696;			/*文字色*/
+	font-family: 'メイリオ', 'Meiryo', sans-serif;	/*GoogleFontsの指定*/
 	font-weight: 400;		/*文字の太さ*/
 }
 
@@ -294,7 +296,7 @@ main h2 span {
 /*mainブロック内のh3タグ*/
 main h3 {
 	margin: 0 0 1em;		/*上、左右、下へのタグの外にとるスペース*/
-	color: #ed7d0f;			/*文字色*/
+	color: #FF9696;			/*文字色*/
 }
 
 /*mainブロックのpタグ*/
@@ -305,6 +307,11 @@ main p + p {margin-top: -15px;}
 
 /*モーダルの設定*/
 #modal1 p,#modal1 h3{
+	color: #000000;
+}
+
+.modal-header{
+	font-family:'メイリオ', 'Meiryo', sans-serif ;
 	color: #000000;
 }
 
@@ -474,11 +481,11 @@ footer .pr {display: block;}
 .list2 h4 {
 	margin: 0;				/*デフォルトマージンを一旦リセット*/
 	margin-bottom: 10px;	/*下に少し余白を作る*/
-	color: #ed7d0f;			/*文字色*/
+	color: #FF9696;			/*文字色*/
 }
 
 .list2 h4 a {
-	color: #ed7d0f;			/*リンクテキストの文字色*/
+	color: #FF9696;			/*リンクテキストの文字色*/
 }
 
 .list2 h4 a:hover {
@@ -553,7 +560,7 @@ dl.line dd {
 
 /*アイコン（Font Awesome）*/
 .faq dt::before {
-	font-family: "Font Awesome 5 Free";	/*Font Awesomeを使う指定*/
+	font-family: "'メイリオ', 'Meiryo', sans-serif";	/*Font Awesomeを使う指定*/
 	content: "\f059";		/*使いたいアイコン名をここで指定。Font Awesomeに記載されています。詳しくは当テンプレートのマニュアルを読んで下さい。*/
 	color: #ed7d0f;			/*アイコンの色*/
 	padding-right: 1em;		/*アイコンとテキストの間の余白*/
@@ -648,6 +655,16 @@ button:hover.btn1, button:hover.btn2 {
 	filter: brightness(1.1);
 }
 
+button.btn-primary{
+	background-color:#FF9696;
+	border-color: #FF9696
+}
+
+button:hover.btn-primary{
+	background-color:#FF9696;
+	border-color: #FF9696
+}
+
 
 /*テーブル
 ---------------------------------------------------------------------------*/
@@ -690,7 +707,7 @@ button:hover.btn1, button:hover.btn2 {
 	background: #eee;
 }
 .bg2 {
-	background: #fef3d9;
+	background: #FF9696;
 }
 .bg3 {
 	background: #ffce2b;
