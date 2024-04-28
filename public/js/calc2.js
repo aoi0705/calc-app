@@ -1,113 +1,7 @@
-//タイマー
-$(function() {
-	var timer = false;
-	$(window).resize(function() {
-		if(timer !== false){
-			clearTimeout(timer);
-		}
-		timer = setTimeout(function() {
-		}, 500);
-	});
-});
-
-
-// menu
-$(window).on("load resize", function() {
-	setTimeout(function(){
-
-		var winW = window.innerWidth;
-		var winBP = 900;	//ブレイクポイント
-
-			//小さな端末用
-			if(winW < winBP) {
-				$('body').addClass('s').removeClass('p');
-				$('#menubar').addClass('dn').removeClass('db');
-				$('#menubar_hdr').addClass('db').removeClass('dn').removeClass('ham');
-				
-					// 同一ページへのリンクの場合に開閉メニューを閉じる処理
-					$('#menubar a[href^="#"]').click(function() {
-						$('#menubar').removeClass('db');
-						$('#menubar_hdr').removeClass('ham');
-					});
-					
-			//大きな端末用
-			} else {
-				$('body').addClass('p').removeClass('s');
-				$('#menubar').addClass('db').removeClass('dn');
-				$('#menubar_hdr').removeClass('db').addClass('dn');
-
-			}
-
-	}, 100);
-});
-
-
-//ハンバーガーメニューをクリックした際の処理
-$(function() {
-	$('#menubar_hdr').click(function() {
-		$(this).toggleClass('ham');
-
-			if($(this).hasClass('ham')) {
-				$('#menubar').addClass('db').removeClass('dn');
-			} else {
-				$('#menubar').addClass('dn').removeClass('db');
-			}
-
-	});
-});
-
-
-//pagetop
-$(function() {
-    var scroll = $('.pagetop');
-    var scrollShow = $('.pagetop-show');
-        $(scroll).hide();
-        $(window).scroll(function() {
-            if($(this).scrollTop() >= 300) {
-                $(scroll).fadeIn().addClass(scrollShow);
-            } else {
-                $(scroll).fadeOut().removeClass(scrollShow);
-            }
-        });
-});
-
-
-//スムーススクロール
-$(window).on('load', function() {
-	var hash = location.hash;
-	if(hash) {
-		$('body,html').scrollTop(0);
-		setTimeout(function() {
-			var target = $(hash);
-			var scroll = target.offset().top - 40;
-			$('body,html').animate({scrollTop:scroll},500);
-		}, 100);
-	}
-});
-$(window).on('load', function() {
-    $('a[href^="#"]').click(function() {
-        var href = $(this).attr('href');
-        var target = href == '#' ? 0 : $(href).offset().top - 40;
-            $('body,html').animate({scrollTop:target},500);
-            return false;
-    });
-});
-
-
-// 汎用開閉処理
-$(function() {
-	$('.openclose').next().hide();
-	$('.openclose').click(function() {
-		$(this).next().slideToggle();
-		$('.openclose').not(this).next().slideUp();
-	});
-});
-
-// バリデーションの処理
 $(function(){
 
     // 「送信」ボタンの要素を取得
-    const submit = document.querySelector('#name');
+    const submit = document.querySelector('#annual-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('change', (e) => {
@@ -116,14 +10,14 @@ $(function(){
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
-        const name = document.querySelector('#name');
+        const name = document.querySelector('#annual-income');
         // エラーメッセージを表示させる要素を取得
-        const errMsgName = document.querySelector('.err-msg-name');
-        if(!name.value){
+        const errMsgName = document.querySelector('#annualincomeerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
-            errMsgName.textContent = '入力されていません。';
+            errMsgName.textContent = '半角数字で入力してください';
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
@@ -134,7 +28,7 @@ $(function(){
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-			let box = document.querySelector('#yournickname');
+			let box = document.querySelector('#yourbonus');
 			//styleのdisplayを変更する関数
 			box.style.display='';
         }
@@ -144,7 +38,7 @@ $(function(){
 $(function(){
 
     // 「送信」ボタンの要素を取得
-    const submit = document.querySelector('#nickname');
+    const submit = document.querySelector('#bonus');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('change', (e) => {
@@ -153,14 +47,14 @@ $(function(){
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
-        const name = document.querySelector('#nickname');
+        const name = document.querySelector('#bonus');
         // エラーメッセージを表示させる要素を取得
-        const errMsgName = document.querySelector('#nicknameerr');
-        if(!name.value){
+        const errMsgName = document.querySelector('#yourbonuserr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
-            errMsgName.textContent = '入力されていません。';
+            errMsgName.textContent = '半角数字で入力してください';
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
@@ -171,7 +65,7 @@ $(function(){
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-			let box = document.querySelector('#yourbirthday');
+			let box = document.querySelector('#yourpartnerincome');
 			//styleのdisplayを変更する関数
 			box.style.display='';
         }
@@ -181,7 +75,7 @@ $(function(){
 $(function(){
 
     // 「送信」ボタンの要素を取得
-    const submit = document.querySelector('#birthday');
+    const submit = document.querySelector('#spouse-annual-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('change', (e) => {
@@ -190,14 +84,14 @@ $(function(){
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
-        const name = document.querySelector('#birthday');
+        const name = document.querySelector('#spouse-annual-income');
         // エラーメッセージを表示させる要素を取得
-        const errMsgName = document.querySelector('#birtherr');
-        if(!name.value.match(/^([0-9]{8})$/)){
+        const errMsgName = document.querySelector('#yourpartnerincomeerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
-            errMsgName.textContent = '8桁の半角数字で入力して下さい';
+            errMsgName.textContent = '半角数字で入力してください';
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
@@ -208,7 +102,8 @@ $(function(){
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-			let box = document.querySelector('#yourpost');
+			let box = document.querySelector('#yourpartnerbonus');
+			//styleのdisplayを変更する関数
 			box.style.display='';
         }
 	});
@@ -217,7 +112,7 @@ $(function(){
 $(function(){
 
     // 「送信」ボタンの要素を取得
-    const submit = document.querySelector('#yourpost');
+    const submit = document.querySelector('#spouse-bonus');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('change', (e) => {
@@ -226,26 +121,26 @@ $(function(){
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
-        const name = document.querySelector('#yourpost');
-		const name_input = document.querySelector('#post-number');
+        const name = document.querySelector('#spouse-bonus');
         // エラーメッセージを表示させる要素を取得
-        const errMsgName = document.querySelector('#posterr');
-        if(!name_input.value.match(/^([0-9]{7})$/)){
+        const errMsgName = document.querySelector('#yourpartnerbonuserr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
-            errMsgName.textContent = '7桁の半角数字で入力して下さい';
+            errMsgName.textContent = '半角数字で入力してください';
             // クラスを追加(フォームの枠線を赤くする)
-            name_input.classList.add('input-invalid');
+            name.classList.add('input-invalid');
             // 後続の処理を止める
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
-            name_input.classList.remove('input-invalid');
+            name.classList.remove('input-invalid');
 			// 次の項目を表示
-			let box = document.querySelector('#yourjob');
+			let box = document.querySelector('#yourfoodexpenses');
+			//styleのdisplayを変更する関数
 			box.style.display='';
         }
 	});
@@ -254,7 +149,7 @@ $(function(){
 $(function(){
 
     // 「送信」ボタンの要素を取得
-    const submit = document.querySelector('#job');
+    const submit = document.querySelector('#food-expenses');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('change', (e) => {
@@ -263,15 +158,125 @@ $(function(){
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
-        const name = document.querySelector('#job');
-		const name_input = document.querySelector('#job');
+        const name = document.querySelector('#food-expenses');
         // エラーメッセージを表示させる要素を取得
-        const errMsgName = document.querySelector('#joberr');
+        const errMsgName = document.querySelector('#yourfoodexpenseserr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourlivingcost');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#living-cost');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#living-cost');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourlivingcosterr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourbeautybill');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#beauty-bill');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#beauty-bill');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourbeautybillerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourhouseclass');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#house-class');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#house-class');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourhouseclasserr');
         if(!name.value){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
-            errMsgName.textContent = 'いずれかを選択してください。';
+            errMsgName.textContent = '半角数字で入力してください';
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
@@ -282,7 +287,8 @@ $(function(){
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-			let box = document.querySelector('#yourpartner');
+			let box = document.querySelector('#yourhousecost');
+			//styleのdisplayを変更する関数
 			box.style.display='';
         }
 	});
@@ -291,46 +297,7 @@ $(function(){
 $(function(){
 
     // 「送信」ボタンの要素を取得
-    const submit = document.querySelector('#yourpartnerinput');
-    
-    // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('click', (e) => {
-        // デフォルトアクションをキャンセル
-        e.preventDefault();
-
-        // 「お名前」入力欄の空欄チェック
-        // フォームの要素を取得
-        const name = document.querySelector('#spouse');
-		const name2 = document.querySelector('#single');
-        // エラーメッセージを表示させる要素を取得
-        const errMsgName = document.querySelector('#partnererr');
-        if(!name.value == true && !name2.value == true){
-            // クラスを追加(エラーメッセージを表示する)
-            errMsgName.classList.add('form-invalid');
-            // エラーメッセージのテキスト
-            errMsgName.textContent = 'いずれかを選択してください。';
-            // クラスを追加(フォームの枠線を赤くする)
-            name.classList.add('input-invalid');
-            // 後続の処理を止める
-            return;
-        }else{
-            // エラーメッセージのテキストに空文字を代入
-            errMsgName.textContent ='';
-            // クラスを削除
-            name.classList.remove('input-invalid');
-			// 次の項目を表示
-			let box = document.querySelector('#partnerbirthday');
-			box.style.display='';
-        }
-	});
-});
-
-
-
-$(function(){
-
-    // 「送信」ボタンの要素を取得
-    const submit = document.querySelector('#spouse-birthday');
+    const submit = document.querySelector('#house-cost');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('change', (e) => {
@@ -339,14 +306,14 @@ $(function(){
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
-        const name = document.querySelector('#spouse-birthday');
+        const name = document.querySelector('#house-cost');
         // エラーメッセージを表示させる要素を取得
-        const errMsgName = document.querySelector('#partnerbirtherr');
-        if((!name.value.match(/^([0-9]{8})$/))){
+        const errMsgName = document.querySelector('#yourhousecosterr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
-            errMsgName.textContent = '8桁の半角数字で入力してください。';
+            errMsgName.textContent = '半角数字で入力してください';
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
@@ -357,7 +324,8 @@ $(function(){
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-			let box = document.querySelector('#partnerjob');
+			let box = document.querySelector('#yourmanagecost');
+			//styleのdisplayを変更する関数
 			box.style.display='';
         }
 	});
@@ -366,7 +334,7 @@ $(function(){
 $(function(){
 
     // 「送信」ボタンの要素を取得
-    const submit = document.querySelector('#spouse-job');
+    const submit = document.querySelector('#manage-cost');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('change', (e) => {
@@ -375,14 +343,14 @@ $(function(){
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
-        const name = document.querySelector('#spouse-job');
+        const name = document.querySelector('#manage-cost');
         // エラーメッセージを表示させる要素を取得
-        const errMsgName = document.querySelector('#partnerjoberr');
-        if(!name.value){
+        const errMsgName = document.querySelector('#yourmanagecosterr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
-            errMsgName.textContent = 'いずれかを選択してください。';
+            errMsgName.textContent = '半角数字で入力してください';
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
@@ -393,7 +361,8 @@ $(function(){
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-			let box = document.querySelector('#yourchildren');
+			let box = document.querySelector('#yourbill');
+			//styleのdisplayを変更する関数
 			box.style.display='';
         }
 	});
@@ -402,44 +371,7 @@ $(function(){
 $(function(){
 
     // 「送信」ボタンの要素を取得
-    const submit = document.querySelector('#yourchildreninput');
-    
-    // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('click', (e) => {
-        // デフォルトアクションをキャンセル
-        e.preventDefault();
-
-        // 「お名前」入力欄の空欄チェック
-        // フォームの要素を取得
-        const name = document.querySelector('#children');
-		const name2 = document.querySelector('#not-children');
-        // エラーメッセージを表示させる要素を取得
-        const errMsgName = document.querySelector('#yourchildrenerr');
-        if(!name.value == true && !name2.value == true){
-            // クラスを追加(エラーメッセージを表示する)
-            errMsgName.classList.add('form-invalid');
-            // エラーメッセージのテキスト
-            errMsgName.textContent = 'いずれかを選択してください。';
-            // クラスを追加(フォームの枠線を赤くする)
-            name.classList.add('input-invalid');
-            // 後続の処理を止める
-            return;
-        }else{
-            // エラーメッセージのテキストに空文字を代入
-            errMsgName.textContent ='';
-            // クラスを削除
-            name.classList.remove('input-invalid');
-			// 次の項目を表示
-			let box = document.querySelector('#childrennumber');
-			box.style.display='';
-        }
-	});
-});
-
-$(function(){
-
-    // 「送信」ボタンの要素を取得
-    const submit = document.querySelector('#number-children');
+    const submit = document.querySelector('#bill');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('change', (e) => {
@@ -448,14 +380,14 @@ $(function(){
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
-        const name = document.querySelector('#number-children');
+        const name = document.querySelector('#bill');
         // エラーメッセージを表示させる要素を取得
-        const errMsgName = document.querySelector('#childrennumbererr');
-        if(!name.value){
+        const errMsgName = document.querySelector('#yourbillerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
-            errMsgName.textContent = 'いずれかを選択してください。';
+            errMsgName.textContent = '半角数字で入力してください';
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
@@ -466,7 +398,8 @@ $(function(){
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-			let box = document.querySelector('#firstchildrenbirth');
+			let box = document.querySelector('#yourpcbill');
+			//styleのdisplayを変更する関数
 			box.style.display='';
         }
 	});
@@ -475,7 +408,7 @@ $(function(){
 $(function(){
 
     // 「送信」ボタンの要素を取得
-    const submit = document.querySelector('#first-birthday');
+    const submit = document.querySelector('#pc-bill');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('change', (e) => {
@@ -484,14 +417,14 @@ $(function(){
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
-        const name = document.querySelector('#first-birthday');
+        const name = document.querySelector('#pc-bill');
         // エラーメッセージを表示させる要素を取得
-        const errMsgName = document.querySelector('#firstchildrenbirtherr');
-        if(!name.value.match(/^([0-9]{8})$/)){
+        const errMsgName = document.querySelector('#yourpcbillerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
-            errMsgName.textContent = '8桁の半角数字で入力してください';
+            errMsgName.textContent = '半角数字で入力してください';
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
@@ -502,7 +435,8 @@ $(function(){
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-			let box = document.querySelector('#firstchildrensex');
+			let box = document.querySelector('#yourphonebill');
+			//styleのdisplayを変更する関数
 			box.style.display='';
         }
 	});
@@ -511,45 +445,7 @@ $(function(){
 $(function(){
 
     // 「送信」ボタンの要素を取得
-    const submit = document.querySelector('#firstchildrensexinput');
-    
-    // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('click', (e) => {
-        // デフォルトアクションをキャンセル
-        e.preventDefault();
-
-        // 「お名前」入力欄の空欄チェック
-        // フォームの要素を取得
-        const name = document.querySelector('#first-male');
-		const name2 = document.querySelector('#first-female');
-		const name3 = document.querySelector('#first-other');
-        // エラーメッセージを表示させる要素を取得
-        const errMsgName = document.querySelector('#firstchildrensexerr');
-        if(!name.value == true && !name2.value == true && !name3.value == true){
-            // クラスを追加(エラーメッセージを表示する)
-            errMsgName.classList.add('form-invalid');
-            // エラーメッセージのテキスト
-            errMsgName.textContent = 'いずれかを選択してください。';
-            // クラスを追加(フォームの枠線を赤くする)
-            name.classList.add('input-invalid');
-            // 後続の処理を止める
-            return;
-        }else{
-            // エラーメッセージのテキストに空文字を代入
-            errMsgName.textContent ='';
-            // クラスを削除
-            name.classList.remove('input-invalid');
-			// 次の項目を表示
-			let box = document.querySelector('#secondchildrenbirth');
-			box.style.display='';
-        }
-	});
-});
-
-$(function(){
-
-    // 「送信」ボタンの要素を取得
-    const submit = document.querySelector('#second-birthday');
+    const submit = document.querySelector('#phone-bill');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('change', (e) => {
@@ -558,14 +454,14 @@ $(function(){
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
-        const name = document.querySelector('#second-birthday');
+        const name = document.querySelector('#phone-bill');
         // エラーメッセージを表示させる要素を取得
-        const errMsgName = document.querySelector('#secondchildrenbirtherr');
-        if(!name.value.match(/^([0-9]{8})$/)){
+        const errMsgName = document.querySelector('#yourphonebillerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
-            errMsgName.textContent = '8桁の半角数字で入力してください';
+            errMsgName.textContent = '半角数字で入力してください';
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
@@ -576,7 +472,8 @@ $(function(){
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-			let box = document.querySelector('#secondchildrensex');
+			let box = document.querySelector('#yourlone');
+			//styleのdisplayを変更する関数
 			box.style.display='';
         }
 	});
@@ -585,45 +482,7 @@ $(function(){
 $(function(){
 
     // 「送信」ボタンの要素を取得
-    const submit = document.querySelector('#secondchildrensexinput');
-    
-    // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('click', (e) => {
-        // デフォルトアクションをキャンセル
-        e.preventDefault();
-
-        // 「お名前」入力欄の空欄チェック
-        // フォームの要素を取得
-        const name = document.querySelector('#second-male');
-        const name2 = document.querySelector('#second-female');
-		const name3 = document.querySelector('#second-other');
-		// エラーメッセージを表示させる要素を取得
-        const errMsgName = document.querySelector('#secondchildrensexerr');
-        if(!name.value == true && !name2.value == true && !name3.value == true){
-            // クラスを追加(エラーメッセージを表示する)
-            errMsgName.classList.add('form-invalid');
-            // エラーメッセージのテキスト
-            errMsgName.textContent = 'いずれかを選択してください。';
-            // クラスを追加(フォームの枠線を赤くする)
-            name.classList.add('input-invalid');
-            // 後続の処理を止める
-            return;
-        }else{
-            // エラーメッセージのテキストに空文字を代入
-            errMsgName.textContent ='';
-            // クラスを削除
-            name.classList.remove('input-invalid');
-			// 次の項目を表示
-			let box = document.querySelector('#thirdchildrenbirth');
-			box.style.display='';
-        }
-	});
-});
-
-$(function(){
-
-    // 「送信」ボタンの要素を取得
-    const submit = document.querySelector('#third-birthday');
+    const submit = document.querySelector('#lone');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('change', (e) => {
@@ -632,14 +491,14 @@ $(function(){
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
-        const name = document.querySelector('#third-birthday');
+        const name = document.querySelector('#lone');
         // エラーメッセージを表示させる要素を取得
-        const errMsgName = document.querySelector('#thirdchildrenbirtherr');
-        if(!name.value.match(/^([0-9]{8})$/)){
+        const errMsgName = document.querySelector('#yourloneerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
-            errMsgName.textContent = '8桁の半角数字で入力してください';
+            errMsgName.textContent = '半角数字で入力してください';
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
@@ -650,7 +509,8 @@ $(function(){
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-			let box = document.querySelector('#thirdchildrensex');
+			let box = document.querySelector('#yourinsurancebill');
+			//styleのdisplayを変更する関数
 			box.style.display='';
         }
 	});
@@ -659,7 +519,7 @@ $(function(){
 $(function(){
 
     // 「送信」ボタンの要素を取得
-    const submit = document.querySelector('#thirdchildrensexinput');
+    const submit = document.querySelector('#Insurance-bill');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('change', (e) => {
@@ -668,16 +528,14 @@ $(function(){
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
-        const name = document.querySelector('#third-male');
-		const name2 = document.querySelector('#third-female');
-		const name3 = document.querySelector('#third-other');
+        const name = document.querySelector('#Insurance-bill');
         // エラーメッセージを表示させる要素を取得
-        const errMsgName = document.querySelector('#thirdchildrensexerr');
-        if(!name.value == true && !name2.value == true && !name3.value == true){
+        const errMsgName = document.querySelector('#yourinsurancebillerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
-            errMsgName.textContent = 'いずれかを選択してください。';
+            errMsgName.textContent = '半角数字で入力してください';
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
@@ -687,7 +545,267 @@ $(function(){
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
-			// ボタンの活性化
+			// 次の項目を表示
+			let box = document.querySelector('#youreducationalinsurance');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#Educational-insurance');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#Educational-insurance');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#youreducationalinsuranceerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#youreducationexpenses');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#education-expenses');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#education-expenses');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#youreducationexpenseserr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourmedicalinsurance');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#medical-insurance');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#medical-insurance');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourmedicalinsuranceerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourlifeinsurance');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#life-insurance');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#life-insurance');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourlifeinsuranceerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourestateinvestment');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#Estate-Investment');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#Estate-Investment');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourestateinvestmenterr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourassetmanagement');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#asset-management');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#asset-management');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourassetmanagementerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourformcontrol');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#savings');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#savings');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourformcontrolerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 確認ボタンを有効化
+			
         }
 	});
 });

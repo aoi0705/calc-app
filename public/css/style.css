@@ -319,6 +319,19 @@ main p + p {margin-top: -15px;}
   justify-content : center;
 }
 
+.err-msg-name{
+	color: #f00;
+	font-weight: bold;
+}
+
+/*.form-group{
+	display:none;
+}
+
+.btn .btn-primary.mx-auto.d-block{
+	display: none;
+}
+*/
 
 /*フッター設定
 ---------------------------------------------------------------------------*/

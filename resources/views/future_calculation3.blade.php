@@ -53,80 +53,94 @@
     <form class="needs-validation" action="{{ url('result_screen') }}" method="post">
     @csrf
         <div class="form-group">
-           <label for="text">マイホームを購入したのはいつですか3件。</label><br>
+           <label for="text">マイホームを購入したのはいつですか。</label><br>
            <input type="text" id="myhome-buy" name="myhome-buy" class="form-control"><label for="text">年</label>
+           <div class="err-msg-name" id="myhomebuyerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourestate">
         <label for="inputState">不動産投資物件は何件お持ちですか</label><br>
            <select id="estate" name="estate" class="form-control">
                 <option selected></option>
+                <option value="zero">0件</option>
                 <option value="one">1件</option>
                 <option value="two">2件</option>
                 <option value="three">3件</option>
             </select>
+            <div class="err-msg-name" id="yourestateerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourfirstestate">
            <label for="text">1件目の不動産投資物件を購入したのはいつですか。</label><br>
            <input type="text" id="first-estate" name="first-estate" class="form-control"><label for="text">年</label>
+           <div class="err-msg-name" id="yourfirstestateerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourfirstrentalincome">
            <label for="text">1件目の不動産投資物件の毎月の家賃収入はどれくらいですか。</label><br>
            <input type="text" id="first-rental-income" name="first-rental-income" class="form-control"><label for="text">万円</label>
+           <div class="err-msg-name" id="yourfirstrentalincomeerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yoursecondestate">
            <label for="text">2件目の不動産投資物件を購入したのはいつですか。</label><br>
            <input type="text" id="second-estate" name="second-estate" class="form-control"><label for="text">年</label>
+           <div class="err-msg-name" id="yoursecondestateerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yoursecondrentalincome">
            <label for="text">2件目の不動産投資物件の毎月の家賃収入はどれくらいですか。</label><br>
            <input type="text" id="second-rental-income" name="second-rental-income" class="form-control"><label for="text">万円</label>
+           <div class="err-msg-name" id="yoursecondrentalincomeerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yoursavingsbalance">
            <label for="text">現在の貯蓄残高を教えてください</label><br>
            <input type="text" id="savings-balance" name="savings-balance" class="form-control"><label for="text">万円</label>
+           <div class="err-msg-name" id="yoursavingsbalanceerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourlastEducationalinsurance">
            <label for="text">学資保険の最終的に受取る合計額はどれくらいですか？（ざっくりでかまいません！）</label><br>
            <input type="text" id="last-Educational-insurance" name="last-Educational-insurance" class="form-control"><label for="text">万円</label>
+           <div class="err-msg-name" id="yourlastEducationalinsuranceerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourtrip">
            <label for="text">毎年の旅行費はどれくらいですか？（ざっくりでかまいません。）</label><br>
            <input type="text" id="trip" name="trip" class="form-control"><label for="text">万円</label>
+           <div class="err-msg-name" id="yourtriperr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourotherexpense">
            <label for="text">毎年のその他の出費（家電購入費やローンのボーナス払い等）はどれくらいですか？（ざっくりでかまいません！）</label><br>
            <input type="text" id="other-expense" name="other-expense" class="form-control"><label for="text">万円</label>
+           <div class="err-msg-name" id="yourotherexpenseerr"></div>
         </div>
 
-        <label for="text">ここからの情報は、公的年金の受取額や退職金を概算で見積もるために使用します！</label>
+        <label for="text" style="display: none;" id="text">ここからの情報は、公的年金の受取額や退職金を概算で見積もるために使用します！</label>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourstartwork">
            <label for="text">あなたの働き始めた年齢はおいくつですか。</label><br>
            <input type="text" id="start-wark" name="start-work" class="form-control"><label for="text">歳</label>
+           <div class="err-msg-name" id="yourstartworkerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourstartingsalary">
            <label for="text">あなたの初任給はどれくらいでしたか？（ざっくりでかまいません！）</label><br>
            <input type="text" id="Starting-salary" name="Starting-salary" class="form-control"><label for="text">万円</label>
+           <div class="err-msg-name" id="yourstartingsalaryerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourestimatedannualincome">
            <label for="text">あなたの50歳の想定年収はどれくらいを目標としていますか？</label><br>
            <input type="text" id="Estimated-annual-income" name="Estimated-annual-income" class="form-control"><label for="text">万円</label>
+           <div class="err-msg-name" id="yourestimatedannualincomeerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourSeverancepay">
            <label for="text">あなたの現在の職場は退職金がありますか。</label><br>
-           <div class="btn-group btn-group-toggle" data-toggle="buttons">
+           <div class="btn-group btn-group-toggle" data-toggle="buttons" id="yourSeverancepayinput">
                 <label class="btn btn-primary active">
                     <input type="radio" name="Severance-pay" id="Severance-pay" autocomplete="off" checked>ある
                 </label>
@@ -134,141 +148,158 @@
                     <input type="radio" name="Severance-pay" id="not-Severance-pay" autocomplete="off">ない
                 </label>
             </div>
+            <div class="err-msg-name" id="yourSeverancepayerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourpartnerstratwork">
            <label for="text">パートナーの働き始めた年齢はおいくつですか。</label><br>
            <input type="text" id="spouse-start-work" name="spouse-start-work" class="form-control"><label for="text">歳</label>
+           <div class="err-msg-name" id="yourpartnerstratworkerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourpartnerstartingsalary">
            <label for="text">パートナーの初任給はどれくらいでしたか？（ざっくりでかまいません！）</label><br>
            <input type="text" id="spouse-Starting-salary" name="spouse-Starting-salary" class="form-control"><label for="text">万円</label>
+           <div class="err-msg-name" id="yourpartnerstartingsalaryerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourpartnerestimatedannualincome">
            <label for="text"></label>パートナーの50歳の想定年収はどれくらいを目標としていますか？<br>
            <input type="text" id="spouse-Estimated-annual-income" name="spouse-Estimated-annual-income" class="form-control"><label for="text">万円</label>
+           <div class="err-msg-name" id="yourpartnerestimatedannualincomeerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourpartnerSeverancepay">
            <label for="text">パートナーの現在の職場は退職金がありますか。</label><br>
-           <div class="btn-group btn-group-toggle" data-toggle="buttons">
+           <div class="btn-group btn-group-toggle" data-toggle="buttons" id="yourpartnerSeverancepayinput">
                 <label class="btn btn-primary active">
                     <input type="radio" name="spouse-Severance-pay" id="spouse-Severance-pay" autocomplete="off" checked>ある
                 </label>
                 <label class="btn btn-primary">
-                    <input type="radio" name="spouse-Severance-pay" id="spouse-Severance-pay" autocomplete="off">ない
+                    <input type="radio" name="spouse-Severance-pay" id="spouse-Severance-pay-not" autocomplete="off">ない
                 </label>
             </div>
+            <div class="err-msg-name" id="yourpartnerSeverancepayerr"></div>
         </div>
 
-        <div class="form-group">
-           <label for="inputState">>1人目のお子様の小学校区分を入力してください。（将来の希望ベースでかまいません！）</label><br>
+        <div class="form-group" style="display: none;" id="yourfirstprimaryschool">
+           <label for="inputState">1人目のお子様の小学校区分を入力してください。（将来の希望ベースでかまいません！）</label><br>
            <select id="first-primary-school" name="first-primary-school" class="form-control">
                 <option selected></option>
                 <option value="public">公立</option>
                 <option value="private">私立</option>
             </select>
+            <div class="err-msg-name" id="yourfirstprimaryschoolerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourfirstjuniorhighschool">
            <label for="inputState">1人目のお子様の中学校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="first-junior-high-school" name="first-junior-high-school" class="form-control">
                 <option selected></option>
                 <option value="public">公立</option>
                 <option value="private">私立</option>
             </select>
+            <div class="err-msg-name" id="yourfirstjuniorhighschoolerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourfirsthighschool">
            <label for="inputState">1人目のお子様の高校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="first-high-school" name="first-high-school" class="form-control">
                 <option selected></option>
                 <option value="public">公立</option>
                 <option value="private">私立</option>
             </select>
+            <div class="err-msg-name" id="yourfirsthighschoolerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourfirstuniversity">
            <label for="inputState">1人目のお子様の大学区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="first-university" name="first-university" class="form-control">
                 <option selected></option>
                 <option value="public">公立</option>
                 <option value="private">私立</option>
             </select>
+            <div class="err-msg-name" id="yourfirstuniversityerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yoursecondprimaryschool">
            <label for="inputState">2人目のお子様の小学校区分を入力してください。（将来の希望ベースでかまいません！）</label><br>
            <select id="second-primary-school" name="second-primary-school" class="form-control">
                 <option selected></option>
                 <option value="public">公立</option>
                 <option value="private">私立</option>
             </select>
+            <div class="err-msg-name" id="yoursecondprimaryschoolerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yoursecondjuniorhighschool">
            <label for="inputState">2人目のお子様の中学校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="second-junior-high-school" name="second-junior-high-school" class="form-control">
                 <option selected></option>
                 <option value="public">公立</option>
                 <option value="private">私立</option>
             </select>
+            <div class="err-msg-name" id="yoursecondjuniorhighschoolerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yoursecondhighschool">
            <label for="inputState">2人目のお子様の高校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="second-high-school" name="second-high-school" class="form-control">
                 <option selected></option>
                 <option value="public">公立</option>
                 <option value="private">私立</option>
             </select>
+            <div class="err-msg-name" id="yoursecondhighschoolerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourseconduniversity">
            <label for="inputState">2人目のお子様の大学区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="second-university" name="second-university" class="form-control">
                 <option selected></option>
                 <option value="public">公立</option>
                 <option value="private">私立</option>
             </select>
+            <div class="err-msg-name" id="yourseconduniversityerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourthirdprimaryschool">
            <label for="inputState">3人目のお子様の小学校区分を入力してください。（将来の希望ベースでかまいません！）</label><br>
            <select id="third-primary-school" name="third-primary-school" class="form-control">
                 <option selected></option>
                 <option value="public">公立</option>
                 <option value="private">私立</option>
             </select>
+            <div class="err-msg-name" id="yourthirdprimaryschoolerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourthirdjuniorhighschool">
            <label for="inputState">3人目のお子様の中学校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="third-junior-high-school" name="third-junior-high-school" class="form-control">
                 <option selected></option>
                 <option value="public">公立</option>
                 <option value="private">私立</option>
             </select>
+            <div class="err-msg-name" id="yourthirdjuniorhighschoolerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourthirdhighschool">
            <label for="inputState">3人目のお子様の高校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="third-high-school" name="third-high-school" class="form-control">
                 <option selected></option>
                 <option value="public">公立</option>
                 <option value="private">私立</option>
             </select>
+            <div class="err-msg-name" id="yourthirdhighschoolerr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourthirduniversity">
            <label for="inputState">3人目のお子様の大学区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="third-university" name="third-university" class="form-control">
                 <option selected></option>
                 <option value="public">公立</option>
                 <option value="private">私立</option>
             </select>
+            <div class="err-msg-name" id="yourthirduniversityerr"></div>
         </div>
 
         <button type="submit">現在家計簿情報に戻る</button>
@@ -359,6 +390,7 @@
 
 <!--このテンプレート専用のスクリプト-->
 <script src="js/main.js"></script>
+<script src="js/calc3.js"></script>
 
 <!--開閉ボタン（ハンバーガーアイコン）-->
 <div id="menubar_hdr">

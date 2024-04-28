@@ -55,39 +55,46 @@
         <div class="form-group">
            <label for="text">あなたの年収を教えてください</label><br>
            <input type="text" id="annual-income" name="annual-income" class="form-control"><label for="text">万円</label>
-        </div>
+           <div class="err-msg-name" id="annualincomeerr"></div>
+         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourbonus">
            <label for="text">あなたのボーナスを教えてください（ざっくりで構いません！）</label><br>
            <input type="text" id="bonus" name="bonus" class="form-control"><label for="text">万円</label>
-        </div>
+           <div class="err-msg-name" id="yourbonuserr"></div>
+         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourpartnerincome">
            <label for="text">配偶者・パートナーの年収を教えてください</label><br>
            <input type="text" id="spouse-annual-income" name="spouse-annual-income" class="form-control"><label for="text">万円</label>
-        </div>
+           <div class="err-msg-name" id="yourpartnerincomeerr"></div>
+         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourpartnerbonus">
            <label for="text">配偶者・パートナーのボーナスを教えてください（ざっくりで構いません！）</label><br>
            <input type="text" id="spouse-bonus" name="spouse-bonus" class="form-control"><label for="text">万円</label>
-        </div>
+           <div class="err-msg-name" id="yourpartnerbonuserr"></div>
+         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourfoodexpenses">
            <label for="text">毎月の食費はどれくらいですか？（ざっくりでかまいません）</label><br>
            <input type="text" id="food-expenses" name="food-expenses" class="form-control"><label for="text">万円</label>
-        </div>
+           <div class="err-msg-name" id="yourfoodexpenseserr"></div>
+         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourlivingcost">
            <label for="text">毎月の日用品・雑貨代はどれくらいですか？（ざっくりでかまいません）</label><br>
            <input type="text" id="living-cost" name="living-cost" class="form-control"><label for="text">万円</label>
-        </div>
+           <div class="err-msg-name" id="yourlivingcosterr"></div>
+         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourbeautybill">
            <label for="text">毎月の衣服・美容代はどれくらいですか？（ざっくりでかまいません）</label><br>
            <input type="text" id="beauty-bill" name="beauty-bill" class="form-control"><label for="text">万円</label>
-        </div>
+           <div class="err-msg-name" id="yourbeautybillerr"></div>
+         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourhouseclass">
         <label for="inputState">住居区分を教えてください</label><br>
            <select id="house-class" name="house-class" class="form-control">
                 <option selected></option>
@@ -95,77 +102,92 @@
                 <option value="apartment">アパート</option>
                 <option value="rental">賃貸</option>
             </select>
+            <div class="err-msg-name" id="yourhouseclasserr"></div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourhousecost">
            <label for="text">毎月の住居費（持ち家の場合、毎月の住宅ローンの金額）を教えてください</label><br>
            <input type="text" id="house-cost" name="house-cost" class="form-control"><label for="text">万円</label>
-        </div>
+           <div class="err-msg-name" id="yourhousecosterr"></div>
+         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourmanagecost">
            <label for="text">毎月の住居の管理費（修繕積立金・管理金等）を教えてください</label><br>
            <input type="text" id="manage-cost" name="manage-cost" class="form-control"><label for="text">万円</label>
-        </div>
+           <div class="err-msg-name" id="yourmanagecosterr"></div>
+         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourbill">
            <label for="text">毎月の水道・光熱費はどれくらいですか？（ざっくりでかまいません）</label><br>
            <input type="text" id="bill" name="bill" class="form-control"><label for="text">万円</label>
-        </div>
+           <div class="err-msg-name" id="yourbillerr"></div>
+         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourpcbill">
            <label for="text">毎月の通信費（PC）はどれくらいですか？（ざっくりでかまいません）</label><br>
            <input type="text" id="pc-bill" name="pc-bill" class="form-control"><label for="text">万円</label>
-        </div>
+           <div class="err-msg-name" id="yourpcbillerr"></div>
+         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourphonebill">
            <label for="text">毎月の通信費（スマホ等）はどれくらいですか？（ざっくりでかまいません）</label><br>
            <input type="text" id="phone-bill" name="phone-bill" class="form-control"><label for="text">万円</label>
-        </div>
+           <div class="err-msg-name" id="yourphonebillerr"></div>
+         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourlone">
            <label for="text">毎月の自動車ローン/毎月のレンタカー・カーシェア代はどれくらいですか？（ざっくりでかまいません）</label><br>
            <input type="text" id="lone" name="lone" class="form-control"><label for="text">万円</label>
-        </div>
+           <div class="err-msg-name" id="yourloneerr"></div>
+         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourinsurancebill">
            <label for="text">毎月の自動車保険の保険料を教えてください（未加入の場合、ボタンを押下してください）</label><br>
            <input type="text" id="Insurance-bill" name="Insurance-bill" class="form-control"><label for="text">万円</label><button type=submit>未加入</button>
-        </div>
+           <div class="err-msg-name" id="yourinsurancebillerr"></div>
+         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="youreducationalinsurance">
            <label for="text">毎月の学資保険の保険料を教えてください（未加入の場合、ボタンを押下してください）</label><br>
            <input type="text" id="Educational-insurance" name="Educational-insurance" class="form-control"><label for="text">万円</label><button type=submit>未加入</button>
-        </div>
+           <div class="err-msg-name" id="youreducationalinsuranceerr"></div>
+         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="youreducationexpenses">
            <label for="text"></label>毎月の教育費（保育園・幼稚園費、習い事等）はどれくらいですか？（ざっくりでかまいません）<br>
            <input type="text" id="education-expenses" name="education-expenses" class="form-control"><label for="text">万円</label>
-        </div>
+           <div class="err-msg-name" id="youreducationexpenseserr"></div>
+         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourmedicalinsurance">
            <label for="text"></label>毎月の医療保険の保険料を教えてください（未加入の場合、ボタンを押下してください）<br>
            <input type="text" id="medical-insurance" name="medical-insurance" class="form-control"><label for="text">万円</label><button type=submit>未加入</button>
-        </div>
+           <div class="err-msg-name" id="yourmedicalinsuranceerr"></div>
+         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourlifeinsurance">
            <label for="text">毎月の医療保険以外の生命保険の保険料を教えてください（未加入の場合、ボタンを押下してください）</label><br>
            <input type="text" id="life-insurance" name="life-insurance" class="form-control"><label for="text">万円</label><button type=submit>未加入</button>
-        </div>
+           <div class="err-msg-name" id="yourlifeinsuranceerr"></div>
+         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourestateinvestment">
            <label for="text">毎月の不動産投資の費用はどれくらいですか？（物件をお持ちでない場合、ボタンを押下してください）</label><br>
            <input type="text" id="Estate-Investment" name="Estate-Investment" class="form-control"><label for="text">万円</label><button type=submit>未保有</button>
-        </div>
+           <div class="err-msg-name" id="yourestateinvestmenterr"></div>
+         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourassetmanagement">
            <label for="text">毎月の資産運用（株式・債権・投資信託等）の購入費用を教えてください</label><br>
            <input type="text" id="asset-management" name="asset-management" class="form-control"><label for="text">万円</label>
-        </div>
+           <div class="err-msg-name" id="yourassetmanagementerr"></div>
+         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourformcontrol">
            <label for="text">毎月の貯金（普通預金等）を教えてください</label><br>
            <input type="text" id="savings" name="savings" class="form-control"><label for="text">万円</label>
-        </div>
+           <div class="err-msg-name" id="yourformcontrolerr"></div>
+         </div>
 
         <button type="submit">本人・家族構成情報へ戻る</button>
 
@@ -225,6 +247,7 @@
 
 <!--このテンプレート専用のスクリプト-->
 <script src="js/main.js"></script>
+<script src="js/calc2.js"></script>
 
 <!--開閉ボタン（ハンバーガーアイコン）-->
 <div id="menubar_hdr">
