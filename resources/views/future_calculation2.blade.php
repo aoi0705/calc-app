@@ -143,13 +143,13 @@
 
         <div class="form-group" style="display: none;" id="yourinsurancebill">
            <label for="text">毎月の自動車保険の保険料を教えてください（未加入の場合、ボタンを押下してください）</label><br>
-           <input type="text" id="Insurance-bill" name="Insurance-bill" class="form-control"><label for="text">万円</label><button type=submit>未加入</button>
+           <input type="text" id="Insurance-bill" name="Insurance-bill" class="form-control"><label for="text">万円</label><button type="button" id="insurance-not-click">未加入</button>
            <div class="err-msg-name" id="yourinsurancebillerr"></div>
          </div>
 
         <div class="form-group" style="display: none;" id="youreducationalinsurance">
            <label for="text">毎月の学資保険の保険料を教えてください（未加入の場合、ボタンを押下してください）</label><br>
-           <input type="text" id="Educational-insurance" name="Educational-insurance" class="form-control"><label for="text">万円</label><button type=submit>未加入</button>
+           <input type="text" id="Educational-insurance" name="Educational-insurance" class="form-control"><label for="text">万円</label><button type="button" id="youreducationalinsurance-not-click">未加入</button>
            <div class="err-msg-name" id="youreducationalinsuranceerr"></div>
          </div>
 
@@ -161,19 +161,19 @@
 
         <div class="form-group" style="display: none;" id="yourmedicalinsurance">
            <label for="text"></label>毎月の医療保険の保険料を教えてください（未加入の場合、ボタンを押下してください）<br>
-           <input type="text" id="medical-insurance" name="medical-insurance" class="form-control"><label for="text">万円</label><button type=submit>未加入</button>
+           <input type="text" id="medical-insurance" name="medical-insurance" class="form-control"><label for="text">万円</label><button type="button" id="yourmedicalinsurance-not-click">未加入</button>
            <div class="err-msg-name" id="yourmedicalinsuranceerr"></div>
          </div>
 
         <div class="form-group" style="display: none;" id="yourlifeinsurance">
            <label for="text">毎月の医療保険以外の生命保険の保険料を教えてください（未加入の場合、ボタンを押下してください）</label><br>
-           <input type="text" id="life-insurance" name="life-insurance" class="form-control"><label for="text">万円</label><button type=submit>未加入</button>
+           <input type="text" id="life-insurance" name="life-insurance" class="form-control"><label for="text">万円</label><button type="button" id="yourlifeinsurance-not-click">未加入</button>
            <div class="err-msg-name" id="yourlifeinsuranceerr"></div>
          </div>
 
         <div class="form-group" style="display: none;" id="yourestateinvestment">
            <label for="text">毎月の不動産投資の費用はどれくらいですか？（物件をお持ちでない場合、ボタンを押下してください）</label><br>
-           <input type="text" id="Estate-Investment" name="Estate-Investment" class="form-control"><label for="text">万円</label><button type=submit>未保有</button>
+           <input type="text" id="Estate-Investment" name="Estate-Investment" class="form-control"><label for="text">万円</label><button type="button" id="yourestateinvestment-not-click">未保有</button>
            <div class="err-msg-name" id="yourestateinvestmenterr"></div>
          </div>
 

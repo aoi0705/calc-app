@@ -11,6 +11,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/scroll.js"></script>
 </head>
 
 <body>
@@ -49,7 +50,7 @@
 正しい資産形成とリスクマネジメントを全力で支援します！</h2>
 <p><button class="btn1 large radius" type="button" data-target="#modal1" data-toggle="modal"><span class="pc">未来家計簿を作る</span><i class="btn1 large radius"></i></button></p>
 <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-scrollable" role="document" id="modal">
         <div class="modal-content">
             <div class="modal-header">
                     <h2>個人情報取り扱い同意書</h2>
@@ -109,7 +110,7 @@
                         </p>
                 </section>
                 <div class="modal-footer">
-                    <button onclick="location.href='./future_calculation'" type="button" class="btn btn-primary mx-auto d-block" >同意する</button>
+                    <button onclick="location.href='./future_calculation'" type="button" class="btn btn-primary mx-auto d-block" id="consent-button">同意する</button>
                 </div>
             </div>
         </div>
@@ -119,26 +120,133 @@
 </div>
 </section>
 
-<main>
+<section>
+<h2>Who we are</h2>
+<p>サンプルテキスト。</p>
+</section>
 
-<section class="blur">
+<section class="bg1">
 
-<h2>NEWS<span>お知らせ</span></h2>
+<h2 class="hidden">大見出し</h2>
 
-<dl id="new">
-<dt>2023/05/09<span>その他</span></dt>
-<dd>サンプルテキスト</dd>
-<dt>20XX/00/00<span class="icon-bg1">サービス</span></dt>
-<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
-<dt>20XX/00/00<span class="icon-bg1">サービス</span></dt>
-<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
-<dt>20XX/00/00</dt>
-<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
-<dt>20XX/00/00<span>その他</span></dt>
-<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
-</dl>
+<div class="c2">
+
+<div class="text l">
+<h2>Purpose</h2>
+<p>ライフステージや家族構成に合わせたお金の管理を容易にし、一人ひとりのより良い未来をサポートする
+。</p>
+</div>
+<!--/.text-->
+
+<div class="image r">
+<figure><img src="images/mainimg.png" alt=""></figure>
+</div>
+<!--/.image-->
+
+</div>
 
 </section>
+
+<section>
+
+<h2 class="hidden">大見出し</h2>
+
+<div class="c2">
+
+<div class="text r">
+<h2>Mission</h2>
+<p>個々のユーザーが自分の将来の家計状況を明確に理解し、賢明な資産運用と<br>
+リスクマネジメントをサポートする
+</p>
+</div>
+<!--/.text-->
+
+<div class="image l">
+<figure><img src="images/mainimg.png" alt=""></figure>
+</div>
+<!--/.image-->
+
+</div>
+
+</section>
+
+<section class="bg1">
+
+<h2 class="hidden">大見出し</h2>
+
+<div class="c2">
+
+<div class="text l">
+<h2>Vision</span></h2>
+<p>金融リテラシーの向上と資産運用の民主化を実現し、すべての人が将来の自分の家計状況を自信を持って管理できる社会を創る
+</p>
+</div>
+<!--/.text-->
+
+<div class="image r">
+<figure><img src="images/mainimg.png" alt=""></figure>
+</div>
+<!--/.image-->
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Company Profile<span>会社概要</span></h2>
+
+<table class="ta1">
+<tr>
+<th>会社名</th>
+<td>株式会社Wealth Journey Navigators</td>
+</tr>
+<tr>
+<th>所在地</th>
+<td>〒104-0061　東京都中央区銀座1-16-7　銀座大栄ビル 5F･6F
+</td>
+</tr>
+<tr>
+<th>設立</th>
+<td>2024年4月</td>
+</tr>
+<tr>
+<th>資本金</th>
+<td>200万円　※2024年4月11日時点</td>
+</tr>
+<tr>
+<th>代表者</th>
+<td>代表取締役社長CEO　小池　貴浩</td>
+</tr>
+<tr>
+<th>事業内容</th>
+<td>①金融に関する情報提供サービスの運営及び管理。<br>②個人向けの金融アドバイザーや投資サービス等への顧客紹介。<br>③個人及び家庭向けの財務計画に関するコンサルティング及びアドバイザリーサービス
+</td>
+</tr>
+</table>
+
+</section>
+
+<section class="bg1">
+
+<h2>大見出し</h2>
+
+<div class="c2">
+
+<div class="text l">
+<h2>小見出し<span>小見出しの補足。</span></h2>
+<p>サンプルテキスト</p>
+</div>
+<!--/.text-->
+
+<div class="image r">
+<figure><img src="images/sample3.jpg" alt=""></figure>
+</div>
+<!--/.image-->
+
+</div>
+</section>
+
 <!--/#footermenu-->
 
 <footer>

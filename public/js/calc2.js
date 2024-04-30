@@ -809,3 +809,70 @@ $(function(){
         }
 	});
 });
+
+
+// 未保有・未加入のボタンを押された際の処理
+$(function(){
+    let input = document.querySelector('#Insurance-bill')
+    let button = document.querySelector('#insurance-not-click')
+    
+    button.addEventListener('click', (e) => {
+        input.value = "未加入"
+        // 次の項目を表示
+        let box = document.querySelector('#youreducationalinsurance');
+        //styleのdisplayを変更する関数
+        box.style.display='';
+    });
+});
+
+$(function(){
+    let input = document.querySelector('#Educational-insurance')
+    let button = document.querySelector('#youreducationalinsurance-not-click')
+    
+    button.addEventListener('click', (e) => {
+        input.value = "未加入"
+        // 次の項目を表示
+        let box = document.querySelector('#youreducationexpenses');
+        //styleのdisplayを変更する関数
+        box.style.display='';
+    });
+});
+
+$(function(){
+    let input = document.querySelector('#medical-insurance')
+    let button = document.querySelector('#yourmedicalinsurance-not-click')
+    
+    button.addEventListener('click', (e) => {
+        input.value = "未加入"
+        // 次の項目を表示
+        let box = document.querySelector('#yourlifeinsurance');
+        //styleのdisplayを変更する関数
+        box.style.display='';
+    });
+});
+
+$(function(){
+    let input = document.querySelector('#life-insurance')
+    let button = document.querySelector('#yourlifeinsurance-not-click')
+    
+    button.addEventListener('click', (e) => {
+        input.value = "未加入"
+        // 次の項目を表示
+        let box = document.querySelector('#yourestateinvestment');
+        //styleのdisplayを変更する関数
+        box.style.display='';
+    });
+});
+
+$(function(){
+    let input = document.querySelector('#Estate-Investment')
+    let button = document.querySelector('#yourestateinvestment-not-click')
+    
+    button.addEventListener('click', (e) => {
+        input.value = "未保有"
+        // 次の項目を表示
+        let box = document.querySelector('#yourassetmanagement');
+        //styleのdisplayを変更する関数
+        box.style.display='';
+    });
+});

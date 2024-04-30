@@ -324,6 +324,14 @@ main p + p {margin-top: -15px;}
 	font-weight: bold;
 }
 
+.form-control{
+	width: 120px;
+}
+
+.btn-check:checked + .btn.btn-secondary{
+	accent-color: #FF9696;
+}
+
 /*.form-group{
 	display:none;
 }

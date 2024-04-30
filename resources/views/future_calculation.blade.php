@@ -97,11 +97,11 @@
         <div class="form-group" style="display: none;" name="yourpartner" id="yourpartner">
            <label for="text">配偶者・パートナーの有無</label><br>
            <div class="btn-group btn-group-toggle" data-toggle="buttons" id="yourpartnerinput">
-                <label class="btn btn-primary active">
-                    <input type="radio" name="spouse" id="spouse" autocomplete="off" checked>いる
+                <label class="btn btn-secondary">
+                    <input class="btn-check" type="radio" name="spouse" id="spouse" autocomplete="off" checked>いる
                 </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="spouse" id="single" autocomplete="off">いない
+                <label class="btn btn-secondary">
+                    <input class="btn-check" type="radio" name="spouse" id="single" autocomplete="off">いない
                 </label>
             </div>
             <div class="err-msg-name" id="partnererr"></div>
@@ -199,7 +199,7 @@
         <div class="form-group" style="display: none;" id="thirdchildrenbirth" name="thirdchildrenbirth">
            <label for="text">3人目の生年月日<br>
                 （今後、ご出産予定の場合は、想定時期を入力してください。）</label><br>
-           <input type="text" id="third-birthday" class="third-birthday"><br>
+           <input type="text" id="third-birthday" name="third-birthday" class="form-control"><br>
            <div class="err-msg-name" id="thirdchildrenbirtherr"></div>
         </div>
 
