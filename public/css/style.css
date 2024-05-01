@@ -120,6 +120,7 @@ header {
 	height: 50px;					/*ヘッダーの高さ。変更する場合、数行下にある#mainimgのtopの数値も合わせて変更して下さい。*/
 }
 
+
 /*ヘッダーのリンクテキストの文字色*/
 header a {
 	color: #000000;
@@ -130,6 +131,73 @@ header #logo img {display: block;}
 header #logo {
 	margin: 0;
 	width: 250px;	/*幅*/
+}
+
+/*　上部のプログレスバー */
+.progressbar {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.progressbar li {
+    position: relative;
+    list-style-type: none;
+    text-align: center;
+    text-transform: uppercase;
+    width: 33.333%;
+    color: #999999;
+    font-weight: bold;
+    counter-increment: steps;
+}
+.progressbar li:before {
+    display: block;
+    width: 26px;
+    height: 26px;
+    margin: 7px auto 20px auto;
+    content: '';
+    line-height: 26px;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #F5F5F5;
+    content: counter(steps);
+}
+.progressbar li:after {
+    position: absolute;
+    z-index: -1;
+    top: 15px;
+    left: -50%;
+    width: 100%;
+    height: 2px;
+    content: '';
+    background-color: #F5F5F5;
+}
+.progressbar li:first-child:after {
+    content: none;
+}
+.progressbar li.active,
+.progressbar li.complete{
+    color: #FF9696;
+}
+.progressbar li.active:before,
+.progressbar li.complete:before {
+    background-color: #FF9696;
+    color: #FFF;
+}
+.progressbar li.active:after,
+.progressbar li.complete:after {
+    background-color: #FF9696;
+}
+
+/* 装飾 */
+ul{
+  margin: 40px 0 !important;
+}
+body{
+  margin: 40px 20px;
 }
 
 
@@ -313,6 +381,8 @@ main p + p {margin-top: -15px;}
 .modal-header{
 	font-family:'メイリオ', 'Meiryo', sans-serif ;
 	color: #000000;
+	font-size: 35 px;
+	text-align: center;
 }
 
 .modal-footer{
@@ -330,6 +400,15 @@ main p + p {margin-top: -15px;}
 
 .btn-check:checked + .btn.btn-secondary{
 	accent-color: #FF9696;
+}
+
+h3{
+	color: #FF9696;
+	font-weight: bold;
+}
+
+#debug_bold{
+	font-weight: bold;
 }
 
 /*.form-group{
@@ -639,6 +718,8 @@ a.btn1 {
 }
 button.btn1, button.btn2 {
 	display: inline-block;text-decoration: none;
+	margin-top: 30px;
+	margin-left:150px;
 	letter-spacing: 0.1em;
 	border-radius: 3px;
 	padding: 5px 30px;
@@ -686,6 +767,66 @@ button:hover.btn-primary{
 	border-color: #FF9696
 }
 
+.last-state{
+	color:#FF9696 ;
+	font-size: 60px;
+	font-family: 'メイリオ', 'Meiryo', sans-serif;
+}
+.last-state-page{
+	color:#FF9696 ;
+	font-size: 90px;
+	font-weight: bold;
+	font-family: 'メイリオ', 'Meiryo', sans-serif;
+}
+
+#next_page2-not{
+	width: 200px;
+	height: 50px;
+	padding: 10px 20px;
+	margin-bottom: 35px;
+	margin-left: 30px;
+	font-family: 'メイリオ', 'Meiryo', sans-serif;
+	background-color:#8a8a8a;
+	border-color: #8a8a8a
+}
+#next_page2{
+	width: 200px;
+	height: 50px;
+	padding: 10px 20px;
+	margin-bottom: 35px;
+	margin-left: 30px;
+	font-family: 'メイリオ', 'Meiryo', sans-serif;
+	background-color:#FF9696;
+	border-color: #FF9696
+}
+#back-page{
+	width: 200px;
+	height: 50px;
+	padding: 10px 20px;
+	margin-bottom: 35px;
+	margin-left: 30px;
+	font-family: 'メイリオ', 'Meiryo', sans-serif;
+	background-color:#FF9696;
+	border-color: #FF9696;
+}
+
+#button1,#button2{
+	background-color: #8a8a8a;
+}
+#spouse,#single{
+	color: #ffffff;
+}
+#button1-choice,#button2-choice{
+	background-color: #FF9696;
+}
+
+#name,#email,#nickname,#onetime-password,#post-number,#job,#spouse-birthday,#spouse-job,#number-children,#first-birthday,#second-birthday,#third-birthday,#birthday{
+	width: 500px;
+}
+
+#annual-income,#bonus,#spouse-annual-income,#spouse-bonus,#food-expenses,#living-cost,#beauty-bill,#house-class,#house-cost,#manage-cost,#bill,#pc-bill,#phone-bill,#lone,#Insurance-bill,#Educational-insurance,#education-expenses,#medical-insurance,#life-insurance,#Estate-Investment,#asset-management,#savings{
+	width: 500px;
+}
 
 /*テーブル
 ---------------------------------------------------------------------------*/
@@ -735,6 +876,10 @@ button:hover.btn-primary{
 }
 .bg3 h2 {
 	color: #555;
+}
+
+.bg4{
+	background: #eb978c;
 }
 
 

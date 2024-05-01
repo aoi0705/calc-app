@@ -52,7 +52,7 @@
 <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document" id="modal">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header"
                     <h2>個人情報取り扱い同意書</h2>
             </div>
             <div class="modal-body">
@@ -110,7 +110,7 @@
                         </p>
                 </section>
                 <div class="modal-footer">
-                    <button onclick="location.href='./future_calculation'" type="button" class="btn btn-primary mx-auto d-block" id="consent-button">同意する</button>
+                    <button onclick="location.href='./future_calculation'" type="button" class="btn btn-primary mx-auto d-block" id="consent-button" disabled>同意する</button>
                 </div>
             </div>
         </div>
@@ -120,6 +120,7 @@
 </div>
 </section>
 
+<main>
 <section>
 <h2>Who we are</h2>
 <p>サンプルテキスト。</p>
@@ -133,8 +134,7 @@
 
 <div class="text l">
 <h2>Purpose</h2>
-<p>ライフステージや家族構成に合わせたお金の管理を容易にし、一人ひとりのより良い未来をサポートする
-。</p>
+<p>ライフステージや家族構成に合わせたお金の管理を容易にし、一人ひとりのより良い未来をサポートする。</p>
 </div>
 <!--/.text-->
 
@@ -246,8 +246,41 @@
 
 </div>
 </section>
+</main>
 
 <!--/#footermenu-->
+<div id="footermenu">
+<ul>
+<li class="title">メニュー</li>
+<li><a href="index.html">ホーム</a></li>
+<li><a href="company.html">会社概要</a></li>
+<li><a href="list.html">仕事検索</a></li>
+<li><a href="request.html">企業のご担当者様</a></li>
+<li><a href="faq.html">よく頂く質問</a></li>
+<li><a href="contact.html">お問い合わせ</a></li>
+</ul>
+<ul>
+<li class="title">メニュー見出し</li>
+<li><a href="#">サンプルメニューサンプルメニュー</a></li>
+<li><a href="#">サンプルメニュー</a></li>
+<li><a href="#">サンプルメニュー</a></li>
+<li><a href="#">サンプルメニュー</a></li>
+</ul>
+<ul>
+<li class="title">メニュー見出し</li>
+<li><a href="#">サンプルメニューサンプルメニュー</a></li>
+<li><a href="#">サンプルメニュー</a></li>
+<li><a href="#">サンプルメニュー</a></li>
+<li><a href="#">サンプルメニュー</a></li>
+</ul>
+<ul>
+<li class="title">メニュー見出し</li>
+<li><a href="#">サンプルメニューサンプルメニュー</a></li>
+<li><a href="#">サンプルメニュー</a></li>
+<li><a href="#">サンプルメニュー</a></li>
+<li><a href="#">サンプルメニュー</a></li>
+</ul>
+</div>
 
 <footer>
 

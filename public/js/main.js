@@ -1,3 +1,5 @@
+// const { stringify } = require("postcss");
+
 //タイマー
 $(function() {
 	var timer = false;
@@ -107,7 +109,7 @@ $(function() {
 $(function(){
 
     // 「送信」ボタンの要素を取得
-    const submit = document.querySelector('#name');
+    const submit = document.querySelector('#email');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('change', (e) => {
@@ -116,14 +118,14 @@ $(function(){
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
-        const name = document.querySelector('#name');
+        const name = document.querySelector('#email');
         // エラーメッセージを表示させる要素を取得
-        const errMsgName = document.querySelector('.err-msg-name');
-        if(!name.value){
+        const errMsgName = document.querySelector('.err-msg-email');
+        if(!name.value.match(/.+@.+\..+/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
-            errMsgName.textContent = '入力されていません。';
+            errMsgName.textContent = '有効なメールアドレスの形式ではありません。';
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
@@ -137,6 +139,8 @@ $(function(){
 			let box = document.querySelector('#yournickname');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = "6"
         }
 	});
 });
@@ -174,6 +178,8 @@ $(function(){
 			let box = document.querySelector('#yourbirthday');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = "5"
         }
 	});
 });
@@ -210,6 +216,8 @@ $(function(){
 			// 次の項目を表示
 			let box = document.querySelector('#yourpost');
 			box.style.display='';
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = "4"
         }
 	});
 });
@@ -247,6 +255,8 @@ $(function(){
 			// 次の項目を表示
 			let box = document.querySelector('#yourjob');
 			box.style.display='';
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = "3"
         }
 	});
 });
@@ -284,6 +294,8 @@ $(function(){
 			// 次の項目を表示
 			let box = document.querySelector('#yourpartner');
 			box.style.display='';
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = "2"
         }
 	});
 });
@@ -319,8 +331,26 @@ $(function(){
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-			let box = document.querySelector('#partnerbirthday');
-			box.style.display='';
+            let ele = document.getElementsByName("spouse")
+            let len = ele.length;
+            let checkValue = '';
+            for (let i = 0; i < len; i++){
+                if (ele.item(i).checked){
+                    checkValue = ele.item(i).value;
+                }
+            }
+            if(checkValue == "いる"){
+                let box = document.querySelector('#partnerbirthday');
+                box.style.display='';
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "3"
+            }
+            else if(checkValue == "いない"){
+                let box = document.querySelector('#yourchildren');
+                box.style.display='';
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "1"  
+            }
         }
 	});
 });
@@ -359,6 +389,8 @@ $(function(){
 			// 次の項目を表示
 			let box = document.querySelector('#partnerjob');
 			box.style.display='';
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = "2"
         }
 	});
 });
@@ -395,6 +427,8 @@ $(function(){
 			// 次の項目を表示
 			let box = document.querySelector('#yourchildren');
 			box.style.display='';
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = "1"
         }
 	});
 });
@@ -430,8 +464,30 @@ $(function(){
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-			let box = document.querySelector('#childrennumber');
-			box.style.display='';
+
+            let ele = document.getElementsByName("children")
+            let len = ele.length;
+            let checkValue = '';
+            for (let i = 0; i < len; i++){
+                if (ele.item(i).checked){
+                    checkValue = ele.item(i).value;
+                }
+            }
+            if(checkValue == "いる"){
+                let box = document.querySelector('#childrennumber');
+                box.style.display='';
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "1"
+            }
+            else if(checkValue == "いない"){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "0";
+                // ボタンの活性化
+                let last_state = document.querySelector(".last-state-page");
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }            
         }
 	});
 });
@@ -466,11 +522,49 @@ $(function(){
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-			let box = document.querySelector('#firstchildrenbirth');
-			box.style.display='';
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+            
+            total = Number(children_number_int) * 2
+            let box = document.querySelector('#firstchildrenbirth');
+            box.style.display='';
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(children_number_int) * 2)
         }
 	});
 });
+
 
 $(function(){
 
@@ -504,6 +598,43 @@ $(function(){
 			// 次の項目を表示
 			let box = document.querySelector('#firstchildrensex');
 			box.style.display='';
+
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+            total = Number(children_number_int) * 2
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(total) - 1)
         }
 	});
 });
@@ -539,9 +670,56 @@ $(function(){
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
-			// 次の項目を表示
-			let box = document.querySelector('#secondchildrenbirth');
-			box.style.display='';
+            if(children_num == "one"){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "0";
+                // ボタンの活性化
+                let last_state = document.querySelector(".last-state-page");
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
+            else{
+                // 次の項目を表示
+                let box = document.querySelector('#secondchildrenbirth');
+                box.style.display='';
+                const stat = document.querySelector('.last-state-page');
+                var select = document.getElementById("number-children");
+                children_num = select.value;
+    
+                if(children_num == "one"){
+                    var children_number_int = 1;
+                }
+                else if(children_num == "two"){
+                    var children_number_int = 2;
+                }
+                else if(children_num == "three"){
+                    var children_number_int = 3;
+                }
+                else if(children_num == "four"){
+                    var children_number_int = 4;
+                }
+                else if(children_num == "five"){
+                    var children_number_int = 5;
+                }
+                else if(children_num == "six"){
+                    var children_number_int = 6;
+                }
+                else if(children_num == "seven"){
+                    var children_number_int = 7;
+                }
+                else if(children_num == "eight"){
+                    var children_number_int = 8;
+                }
+                else if(children_num == "nine"){
+                    var children_number_int = 9;
+                }
+                else if(children_num == "ten"){
+                    var children_number_int = 10;
+                }
+                total = Number(children_number_int) * 2
+                stat.textContent = String(Number(total) - 2)
+            }
         }
 	});
 });
@@ -576,8 +754,44 @@ $(function(){
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-			let box = document.querySelector('#secondchildrensex');
-			box.style.display='';
+            let box = document.querySelector('#secondchildrensex');
+            box.style.display='';
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+            total = Number(children_number_int) * 2
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(total) - 3)
         }
 	});
 });
@@ -613,9 +827,56 @@ $(function(){
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
-			// 次の項目を表示
-			let box = document.querySelector('#thirdchildrenbirth');
-			box.style.display='';
+            if(children_num == "two"){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "0";
+                // ボタンの活性化
+                let last_state = document.querySelector(".last-state-page");
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+            }
+            else{
+                // 次の項目を表示
+                let box = document.querySelector('#thirdchildrenbirth');
+                box.style.display='';
+                var select = document.getElementById("number-children");
+                children_num = select.value;
+    
+                if(children_num == "one"){
+                    var children_number_int = 1;
+                }
+                else if(children_num == "two"){
+                    var children_number_int = 2;
+                }
+                else if(children_num == "three"){
+                    var children_number_int = 3;
+                }
+                else if(children_num == "four"){
+                    var children_number_int = 4;
+                }
+                else if(children_num == "five"){
+                    var children_number_int = 5;
+                }
+                else if(children_num == "six"){
+                    var children_number_int = 6;
+                }
+                else if(children_num == "seven"){
+                    var children_number_int = 7;
+                }
+                else if(children_num == "eight"){
+                    var children_number_int = 8;
+                }
+                else if(children_num == "nine"){
+                    var children_number_int = 9;
+                }
+                else if(children_num == "ten"){
+                    var children_number_int = 10;
+                }
+                total = Number(children_number_int) * 2
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(total) - 4)
+            }
+
         }
 	});
 });
@@ -652,6 +913,42 @@ $(function(){
 			// 次の項目を表示
 			let box = document.querySelector('#thirdchildrensex');
 			box.style.display='';
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+            total = Number(children_number_int) * 2
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(total) - 5)
         }
 	});
 });
@@ -662,7 +959,7 @@ $(function(){
     const submit = document.querySelector('#thirdchildrensexinput');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('click', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -687,7 +984,4943 @@ $(function(){
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
-			// ボタンの活性化
+            if(children_num == "three"){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "0";
+                // ボタンの活性化
+                let last_state = document.querySelector(".last-state-page");
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
+            else{
+                // 次の項目を表示
+                let box = document.querySelector('#fourchildrenbirth');
+                box.style.display='';
+                var select = document.getElementById("number-children");
+                children_num = select.value;
+    
+                if(children_num == "one"){
+                    var children_number_int = 1;
+                }
+                else if(children_num == "two"){
+                    var children_number_int = 2;
+                }
+                else if(children_num == "three"){
+                    var children_number_int = 3;
+                }
+                else if(children_num == "four"){
+                    var children_number_int = 4;
+                }
+                else if(children_num == "five"){
+                    var children_number_int = 5;
+                }
+                else if(children_num == "six"){
+                    var children_number_int = 6;
+                }
+                else if(children_num == "seven"){
+                    var children_number_int = 7;
+                }
+                else if(children_num == "eight"){
+                    var children_number_int = 8;
+                }
+                else if(children_num == "nine"){
+                    var children_number_int = 9;
+                }
+                else if(children_num == "ten"){
+                    var children_number_int = 10;
+                }
+                total = Number(children_number_int) * 2
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(total) - 6)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#four-birthday');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#four-birthday');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#fourchildrenbirtherr');
+        if(!name.value.match(/^([0-9]{8})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '8桁の半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            let box = document.querySelector('#fourchildrensex');
+            box.style.display='';
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+            total = Number(children_number_int) * 2
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(total) - 7)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#fourchildrensexinput');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('click', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#four-male');
+        const name2 = document.querySelector('#four-female');
+		const name3 = document.querySelector('#four-other');
+		// エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#fourchildrensexerr');
+        if(!name.value == true && !name2.value == true && !name3.value == true){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください。';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+            if(children_num == "four"){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "0";
+                // ボタンの活性化
+                let last_state = document.querySelector(".last-state-page");
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
+            else{
+                // 次の項目を表示
+                let box = document.querySelector('#fivechildrenbirth');
+                box.style.display='';
+                var select = document.getElementById("number-children");
+                children_num = select.value;
+    
+                if(children_num == "one"){
+                    var children_number_int = 1;
+                }
+                else if(children_num == "two"){
+                    var children_number_int = 2;
+                }
+                else if(children_num == "three"){
+                    var children_number_int = 3;
+                }
+                else if(children_num == "four"){
+                    var children_number_int = 4;
+                }
+                else if(children_num == "five"){
+                    var children_number_int = 5;
+                }
+                else if(children_num == "six"){
+                    var children_number_int = 6;
+                }
+                else if(children_num == "seven"){
+                    var children_number_int = 7;
+                }
+                else if(children_num == "eight"){
+                    var children_number_int = 8;
+                }
+                else if(children_num == "nine"){
+                    var children_number_int = 9;
+                }
+                else if(children_num == "ten"){
+                    var children_number_int = 10;
+                }
+                total = Number(children_number_int) * 2
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(total) - 8)
+            }
+
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#five-birthday');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#five-birthday');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#fivechildrenbirtherr');
+        if(!name.value.match(/^([0-9]{8})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '8桁の半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            let box = document.querySelector('#fivechildrensex');
+            box.style.display='';
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+            total = Number(children_number_int) * 2
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(total) - 9)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#fivechildrensexinput');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('click', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#five-male');
+        const name2 = document.querySelector('#five-female');
+		const name3 = document.querySelector('#five-other');
+		// エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#fivechildrensexerr');
+        if(!name.value == true && !name2.value == true && !name3.value == true){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください。';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+            if(children_num == "five"){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "0";
+                // ボタンの活性化
+                let last_state = document.querySelector(".last-state-page");
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
+            else{
+                // 次の項目を表示
+                let box = document.querySelector('#sixchildrenbirth');
+                box.style.display='';
+                var select = document.getElementById("number-children");
+                children_num = select.value;
+    
+                if(children_num == "one"){
+                    var children_number_int = 1;
+                }
+                else if(children_num == "two"){
+                    var children_number_int = 2;
+                }
+                else if(children_num == "three"){
+                    var children_number_int = 3;
+                }
+                else if(children_num == "four"){
+                    var children_number_int = 4;
+                }
+                else if(children_num == "five"){
+                    var children_number_int = 5;
+                }
+                else if(children_num == "six"){
+                    var children_number_int = 6;
+                }
+                else if(children_num == "seven"){
+                    var children_number_int = 7;
+                }
+                else if(children_num == "eight"){
+                    var children_number_int = 8;
+                }
+                else if(children_num == "nine"){
+                    var children_number_int = 9;
+                }
+                else if(children_num == "ten"){
+                    var children_number_int = 10;
+                }
+                total = Number(children_number_int) * 2
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(total) - 10)
+            }
+
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#six-birthday');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#six-birthday');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#sixchildrenbirtherr');
+        if(!name.value.match(/^([0-9]{8})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '8桁の半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            let box = document.querySelector('#sixchildrensex');
+            box.style.display='';
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+            total = Number(children_number_int) * 2
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(total) - 11)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#sixchildrensexinput');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('click', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#six-male');
+        const name2 = document.querySelector('#six-female');
+		const name3 = document.querySelector('#six-other');
+		// エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#sixchildrensexerr');
+        if(!name.value == true && !name2.value == true && !name3.value == true){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください。';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+            if(children_num == "six"){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "0";
+                // ボタンの活性化
+                let last_state = document.querySelector(".last-state-page");
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
+            else{
+                // 次の項目を表示
+                let box = document.querySelector('#sevenchildrenbirth');
+                box.style.display='';
+                var select = document.getElementById("number-children");
+                children_num = select.value;
+    
+                if(children_num == "one"){
+                    var children_number_int = 1;
+                }
+                else if(children_num == "two"){
+                    var children_number_int = 2;
+                }
+                else if(children_num == "three"){
+                    var children_number_int = 3;
+                }
+                else if(children_num == "four"){
+                    var children_number_int = 4;
+                }
+                else if(children_num == "five"){
+                    var children_number_int = 5;
+                }
+                else if(children_num == "six"){
+                    var children_number_int = 6;
+                }
+                else if(children_num == "seven"){
+                    var children_number_int = 7;
+                }
+                else if(children_num == "eight"){
+                    var children_number_int = 8;
+                }
+                else if(children_num == "nine"){
+                    var children_number_int = 9;
+                }
+                else if(children_num == "ten"){
+                    var children_number_int = 10;
+                }
+                total = Number(children_number_int) * 2
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(total) - 12)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#seven-birthday');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#seven-birthday');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#sevenchildrenbirtherr');
+        if(!name.value.match(/^([0-9]{8})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '8桁の半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            let box = document.querySelector('#sevenchildrensex');
+            box.style.display='';
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+            total = Number(children_number_int) * 2
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(total) - 13)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#sevenchildrensexinput');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('click', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#seven-male');
+        const name2 = document.querySelector('#seven-female');
+		const name3 = document.querySelector('#seven-other');
+		// エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#sevenchildrensexerr');
+        if(!name.value == true && !name2.value == true && !name3.value == true){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください。';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+            if(children_num == "seven"){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "0";
+                // ボタンの活性化
+                let last_state = document.querySelector(".last-state-page");
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
+            else{
+                // 次の項目を表示
+                let box = document.querySelector('#eightchildrenbirth');
+                box.style.display='';
+                var select = document.getElementById("number-children");
+                children_num = select.value;
+    
+                if(children_num == "one"){
+                    var children_number_int = 1;
+                }
+                else if(children_num == "two"){
+                    var children_number_int = 2;
+                }
+                else if(children_num == "three"){
+                    var children_number_int = 3;
+                }
+                else if(children_num == "four"){
+                    var children_number_int = 4;
+                }
+                else if(children_num == "five"){
+                    var children_number_int = 5;
+                }
+                else if(children_num == "six"){
+                    var children_number_int = 6;
+                }
+                else if(children_num == "seven"){
+                    var children_number_int = 7;
+                }
+                else if(children_num == "eight"){
+                    var children_number_int = 8;
+                }
+                else if(children_num == "nine"){
+                    var children_number_int = 9;
+                }
+                else if(children_num == "ten"){
+                    var children_number_int = 10;
+                }
+                total = Number(children_number_int) * 2
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(total) - 14)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#eight-birthday');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#eight-birthday');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#eightchildrenbirtherr');
+        if(!name.value.match(/^([0-9]{8})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '8桁の半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            let box = document.querySelector('#eightchildrensex');
+            box.style.display='';
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+            total = Number(children_number_int) * 2
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(total) - 15)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#eightchildrensexinput');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('click', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#eight-male');
+        const name2 = document.querySelector('#eight-female');
+		const name3 = document.querySelector('#eight-other');
+		// エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#eightchildrensexerr');
+        if(!name.value == true && !name2.value == true && !name3.value == true){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください。';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+            if(children_num == "eight"){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "0";
+                // ボタンの活性化
+                let last_state = document.querySelector(".last-state-page");
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
+            else{
+                // 次の項目を表示
+                let box = document.querySelector('#ninechildrenbirth');
+                box.style.display='';
+                var select = document.getElementById("number-children");
+                children_num = select.value;
+    
+                if(children_num == "one"){
+                    var children_number_int = 1;
+                }
+                else if(children_num == "two"){
+                    var children_number_int = 2;
+                }
+                else if(children_num == "three"){
+                    var children_number_int = 3;
+                }
+                else if(children_num == "four"){
+                    var children_number_int = 4;
+                }
+                else if(children_num == "five"){
+                    var children_number_int = 5;
+                }
+                else if(children_num == "six"){
+                    var children_number_int = 6;
+                }
+                else if(children_num == "seven"){
+                    var children_number_int = 7;
+                }
+                else if(children_num == "eight"){
+                    var children_number_int = 8;
+                }
+                else if(children_num == "nine"){
+                    var children_number_int = 9;
+                }
+                else if(children_num == "ten"){
+                    var children_number_int = 10;
+                }
+                total = Number(children_number_int) * 2
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(total) - 16)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#nine-birthday');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#nine-birthday');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#ninechildrenbirtherr');
+        if(!name.value.match(/^([0-9]{8})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '8桁の半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            let box = document.querySelector('#ninechildrensex');
+            box.style.display='';
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+            total = Number(children_number_int) * 2
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(total) - 17)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#ninechildrensexinput');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('click', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#nine-male');
+        const name2 = document.querySelector('#nine-female');
+		const name3 = document.querySelector('#nine-other');
+		// エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#ninechildrensexerr');
+        if(!name.value == true && !name2.value == true && !name3.value == true){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください。';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+            if(children_num == "nine"){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "0";
+                // ボタンの活性化
+                let last_state = document.querySelector(".last-state-page");
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
+            else{
+                // 次の項目を表示
+                let box = document.querySelector('#tenchildrenbirth');
+                box.style.display='';
+                var select = document.getElementById("number-children");
+                children_num = select.value;
+    
+                if(children_num == "one"){
+                    var children_number_int = 1;
+                }
+                else if(children_num == "two"){
+                    var children_number_int = 2;
+                }
+                else if(children_num == "three"){
+                    var children_number_int = 3;
+                }
+                else if(children_num == "four"){
+                    var children_number_int = 4;
+                }
+                else if(children_num == "five"){
+                    var children_number_int = 5;
+                }
+                else if(children_num == "six"){
+                    var children_number_int = 6;
+                }
+                else if(children_num == "seven"){
+                    var children_number_int = 7;
+                }
+                else if(children_num == "eight"){
+                    var children_number_int = 8;
+                }
+                else if(children_num == "nine"){
+                    var children_number_int = 9;
+                }
+                else if(children_num == "ten"){
+                    var children_number_int = 10;
+                }
+                total = Number(children_number_int) * 2
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(total) - 18)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#ten-birthday');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#ten-birthday');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#tenchildrenbirtherr');
+        if(!name.value.match(/^([0-9]{8})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '8桁の半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            let box = document.querySelector('#tenchildrensex');
+            box.style.display='';
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+            total = Number(children_number_int) * 2
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(total) - 19)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#tenchildrensexinput');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('click', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#ten-male');
+        const name2 = document.querySelector('#ten-female');
+		const name3 = document.querySelector('#ten-other');
+		// エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#tenchildrensexerr');
+        if(!name.value == true && !name2.value == true && !name3.value == true){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください。';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = "0";
+            // ボタンの活性化
+            let last_state = document.querySelector(".last-state-page");
+            let next_button = document.querySelector("#next_page2-not");
+            $('#next_page2-not').prop('disabled', false);
+            next_button.id = "next_page2"
+        }
+	});
+});
+
+
+
+// 2ページ目に遷移するボタンにセッションストレージに保存する処理
+$(function(){
+    document.getElementsByClassName('btn btn-primary custom-btn-not')[0].addEventListener('click', function() {
+        const email = document.getElementById('email').value;
+        sessionStorage.setItem('email', email);
+        const nickname = document.getElementById('nickname').value;
+        sessionStorage.setItem('nickname', nickname);
+        const birthday = document.getElementById('birthday').value;
+        sessionStorage.setItem('birthday', birthday);
+        const postnumber = document.getElementById('post-number').value;
+        sessionStorage.setItem('post-number', postnumber);
+        const job = document.getElementById('job').value;
+        sessionStorage.setItem('job', job);
+        var ele = document.getElementsByName('spouse');
+        var len = ele.length;
+        var checkValue = '';
+        for (var i = 0; i < len; i++){
+            if (ele.item(i).checked){
+                checkValue = ele.item(i).value;
+                console.log(checkValue)
+            }
+        }
+        sessionStorage.setItem('yourpartner', checkValue);
+        const spousebirthday = document.getElementById('spouse-birthday').value;
+        sessionStorage.setItem('spouse-birthday', spousebirthday);
+        const spousejob = document.getElementById('spouse-job').value;
+        sessionStorage.setItem('spouse-job', spousejob);
+        var ele = document.getElementsByName('children');
+        var len = ele.length;
+        var checkValue2 = '';
+        for (var i = 0; i < len; i++){
+            if (ele.item(i).checked){
+                checkValue2 = ele.item(i).value;
+            }
+        }
+        sessionStorage.setItem('children', checkValue2);
+        const numberchildren = document.getElementById('number-children').value;
+        sessionStorage.setItem('number-children', numberchildren);
+        const firstbirthday = document.getElementById('first-birthday').value;
+        sessionStorage.setItem('first-birthday', firstbirthday);
+        var ele = document.getElementsByName('first-male');
+        var len = ele.length;
+        var checkValue3 = '';
+        for (var i = 0; i < len; i++){
+            if (ele.item(i).checked){
+                checkValue3 = ele.item(i).value;
+            }
+        }
+        sessionStorage.setItem('first-male', checkValue3);
+        const secondbirthday = document.getElementById('second-birthday').value;
+        sessionStorage.setItem('second-birthday', secondbirthday);
+        var ele = document.getElementsByName('second-male');
+        var len = ele.length;
+        var checkValue4 = '';
+        for (var i = 0; i < len; i++){
+            if (ele.item(i).checked){
+                checkValue4 = ele.item(i).value;
+            }
+        }
+        sessionStorage.setItem('second-male', checkValue4);
+        const thirdbirthday = document.getElementById('third-birthday').value;
+        sessionStorage.setItem('third-birthday', thirdbirthday);
+        var ele = document.getElementsByName('third-male');
+        var len = ele.length;
+        var checkValue5 = '';
+        for (var i = 0; i < len; i++){
+            if (ele.item(i).checked){
+                checkValue5 = ele.item(i).value;
+            }
+        }
+        sessionStorage.setItem('third-male', checkValue5);
+
+        window.location.href = '/future_calculation2';
+  });
+});
+
+var children_bool = true;
+var partner_bool = true;
+
+// 以下から2ページ目の処理b
+if(sessionStorage.getItem('yourpartner') == "いる"){
+    var partner_bool = true;
+}
+else if(sessionStorage.getItem('yourpartner') == "いない"){
+    var partner_bool = false;
+}
+if(sessionStorage.getItem('children') == "いる"){
+    var children_bool = true;
+}
+else if(sessionStorage.getItem('children') == "いない"){
+    var children_bool = false;
+}
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#annual-income');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#annual-income');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#annualincomeerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourbonus');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            if(partner_bool == false && children_bool == false){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "17"
+            }
+            else if(partner_bool == true && children_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "21"
+            }
+            else if(partner_bool == true || children_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "19"        
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#bonus');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#bonus');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourbonuserr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            if(partner_bool == true){
+                let box = document.querySelector('#yourpartnerincome');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "19"
+            }
+            else if(partner_bool == false){
+                // 次の項目を表示
+                let box = document.querySelector('#yourfoodexpenses');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                if(children_bool == false && partner_bool == false){
+                    const stat = document.querySelector('.last-state-page');
+                    stat.textContent = "16"
+                }    
+                else if(partner_bool == true && children_bool == true){
+                    const stat = document.querySelector('.last-state-page');
+                    stat.textContent = "20"
+                }
+                else if(partner_bool == true || children_bool == true){
+                    const stat = document.querySelector('.last-state-page');
+                    stat.textContent = "18"        
+                }
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#spouse-annual-income');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#spouse-annual-income');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourpartnerincomeerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourpartnerbonus');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            if(partner_bool == true && children_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "19"
+            }
+            else if(partner_bool == true || children_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "17"        
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#spouse-bonus');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#spouse-bonus');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourpartnerbonuserr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourfoodexpenses');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            if(partner_bool == true && children_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "18"
+            }
+            else if(partner_bool == true || children_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "16"        
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#food-expenses');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#food-expenses');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourfoodexpenseserr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourlivingcost');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            if(children_bool == false && partner_bool == false){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "15"
+            }   
+            else if(partner_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "15"
+            }
+            else if(children_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "17"
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#living-cost');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#living-cost');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourlivingcosterr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourbeautybill');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            if(children_bool == false && partner_bool == false){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "14"
+            }   
+            else if(partner_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "14"
+            }
+            else if(children_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "16"
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#beauty-bill');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#beauty-bill');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourbeautybillerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourhouseclass');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            if(children_bool == false && partner_bool == false){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "13"
+            }   
+            else if(partner_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "13"
+            }
+            else if(children_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "15"
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#house-class');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#house-class');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourhouseclasserr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourhousecost');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            if(children_bool == false && partner_bool == false){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "12"
+            }   
+            else if(partner_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "12"
+            }
+            else if(children_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "14"
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#house-cost');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#house-cost');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourhousecosterr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourmanagecost');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            if(children_bool == false && partner_bool == false){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "11"
+            }   
+            else if(partner_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "11"
+            }
+            else if(children_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "13"
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#manage-cost');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#manage-cost');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourmanagecosterr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourbill');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            if(children_bool == false && partner_bool == false){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "10"
+            }  
+            else if(partner_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "10"
+            } 
+            else if(children_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "12"
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#bill');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#bill');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourbillerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourpcbill');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            if(children_bool == false && partner_bool == false){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "9"
+            }   
+            else if(partner_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "9"
+            }
+            else if(children_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "11"
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#pc-bill');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#pc-bill');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourpcbillerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourphonebill');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            if(children_bool == false && partner_bool == false){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "8"
+            }   
+            else if(partner_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "8"
+            }
+            else if(children_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "10"
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#phone-bill');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#phone-bill');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourphonebillerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourlone');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            if(children_bool == false && partner_bool == false){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "7"
+            } 
+            else if(partner_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "7"
+            }  
+            else if(children_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "9"
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#lone');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#lone');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourloneerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourinsurancebill');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            if(children_bool == false && partner_bool == false){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "6"
+            }  
+            else if(partner_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "6"
+            } 
+            else if(children_bool == true){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "8"
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#Insurance-bill');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#Insurance-bill');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourinsurancebillerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            if(children_bool == true){
+                let box = document.querySelector('#youreducationalinsurance');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "7"
+            }
+            else if(children_bool == false){
+                let box = document.querySelector('#yourmedicalinsurance');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                if(children_bool == false && partner_bool == false){
+                    const stat = document.querySelector('.last-state-page');
+                    stat.textContent = "5"
+                }   
+                else if(partner_bool == true){
+                    const stat = document.querySelector('.last-state-page');
+                    stat.textContent = "5"
+                }
+                else if(children_bool == true){
+                    const stat = document.querySelector('.last-state-page');
+                    stat.textContent = "7"
+                }
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#Educational-insurance');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#Educational-insurance');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#youreducationalinsuranceerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#youreducationexpenses');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = "6"
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#education-expenses');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#education-expenses');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#youreducationexpenseserr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourmedicalinsurance');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = "5"
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#medical-insurance');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#medical-insurance');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourmedicalinsuranceerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourlifeinsurance');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = "4"
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#life-insurance');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#life-insurance');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourlifeinsuranceerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourestateinvestment');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = "3"
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#Estate-Investment');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#Estate-Investment');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourestateinvestmenterr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourassetmanagement');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = "2"
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#asset-management');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#asset-management');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourassetmanagementerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourformcontrol');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = "1"
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#savings');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#savings');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourformcontrolerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = "0"
+			// 確認ボタンを有効化
+            let last_state = document.querySelector(".last-state-page");
+            let next_button = document.querySelector("#next_page2-not");
+            $('#next_page2-not').prop('disabled', false);
+            next_button.id = "next_page2"
+			
+        }
+	});
+});
+
+$(function(){
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#yourpartnerinput');
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+        let button = document.querySelector("#partnerbirthday")
+        let button2 = document.querySelector("#partnerjob")
+        let ele = document.getElementsByName("spouse")
+        let len = ele.length;
+        let checkValue = '';
+        for (let i = 0; i < len; i++){
+            if (ele.item(i).checked){
+                checkValue = ele.item(i).value;
+            }
+        }
+        if(checkValue == "いる"){
+            let box = document.querySelector('#partnerbirthday');
+        }
+        else if(checkValue == "いない"){
+            button.style.display='none';
+            button2.style.display='none';
+            let box = document.querySelector('#yourchildren');
+            box.style.display='';
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = "8"  
+        }
+	});
+});
+
+
+// 未保有・未加入のボタンを押された際の処理
+$(function(){
+    let input = document.querySelector('#Insurance-bill')
+    let button = document.querySelector('#insurance-not-click')
+    
+    button.addEventListener('click', (e) => {
+        input.value = "未加入"
+        // 次の項目を表示
+        if(children_bool == true){
+            let box = document.querySelector('#youreducationalinsurance');
+            //styleのdisplayを変更する関数
+            box.style.display='';
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = "7"
+        }
+        else if(children_bool == false){
+            let box = document.querySelector('#yourmedicalinsurance');
+            //styleのdisplayを変更する関数
+            box.style.display='';
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = "4" 
+        }
+    });
+});
+
+$(function(){
+    let input = document.querySelector('#Educational-insurance')
+    let button = document.querySelector('#youreducationalinsurance-not-click')
+    
+    button.addEventListener('click', (e) => {
+        input.value = "未加入"
+        // 次の項目を表示
+        let box = document.querySelector('#youreducationexpenses');
+        //styleのdisplayを変更する関数
+        box.style.display='';
+        const stat = document.querySelector('.last-state-page');
+        stat.textContent = "6"
+    });
+});
+
+$(function(){
+    let input = document.querySelector('#medical-insurance')
+    let button = document.querySelector('#yourmedicalinsurance-not-click')
+    
+    button.addEventListener('click', (e) => {
+        input.value = "未加入"
+        // 次の項目を表示
+        let box = document.querySelector('#yourlifeinsurance');
+        //styleのdisplayを変更する関数
+        box.style.display='';
+        const stat = document.querySelector('.last-state-page');
+        stat.textContent = "4"
+    });
+});
+
+$(function(){
+    let input = document.querySelector('#life-insurance')
+    let button = document.querySelector('#yourlifeinsurance-not-click')
+    
+    button.addEventListener('click', (e) => {
+        input.value = "未加入"
+        // 次の項目を表示
+        let box = document.querySelector('#yourestateinvestment');
+        //styleのdisplayを変更する関数
+        box.style.display='';
+        const stat = document.querySelector('.last-state-page');
+        stat.textContent = "3"
+    });
+});
+
+$(function(){
+    let input = document.querySelector('#Estate-Investment')
+    let button = document.querySelector('#yourestateinvestment-not-click')
+    
+    button.addEventListener('click', (e) => {
+        input.value = "未保有"
+        // 次の項目を表示
+        let box = document.querySelector('#yourassetmanagement');
+        //styleのdisplayを変更する関数
+        box.style.display='';
+        const stat = document.querySelector('.last-state-page');
+        stat.textContent = "2"
+
+    });
+});
+
+
+
+
+
+
+
+$(function(){
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#spouse');
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+        let button = document.querySelector("#button1")
+        button.id="button1-choice"
+	});
+});
+$(function(){
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#single');
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+        let button = document.querySelector("#button2")
+        button.id="button2-choice"
+	});
+});
+
+// ここから3ページ目の処理
+
+$(function(){
+    document.getElementsByClassName('btn btn-primary custom-btn')[1].addEventListener('click', function() {
+        const annualincome = document.getElementById('annual-income').value;
+        sessionStorage.setItem('annual-income', annualincome);
+        const bonus = document.getElementById('bonus').value;
+        sessionStorage.setItem('bonus', bonus);
+        const spouseannualincome = document.getElementById('spouse-annual-income').value;
+        sessionStorage.setItem('spouse-annual-income', spouseannualincome);
+        const spousebonus = document.getElementById('spouse-bonus').value;
+        sessionStorage.setItem('spouse-bonus', spousebonus);
+        const foodexpenses = document.getElementById('food-expenses').value;
+        sessionStorage.setItem('food-expenses', foodexpenses);
+        const livingcost = document.getElementById('living-cost').value;
+        sessionStorage.setItem('living-cost', livingcost);
+        const beautybill = document.getElementById('beauty-bill').value;
+        sessionStorage.setItem('beauty-bill', beautybill);
+        const houseclass = document.getElementById('house-class').value;
+        sessionStorage.setItem('house-class', houseclass);
+        const housecost = document.getElementById('house-cost').value;
+        sessionStorage.setItem('house-cost', housecost);
+        const managecost = document.getElementById('manage-cost').value;
+        sessionStorage.setItem('manage-cost', managecost);
+        const bill = document.getElementById('bill').value;
+        sessionStorage.setItem('bill', bill);
+        const pcbill = document.getElementById('pc-bill').value;
+        sessionStorage.setItem('pc-bill', pcbill);
+        const phonebill = document.getElementById('phone-bill').value;
+        sessionStorage.setItem('phone-bill', phonebill);
+        const lone = document.getElementById('lone').value;
+        sessionStorage.setItem('lone', lone);
+        const Insurancebill = document.getElementById('Insurance-bill').value;
+        sessionStorage.setItem('Insurance-bill', Insurancebill);
+        const Educationalinsurance = document.getElementById('Educational-insurance').value;
+        sessionStorage.setItem('Educational-insurance', Educationalinsurance);
+        const educationexpenses = document.getElementById('education-expenses').value;
+        sessionStorage.setItem('education-expenses', educationexpenses);
+        const medicalinsurance = document.getElementById('medical-insurance').value;
+        sessionStorage.setItem('medical-insurance', medicalinsurance);
+        const lifeinsurance = document.getElementById('life-insurance').value;
+        sessionStorage.setItem('life-insurance', lifeinsurance);
+        const EstateInvestment = document.getElementById('Estate-Investment').value;
+        sessionStorage.setItem('Estate-Investment', EstateInvestment);
+        const assetmanagement = document.getElementById('asset-management').value;
+        sessionStorage.setItem('asset-management', assetmanagement);
+        const savings = document.getElementById('savings').value;
+        sessionStorage.setItem('savings', savings);
+
+        window.location.href = '/future_calculation3';
+    });
+});
+
+var children_number = sessionStorage.getItem('number-children')
+var your_estate = document.getElementById("estate").value;
+
+const base_laststate = document.querySelector(".last-state-page").textContent
+console.log(base_laststate)
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#myhome-buy');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#myhome-buy');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#myhomebuyerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください。';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            let box = document.querySelector('#yourestate');
+            //styleのdisplayを変更する関数
+            box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#estate');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#estate');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourestateerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください。';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+            var children_number = sessionStorage.getItem('number-children')
+            var your_estate = document.getElementById("estate").value;
+			// 次の項目を表示
+            if(your_estate == "two"){
+                let box = document.querySelector('#yourfirstestate');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) + 4)
+            }
+            else if(your_estate == "one"){
+                let box = document.querySelector('#yourfirstestate');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) + 2)
+            }
+            else if(your_estate == "zero"){
+                let box = document.querySelector('#yoursavingsbalance');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#first-estate');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#first-estate');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourfirstestateerr');
+        if(!name.value.match(/^([0-9]{4})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '4桁の半角数字で入力してください。';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourfirstrentalincome');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#first-rental-income');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#first-rental-income');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourfirstrentalincomeerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            var children_number = sessionStorage.getItem('number-children')
+            var your_estate = document.getElementById("estate").value;
+            if(your_estate == "two"){
+                let box = document.querySelector('#yoursecondestate');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+            else{
+                let box = document.querySelector('#yoursavingsbalance');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1) 
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#second-estate');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#second-estate');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yoursecondestateerr');
+        if(!name.value.match(/^([0-9]{4})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '4桁の半角数字で入力して下さい。';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yoursecondrentalincome');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#second-rental-income');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#second-rental-income');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yoursecondrentalincomeerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yoursavingsbalance');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#savings-balance');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#savings-balance');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yoursavingsbalanceerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            
+            if(children_bool == true){
+                let box = document.querySelector('#yourlastEducationalinsurance');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+            else if(children_bool == false){
+            // 次の項目を表示
+                let box = document.querySelector('#yourtrip');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#last-Educational-insurance');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#last-Educational-insurance');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourlastEducationalinsuranceerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourtrip');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#trip');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#trip');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourtriperr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourotherexpense');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#other-expense');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#other-expense');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourotherexpenseerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourstartwork');
+            let box2 = document.querySelector('#text');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            box2.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#start-wark');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#start-wark');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourstartworkerr');
+        if(!name.value.match(/^([0-9]{2})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '2桁の半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourstartingsalary');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#Starting-salary');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#Starting-salary');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourstartingsalaryerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourestimatedannualincome');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#Estimated-annual-income');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#Estimated-annual-income');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourestimatedannualincomeerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourSeverancepay');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#yourSeverancepayinput');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('click', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#Severance-pay');
+        const name2 = document.querySelector('#not-Severance-pay');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourSeverancepayerr');
+        if(!name.value == true && !name2.value == true){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            if(partner_bool == true){
+                let box = document.querySelector('#yourpartnerstratwork');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "16"
+            }
+            else if(partner_bool == false && children_bool == false){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "0"
+                // 登録ボタンを活性化
+                let last_state = document.querySelector(".last-state-page");
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
+            else if(partner_bool  == false && children_bool == true){
+                let box = document.querySelector('#yourfirstprimaryschool');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#spouse-start-work');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#spouse-start-work');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourpartnerstratworkerr');
+        if(!name.value.match(/^([0-9]{2})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '2桁の半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            
+			let box = document.querySelector('#yourpartnerstartingsalary');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#spouse-Starting-salary');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#spouse-Starting-salary');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourpartnerstartingsalaryerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourpartnerestimatedannualincome');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#spouse-Estimated-annual-income');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#spouse-Estimated-annual-income');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourpartnerestimatedannualincomeerr');
+        if(!name.value.match(/^([0-9]{0,100})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourpartnerSeverancepay');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#yourpartnerSeverancepayinput');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('click', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#spouse-Severance-pay');
+        const name2 = document.querySelector('#spouse-Severance-pay-not');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourpartnerSeverancepayerr');
+        if(!name.value == true && !name2.value == true){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            if(children_bool == true){
+                let box = document.querySelector('#yourfirstprimaryschool');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+            else if(children_bool == false){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "0"
+                // 登録ボタンを活性化
+                let last_state = document.querySelector(".last-state-page");
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#first-primary-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#first-primary-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourfirstprimaryschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourfirstjuniorhighschool');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#first-junior-high-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#first-junior-high-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourfirstjuniorhighschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourfirsthighschool');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#first-high-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#first-high-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourfirsthighschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourfirstuniversity');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#first-university');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#first-university');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourfirstuniversityerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            var children_number = sessionStorage.getItem('number-children')
+            var your_estate = document.getElementById("estate").value;
+            if(children_number == "one"){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "0"
+                // 登録ボタンを活性化
+                let last_state = document.querySelector(".last-state-page");
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
+            else{
+                let box = document.querySelector('#yoursecondprimaryschool');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#second-primary-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#second-primary-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yoursecondprimaryschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yoursecondjuniorhighschool');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#second-junior-high-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#second-junior-high-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yoursecondjuniorhighschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yoursecondhighschool');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#second-high-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#second-high-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yoursecondhighschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourseconduniversity');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#second-university');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#second-university');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourseconduniversityerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            var children_number = sessionStorage.getItem('number-children')
+            var your_estate = document.getElementById("estate").value;
+            if(children_number == "two"){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "0"
+                // 登録ボタンを活性化
+                let last_state = document.querySelector(".last-state-page");
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
+            else{
+                let box = document.querySelector('#yourthirdprimaryschool');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#third-primary-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#third-primary-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourthirdprimaryschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourthirdjuniorhighschool');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#third-junior-high-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#third-junior-high-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourthirdjuniorhighschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourthirdhighschool');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#third-high-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#third-high-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourthirdhighschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourthirduniversity');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#third-university');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#third-university');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourthirduniversityerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+            var children_number = sessionStorage.getItem('number-children')
+            var your_estate = document.getElementById("estate").value;
+            if(children_number == "three"){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "0"
+                // 登録ボタンを活性化
+                let last_state = document.querySelector(".last-state-page");
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
+            else{
+                let box = document.querySelector('#yourfourprimaryschool');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#four-primary-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#four-primary-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourfourprimaryschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourfourjuniorhighschool');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#four-junior-high-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#four-junior-high-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourfourjuniorhighschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourfourhighschool');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#four-high-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#four-high-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourfourhighschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourfouruniversity');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#four-university');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#four-university');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourfouruniversityerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+            var children_number = sessionStorage.getItem('number-children')
+            var your_estate = document.getElementById("estate").value;
+            if(children_number == "four"){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "0"
+                // 登録ボタンを活性化
+                let last_state = document.querySelector(".last-state-page");
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
+            else{
+                let box = document.querySelector('#yourfiveprimaryschool');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#five-primary-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#five-primary-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourfiveprimaryschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourfivejuniorhighschool');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#five-junior-high-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#five-junior-high-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourfivejuniorhighschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourfivehighschool');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#five-high-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#five-high-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourfivehighschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourfiveuniversity');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#five-university');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#five-university');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourfiveuniversityerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+            var children_number = sessionStorage.getItem('number-children')
+            var your_estate = document.getElementById("estate").value;
+            if(children_number == "five"){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "0"
+                // 登録ボタンを活性化
+                let last_state = document.querySelector(".last-state-page");
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
+            else{
+                let box = document.querySelector('#yoursixprimaryschool');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#six-primary-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#six-primary-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yoursixprimaryschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yoursixjuniorhighschool');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#six-junior-high-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#six-junior-high-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yoursixjuniorhighschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yoursixhighschool');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#six-high-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#six-high-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yoursixhighschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yoursixuniversity');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#six-university');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#six-university');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yoursixuniversityerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+            var children_number = sessionStorage.getItem('number-children')
+            var your_estate = document.getElementById("estate").value;
+            if(children_number == "six"){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "0"
+                // 登録ボタンを活性化
+                let last_state = document.querySelector(".last-state-page");
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
+            else{
+                let box = document.querySelector('#yoursevenprimaryschool');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#seven-primary-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#seven-primary-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yoursevenprimaryschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yoursevenjuniorhighschool');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#seven-junior-high-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#seven-junior-high-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yoursevenjuniorhighschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yoursevenhighschool');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#seven-high-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#seven-high-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yoursevenhighschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yoursevenuniversity');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#seven-university');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#seven-university');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yoursevenuniversityerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+            var children_number = sessionStorage.getItem('number-children')
+            var your_estate = document.getElementById("estate").value;
+            if(children_number == "seven"){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "0"
+                // 登録ボタンを活性化
+                let last_state = document.querySelector(".last-state-page");
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
+            else{
+                let box = document.querySelector('#youreightprimaryschool');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#eight-primary-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#eight-primary-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#youreightprimaryschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#youreightjuniorhighschool');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#eight-junior-high-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#eight-junior-high-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#youreightjuniorhighschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#youreighthighschool');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#eight-high-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#eight-high-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#youreighthighschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#youreightuniversity');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#eight-university');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#eight-university');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#youreightuniversityerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+            var children_number = sessionStorage.getItem('number-children')
+            var your_estate = document.getElementById("estate").value;
+            if(children_number == "eight"){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "0"
+                // 登録ボタンを活性化
+                let last_state = document.querySelector(".last-state-page");
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
+            else{
+                let box = document.querySelector('#yournineprimaryschool');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#nine-primary-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#nine-primary-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yournineprimaryschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourninejuniorhighschool');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#nine-junior-high-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#nine-junior-high-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourninejuniorhighschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourninehighschool');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#nine-high-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#nine-high-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourninehighschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yournineuniversity');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#nine-university');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#nine-university');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yournineuniversityerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+            var children_number = sessionStorage.getItem('number-children')
+            var your_estate = document.getElementById("estate").value;
+            if(children_number == "nine"){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = "0"
+                // 登録ボタンを活性化
+                let last_state = document.querySelector(".last-state-page");
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
+            else{
+                let box = document.querySelector('#yourtenprimaryschool');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#ten-primary-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#ten-primary-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourtenprimaryschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourtenjuniorhighschool');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#ten-junior-high-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#ten-junior-high-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourtenjuniorhighschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourtenhighschool');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#ten-high-school');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#ten-high-school');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourtenhighschoolerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourtenuniversity');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#ten-university');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#nine-university');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourtenuniversityerr');
+        if(!name.value){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = "0"
+            // 登録ボタンを活性化
+            let last_state = document.querySelector(".last-state-page");
+            let next_button = document.querySelector("#next_page2-not");
+            $('#next_page2-not').prop('disabled', false);
+            next_button.id = "next_page2"
         }
 	});
 });

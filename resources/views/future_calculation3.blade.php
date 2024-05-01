@@ -16,30 +16,11 @@
 
 <div id="container">
 
-<header>
-
-<h1 id="logo"><a href="{{ url('/') }}"><img src="images/logo.png" alt="ロゴ"></a></h1>
-
-<!--メニュー-->
-<div id="menubar">
-
-<nav>
-<ul>
-<li><a href="{{ url('/') }}">TOP</a></li>
-<li><a href="{{ url('/WhoWeAre') }}">Who We Are</a></li>
-<li><a href="{{ url('/Profile') }}">Company Profile</a></li>
+<ul class="progressbar">
+    <li class="complete">本人・<br>家族構成</li>
+    <li class="complete">現在家計簿<br>情報</li>
+    <li class="active">未来家計簿<br>情報</li>
 </ul>
-</nav>
-
-<div class="sh">
-<p>小さな端末でのみ表示</p>
-</div>
-<!--/.sh-->
-
-</div>
-<!--/#menubar-->
-
-</header>
 
 <main>
 
@@ -49,12 +30,16 @@
 <p>続いて、未来家計簿情報を入力していきましょう！ご回答いただく項目は以下の20項目です。</p>
 
 <!-- Page Content -->
-<div class="container mt-5 p-lg-5 bg-light">
-    <form class="needs-validation" action="{{ url('result_screen') }}" method="post">
+<div class="container mt-5 p-lg-5 bg-light"style="display: none;" id="yourhome">
+    <form class="needs-validation">
     @csrf
         <div class="form-group">
            <label for="text">マイホームを購入したのはいつですか。</label><br>
-           <input type="text" id="myhome-buy" name="myhome-buy" class="form-control"><label for="text">年</label>
+           <table>
+            <th>
+           <input type="text" id="myhome-buy" name="myhome-buy" class="form-control"></th>
+           <td>
+           <label for="text">年</label></td></table>
            <div class="err-msg-name" id="myhomebuyerr"></div>
         </div>
 
@@ -65,56 +50,87 @@
                 <option value="zero">0件</option>
                 <option value="one">1件</option>
                 <option value="two">2件</option>
-                <option value="three">3件</option>
             </select>
             <div class="err-msg-name" id="yourestateerr"></div>
         </div>
 
         <div class="form-group" style="display: none;" id="yourfirstestate">
            <label for="text">1件目の不動産投資物件を購入したのはいつですか。</label><br>
-           <input type="text" id="first-estate" name="first-estate" class="form-control"><label for="text">年</label>
+           <table>
+            <th>
+           <input type="text" id="first-estate" name="first-estate" class="form-control"></th>
+           <td>
+           <label for="text">年</label></td></table>
            <div class="err-msg-name" id="yourfirstestateerr"></div>
         </div>
 
         <div class="form-group" style="display: none;" id="yourfirstrentalincome">
            <label for="text">1件目の不動産投資物件の毎月の家賃収入はどれくらいですか。</label><br>
-           <input type="text" id="first-rental-income" name="first-rental-income" class="form-control"><label for="text">万円</label>
+           <table>
+            <th>
+           <input type="text" id="first-rental-income" name="first-rental-income" class="form-control"></th>
+           <td>
+           <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yourfirstrentalincomeerr"></div>
         </div>
 
         <div class="form-group" style="display: none;" id="yoursecondestate">
            <label for="text">2件目の不動産投資物件を購入したのはいつですか。</label><br>
-           <input type="text" id="second-estate" name="second-estate" class="form-control"><label for="text">年</label>
+           <table>
+            <th>
+           <input type="text" id="second-estate" name="second-estate" class="form-control"></th>
+           <td>
+           <label for="text">年</label></td></table>
            <div class="err-msg-name" id="yoursecondestateerr"></div>
         </div>
 
         <div class="form-group" style="display: none;" id="yoursecondrentalincome">
            <label for="text">2件目の不動産投資物件の毎月の家賃収入はどれくらいですか。</label><br>
-           <input type="text" id="second-rental-income" name="second-rental-income" class="form-control"><label for="text">万円</label>
+           <table>
+            <th>
+           <input type="text" id="second-rental-income" name="second-rental-income" class="form-control"></th>
+           <td>
+           <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yoursecondrentalincomeerr"></div>
         </div>
 
         <div class="form-group" style="display: none;" id="yoursavingsbalance">
            <label for="text">現在の貯蓄残高を教えてください</label><br>
-           <input type="text" id="savings-balance" name="savings-balance" class="form-control"><label for="text">万円</label>
+           <table>
+            <th>
+           <input type="text" id="savings-balance" name="savings-balance" class="form-control"></th>
+           <td>
+           <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yoursavingsbalanceerr"></div>
         </div>
 
         <div class="form-group" style="display: none;" id="yourlastEducationalinsurance">
            <label for="text">学資保険の最終的に受取る合計額はどれくらいですか？（ざっくりでかまいません！）</label><br>
-           <input type="text" id="last-Educational-insurance" name="last-Educational-insurance" class="form-control"><label for="text">万円</label>
+           <table>
+            <th>
+           <input type="text" id="last-Educational-insurance" name="last-Educational-insurance" class="form-control"></th>
+           <td>
+           <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yourlastEducationalinsuranceerr"></div>
         </div>
 
         <div class="form-group" style="display: none;" id="yourtrip">
            <label for="text">毎年の旅行費はどれくらいですか？（ざっくりでかまいません。）</label><br>
-           <input type="text" id="trip" name="trip" class="form-control"><label for="text">万円</label>
+           <table>
+            <th>
+           <input type="text" id="trip" name="trip" class="form-control"></th>
+           <td>
+           <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yourtriperr"></div>
         </div>
 
         <div class="form-group" style="display: none;" id="yourotherexpense">
            <label for="text">毎年のその他の出費（家電購入費やローンのボーナス払い等）はどれくらいですか？（ざっくりでかまいません！）</label><br>
-           <input type="text" id="other-expense" name="other-expense" class="form-control"><label for="text">万円</label>
+           <table>
+            <th>
+           <input type="text" id="other-expense" name="other-expense" class="form-control"></th>
+           <td>
+           <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yourotherexpenseerr"></div>
         </div>
 
@@ -122,19 +138,31 @@
 
         <div class="form-group" style="display: none;" id="yourstartwork">
            <label for="text">あなたの働き始めた年齢はおいくつですか。</label><br>
-           <input type="text" id="start-wark" name="start-work" class="form-control"><label for="text">歳</label>
+           <table>
+            <th>
+           <input type="text" id="start-wark" name="start-work" class="form-control"></th>
+           <td>
+           <label for="text">歳</label></td></table>
            <div class="err-msg-name" id="yourstartworkerr"></div>
         </div>
 
         <div class="form-group" style="display: none;" id="yourstartingsalary">
            <label for="text">あなたの初任給はどれくらいでしたか？（ざっくりでかまいません！）</label><br>
-           <input type="text" id="Starting-salary" name="Starting-salary" class="form-control"><label for="text">万円</label>
+           <table>
+            <th>
+           <input type="text" id="Starting-salary" name="Starting-salary" class="form-control"></th>
+           <td>
+           <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yourstartingsalaryerr"></div>
         </div>
 
         <div class="form-group" style="display: none;" id="yourestimatedannualincome">
            <label for="text">あなたの50歳の想定年収はどれくらいを目標としていますか？</label><br>
-           <input type="text" id="Estimated-annual-income" name="Estimated-annual-income" class="form-control"><label for="text">万円</label>
+           <table>
+            <th>
+           <input type="text" id="Estimated-annual-income" name="Estimated-annual-income" class="form-control"></th>
+           <td>
+           <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yourestimatedannualincomeerr"></div>
         </div>
 
@@ -153,19 +181,31 @@
 
         <div class="form-group" style="display: none;" id="yourpartnerstratwork">
            <label for="text">パートナーの働き始めた年齢はおいくつですか。</label><br>
-           <input type="text" id="spouse-start-work" name="spouse-start-work" class="form-control"><label for="text">歳</label>
+           <table>
+            <th>
+           <input type="text" id="spouse-start-work" name="spouse-start-work" class="form-control"></th>
+           <td>
+           <label for="text">歳</label></td></table>
            <div class="err-msg-name" id="yourpartnerstratworkerr"></div>
         </div>
 
         <div class="form-group" style="display: none;" id="yourpartnerstartingsalary">
            <label for="text">パートナーの初任給はどれくらいでしたか？（ざっくりでかまいません！）</label><br>
-           <input type="text" id="spouse-Starting-salary" name="spouse-Starting-salary" class="form-control"><label for="text">万円</label>
+           <table>
+            <th>
+           <input type="text" id="spouse-Starting-salary" name="spouse-Starting-salary" class="form-control"></th>
+           <td>
+           <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yourpartnerstartingsalaryerr"></div>
         </div>
 
         <div class="form-group" style="display: none;" id="yourpartnerestimatedannualincome">
            <label for="text"></label>パートナーの50歳の想定年収はどれくらいを目標としていますか？<br>
-           <input type="text" id="spouse-Estimated-annual-income" name="spouse-Estimated-annual-income" class="form-control"><label for="text">万円</label>
+           <table>
+            <th>
+           <input type="text" id="spouse-Estimated-annual-income" name="spouse-Estimated-annual-income" class="form-control"></th>
+           <td>
+           <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yourpartnerestimatedannualincomeerr"></div>
         </div>
 
@@ -302,9 +342,298 @@
             <div class="err-msg-name" id="yourthirduniversityerr"></div>
         </div>
 
-        <button type="submit">現在家計簿情報に戻る</button>
+        <div class="form-group" style="display: none;" id="yourfourprimaryschool">
+           <label for="inputState">4人目のお子様の小学校区分を入力してください。（将来の希望ベースでかまいません！）</label><br>
+           <select id="four-primary-school" name="four-primary-school" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yourfourprimaryschoolerr"></div>
+        </div>
 
-        <button  class="btn1 large radius" type="button" data-target="#modal1" data-toggle="modal">未来家計簿を計算する</button>
+        <div class="form-group" style="display: none;" id="yourfourjuniorhighschool">
+           <label for="inputState">4人目のお子様の中学校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
+           <select id="four-junior-high-school" name="four-junior-high-school" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yourfourjuniorhighschoolerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="yourfourhighschool">
+           <label for="inputState">4人目のお子様の高校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
+           <select id="four-high-school" name="four-high-school" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yourfourhighschoolerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="yourfouruniversity">
+           <label for="inputState">4人目のお子様の大学区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
+           <select id="four-university" name="four-university" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yourfouruniversityerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="yourfiveprimaryschool">
+           <label for="inputState">5人目のお子様の小学校区分を入力してください。（将来の希望ベースでかまいません！）</label><br>
+           <select id="five-primary-school" name="five-primary-school" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yourfiveprimaryschoolerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="yourfivejuniorhighschool">
+           <label for="inputState">5人目のお子様の中学校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
+           <select id="five-junior-high-school" name="five-junior-high-school" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yourfivejuniorhighschoolerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="yourfivehighschool">
+           <label for="inputState">5人目のお子様の高校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
+           <select id="five-high-school" name="five-high-school" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yourfivehighschoolerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="yourfiveuniversity">
+           <label for="inputState">5人目のお子様の大学区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
+           <select id="five-university" name="five-university" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yourfiveuniversityerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="yoursixprimaryschool">
+           <label for="inputState">6人目のお子様の小学校区分を入力してください。（将来の希望ベースでかまいません！）</label><br>
+           <select id="six-primary-school" name="six-primary-school" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yoursixprimaryschoolerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="yoursixjuniorhighschool">
+           <label for="inputState">6人目のお子様の中学校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
+           <select id="six-junior-high-school" name="six-junior-high-school" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yoursixjuniorhighschoolerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="yoursixhighschool">
+           <label for="inputState">6人目のお子様の高校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
+           <select id="six-high-school" name="six-high-school" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yoursixhighschoolerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="yoursixuniversity">
+           <label for="inputState">6人目のお子様の大学区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
+           <select id="six-university" name="six-university" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yoursixuniversityerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="yoursevenprimaryschool">
+           <label for="inputState">7人目のお子様の小学校区分を入力してください。（将来の希望ベースでかまいません！）</label><br>
+           <select id="seven-primary-school" name="seven-primary-school" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yoursevenprimaryschoolerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="yoursevenjuniorhighschool">
+           <label for="inputState">7人目のお子様の中学校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
+           <select id="seven-junior-high-school" name="seven-junior-high-school" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yoursevenjuniorhighschoolerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="yoursevenhighschool">
+           <label for="inputState">7人目のお子様の高校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
+           <select id="seven-high-school" name="seven-high-school" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yoursevenhighschoolerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="yoursevenuniversity">
+           <label for="inputState">7人目のお子様の大学区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
+           <select id="seven-university" name="seven-university" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yoursevenuniversityerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="youreightprimaryschool">
+           <label for="inputState">8人目のお子様の小学校区分を入力してください。（将来の希望ベースでかまいません！）</label><br>
+           <select id="eight-primary-school" name="eight-primary-school" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="youreightprimaryschoolerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="youreightjuniorhighschool">
+           <label for="inputState">8人目のお子様の中学校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
+           <select id="eight-junior-high-school" name="eight-junior-high-school" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="youreightjuniorhighschoolerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="youreighthighschool">
+           <label for="inputState">8人目のお子様の高校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
+           <select id="eight-high-school" name="eight-high-school" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="youreighthighschoolerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="youreightuniversity">
+           <label for="inputState">8人目のお子様の大学区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
+           <select id="eight-university" name="eight-university" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="youreightuniversityerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="yournineprimaryschool">
+           <label for="inputState">9人目のお子様の小学校区分を入力してください。（将来の希望ベースでかまいません！）</label><br>
+           <select id="nine-primary-school" name="nine-primary-school" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yournineprimaryschoolerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="yourninejuniorhighschool">
+           <label for="inputState">9人目のお子様の中学校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
+           <select id="nine-junior-high-school" name="nine-junior-high-school" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yourninejuniorhighschoolerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="yourninehighschool">
+           <label for="inputState">9人目のお子様の高校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
+           <select id="nine-high-school" name="nine-high-school" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yourninehighschoolerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="yournineuniversity">
+           <label for="inputState">9人目のお子様の大学区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
+           <select id="nine-university" name="nine-university" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yournineuniversityerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="yourtenprimaryschool">
+           <label for="inputState">10人目のお子様の小学校区分を入力してください。（将来の希望ベースでかまいません！）</label><br>
+           <select id="ten-primary-school" name="ten-primary-school" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yourtenprimaryschoolerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="yourtenjuniorhighschool">
+           <label for="inputState">10人目のお子様の中学校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
+           <select id="ten-junior-high-school" name="ten-junior-high-school" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yourtenjuniorhighschoolerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="yourtenhighschool">
+           <label for="inputState">10人目のお子様の高校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
+           <select id="ten-high-school" name="ten-high-school" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yourtenhighschoolerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="yourtenuniversity">
+           <label for="inputState">10人目のお子様の大学区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
+           <select id="ten-university" name="ten-university" class="form-control">
+                <option selected></option>
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+            </select>
+            <div class="err-msg-name" id="yourtenuniversityerr"></div>
+        </div>
+</div><!-- /container -->
+
+</section>
+
+</main>
+<!--/#footermenu-->
+
+<footer class="bg1">
+<button type="button" onclick="location.href='./future_calculation2'" class="btn btn-primary custom-btn" id="back-page">現在家計簿情報入力へ戻る</button>
+    <label class="last-state">残り</label>
+    <label class="last-state-page"></label>
+    <label class="last-state">項目</label>
+<button  class="btn btn-primary custom-btn" id="next_page2-not" type="button" data-target="#modal1" data-toggle="modal" disabled>未来家計簿を計算する</button>
         <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -329,58 +658,14 @@
                                 </p>
                         </section>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary mx-auto d-block" >同意してサービスを利用する</button>
+                            <button type="button" class="btn btn-primary mx-auto d-block" >同意してサービスを利用する</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </form>
-</div><!-- /container -->
-
-</section>
-
-</main>
-
-<div id="footermenu">
-<ul>
-<li class="title">メニュー</li>
-<li><a href="index.html">ホーム</a></li>
-<li><a href="company.html">会社概要</a></li>
-<li><a href="list.html">仕事検索</a></li>
-<li><a href="request.html">企業のご担当者様</a></li>
-<li><a href="faq.html">よく頂く質問</a></li>
-<li><a href="contact.html">お問い合わせ</a></li>
-</ul>
-<ul>
-<li class="title">メニュー見出し</li>
-<li><a href="#">サンプルメニューサンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-</ul>
-<ul>
-<li class="title">メニュー見出し</li>
-<li><a href="#">サンプルメニューサンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-</ul>
-<ul>
-<li class="title">メニュー見出し</li>
-<li><a href="#">サンプルメニューサンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-</ul>
-</div>
-<!--/#footermenu-->
-
-<footer>
-
-<small>フッター</small>
-
 </footer>
+</form>
 
 </div>
 <!--/#container-->
@@ -389,8 +674,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <!--このテンプレート専用のスクリプト-->
-<script src="js/main.js"></script>
 <script src="js/calc3.js"></script>
+<script src="js/main.js"></script>
+
 
 <!--開閉ボタン（ハンバーガーアイコン）-->
 <div id="menubar_hdr">

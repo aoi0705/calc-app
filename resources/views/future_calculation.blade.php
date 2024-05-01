@@ -17,57 +17,35 @@
 
 <div id="container">
 
-<header>
-
-<h1 id="logo"><a href="{{ url('/') }}"><img src="images/logo.png" alt="ロゴ"></a></h1>
-
-<!--メニュー-->
-<div id="menubar">
-
-<nav>
-<ul>
-<li><a href="{{ url('/') }}">TOP</a></li>
-<li><a href="{{ url('/WhoWeAre') }}">Who We Are</a></li>
-<li><a href="{{ url('/Profile') }}">Company Profile</a></li>
+<ul class="progressbar">
+    <li class="active">本人・<br>家族構成</li>
+    <li>現在家計簿<br>情報</li>
+    <li>未来家計簿<br>情報</li>
 </ul>
-</nav>
-
-<div class="sh">
-<p>小さな端末でのみ表示。</p>
-</div>
-<!--/.sh-->
-
-</div>
-<!--/#menubar-->
-
-</header>
 
 <main>
 
 <section>
 
 <h2>未来家計簿作成</h2>
-<p>家計簿を作成する上で、まずはあなたとご家族の情報を確認させてください！</p>
+<h3>家計簿を作成する上で、まずはあなたとご家族の情報を確認させてください！</h3>
 
 <!-- Page Content -->
 <div class="container mt-5 p-lg-5 bg-light">
-<form class="needs-validation" action="form1.php" method="post" id="calc1">
+<form class="needs-validation" id="calc1">
     @csrf
-        <div class="form-group-first">
-           <label for="text">名前</label><br>
-           <input type="text" id="name" name="name" class="form-control"><br>
-           <div class="err-msg-name"></div>
-           <button type=submit>ワンタイムパスワードを送付</button>
-        </div>
-
-        <div class="form-group">
+        <div class="form-group" id="sendemail">
+           <label for="text">メールアドレス</label><br>
+           <input type="text" id="email" name="email" class="form-control"><br>
+           <div class="err-msg-email"></div>
+           <button type=submit>ワンタイムパスワードを送付</button><br>
            <label for="text">メールアドレス宛に送付したワンタイムパスワードを入力してください（6桁）</label><br>
            <input type="text" id="onetime-password" name="onetime_password" class="form-control"><br>
            <button type=submit>認証</button>
         </div>
 
         <div class="form-group" style="display: none;" name="nickname_form" id="yournickname">
-           <label for="text">あなたのニックネームを教えてください:</label><br>
+           <label for="text" id="debug_bold">あなたのニックネームを教えてください:</label><br>
            <input type="text" id="nickname" name="nickname" class="form-control"><br>
            <div class="err-msg-name" id="nicknameerr"></div>
         </div>
@@ -95,13 +73,13 @@
         </div>
 
         <div class="form-group" style="display: none;" name="yourpartner" id="yourpartner">
-           <label for="text">配偶者・パートナーの有無</label><br>
+        <label for="text">配偶者・パートナーの有無</label><br>
            <div class="btn-group btn-group-toggle" data-toggle="buttons" id="yourpartnerinput">
-                <label class="btn btn-secondary">
-                    <input class="btn-check" type="radio" name="spouse" id="spouse" autocomplete="off" checked>いる
+                <label class="btn btn-secondary" id="button1">
+                    <input class="btn-check" type="radio" name="spouse" id="spouse" autocomplete="off" value="いる">いる
                 </label>
-                <label class="btn btn-secondary">
-                    <input class="btn-check" type="radio" name="spouse" id="single" autocomplete="off">いない
+                <label class="btn btn-secondary" id="button2">
+                    <input class="btn-check" type="radio" name="spouse" id="single" autocomplete="off" value="いない">いない
                 </label>
             </div>
             <div class="err-msg-name" id="partnererr"></div>
@@ -127,10 +105,10 @@
            <label for="text">子供の有無</label><br>
            <div class="btn-group btn-group-toggle" data-toggle="buttons" id="yourchildreninput">
                 <label class="btn btn-primary active">
-                    <input type="radio" name="children" id="children" autocomplete="off" checked>いる
+                    <input type="radio" name="children" id="children" autocomplete="off" value="いる">いる
                 </label>
                 <label class="btn btn-primary">
-                    <input type="radio" name="children" id="not-children" autocomplete="off">いない
+                    <input type="radio" name="children" id="not-children" autocomplete="off" value="いない">いない
                 </label>
             </div>
             <div class="err-msg-name" id="yourchildrenerr"></div>
@@ -146,6 +124,10 @@
                 <option value="four">4人</option>
                 <option value="five">5人</option>
                 <option value="six">6人</option>
+                <option value="seven">7人</option>
+                <option value="eight">8人</option>
+                <option value="nine">9人</option>
+                <option value="ten">10人</option>
             </select>
             <div class="err-msg-name" id="childrennumbererr"></div>
         </div>
@@ -169,7 +151,7 @@
                 <label class="btn btn-primary">
                     <input type="radio" name="first-male" id="first-other" autocomplete="off">その他
                 </label>
-            </div>]
+            </div>
             <div class="err-msg-name" id="firstchildrensexerr"></div>
         </div>
 
@@ -219,53 +201,181 @@
             <div class="err-msg-name" id="thirdchildrensexerr"></div>
         </div>
 
-        <button type=submit class="btn btn-primary mx-auto d-block">現在家計簿入力へ進む</button>
-    </form>
+        <div class="form-group" style="display: none;" id="fourchildrenbirth" name="fourchildrenbirth">
+           <label for="text">4人目の生年月日<br>
+                （今後、ご出産予定の場合は、想定時期を入力してください。）</label><br>
+           <input type="text" id="four-birthday" name="four-birthday" class="form-control"><br>
+           <div class="err-msg-name" id="fourchildrenbirtherr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="fourchildrensex" name="fourchildrensex">
+           <label for="text">4人目の性別</label><br>
+           <div class="btn-group btn-group-toggle" data-toggle="buttons" id="fourchildrensexinput">
+                <label class="btn btn-primary active">
+                    <input type="radio" name="four-male" id="four-male" autocomplete="off" checked>男性
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="four-male" id="four-female" autocomplete="off">女性
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="four-male" id="four-other" autocomplete="off">その他
+                </label>
+            </div>
+            <div class="err-msg-name" id="fourchildrensexerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="fivechildrenbirth" name="fivechildrenbirth">
+           <label for="text">5人目の生年月日<br>
+                （今後、ご出産予定の場合は、想定時期を入力してください。）</label><br>
+           <input type="text" id="five-birthday" name="five-birthday" class="form-control"><br>
+           <div class="err-msg-name" id="fivechildrenbirtherr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="fivechildrensex" name="fivechildrensex">
+           <label for="text">5人目の性別</label><br>
+           <div class="btn-group btn-group-toggle" data-toggle="buttons" id="fivechildrensexinput">
+                <label class="btn btn-primary active">
+                    <input type="radio" name="five-male" id="five-male" autocomplete="off" checked>男性
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="five-male" id="five-female" autocomplete="off">女性
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="five-male" id="five-other" autocomplete="off">その他
+                </label>
+            </div>
+            <div class="err-msg-name" id="fivechildrensexerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="sixchildrenbirth" name="sixchildrenbirth">
+           <label for="text">6人目の生年月日<br>
+                （今後、ご出産予定の場合は、想定時期を入力してください。）</label><br>
+           <input type="text" id="six-birthday" name="six-birthday" class="form-control"><br>
+           <div class="err-msg-name" id="sixchildrenbirtherr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="sixchildrensex" name="sixchildrensex">
+           <label for="text">6人目の性別</label><br>
+           <div class="btn-group btn-group-toggle" data-toggle="buttons" id="sixchildrensexinput">
+                <label class="btn btn-primary active">
+                    <input type="radio" name="six-male" id="six-male" autocomplete="off" checked>男性
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="six-male" id="six-female" autocomplete="off">女性
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="six-male" id="six-other" autocomplete="off">その他
+                </label>
+            </div>
+            <div class="err-msg-name" id="sixchildrensexerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="sevenchildrenbirth" name="sevenchildrenbirth">
+           <label for="text">7人目の生年月日<br>
+                （今後、ご出産予定の場合は、想定時期を入力してください。）</label><br>
+           <input type="text" id="seven-birthday" name="seven-birthday" class="form-control"><br>
+           <div class="err-msg-name" id="sevenchildrenbirtherr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="sevenchildrensex" name="sevenchildrensex">
+           <label for="text">7人目の性別</label><br>
+           <div class="btn-group btn-group-toggle" data-toggle="buttons" id="sevenchildrensexinput">
+                <label class="btn btn-primary active">
+                    <input type="radio" name="seven-male" id="seven-male" autocomplete="off" checked>男性
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="seven-male" id="seven-female" autocomplete="off">女性
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="seven-male" id="seven-other" autocomplete="off">その他
+                </label>
+            </div>
+            <div class="err-msg-name" id="sevenchildrensexerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="eightchildrenbirth" name="eightchildrenbirth">
+           <label for="text">8人目の生年月日<br>
+                （今後、ご出産予定の場合は、想定時期を入力してください。）</label><br>
+           <input type="text" id="eight-birthday" name="eight-birthday" class="form-control"><br>
+           <div class="err-msg-name" id="eightchildrenbirtherr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="eightchildrensex" name="eightchildrensex">
+           <label for="text">8人目の性別</label><br>
+           <div class="btn-group btn-group-toggle" data-toggle="buttons" id="eightchildrensexinput">
+                <label class="btn btn-primary active">
+                    <input type="radio" name="eight-male" id="eight-male" autocomplete="off" checked>男性
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="eight-male" id="eight-female" autocomplete="off">女性
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="eight-male" id="eight-other" autocomplete="off">その他
+                </label>
+            </div>
+            <div class="err-msg-name" id="eightchildrensexerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="ninechildrenbirth" name="ninechildrenbirth">
+           <label for="text">9人目の生年月日<br>
+                （今後、ご出産予定の場合は、想定時期を入力してください。）</label><br>
+           <input type="text" id="nine-birthday" name="nine-birthday" class="form-control"><br>
+           <div class="err-msg-name" id="ninechildrenbirtherr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="ninechildrensex" name="ninechildrensex">
+           <label for="text">9人目の性別</label><br>
+           <div class="btn-group btn-group-toggle" data-toggle="buttons" id="ninechildrensexinput">
+                <label class="btn btn-primary active">
+                    <input type="radio" name="nine-male" id="nine-male" autocomplete="off" checked>男性
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="nine-male" id="nine-female" autocomplete="off">女性
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="nine-male" id="nine-other" autocomplete="off">その他
+                </label>
+            </div>
+            <div class="err-msg-name" id="ninechildrensexerr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="tenchildrenbirth" name="tenchildrenbirth">
+           <label for="text">10人目の生年月日<br>
+                （今後、ご出産予定の場合は、想定時期を入力してください。）</label><br>
+           <input type="text" id="ten-birthday" name="ten-birthday" class="form-control"><br>
+           <div class="err-msg-name" id="tenchildrenbirtherr"></div>
+        </div>
+
+        <div class="form-group" style="display: none;" id="tenchildrensex" name="tenchildrensex">
+           <label for="text">10人目の性別</label><br>
+           <div class="btn-group btn-group-toggle" data-toggle="buttons" id="tenchildrensexinput">
+                <label class="btn btn-primary active">
+                    <input type="radio" name="ten-male" id="ten-male" autocomplete="off" checked>男性
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="ten-male" id="ten-female" autocomplete="off">女性
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="ten-male" id="ten-other" autocomplete="off">その他
+                </label>
+            </div>
+            <div class="err-msg-name" id="tenchildrensexerr"></div>
+        </div>
 </div><!-- /container -->
 
 </section>
 
 </main>
 
-<div id="footermenu">
-<ul>
-<li class="title">メニュー</li>
-<li><a href="index.html">ホーム</a></li>
-<li><a href="company.html">会社概要</a></li>
-<li><a href="list.html">仕事検索</a></li>
-<li><a href="request.html">企業のご担当者様</a></li>
-<li><a href="faq.html">よく頂く質問</a></li>
-<li><a href="contact.html">お問い合わせ</a></li>
-</ul>
-<ul>
-<li class="title">メニュー見出し</li>
-<li><a href="#">サンプルメニューサンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-</ul>
-<ul>
-<li class="title">メニュー見出し</li>
-<li><a href="#">サンプルメニューサンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-</ul>
-<ul>
-<li class="title">メニュー見出し</li>
-<li><a href="#">サンプルメニューサンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-</ul>
-</div>
 <!--/#footermenu-->
 
-<footer>
-
-<small>フッター</small>
-
+<footer class="bg1">
+    <label class="last-state">残り</label>
+    <label class="last-state-page">7</label>
+    <label class="last-state">項目</label>
+    <button type="button" class="btn btn-primary custom-btn-not" id="next_page2-not" disabled>現在家計簿入力へ進む</button>
 </footer>
+</form>
 
 </div>
 <!--/#container-->
