@@ -33,7 +33,7 @@
 <div class="container mt-5 p-lg-5 bg-light"style="display: none;" id="yourhome">
     <form class="needs-validation">
     @csrf
-        <div class="form-group">
+        <div class="form-group" style="display: none;" id="yourhome">
            <label for="text">マイホームを購入したのはいつですか。</label><br>
            <table>
             <th>

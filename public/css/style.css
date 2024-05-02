@@ -378,10 +378,10 @@ main p + p {margin-top: -15px;}
 	color: #000000;
 }
 
-#modal-header2{
+#modal .modal-content .modal-header h2{
 	font-family:'メイリオ', 'Meiryo', sans-serif ;
 	color: #000000;
-	font-size: 35 px;
+	font-size: 10 px;
 	text-align: center;
 }
 
