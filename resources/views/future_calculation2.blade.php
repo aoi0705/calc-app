@@ -16,18 +16,18 @@
 
 <div id="container">
 
-<ul class="progressbar">
-    <li class="complete">本人・<br>家族構成</li>
-    <li class="active">現在家計簿<br>情報</li>
-    <li>未来家計簿<br>情報</li>
-</ul>
-
 <main>
 
 <section>
 
 <h2>未来家計簿作成</h2>
 <h3>続いて、現在家計簿情報を入力していきましょう！ご回答いただく項目は以下の22項目です。</h3>
+
+<ul class="progressbar">
+    <li class="complete">本人・<br>家族構成</li>
+    <li class="active">現在家計簿<br>情報</li>
+    <li>未来家計簿<br>情報</li>
+</ul>
 
 <!-- Page Content -->
 <div class="container mt-5 p-lg-5 bg-light">
@@ -37,7 +37,7 @@
            <label for="text">あなたの年収を教えてください</label><br>
            <table>
             <th>
-           <input type="text" id="annual-income" name="annual-income" class="form-control"></th>
+           <input type="text" id="annual-income" name="annual-income" class="form-control" placeholder="500"></th>
            <td>
            <label for="annual-income">万円</label></td>
             </table>
@@ -48,7 +48,7 @@
            <label for="text">あなたのボーナスを教えてください（ざっくりで構いません！）</label><br>
            <table>
             <th>
-           <input type="text" id="bonus" name="bonus" class="form-control">
+           <input type="text" id="bonus" name="bonus" class="form-control" placeholder="100">
             </th>
             <td>
            <label for="text">万円</label>
@@ -61,7 +61,7 @@
            <label for="text">配偶者・パートナーの年収を教えてください</label><br>
            <table>
            <th>
-           <input type="text" id="spouse-annual-income" name="spouse-annual-income" class="form-control"></th>
+           <input type="text" id="spouse-annual-income" name="spouse-annual-income" class="form-control" placeholder="500"></th>
            <td>
            <label for="text">万円</label></td>
          </table>
@@ -72,7 +72,7 @@
            <label for="text">配偶者・パートナーのボーナスを教えてください（ざっくりで構いません！）</label><br>
            <table>
             <th>
-           <input type="text" id="spouse-bonus" name="spouse-bonus" class="form-control"></th>
+           <input type="text" id="spouse-bonus" name="spouse-bonus" class="form-control" placeholder="100"></th>
            <td>
            <label for="text">万円</label></td>
          </table>
@@ -83,9 +83,9 @@
            <label for="text">毎月の食費はどれくらいですか？（ざっくりでかまいません）</label><br>
            <table>
             <th>
-           <input type="text" id="food-expenses" name="food-expenses" class="form-control"></th>
+           <input type="text" id="food-expenses" name="food-expenses" class="form-control" placeholder="100000"></th>
            <td>
-           <label for="text">万円</label></td>
+           <label for="text">円</label></td>
          </table>
            <div class="err-msg-name" id="yourfoodexpenseserr"></div>
          </div>
@@ -94,9 +94,9 @@
            <label for="text">毎月の日用品・雑貨代はどれくらいですか？（ざっくりでかまいません）</label><br>
            <table>
             <th>
-           <input type="text" id="living-cost" name="living-cost" class="form-control"></th>
+           <input type="text" id="living-cost" name="living-cost" class="form-control" placeholder="20000"></th>
            <td>
-           <label for="text">万円</label></td>
+           <label for="text">円</label></td>
          </table>
            <div class="err-msg-name" id="yourlivingcosterr"></div>
          </div>
@@ -105,9 +105,9 @@
            <label for="text">毎月の衣服・美容代はどれくらいですか？（ざっくりでかまいません）</label><br>
            <table>
             <th>
-           <input type="text" id="beauty-bill" name="beauty-bill" class="form-control"></th>
+           <input type="text" id="beauty-bill" name="beauty-bill" class="form-control" placeholder="30000"></th>
            <td>
-           <label for="text">万円</label></td></table>
+           <label for="text">円</label></td></table>
            <div class="err-msg-name" id="yourbeautybillerr"></div>
          </div>
 
@@ -126,9 +126,9 @@
            <label for="text">毎月の住居費（持ち家の場合、毎月の住宅ローンの金額）を教えてください</label><br>
            <table>
             <th>
-           <input type="text" id="house-cost" name="house-cost" class="form-control"></th>
+           <input type="text" id="house-cost" name="house-cost" class="form-control" placeholder="150000"></th>
            <td>
-           <label for="text">万円</label></td></table>
+           <label for="text">円</label></td></table>
            <div class="err-msg-name" id="yourhousecosterr"></div>
          </div>
 
@@ -136,9 +136,9 @@
            <label for="text">毎月の住居の管理費（修繕積立金・管理金等）を教えてください</label><br>
            <table>
             <th>
-           <input type="text" id="manage-cost" name="manage-cost" class="form-control"></th>
+           <input type="text" id="manage-cost" name="manage-cost" class="form-control" placeholder="30000"></th>
            <td>
-           <label for="text">万円</label></td></table>
+           <label for="text">円</label></td></table>
            <div class="err-msg-name" id="yourmanagecosterr"></div>
          </div>
 
@@ -146,9 +146,9 @@
            <label for="text">毎月の水道・光熱費はどれくらいですか？（ざっくりでかまいません）</label><br>
            <table>
             <th>
-           <input type="text" id="bill" name="bill" class="form-control"></th>
+           <input type="text" id="bill" name="bill" class="form-control" placeholder="40000"></th>
            <td>
-           <label for="text">万円</label></td></table>
+           <label for="text">円</label></td></table>
            <div class="err-msg-name" id="yourbillerr"></div>
          </div>
 
@@ -156,9 +156,9 @@
            <label for="text">毎月の通信費（PC）はどれくらいですか？（ざっくりでかまいません）</label><br>
            <table>
             <th>
-           <input type="text" id="pc-bill" name="pc-bill" class="form-control"></th>
+           <input type="text" id="pc-bill" name="pc-bill" class="form-control" placeholder="5000"></th>
            <td>
-           <label for="text">万円</label></td></table>
+           <label for="text">円</label></td></table>
            <div class="err-msg-name" id="yourpcbillerr"></div>
          </div>
 
@@ -166,9 +166,9 @@
            <label for="text">毎月の通信費（スマホ等）はどれくらいですか？（ざっくりでかまいません）</label><br>
            <table>
             <th>
-           <input type="text" id="phone-bill" name="phone-bill" class="form-control"></th>
+           <input type="text" id="phone-bill" name="phone-bill" class="form-control" placeholder="20000"></th>
            <td>
-           <label for="text">万円</label></td></table>
+           <label for="text">円</label></td></table>
            <div class="err-msg-name" id="yourphonebillerr"></div>
          </div>
 
@@ -176,9 +176,9 @@
            <label for="text">毎月の自動車ローン/毎月のレンタカー・カーシェア代はどれくらいですか？（ざっくりでかまいません）</label><br>
            <table>
             <th>
-           <input type="text" id="lone" name="lone" class="form-control"></th>
+           <input type="text" id="lone" name="lone" class="form-control" placeholder="20000"></th>
            <td>
-           <label for="text">万円</label></td></table>
+           <label for="text">円</label></td></table>
            <div class="err-msg-name" id="yourloneerr"></div>
          </div>
 
@@ -186,9 +186,9 @@
            <label for="text">毎月の自動車保険の保険料を教えてください（未加入の場合、ボタンを押下してください）</label><br>
            <table>
             <th>
-           <input type="text" id="Insurance-bill" name="Insurance-bill" class="form-control"></th>
+           <input type="text" id="Insurance-bill" name="Insurance-bill" class="form-control" placeholder="10000"></th>
            <td>
-           <label for="text">万円</label></td></table>
+           <label for="text">円</label></td></table>
            <button type="button" id="insurance-not-click">未加入</button>
            <div class="err-msg-name" id="yourinsurancebillerr"></div>
          </div>
@@ -197,9 +197,9 @@
            <label for="text">毎月の学資保険の保険料を教えてください（未加入の場合、ボタンを押下してください）</label><br>
            <table>
             <th>
-           <input type="text" id="Educational-insurance" name="Educational-insurance" class="form-control"></th>
+           <input type="text" id="Educational-insurance" name="Educational-insurance" class="form-control" placeholder="10000"></th>
            <td>
-           <label for="text">万円</label></td></table>
+           <label for="text">円</label></td></table>
            <button type="button" id="youreducationalinsurance-not-click">未加入</button>
            <div class="err-msg-name" id="youreducationalinsuranceerr"></div>
          </div>
@@ -208,9 +208,9 @@
            <label for="text"></label>毎月の教育費（保育園・幼稚園費、習い事等）はどれくらいですか？（ざっくりでかまいません）<br>
            <table>
             <th>
-           <input type="text" id="education-expenses" name="education-expenses" class="form-control"></th>
+           <input type="text" id="education-expenses" name="education-expenses" class="form-control" placeholder="50000"></th>
            <td>
-           <label for="text">万円</label></td></table>
+           <label for="text">円</label></td></table>
            <div class="err-msg-name" id="youreducationexpenseserr"></div>
          </div>
 
@@ -218,9 +218,9 @@
            <label for="text"></label>毎月の医療保険の保険料を教えてください（未加入の場合、ボタンを押下してください）<br>
            <table>
             <th>
-           <input type="text" id="medical-insurance" name="medical-insurance" class="form-control"></th>
+           <input type="text" id="medical-insurance" name="medical-insurance" class="form-control" placeholder="5000"></th>
            <td>
-           <label for="text">万円</label></td></table>
+           <label for="text">円</label></td></table>
            <button type="button" id="yourmedicalinsurance-not-click">未加入</button>
            <div class="err-msg-name" id="yourmedicalinsuranceerr"></div>
          </div>
@@ -229,9 +229,9 @@
            <label for="text">毎月の医療保険以外の生命保険の保険料を教えてください（未加入の場合、ボタンを押下してください）</label><br>
            <table>
             <th>
-           <input type="text" id="life-insurance" name="life-insurance" class="form-control"></th>
+           <input type="text" id="life-insurance" name="life-insurance" class="form-control" placeholder="20000"></th>
            <td>
-           <label for="text">万円</label></td></table>
+           <label for="text">円</label></td></table>
            <button type="button" id="yourlifeinsurance-not-click">未加入</button>
            <div class="err-msg-name" id="yourlifeinsuranceerr"></div>
          </div>
@@ -240,9 +240,9 @@
            <label for="text">毎月の不動産投資の費用はどれくらいですか？（物件をお持ちでない場合、ボタンを押下してください）</label><br>
            <table>
             <th>
-           <input type="text" id="Estate-Investment" name="Estate-Investment" class="form-control"></th>
+           <input type="text" id="Estate-Investment" name="Estate-Investment" class="form-control" placeholder="20000"></th>
            <td>
-           <label for="text">万円</label></td></table>
+           <label for="text">円</label></td></table>
            <button type="button" id="yourestateinvestment-not-click">未保有</button>
            <div class="err-msg-name" id="yourestateinvestmenterr"></div>
          </div>
@@ -251,9 +251,9 @@
            <label for="text">毎月の資産運用（株式・債権・投資信託等）の購入費用を教えてください</label><br>
            <table>
             <th>
-           <input type="text" id="asset-management" name="asset-management" class="form-control"></th>
+           <input type="text" id="asset-management" name="asset-management" class="form-control" placeholder="50000"></th>
            <td>
-           <label for="text">万円</label></td></table>
+           <label for="text">円</label></td></table>
            <div class="err-msg-name" id="yourassetmanagementerr"></div>
          </div>
 
@@ -261,9 +261,9 @@
            <label for="text">毎月の貯金（普通預金等）を教えてください</label><br>
            <table>
             <th>
-           <input type="text" id="savings" name="savings" class="form-control"></th>
+           <input type="text" id="savings" name="savings" class="form-control" placeholder="50000"></th>
            <td>
-           <label for="text">万円</label></td></table>
+           <label for="text">円</label></td></table>
            <div class="err-msg-name" id="yourformcontrolerr"></div>
          </div>
 </div><!-- /container -->
@@ -274,7 +274,7 @@
 <!--/#footermenu-->
 
 <footer class="bg1">
-<button type="button" onclick="location.href='./future_calculation'" class="btn btn-primary custom-btn" id="back-page">本人・家族構成情報へ戻る</button>
+<button type="button" onclick="history.back()" class="btn btn-primary custom-btn" id="back-page">本人・家族構成情報へ戻る</button>
     <label class="last-state">残り</label>
     <label class="last-state-page"></label>
     <label class="last-state">項目</label>

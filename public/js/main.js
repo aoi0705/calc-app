@@ -307,8 +307,6 @@ $(function(){
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('click', (e) => {
-        // デフォルトアクションをキャンセル
-        e.preventDefault();
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
@@ -440,8 +438,6 @@ $(function(){
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('click', (e) => {
-        // デフォルトアクションをキャンセル
-        e.preventDefault();
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
@@ -646,8 +642,6 @@ $(function(){
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('click', (e) => {
-        // デフォルトアクションをキャンセル
-        e.preventDefault();
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
@@ -803,8 +797,6 @@ $(function(){
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('click', (e) => {
-        // デフォルトアクションをキャンセル
-        e.preventDefault();
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
@@ -960,8 +952,6 @@ $(function(){
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('click', (e) => {
-        // デフォルトアクションをキャンセル
-        e.preventDefault();
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
@@ -1117,8 +1107,6 @@ $(function(){
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('click', (e) => {
-        // デフォルトアクションをキャンセル
-        e.preventDefault();
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
@@ -1275,8 +1263,6 @@ $(function(){
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('click', (e) => {
-        // デフォルトアクションをキャンセル
-        e.preventDefault();
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
@@ -1433,8 +1419,6 @@ $(function(){
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('click', (e) => {
-        // デフォルトアクションをキャンセル
-        e.preventDefault();
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
@@ -1590,8 +1574,6 @@ $(function(){
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('click', (e) => {
-        // デフォルトアクションをキャンセル
-        e.preventDefault();
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
@@ -1747,9 +1729,6 @@ $(function(){
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('click', (e) => {
-        // デフォルトアクションをキャンセル
-        e.preventDefault();
-
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
         const name = document.querySelector('#eight-male');
@@ -1904,8 +1883,6 @@ $(function(){
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('click', (e) => {
-        // デフォルトアクションをキャンセル
-        e.preventDefault();
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
@@ -2061,8 +2038,6 @@ $(function(){
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('click', (e) => {
-        // デフォルトアクションをキャンセル
-        e.preventDefault();
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
@@ -2206,7 +2181,7 @@ $(function(){
         const name = document.querySelector('#annual-income');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#annualincomeerr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -2255,7 +2230,7 @@ $(function(){
         const name = document.querySelector('#bonus');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourbonuserr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -2314,7 +2289,7 @@ $(function(){
         const name = document.querySelector('#spouse-annual-income');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourpartnerincomeerr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -2359,7 +2334,7 @@ $(function(){
         const name = document.querySelector('#spouse-bonus');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourpartnerbonuserr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -2404,7 +2379,7 @@ $(function(){
         const name = document.querySelector('#food-expenses');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourfoodexpenseserr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,14})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -2453,7 +2428,7 @@ $(function(){
         const name = document.querySelector('#living-cost');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourlivingcosterr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,14})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -2502,7 +2477,7 @@ $(function(){
         const name = document.querySelector('#beauty-bill');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourbeautybillerr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,14})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -2615,20 +2590,41 @@ $(function(){
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-			let box = document.querySelector('#yourmanagecost');
-			//styleのdisplayを変更する関数
-			box.style.display='';
-            if(children_bool == false && partner_bool == false){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "11"
-            }   
-            else if(partner_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "11"
+            let choice = document.getElementById("house-class").value;
+
+            if(choice != "apartment"){
+                let box = document.querySelector('#yourmanagecost');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                if(children_bool == false && partner_bool == false){
+                    const stat = document.querySelector('.last-state-page');
+                    stat.textContent = "11"
+                }   
+                else if(partner_bool == true){
+                    const stat = document.querySelector('.last-state-page');
+                    stat.textContent = "11"
+                }
+                else if(children_bool == true){
+                    const stat = document.querySelector('.last-state-page');
+                    stat.textContent = "13"
+                }
             }
-            else if(children_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "13"
+            else{
+                let box = document.querySelector('#yourbill');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                if(children_bool == false && partner_bool == false){
+                    const stat = document.querySelector('.last-state-page');
+                    stat.textContent = "10"
+                }   
+                else if(partner_bool == true){
+                    const stat = document.querySelector('.last-state-page');
+                    stat.textContent = "10"
+                }
+                else if(children_bool == true){
+                    const stat = document.querySelector('.last-state-page');
+                    stat.textContent = "12"
+                }
             }
         }
 	});
@@ -2649,7 +2645,7 @@ $(function(){
         const name = document.querySelector('#manage-cost');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourmanagecosterr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,14})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -2698,7 +2694,7 @@ $(function(){
         const name = document.querySelector('#bill');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourbillerr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,14})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -2747,7 +2743,7 @@ $(function(){
         const name = document.querySelector('#pc-bill');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourpcbillerr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,14})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -2796,7 +2792,7 @@ $(function(){
         const name = document.querySelector('#phone-bill');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourphonebillerr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,14})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -2845,7 +2841,7 @@ $(function(){
         const name = document.querySelector('#lone');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourloneerr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,14})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -2894,7 +2890,7 @@ $(function(){
         const name = document.querySelector('#Insurance-bill');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourinsurancebillerr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,14})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -2952,7 +2948,7 @@ $(function(){
         const name = document.querySelector('#Educational-insurance');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#youreducationalinsuranceerr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,14})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -2991,7 +2987,7 @@ $(function(){
         const name = document.querySelector('#education-expenses');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#youreducationexpenseserr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,14})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -3030,7 +3026,7 @@ $(function(){
         const name = document.querySelector('#medical-insurance');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourmedicalinsuranceerr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,14})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -3069,7 +3065,7 @@ $(function(){
         const name = document.querySelector('#life-insurance');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourlifeinsuranceerr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,14})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -3108,7 +3104,7 @@ $(function(){
         const name = document.querySelector('#Estate-Investment');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourestateinvestmenterr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,14})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -3147,7 +3143,7 @@ $(function(){
         const name = document.querySelector('#asset-management');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourassetmanagementerr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,14})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -3186,7 +3182,7 @@ $(function(){
         const name = document.querySelector('#savings');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourformcontrolerr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,14})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -3249,7 +3245,7 @@ $(function(){
     let button = document.querySelector('#insurance-not-click')
     
     button.addEventListener('click', (e) => {
-        input.value = "未加入"
+        input.value = "0"
         // 次の項目を表示
         if(children_bool == true){
             let box = document.querySelector('#youreducationalinsurance');
@@ -3273,7 +3269,7 @@ $(function(){
     let button = document.querySelector('#youreducationalinsurance-not-click')
     
     button.addEventListener('click', (e) => {
-        input.value = "未加入"
+        input.value = "0"
         // 次の項目を表示
         let box = document.querySelector('#youreducationexpenses');
         //styleのdisplayを変更する関数
@@ -3288,7 +3284,7 @@ $(function(){
     let button = document.querySelector('#yourmedicalinsurance-not-click')
     
     button.addEventListener('click', (e) => {
-        input.value = "未加入"
+        input.value = "0"
         // 次の項目を表示
         let box = document.querySelector('#yourlifeinsurance');
         //styleのdisplayを変更する関数
@@ -3303,7 +3299,7 @@ $(function(){
     let button = document.querySelector('#yourlifeinsurance-not-click')
     
     button.addEventListener('click', (e) => {
-        input.value = "未加入"
+        input.value = "0"
         // 次の項目を表示
         let box = document.querySelector('#yourestateinvestment');
         //styleのdisplayを変更する関数
@@ -3318,7 +3314,7 @@ $(function(){
     let button = document.querySelector('#yourestateinvestment-not-click')
     
     button.addEventListener('click', (e) => {
-        input.value = "未保有"
+        input.value = "0"
         // 次の項目を表示
         let box = document.querySelector('#yourassetmanagement');
         //styleのdisplayを変更する関数
@@ -3430,7 +3426,7 @@ $(function(){
         const name = document.querySelector('#myhome-buy');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#myhomebuyerr');
-        if(!name.value){
+        if(!name.value.match(/^([0-9]{4})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -3487,30 +3483,12 @@ $(function(){
             var children_number = sessionStorage.getItem('number-children')
             var your_estate = document.getElementById("estate").value;
 			// 次の項目を表示
-            if(your_estate == "two"){
                 let box = document.querySelector('#yourfirstestate');
                 //styleのdisplayを変更する関数
                 box.style.display='';
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) + 4)
-            }
-            else if(your_estate == "one"){
-                let box = document.querySelector('#yourfirstestate');
-                //styleのdisplayを変更する関数
-                box.style.display='';
-                const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) + 2)
-            }
-            else if(your_estate == "zero"){
-                let box = document.querySelector('#yoursavingsbalance');
-                //styleのdisplayを変更する関数
-                box.style.display='';
-                const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) - 1)
-            }
+                stat.textContent = String(Number(base_laststate) + Number(Number(your_estate) * 2))
         }
 	});
 });
@@ -3570,7 +3548,7 @@ $(function(){
         const name = document.querySelector('#first-rental-income');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourfirstrentalincomeerr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -3587,21 +3565,21 @@ $(function(){
 			// 次の項目を表示
             var children_number = sessionStorage.getItem('number-children')
             var your_estate = document.getElementById("estate").value;
-            if(your_estate == "two"){
-                let box = document.querySelector('#yoursecondestate');
-                //styleのdisplayを変更する関数
-                box.style.display='';
-                const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) - 1)
-            }
-            else{
+            if(your_estate == "1"){
                 let box = document.querySelector('#yoursavingsbalance');
                 //styleのdisplayを変更する関数
                 box.style.display='';
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1) 
+            }
+            else{
+                let box = document.querySelector('#yoursecondestate');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
             }
         }
 	});
@@ -3662,7 +3640,7 @@ $(function(){
         const name = document.querySelector('#second-rental-income');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yoursecondrentalincomeerr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -3677,12 +3655,750 @@ $(function(){
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-			let box = document.querySelector('#yoursavingsbalance');
+            var children_number = sessionStorage.getItem('number-children')
+            var your_estate = document.getElementById("estate").value;
+            if(your_estate == "2"){
+                let box = document.querySelector('#yoursavingsbalance');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1) 
+            }
+            else{
+                let box = document.querySelector('#yourthirdestate');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#third-estate');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#third-estate');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourthirdestateerr');
+        if(!name.value.match(/^([0-9]{4})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '4桁の半角数字で入力して下さい。';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourthirdrentalincome');
 			//styleのdisplayを変更する関数
 			box.style.display='';
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#third-rental-income');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#third-rental-income');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourthirdrentalincomeerr');
+        if(!name.value.match(/^([0-9]{1,9})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            var children_number = sessionStorage.getItem('number-children')
+            var your_estate = document.getElementById("estate").value;
+            if(your_estate == "3"){
+                let box = document.querySelector('#yoursavingsbalance');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1) 
+            }
+            else{
+                let box = document.querySelector('#yourfourestate');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#four-estate');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#four-estate');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourfourestateerr');
+        if(!name.value.match(/^([0-9]{4})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '4桁の半角数字で入力して下さい。';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourfourrentalincome');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#four-rental-income');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#four-rental-income');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourfourrentalincomeerr');
+        if(!name.value.match(/^([0-9]{1,9})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            var children_number = sessionStorage.getItem('number-children')
+            var your_estate = document.getElementById("estate").value;
+            if(your_estate == "4"){
+                let box = document.querySelector('#yoursavingsbalance');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1) 
+            }
+            else{
+                let box = document.querySelector('#yourfiveestate');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#five-estate');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#five-estate');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourfiveestateerr');
+        if(!name.value.match(/^([0-9]{4})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '4桁の半角数字で入力して下さい。';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourfiverentalincome');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#five-rental-income');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#five-rental-income');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourfiverentalincomeerr');
+        if(!name.value.match(/^([0-9]{1,9})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            var children_number = sessionStorage.getItem('number-children')
+            var your_estate = document.getElementById("estate").value;
+            if(your_estate == "5"){
+                let box = document.querySelector('#yoursavingsbalance');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1) 
+            }
+            else{
+                let box = document.querySelector('#yoursixestate');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#six-estate');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#six-estate');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yoursixestateerr');
+        if(!name.value.match(/^([0-9]{4})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '4桁の半角数字で入力して下さい。';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yoursixrentalincome');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#six-rental-income');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#six-rental-income');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yoursixrentalincomeerr');
+        if(!name.value.match(/^([0-9]{1,9})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            var children_number = sessionStorage.getItem('number-children')
+            var your_estate = document.getElementById("estate").value;
+            if(your_estate == "6"){
+                let box = document.querySelector('#yoursavingsbalance');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1) 
+            }
+            else{
+                let box = document.querySelector('#yoursevenestate');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#seven-estate');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#seven-estate');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yoursevenestateerr');
+        if(!name.value.match(/^([0-9]{4})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '4桁の半角数字で入力して下さい。';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yoursevenrentalincome');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#seven-rental-income');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#seven-rental-income');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yoursevenrentalincomeerr');
+        if(!name.value.match(/^([0-9]{1,9})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            var children_number = sessionStorage.getItem('number-children')
+            var your_estate = document.getElementById("estate").value;
+            if(your_estate == "7"){
+                let box = document.querySelector('#yoursavingsbalance');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1) 
+            }
+            else{
+                let box = document.querySelector('#youreightestate');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#eight-estate');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#eight-estate');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#youreightestateerr');
+        if(!name.value.match(/^([0-9]{4})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '4桁の半角数字で入力して下さい。';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#youreightrentalincome');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#eight-rental-income');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#eight-rental-income');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#youreightrentalincomeerr');
+        if(!name.value.match(/^([0-9]{1,9})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            var children_number = sessionStorage.getItem('number-children')
+            var your_estate = document.getElementById("estate").value;
+            if(your_estate == "8"){
+                let box = document.querySelector('#yoursavingsbalance');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1) 
+            }
+            else{
+                let box = document.querySelector('#yournineestate');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#nine-estate');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#nine-estate');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yournineestateerr');
+        if(!name.value.match(/^([0-9]{4})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '4桁の半角数字で入力して下さい。';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourninerentalincome');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#nine-rental-income');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#nine-rental-income');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourninerentalincomeerr');
+        if(!name.value.match(/^([0-9]{1,9})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            var children_number = sessionStorage.getItem('number-children')
+            var your_estate = document.getElementById("estate").value;
+            if(your_estate == "9"){
+                let box = document.querySelector('#yoursavingsbalance');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1) 
+            }
+            else{
+                let box = document.querySelector('#yourtenestate');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#ten-estate');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#ten-estate');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourtenestateerr');
+        if(!name.value.match(/^([0-9]{4})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '4桁の半角数字で入力して下さい。';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+			let box = document.querySelector('#yourtenrentalincome');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1)
+        }
+	});
+});
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#ten-rental-income');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#ten-rental-income');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#yourtenrentalincomeerr');
+        if(!name.value.match(/^([0-9]{1,9})$/)){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '半角数字で入力してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+			// 次の項目を表示
+            var children_number = sessionStorage.getItem('number-children')
+            var your_estate = document.getElementById("estate").value;
+            let box = document.querySelector('#yoursavingsbalance');
+            //styleのdisplayを変更する関数
+            box.style.display='';
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) - 1) 
         }
 	});
 });
@@ -3702,7 +4418,7 @@ $(function(){
         const name = document.querySelector('#savings-balance');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yoursavingsbalanceerr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -3754,7 +4470,7 @@ $(function(){
         const name = document.querySelector('#last-Educational-insurance');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourlastEducationalinsuranceerr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -3794,7 +4510,7 @@ $(function(){
         const name = document.querySelector('#trip');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourtriperr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -3834,7 +4550,7 @@ $(function(){
         const name = document.querySelector('#other-expense');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourotherexpenseerr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -3876,7 +4592,7 @@ $(function(){
         const name = document.querySelector('#start-wark');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourstartworkerr');
-        if(!name.value.match(/^([0-9]{2})$/)){
+        if(!name.value.match(/^([0-9]{2,3})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -3916,7 +4632,7 @@ $(function(){
         const name = document.querySelector('#Starting-salary');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourstartingsalaryerr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -3956,7 +4672,7 @@ $(function(){
         const name = document.querySelector('#Estimated-annual-income');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourestimatedannualincomeerr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -3988,8 +4704,6 @@ $(function(){
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('click', (e) => {
-        // デフォルトアクションをキャンセル
-        e.preventDefault();
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
@@ -4056,7 +4770,7 @@ $(function(){
         const name = document.querySelector('#spouse-start-work');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourpartnerstratworkerr');
-        if(!name.value.match(/^([0-9]{2})$/)){
+        if(!name.value.match(/^([0-9]{2,3})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -4097,7 +4811,7 @@ $(function(){
         const name = document.querySelector('#spouse-Starting-salary');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourpartnerstartingsalaryerr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -4137,7 +4851,7 @@ $(function(){
         const name = document.querySelector('#spouse-Estimated-annual-income');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourpartnerestimatedannualincomeerr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -4169,8 +4883,6 @@ $(function(){
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('click', (e) => {
-        // デフォルトアクションをキャンセル
-        e.preventDefault();
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
@@ -5921,6 +6633,40 @@ $(function(){
             let next_button = document.querySelector("#next_page2-not");
             $('#next_page2-not').prop('disabled', false);
             next_button.id = "next_page2"
+        }
+	});
+});
+
+//ワンタイムパスのバリデーション
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.querySelector('#onetime-password');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('change', (e) => {
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#onetime-password');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#onetimepasserr');
+        if((!name.value.match(/^([0-9]{6})$/))){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = 'いずれかを選択してください';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
         }
 	});
 });

@@ -151,15 +151,16 @@ header #logo {
     color: #999999;
     font-weight: bold;
     counter-increment: steps;
+	font-size: 25px;
 }
 .progressbar li:before {
     display: block;
-    width: 26px;
-    height: 26px;
+    width: 80px;
+    height: 80px;
     margin: 7px auto 20px auto;
     content: '';
-    line-height: 26px;
-    font-size: 12px;
+    line-height: 75px;
+    font-size: 25px;
     text-align: center;
     border-radius: 50%;
     background-color: #F5F5F5;
@@ -168,10 +169,10 @@ header #logo {
 .progressbar li:after {
     position: absolute;
     z-index: -1;
-    top: 15px;
+    top: 37px;
     left: -50%;
     width: 100%;
-    height: 2px;
+    height: 20px;
     content: '';
     background-color: #F5F5F5;
 }
@@ -364,7 +365,9 @@ main h2 span {
 /*mainブロック内のh3タグ*/
 main h3 {
 	margin: 0 0 1em;		/*上、左右、下へのタグの外にとるスペース*/
-	color: #FF9696;			/*文字色*/
+	color: #FF9696;
+	font-family: 'メイリオ', 'Meiryo', sans-serif;
+	font-weight: bold;			/*文字色*/
 }
 
 /*mainブロックのpタグ*/
@@ -378,10 +381,10 @@ main p + p {margin-top: -15px;}
 	color: #000000;
 }
 
-#modal .modal-content .modal-header h2{
+.modal-title{
 	font-family:'メイリオ', 'Meiryo', sans-serif ;
 	color: #000000;
-	font-size: 10 px;
+	font-size: 30 px;
 	text-align: center;
 }
 
@@ -427,9 +430,12 @@ footer small {font-size: 100%;}
 footer {
 	font-size: 0.7rem;		/*文字サイズ*/
 	text-align: center;		/*内容をセンタリング*/
-	padding: 20px;			/*ボックス内の余白*/
+	padding: 0px;			/*ボックス内の余白*/
 	background: #111;		/*背景色*/
-	color: #fff;			/*文字色*/
+	color: #fff;	
+	position: fixed;
+	bottom: 0;
+	width: 100%;
 }
 
 /*リンクテキスト*/
@@ -1166,6 +1172,12 @@ html, body {
 .ws {width: 48%;display: inline;}
 .sh {display: none;}
 .pc {display: inline-block;}
+
+/*追記
+---------------------------------------------------------------------------*/
+.form-group label{
+	font-weight: bold;
+}
 
 
 /*　※注意！　下の閉じカッコ　}　はこのブロックに必要なので、削除しないで下さい。　*/
