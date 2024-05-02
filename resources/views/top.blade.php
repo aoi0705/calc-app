@@ -6,6 +6,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="構築中">
 <link rel="stylesheet" href="css/style.css">
+<style>
+    footer {
+	font-size: 0.7rem;		/*文字サイズ*/
+	text-align: center;		/*内容をセンタリング*/
+	padding: 20px;			/*ボックス内の余白*/
+	background: #111;		/*背景色*/
+	color: #fff;	
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	margin-top: auto;
+}
+</style>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -20,16 +33,15 @@
 
 <header>
 
-<h1 id="logo"><a href="{{ url('/') }}"><img src="images/logo.png" alt="ロゴ"></a></h1>
-
 <!--メニュー-->
 <div id="menubar">
 
 <nav>
 <ul>
-<li><a href="{{ url('/') }}">TOP</a></li>
-<li><a href="{{ url('/WhoWeAre') }}">Who We Are</a></li>
-<li><a href="{{ url('/Profile') }}">Company Profile</a></li>
+<li><h1 id="logo"><a href="{{ url('/') }}"><img src="images/logo.jpg" alt="ロゴ"></a></h1></li>
+<li class="link_text"><a href="#mainimg">TOP</a></li>
+<li class="link_text"><a href="#whoweare">Who we are</a></li>
+<li class="link_text"><a href="#companyprofile">Company Profile</a></li>
 </ul>
 </nav>
 
@@ -53,9 +65,9 @@
     <div class="modal-dialog modal-dialog-scrollable" role="document" id="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">
+                <h3 class="modal-title">
                     個人情報取り扱い同意書
-                </h4>
+                </h3>
             </div>
             <div class="modal-body">
                 <section>
@@ -69,13 +81,13 @@
                     <h4>２. 利用目的</h4>
                         <p>当社は、収集した個人情報を以下の目的のために利用いたします。<br><br>
 
-                        <strong class="color-theme">・未来家計簿の作成</strong><br>
+                        ・未来家計簿の作成<br>
                         お客様の提供する個人情報を基に、将来の資産状況や家計の予測を行い、具体的な計画を提案します。<br>
-                        <strong class="color-theme">・カスタマイズされたアドバイスの提供</strong><br>
+                        ・カスタマイズされたアドバイスの提供<br>
                         未来家計簿診断結果に基づき、個々のお客様に最適な金融商品やサービスを推奨します。<br> 
-                        <strong class="color-theme">・家計見直しのプロ（FP）/資産運用のプロ（IFA）との連携</strong><br>
+                        ・家計見直しのプロ（FP）/資産運用のプロ（IFA）との連携<br>
                         お客様の同意を得た上で、お客様の金融状況とニーズに最適なFP（ファイナンシャルプランナー）またはIFA（独立金融アドバイザー）を紹介し、直接的なアドバイスやサポートを提供します。<br>
-                        <strong class="color-theme">・通信とサポート</strong><br>
+                        ・通信とサポート<br>
                         お客様からのお問い合わせに対する対応、および当社サービスに関する情報提供や更新通知を行います。<br> 
                         </p>
 
@@ -123,9 +135,8 @@
 </section>
 
 <main>
-<section>
+<section id="whoweare">
 <h2>Who we are</h2>
-<p>サンプルテキスト。</p>
 </section>
 
 <section class="bg1">
@@ -194,7 +205,7 @@
 
 </section>
 
-<section>
+<section id="companyprofile">
 
 <h2>Company Profile<span>会社概要</span></h2>
 
@@ -214,11 +225,11 @@
 </tr>
 <tr>
 <th>資本金</th>
-<td>200万円　※2024年4月11日時点</td>
+<td>900万円　※2024年5月1日時点</td>
 </tr>
 <tr>
 <th>代表者</th>
-<td>代表取締役社長CEO　小池　貴浩</td>
+<td>代表取締役社長　小池　貴浩</td>
 </tr>
 <tr>
 <th>事業内容</th>
@@ -229,60 +240,9 @@
 
 </section>
 
-<section class="bg1">
-
-<h2>大見出し</h2>
-
-<div class="c2">
-
-<div class="text l">
-<h2>小見出し<span>小見出しの補足。</span></h2>
-<p>サンプルテキスト</p>
-</div>
-<!--/.text-->
-
-<div class="image r">
-<figure><img src="images/sample3.jpg" alt=""></figure>
-</div>
-<!--/.image-->
-
-</div>
+<section class="policy_footer">
+<h3 class="privacy"><a href="{{ url('/privacy_policy') }}">プライバシーポリシー</a></h3>
 </section>
-</main>
-
-<!--/#footermenu-->
-<div id="footermenu">
-<ul>
-<li class="title">メニュー</li>
-<li><a href="index.html">ホーム</a></li>
-<li><a href="company.html">会社概要</a></li>
-<li><a href="list.html">仕事検索</a></li>
-<li><a href="request.html">企業のご担当者様</a></li>
-<li><a href="faq.html">よく頂く質問</a></li>
-<li><a href="contact.html">お問い合わせ</a></li>
-</ul>
-<ul>
-<li class="title">メニュー見出し</li>
-<li><a href="#">サンプルメニューサンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-</ul>
-<ul>
-<li class="title">メニュー見出し</li>
-<li><a href="#">サンプルメニューサンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-</ul>
-<ul>
-<li class="title">メニュー見出し</li>
-<li><a href="#">サンプルメニューサンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-</ul>
-</div>
 
 <footer>
 

@@ -6,13 +6,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="構築中">
 <link rel="stylesheet" href="css/style.css">
+<style>
+    footer {
+	font-size: 0.7rem;		/*文字サイズ*/
+	text-align: center;		/*内容をセンタリング*/
+	padding: 20px;			/*ボックス内の余白*/
+	background: #111;		/*背景色*/
+	color: #fff;	
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	margin-top: auto;
+}
+</style>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/scroll.js"></script>
 </head>
-
 <body>
 
 <div id="container">
@@ -27,8 +40,8 @@
 <nav>
 <ul>
 <li><a href="{{ url('/') }}">TOP</a></li>
-<li><a href="{{ url('/WhoWeAre') }}">Who We Are</a></li>
-<li><a href="{{ url('/Profile') }}">Company Profile</a></li>
+<li><a href="{{ url('/') }}">Who We Are</a></li>
+<li><a href="{{ url('/') }}">Company Profile</a></li>
 </ul>
 </nav>
 

@@ -6,6 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="ここにサイト説明を入れます">
 <link rel="stylesheet" href="css/style.css">
+<style>
+    main{
+        margin-top:-100px;
+    }
+</style>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -21,13 +26,14 @@
 <section>
 
 <h2>未来家計簿作成</h2>
-<h3>続いて、未来家計簿情報を入力していきましょう！ご回答いただく項目は以下の20項目です。</h3>
 
 <ul class="progressbar">
     <li class="complete">本人・<br>家族構成</li>
     <li class="complete">現在家計簿<br>情報</li>
     <li class="active">未来家計簿<br>情報</li>
 </ul>
+
+<h3>続いて、未来家計簿情報を入力していきましょう！ご回答いただく項目は以下の20項目です。</h3>
 
 <!-- Page Content -->
 <div class="container mt-5 p-lg-5 bg-light">
@@ -796,11 +802,11 @@
 <!--/#footermenu-->
 
 <footer class="bg1">
-    <a href="javascript:history.back();">現在家計簿情報入力へ戻る</a>
     <label class="last-state">残り</label>
     <label class="last-state-page"></label>
     <label class="last-state">項目</label>
-<button  class="btn btn-primary custom-btn" id="next_page2-not" type="button" data-target="#modal1" data-toggle="modal" disabled>未来家計簿を計算する</button>
+<button  class="btn btn-primary custom-btn" id="next_page2-not" type="button" data-target="#modal1" data-toggle="modal" disabled>未来家計簿を計算する</button><br>
+<a href="javascript:history.back();">現在家計簿情報入力へ戻る</a>
         <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">

@@ -38,10 +38,14 @@ Route::get('/privacy_policy', function () {
     return view('privacy_policy');
 });
 
+Route::get('/result_screen', function () {
+    return view('result_screen');
+});
+
+
 //Route::get('/privacy_policy', [ModalController::class, 'privacy_policy']);
 Route::get('/modal', [ModalController::class, 'modal']);
 
-Route::post('/result_screen', [MailableController::class, 'send']);
 
 //Route::get('/', 'TopPageController@show');
 //Route::resource('/', TopPagesController::index());

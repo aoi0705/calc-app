@@ -6,6 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="ここにサイト説明を入れます">
 <link rel="stylesheet" href="css/style.css">
+<style>
+    main{
+        margin-top:-100px;
+    }
+</style>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -22,13 +27,14 @@
 <section>
 
 <h2>未来家計簿作成</h2>
-<h3>家計簿を作成する上で、まずはあなたとご家族の情報を確認させてください！</h3>
 
 <ul class="progressbar">
     <li class="active">本人・<br>家族構成</li>
     <li>現在家計簿<br>情報</li>
     <li>未来家計簿<br>情報</li>
 </ul>
+
+<h3>家計簿を作成する上で、まずはあなたとご家族の情報を確認させてください！</h3>
 
 <!-- Page Content -->
 <div class="container mt-5 p-lg-5 bg-light">
@@ -37,7 +43,7 @@
         <div class="form-group" id="sendemail">
            <label for="text">メールアドレス</label><br>
            <input type="text" id="email" name="email" class="form-control" placeholder="Wealth Journey＠gmail.com"><br>
-           <div class="err-msg-email"></div>
+           <div class="err-msg-name" id="err-msg-email"></div>
            <button type=submit>ワンタイムパスワードを送付</button><br>
            <label for="text">メールアドレス宛に送付したワンタイムパスワードを入力してください（6桁）</label><br>
            <input type="text" id="onetime-password" name="onetime_password" class="form-control" placeholder="123456"><br>
@@ -109,7 +115,7 @@
         </div>
 
         <div class="form-group" style="display: none;" name="yourchildren" id="yourchildren">
-           <label for="text">子供の有無</label><br>
+           <label for="text">子どもの有無</label><br>
            <div class="btn-group btn-group-toggle" data-toggle="buttons" id="yourchildreninput">
                 <label class="btn btn-primary active">
                     <input type="radio" name="children" id="children" autocomplete="off" value="いる">いる
@@ -122,7 +128,7 @@
         </div>
 
         <div class="form-group" style="display: none;" name="childrennumber" id="childrennumber">
-           <label for="inputState">子供の人数</label><br>
+           <label for="inputState">子どもの人数</label><br>
            <select id="number-children" name="number-childre" class="form-control">
                 <option selected></option>
                 <option value="one">1人</option>

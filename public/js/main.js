@@ -120,7 +120,7 @@ $(function(){
         // フォームの要素を取得
         const name = document.querySelector('#email');
         // エラーメッセージを表示させる要素を取得
-        const errMsgName = document.querySelector('.err-msg-email');
+        const errMsgName = document.querySelector('.err-msg-name');
         if(!name.value.match(/.+@.+\..+/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
@@ -2575,7 +2575,7 @@ $(function(){
         const name = document.querySelector('#house-cost');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourhousecosterr');
-        if(!name.value.match(/^([0-9]{0,100})$/)){
+        if(!name.value.match(/^([0-9]{1,14})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -3243,11 +3243,18 @@ $(function(){
 $(function(){
     let input = document.querySelector('#Insurance-bill')
     let button = document.querySelector('#insurance-not-click')
+    let name = document.querySelector('#Insurance-bill');
+    // エラーメッセージを表示させる要素を取得
+    let errMsgName = document.querySelector('#yourinsurancebillerr');
     
     button.addEventListener('click', (e) => {
         input.value = "0"
         // 次の項目を表示
         if(children_bool == true){
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
             let box = document.querySelector('#youreducationalinsurance');
             //styleのdisplayを変更する関数
             box.style.display='';
@@ -3255,6 +3262,10 @@ $(function(){
             stat.textContent = "7"
         }
         else if(children_bool == false){
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
             let box = document.querySelector('#yourmedicalinsurance');
             //styleのdisplayを変更する関数
             box.style.display='';
@@ -3267,10 +3278,16 @@ $(function(){
 $(function(){
     let input = document.querySelector('#Educational-insurance')
     let button = document.querySelector('#youreducationalinsurance-not-click')
+    const name = document.querySelector('#Educational-insurance');
+    // エラーメッセージを表示させる要素を取得
+    const errMsgName = document.querySelector('#youreducationalinsuranceerr')
     
     button.addEventListener('click', (e) => {
         input.value = "0"
         // 次の項目を表示
+        errMsgName.textContent ='';
+        // クラスを削除
+        name.classList.remove('input-invalid');
         let box = document.querySelector('#youreducationexpenses');
         //styleのdisplayを変更する関数
         box.style.display='';
@@ -3282,10 +3299,16 @@ $(function(){
 $(function(){
     let input = document.querySelector('#medical-insurance')
     let button = document.querySelector('#yourmedicalinsurance-not-click')
+    let name = document.querySelector('#medical-insurance');
+    // エラーメッセージを表示させる要素を取得
+    let errMsgName = document.querySelector('#yourmedicalinsuranceerr');
     
     button.addEventListener('click', (e) => {
         input.value = "0"
         // 次の項目を表示
+        errMsgName.textContent ='';
+        // クラスを削除
+        name.classList.remove('input-invalid');
         let box = document.querySelector('#yourlifeinsurance');
         //styleのdisplayを変更する関数
         box.style.display='';
@@ -3297,10 +3320,16 @@ $(function(){
 $(function(){
     let input = document.querySelector('#life-insurance')
     let button = document.querySelector('#yourlifeinsurance-not-click')
+    let name = document.querySelector('#life-insurance');
+    // エラーメッセージを表示させる要素を取得
+    let errMsgName = document.querySelector('#yourlifeinsuranceerr');
     
     button.addEventListener('click', (e) => {
         input.value = "0"
         // 次の項目を表示
+        errMsgName.textContent ='';
+        // クラスを削除
+        name.classList.remove('input-invalid');
         let box = document.querySelector('#yourestateinvestment');
         //styleのdisplayを変更する関数
         box.style.display='';
@@ -3312,10 +3341,16 @@ $(function(){
 $(function(){
     let input = document.querySelector('#Estate-Investment')
     let button = document.querySelector('#yourestateinvestment-not-click')
+    let name = document.querySelector('#Estate-Investment');
+    // エラーメッセージを表示させる要素を取得
+    let errMsgName = document.querySelector('#yourestateinvestmenterr');
     
     button.addEventListener('click', (e) => {
         input.value = "0"
         // 次の項目を表示
+        errMsgName.textContent ='';
+        // クラスを削除
+        name.classList.remove('input-invalid');
         let box = document.querySelector('#yourassetmanagement');
         //styleのdisplayを変更する関数
         box.style.display='';

@@ -37,12 +37,13 @@ html,body {
 }
 
 body {
-	font-family: 'メイリオ', 'Meiryo', sans-serif;	/*フォント種類*/
+	font-family: 'メイリオ', 'Meiryo', sans-serif !important;	/*フォント種類*/
 	-webkit-text-size-adjust: none;
 	letter-spacing: 0.05em;
 	background: #fff;	/*背景色*/
 	color: #555;		/*全体の文字色*/
 	line-height: 2;		/*行間*/
+	
 }
 
 /*リセット*/
@@ -64,6 +65,15 @@ iframe {width: 100%;}
 
 /*ul,olタグ*/
 ul, ol {margin-bottom: 30px;}
+
+nav ul .link_text{
+	margin-top: 38px !important;
+	font-size: 20px !important;
+}
+
+::placeholder {
+	color: rgb(221, 221, 221) !important;
+  }
 
 
 /*リンクテキスト全般の設定
@@ -117,7 +127,7 @@ header {
 	position: fixed; z-index: 1;	/*スクロールしても動かないようにする指定*/
 	width: 100%;
 	padding: 0 3%;					/*上下、左右へのヘッダー内の余白*/
-	height: 50px;					/*ヘッダーの高さ。変更する場合、数行下にある#mainimgのtopの数値も合わせて変更して下さい。*/
+	height: 200px;					/*ヘッダーの高さ。変更する場合、数行下にある#mainimgのtopの数値も合わせて変更して下さい。*/
 }
 
 
@@ -130,7 +140,8 @@ header a {
 header #logo img {display: block;}
 header #logo {
 	margin: 0;
-	width: 250px;	/*幅*/
+	width: 150px;	/*幅*/
+	height: auto;
 }
 
 /*　上部のプログレスバー */
@@ -209,31 +220,37 @@ body{
 	width: 100%;
 	height: 0;
 	padding: 0;
-	padding-top: 56.25%;
+	padding-top: 58.00%;
 	position: relative;
-	top: 50px;	/*headerのheightの数値と合わせて下さい。*/
+	top: 200px;	/*headerのheightの数値と合わせて下さい。*/
 	overflow: hidden;
-	background: #FF9696 url(../images/mainimg.png) no-repeat center center / 100%;	/*背景色、背景画像の読み込み、最後の100%は画像幅。*/
+	background: #FF9696;	/*背景色、背景画像の読み込み、最後の100%は画像幅。*/
 	color: #fff;	/*文字色*/
+	background-image: url(../images/calc-image1.png),url(../images/calc-image2.png);
+	background-repeat: no-repeat, no-repeat, no-repeat;
+	background-position: top right,top left;
+	background-size: 50%,50%;
 }
 
 /*テキストブロック*/
-#mainimg #text {
+#mainimg #text{
 	position: absolute;
 	left: 3%;		/*mainimgに対して左からの配置場所指定*/
-	top: 0px;		/*mainimgに対して上からの配置場所指定*/
+	top: 300px;		/*mainimgに対して上からの配置場所指定*/
 	width: 100%;	/*幅*/
 	height: 100%;	/*高さ*/
 	display: flex;			/*flexボックスを使う指定*/
 	align-items: center;	/*垂直揃えの指定。天地中央に配置されるように。*/
+	margin-left: 23%;
 }
 
 /*h2見出し*/
 #mainimg #text h2 {
 	margin: 0;
-	font-weight: 500;	/*文字の太さ。数値が大きいほど太くなります。*/
+	font-weight: 500 !important;	/*文字の太さ。数値が大きいほど太くなります。*/
 	font-size: 2.7vw;	/*文字サイズ。画面幅に対する単位です。*/
 	text-shadow: 1px 1px 2px rgba(0,0,0,0.3);	/*テキストの影。右へ、下へ、ぼかし幅。0,0,0は黒の事で0.3は色が30%出た状態。*/
+	color: #000000;
 }
 
 /*pタグ。小文字の説明文。*/
@@ -340,6 +357,7 @@ body{
 /*mainブロック*/
 main {
 	padding-top: 50px;
+	margin-top: 150px;
 }
 
 /*mainブロック内のh2タグ*/
@@ -381,11 +399,12 @@ main p + p {margin-top: -15px;}
 	color: #000000;
 }
 
-.modal-title{
-	font-family:'メイリオ', 'Meiryo', sans-serif ;
-	color: #000000;
-	font-size: 30 px;
-	text-align: center;
+.modal-title {
+	font-family:'メイリオ', 'Meiryo', sans-serif !important ;
+	color: #000000 !important;
+	font-size: 30 px !important;
+	text-align: center !important;
+	margin-left: 80px !important;
 }
 
 .modal-footer{
@@ -408,6 +427,17 @@ main p + p {margin-top: -15px;}
 h3{
 	color: #FF9696;
 	font-weight: bold;
+}
+
+.privacy{
+	text-align: center !important;
+	font-family:'メイリオ', 'Meiryo', sans-serif !important ;
+	font-weight: bold !important;
+}
+
+h4{
+	color: #000000 !important;
+	font-size: 17px !important;
 }
 
 #debug_bold{
@@ -436,10 +466,15 @@ footer {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
+	margin-top: auto;
+}
+
+.policy_footer{
+	padding: 0px !important;
 }
 
 /*リンクテキスト*/
-footer a {text-decoration: none;color: #fff;}
+footer a {text-decoration: none;color: #2008f1;}
 
 /*著作部分*/
 footer .pr {display: block;}
@@ -725,12 +760,13 @@ a.btn1 {
 button.btn1, button.btn2 {
 	display: inline-block;text-decoration: none;
 	margin-top: 30px;
-	margin-left:150px;
+	margin-left:180px;
 	letter-spacing: 0.1em;
 	border-radius: 3px;
-	padding: 5px 30px;
-	font-size: 1.2em;
+	padding: 30px 180px;
+	font-size: 2.5em !important;
 	box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+	font-weight: bold !important;
 }
 button.btn1 {
 	background: #ffce2b;
@@ -923,7 +959,7 @@ button:hover.btn-primary{
 /*その他
 ---------------------------------------------------------------------------*/
 .clearfix::after {content: "";display: block;clear: both;}
-.color-theme, .color-theme a {color: #ed7d0f !important;}
+.color-theme, .color-theme a {color: #FF9696 !important;}
 .color-check, .color-check a {color: #f00 !important;}
 .c {text-align: center !important;}
 .ws {width: 95%;display: block;}
@@ -980,6 +1016,7 @@ button.btn1 i, button.btn2 i {
 ---------------------------------------------------------------------------*/
 html, body {
 	font-size: 15px;	/*基準となるフォントサイズの上書き*/
+	margin-bottom: 113px;
 }
 
 
