@@ -123,10 +123,10 @@
 
                         </p>
                 </section>
-                <div class="modal-footer">
-                    <button onclick="location.href='./future_calculation'" type="button" class="btn btn-primary mx-auto d-block" id="consent-button" disabled>同意する</button>
-                </div>
             </div>
+                <div class="modal-footer">
+                    <button onclick="location.href='./future_calculation'" type="button" class="btn btn-primary mx-auto d-block" id="consent-button">同意する</button>
+                </div>
         </div>
     </div>
 </div>
