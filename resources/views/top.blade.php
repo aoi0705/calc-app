@@ -53,7 +53,7 @@
     <div class="modal-dialog modal-dialog-scrollable" role="document" id="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-header-h2">
+                <h2>
                     個人情報取り扱い同意書
                 </h2>
             </div>

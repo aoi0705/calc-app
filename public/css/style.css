@@ -378,10 +378,10 @@ main p + p {margin-top: -15px;}
 	color: #000000;
 }
 
-.modal-header .modal-header-h2{
-	font-family:'メイリオ', 'Meiryo', sans-serif;
+#modal-header2{
+	font-family:'メイリオ', 'Meiryo', sans-serif ;
 	color: #000000;
-	font-size: 10 px;
+	font-size: 35 px;
 	text-align: center;
 }
 
@@ -527,12 +527,6 @@ footer .pr {display: block;}
 	margin: 0;
 	color: #666;	/*文字色*/
 }
-
-section h4{
-	color: #000000;
-	font-size: 17px;
-}
-
 .list-container .list h4 a {
 	color: #666;	/*リンクテキストの文字色*/
 }
