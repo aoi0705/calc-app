@@ -27,7 +27,7 @@
 <section>
 
 <h2>未来家計簿作成</h2>
-<p>続いて、未来家計簿情報を入力していきましょう！ご回答いただく項目は以下の20項目です。</p>
+<h3>続いて、未来家計簿情報を入力していきましょう！ご回答いただく項目は以下の20項目です。</h3>
 
 <!-- Page Content -->
 <div class="container mt-5 p-lg-5 bg-light"style="display: none;" id="yourhome">
