@@ -30,7 +30,7 @@
 <h3>続いて、未来家計簿情報を入力していきましょう！ご回答いただく項目は以下の20項目です。</h3>
 
 <!-- Page Content -->
-<div class="container mt-5 p-lg-5 bg-light"style="display: none;" id="yourhome">
+<div class="container mt-5 p-lg-5 bg-light" id="yourhome">
     <form class="needs-validation">
     @csrf
         <div class="form-group" style="display: none;" id="yourhome">
