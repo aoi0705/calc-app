@@ -98,6 +98,9 @@ $(function(){
         else if(sessionStorage.getItem('number-children') == "ten"){
             var children_n = 10;
         }
+        else if(children_bool2 == false){
+            var children_n = 0;
+        }
         
         if(sessionStorage.getItem('house-class') == "rental"){
             var myhome = true;
