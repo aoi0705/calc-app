@@ -274,7 +274,7 @@
 <!--/#footermenu-->
 
 <footer class="bg1">
-<button type="button" onclick="history.back()" class="btn btn-primary custom-btn" id="back-page">本人・家族構成情報へ戻る</button>
+    <a href="javascript:history.back();">本人・家族構成情報へ戻る</a>
     <label class="last-state">残り</label>
     <label class="last-state-page"></label>
     <label class="last-state">項目</label>
