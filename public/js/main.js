@@ -131,7 +131,7 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=1;i<30;i++){
-                ele_arr[i].sytle.display="none";
+                ele_arr[i].style.display="none";
             }
             return;
         }else{
@@ -142,7 +142,7 @@ $(function(){
 			// 次の項目を表示
 			let box = document.querySelector('#yournickname');
 			//styleのdisplayを変更する関数
-			box.style.display='block';
+			box.style.display='';
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "6"
         }
@@ -174,9 +174,9 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=2;i<30;i++){
-                console.log(ele_arr[i])
+                console.log(ele_arr);
                 if(ele_arr[i].style.display != 'none'){
-                    ele_arr[i].sytle.cssText = 'display:none !important';
+                    ele_arr[i].style.display = 'none';
                 }
             }
         }else{
@@ -187,7 +187,7 @@ $(function(){
 			// 次の項目を表示
 			let box = document.querySelector('#yourbirthday');
 			//styleのdisplayを変更する関数
-			box.style.display='block';
+			box.style.display='';
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "5"
         }
@@ -217,9 +217,12 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める][]
-            let box = document.querySelector('#yourpost');
-            if(box.style.display=''){
-                box.style.display="none";
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=3;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
             }
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -228,7 +231,7 @@ $(function(){
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#yourpost');
-			box.style.display='block';
+			box.style.display='';
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "4"
         }
@@ -259,6 +262,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name_input.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=4;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -267,7 +277,7 @@ $(function(){
             name_input.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#yourjob');
-			box.style.display='block';
+			box.style.display='';
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "3"
         }
@@ -298,6 +308,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=5;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -335,6 +352,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=6;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -391,6 +415,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=7;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -429,6 +460,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=8;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -466,6 +504,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=9;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -524,6 +569,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=10;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -598,6 +650,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=11;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -671,6 +730,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=12;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -754,6 +820,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=13;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -826,6 +899,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=14;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -909,6 +989,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=15;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -981,6 +1068,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=16;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -1064,6 +1158,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=17;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -1136,6 +1237,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=2;i<18;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -1220,6 +1328,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=19;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -1292,6 +1407,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=20;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -1376,6 +1498,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=21;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -1448,6 +1577,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=22;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -1531,6 +1667,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=23;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -1603,6 +1746,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=24;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -1686,6 +1836,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=25;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -1757,6 +1914,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=26;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -1840,6 +2004,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=27;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -1912,6 +2083,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=28;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -1995,6 +2173,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=29;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -2202,6 +2387,12 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=1;i<22;i++){
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -2251,6 +2442,12 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=2;i<22;i++){
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -2310,6 +2507,12 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=3;i<22;i++){
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -2355,6 +2558,12 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=4;i<22;i++){
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -2400,6 +2609,12 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=5;i<22;i++){
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -2449,6 +2664,12 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=6;i<22;i++){
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -2498,6 +2719,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=7;i<22;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -2547,6 +2775,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=8;i<22;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -2596,6 +2831,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=9;i<22;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -2666,6 +2908,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=10;i<22;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -2715,6 +2964,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=11;i<22;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -2764,6 +3020,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=12;i<22;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -2813,6 +3076,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=13;i<22;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -2862,6 +3132,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=14;i<22;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -2911,6 +3188,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=15;i<22;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -2969,6 +3253,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=16;i<22;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -3008,6 +3299,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=17;i<22;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -3047,6 +3345,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=18;i<22;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -3086,6 +3391,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=19;i<22;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -3125,6 +3437,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=20;i<22;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -3164,6 +3483,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=21;i<22;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -3482,6 +3808,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=1;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -3522,6 +3859,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=2;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -3564,6 +3912,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=3;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -3604,6 +3963,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=4;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -3656,6 +4026,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=5;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -3696,6 +4077,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=6;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -3748,6 +4140,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=7;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -3788,6 +4191,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=8;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -3840,6 +4254,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=9;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -3880,6 +4305,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=10;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -3932,6 +4368,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=11;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -3972,6 +4419,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=12;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -4024,6 +4482,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=13;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -4064,6 +4533,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=14;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -4116,6 +4596,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=15;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -4156,6 +4647,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=16;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -4208,6 +4710,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=17;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -4248,6 +4761,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=18;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -4300,6 +4824,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=19;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -4340,6 +4875,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=20;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -4392,6 +4938,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=21;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -4432,6 +4989,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=22;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -4474,6 +5042,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=23;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -4526,6 +5105,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=24;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -4566,6 +5156,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=25;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -4606,6 +5207,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=26;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
+            var infomess = document.querySelector("#text");
+            if(infomess.style.display != "none"){
+                infomess.style.display = 'none';
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -4648,6 +5260,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=27;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -4688,6 +5307,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=28;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -4728,6 +5354,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=29;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -4767,6 +5400,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=30;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -4826,6 +5466,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=31;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -4867,6 +5514,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=32;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -4907,6 +5561,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=33;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -4946,6 +5607,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=34;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -4997,6 +5665,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=35;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -5037,6 +5712,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=36;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -5077,6 +5759,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=37;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -5117,6 +5806,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=38;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -5170,6 +5866,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=39;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -5210,6 +5913,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=40;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -5250,6 +5960,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=41;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -5290,6 +6007,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=42;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -5343,6 +6067,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=43;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -5383,6 +6114,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=44;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -5423,6 +6161,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=45;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -5463,6 +6208,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=46;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -5515,6 +6267,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=47;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -5555,6 +6314,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=48;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -5595,6 +6361,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=49;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -5635,6 +6408,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=50;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -5687,6 +6467,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=51;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -5727,6 +6514,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=52;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -5767,6 +6561,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=53;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -5807,6 +6608,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=54;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -5859,6 +6667,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=55;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -5899,6 +6714,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=56;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -5939,6 +6761,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=57;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -5979,6 +6808,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=58;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -6031,6 +6867,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=59;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -6071,6 +6914,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=60;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -6111,6 +6961,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=61;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -6151,6 +7008,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=62;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -6203,6 +7067,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=63;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -6243,6 +7114,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=64;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -6283,6 +7161,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=65;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -6323,6 +7208,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=66;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -6375,6 +7267,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=67;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -6415,6 +7314,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=68;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -6455,6 +7361,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=69;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -6495,6 +7408,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=70;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -6547,6 +7467,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=71;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -6587,6 +7514,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=72;i<73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -6627,6 +7561,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=73;i<=73;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].style.display = 'none';
+                }
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入

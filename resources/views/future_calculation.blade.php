@@ -9,6 +9,13 @@
 <style>
     main{
         margin-top:-100px;
+        margin-bottom:300px;
+    }
+
+    @media screen and (max-width:400px){
+        footer{
+            height:50px;
+        }
     }
 </style>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">

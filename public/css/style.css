@@ -1003,7 +1003,29 @@ button.btn1 i, button.btn2 i {
 	margin-left: 10px;
 }
 
+.last-state{
+	color:#FF9696 ;
+	font-size: 20px;
+	font-family: 'メイリオ', 'Meiryo', sans-serif;
+}
+.last-state-page{
+	color:#FF9696 ;
+	font-size: 35px;
+	font-weight: bold;
+	font-family: 'メイリオ', 'Meiryo', sans-serif;
+}
 
+#next_page2-not{
+	width: 130px;
+	height: 30px;
+	padding: 10px 20px;
+	margin-bottom: 15px;
+	margin-left: 30px;
+	font-family: 'メイリオ', 'Meiryo', sans-serif;
+	background-color:#8a8a8a;
+	border-color: #8a8a8a;
+	text-align: center;
+}
 
 /*　※注意！　下の閉じカッコ　}　はこのブロックに必要なので、削除しないで下さい。　*/
 

@@ -9,6 +9,13 @@
 <style>
     main{
         margin-top:-100px;
+        margin-bottom:300px;
+    }
+
+    @media screen and (max-width:400px){
+        footer{
+            height:50px;
+        }
     }
 </style>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -98,7 +105,7 @@
         </div>
 
         <div class="form-group" style="display: none;" id="yoursecondrentalincome">
-           <label for="text">3件目の不動産投資物件の毎月の家賃収入はどれくらいですか。</label><br>
+           <label for="text">2件目の不動産投資物件の毎月の家賃収入はどれくらいですか。</label><br>
            <table>
             <th>
            <input type="text" id="second-rental-income" name="second-rental-income" class="form-control" placeholder="10"></th>
