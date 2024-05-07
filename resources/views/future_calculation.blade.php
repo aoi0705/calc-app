@@ -52,7 +52,7 @@
         </div>
 
         <div class="form-group" style="display: none;" name="nickname_form" id="yournickname">
-           <label for="text" id="debug_bold">あなたのニックネームを教えてください:</label><br>
+           <label for="text" id="debug_bold">あなたのニックネームを教えてください</label><br>
            <input type="text" id="nickname" name="nickname" class="form-control" placeholder="ウェルジャーニー"><br>
            <div class="err-msg-name" id="nicknameerr"></div>
         </div>

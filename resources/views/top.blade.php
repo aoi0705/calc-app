@@ -37,7 +37,7 @@
 <div id="menubar">
 
 <nav>
-<ul>
+<ul class="headul">
 <li><h1 id="logo"><a href="{{ url('/') }}"><img src="images/logo.jpg" alt="ロゴ"></a></h1></li>
 <li class="link_text"><a href="#mainimg">TOP</a></li>
 <li class="link_text"><a href="#whoweare">Who we are</a></li>

@@ -129,6 +129,10 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=1;i<30;i++){
+                ele_arr[i].sytle.display="none";
+            }
             return;
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -138,7 +142,7 @@ $(function(){
 			// 次の項目を表示
 			let box = document.querySelector('#yournickname');
 			//styleのdisplayを変更する関数
-			box.style.display='';
+			box.style.display='block';
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "6"
         }
@@ -168,7 +172,13 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
-            return;
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=2;i<30;i++){
+                console.log(ele_arr[i])
+                if(ele_arr[i].style.display != 'none'){
+                    ele_arr[i].sytle.cssText = 'display:none !important';
+                }
+            }
         }else{
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -177,7 +187,7 @@ $(function(){
 			// 次の項目を表示
 			let box = document.querySelector('#yourbirthday');
 			//styleのdisplayを変更する関数
-			box.style.display='';
+			box.style.display='block';
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "5"
         }
@@ -206,8 +216,11 @@ $(function(){
             errMsgName.textContent = '8桁の半角数字で入力して下さい';
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
-            // 後続の処理を止める
-            return;
+            // 後続の処理を止める][]
+            let box = document.querySelector('#yourpost');
+            if(box.style.display=''){
+                box.style.display="none";
+            }
         }else{
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -215,7 +228,7 @@ $(function(){
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#yourpost');
-			box.style.display='';
+			box.style.display='block';
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "4"
         }
@@ -254,7 +267,7 @@ $(function(){
             name_input.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#yourjob');
-			box.style.display='';
+			box.style.display='block';
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "3"
         }
@@ -3390,7 +3403,7 @@ $(function(){
 // ここから3ページ目の処理
 
 $(function(){
-    document.getElementsByClassName('btn btn-primary custom-btn')[1].addEventListener('click', function() {
+    document.getElementsByClassName('btn btn-primary custom-btn')[0].addEventListener('click', function() {
         const annualincome = document.getElementById('annual-income').value;
         sessionStorage.setItem('annual-income', annualincome);
         const bonus = document.getElementById('bonus').value;

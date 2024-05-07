@@ -127,9 +127,13 @@ header {
 	position: fixed; z-index: 1;	/*スクロールしても動かないようにする指定*/
 	width: 100%;
 	padding: 0 3%;					/*上下、左右へのヘッダー内の余白*/
-	height: 200px;					/*ヘッダーの高さ。変更する場合、数行下にある#mainimgのtopの数値も合わせて変更して下さい。*/
+	height: 50px;					/*ヘッダーの高さ。変更する場合、数行下にある#mainimgのtopの数値も合わせて変更して下さい。*/
 }
 
+.headul{
+	background: #ffffff;
+	width: 100%;
+}
 
 /*ヘッダーのリンクテキストの文字色*/
 header a {
@@ -162,16 +166,16 @@ header #logo {
     color: #999999;
     font-weight: bold;
     counter-increment: steps;
-	font-size: 25px;
+	font-size: 20px;
 }
 .progressbar li:before {
     display: block;
-    width: 80px;
-    height: 80px;
-    margin: 7px auto 20px auto;
-    content: '';
-    line-height: 75px;
-    font-size: 25px;
+    width: 60px;
+    height: 60px;
+    margin: 3px auto 10px auto;
+    content: 'center';
+    line-height: 65px;
+    font-size: 20px;
     text-align: center;
     border-radius: 50%;
     background-color: #F5F5F5;
@@ -180,10 +184,10 @@ header #logo {
 .progressbar li:after {
     position: absolute;
     z-index: -1;
-    top: 37px;
+    top: 30px;
     left: -50%;
     width: 100%;
-    height: 20px;
+    height: 10px;
     content: '';
     background-color: #F5F5F5;
 }
@@ -206,10 +210,10 @@ header #logo {
 
 /* 装飾 */
 ul{
-  margin: 40px 0 !important;
+  margin: 20px 0 !important;
 }
 body{
-  margin: 40px 20px;
+  margin:240px 40px;
 }
 
 
@@ -222,11 +226,11 @@ body{
 	padding: 0;
 	padding-top: 58.00%;
 	position: relative;
-	top: 200px;	/*headerのheightの数値と合わせて下さい。*/
+	top: 50px;	/*headerのheightの数値と合わせて下さい。*/
 	overflow: hidden;
 	background: #FF9696;	/*背景色、背景画像の読み込み、最後の100%は画像幅。*/
 	color: #fff;	/*文字色*/
-	background-image: url(../images/calc-image1.png),url(../images/calc-image2.png);
+	/* background-image: url(../images/calc-image1.png),url(../images/calc-image2.png); */
 	background-repeat: no-repeat, no-repeat, no-repeat;
 	background-position: top right,top left;
 	background-size: 50%,50%;
@@ -236,7 +240,7 @@ body{
 #mainimg #text{
 	position: absolute;
 	left: 3%;		/*mainimgに対して左からの配置場所指定*/
-	top: 300px;		/*mainimgに対して上からの配置場所指定*/
+	top: 50px;		/*mainimgに対して上からの配置場所指定*/
 	width: 100%;	/*幅*/
 	height: 100%;	/*高さ*/
 	display: flex;			/*flexボックスを使う指定*/
@@ -993,6 +997,7 @@ a.btn1 i, a.btn2 i {
 
 button.btn1, button.btn2 {
 	padding: 0px 15px;
+	margin-top: 0px;
 }
 button.btn1 i, button.btn2 i {
 	margin-left: 10px;

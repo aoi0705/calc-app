@@ -1,0 +1,1 @@
+var ele_arr = document.querySelectorAll(".form-group")
