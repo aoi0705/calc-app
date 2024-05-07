@@ -436,8 +436,10 @@
            <label for="inputState">1人目のお子様の大学区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="first-university" name="first-university" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="私立文系">私立文系</option>
+                <option value="私立理系">私立理系</option>
+                <option value="私立医科系">私立医科系</option>
+                <option value="国立・公立">国立・公立</option>
             </select>
             <div class="err-msg-name" id="yourfirstuniversityerr"></div>
         </div>
@@ -476,8 +478,10 @@
            <label for="inputState">2人目のお子様の大学区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="second-university" name="second-university" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="私立文系">私立文系</option>
+                <option value="私立理系">私立理系</option>
+                <option value="私立医科系">私立医科系</option>
+                <option value="国立・公立">国立・公立</option>
             </select>
             <div class="err-msg-name" id="yourseconduniversityerr"></div>
         </div>
@@ -516,8 +520,10 @@
            <label for="inputState">3人目のお子様の大学区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="third-university" name="third-university" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="私立文系">私立文系</option>
+                <option value="私立理系">私立理系</option>
+                <option value="私立医科系">私立医科系</option>
+                <option value="国立・公立">国立・公立</option>
             </select>
             <div class="err-msg-name" id="yourthirduniversityerr"></div>
         </div>
@@ -556,8 +562,10 @@
            <label for="inputState">4人目のお子様の大学区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="four-university" name="four-university" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="私立文系">私立文系</option>
+                <option value="私立理系">私立理系</option>
+                <option value="私立医科系">私立医科系</option>
+                <option value="国立・公立">国立・公立</option>
             </select>
             <div class="err-msg-name" id="yourfouruniversityerr"></div>
         </div>
@@ -596,8 +604,10 @@
            <label for="inputState">5人目のお子様の大学区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="five-university" name="five-university" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="私立文系">私立文系</option>
+                <option value="私立理系">私立理系</option>
+                <option value="私立医科系">私立医科系</option>
+                <option value="国立・公立">国立・公立</option>
             </select>
             <div class="err-msg-name" id="yourfiveuniversityerr"></div>
         </div>
@@ -636,8 +646,10 @@
            <label for="inputState">6人目のお子様の大学区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="six-university" name="six-university" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="私立文系">私立文系</option>
+                <option value="私立理系">私立理系</option>
+                <option value="私立医科系">私立医科系</option>
+                <option value="国立・公立">国立・公立</option>
             </select>
             <div class="err-msg-name" id="yoursixuniversityerr"></div>
         </div>
@@ -676,8 +688,10 @@
            <label for="inputState">7人目のお子様の大学区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="seven-university" name="seven-university" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="私立文系">私立文系</option>
+                <option value="私立理系">私立理系</option>
+                <option value="私立医科系">私立医科系</option>
+                <option value="国立・公立">国立・公立</option>
             </select>
             <div class="err-msg-name" id="yoursevenuniversityerr"></div>
         </div>
@@ -716,8 +730,10 @@
            <label for="inputState">8人目のお子様の大学区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="eight-university" name="eight-university" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="私立文系">私立文系</option>
+                <option value="私立理系">私立理系</option>
+                <option value="私立医科系">私立医科系</option>
+                <option value="国立・公立">国立・公立</option>
             </select>
             <div class="err-msg-name" id="youreightuniversityerr"></div>
         </div>
@@ -756,8 +772,10 @@
            <label for="inputState">9人目のお子様の大学区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="nine-university" name="nine-university" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="私立文系">私立文系</option>
+                <option value="私立理系">私立理系</option>
+                <option value="私立医科系">私立医科系</option>
+                <option value="国立・公立">国立・公立</option>
             </select>
             <div class="err-msg-name" id="yournineuniversityerr"></div>
         </div>
@@ -796,8 +814,10 @@
            <label for="inputState">10人目のお子様の大学区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="ten-university" name="ten-university" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="私立文系">私立文系</option>
+                <option value="私立理系">私立理系</option>
+                <option value="私立医科系">私立医科系</option>
+                <option value="国立・公立">国立・公立</option>
             </select>
             <div class="err-msg-name" id="yourtenuniversityerr"></div>
         </div>

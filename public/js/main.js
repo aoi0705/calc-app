@@ -105,6 +105,8 @@ $(function() {
 	});
 });
 
+
+var respone = 0;
 // バリデーションの処理
 $(function(){
 
@@ -112,7 +114,7 @@ $(function(){
     const submit = document.querySelector('#email');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -131,10 +133,33 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=1;i<30;i++){
-                ele_arr[i].style.display="none";
+                if(ele_arr[i].style.display != 'none'){
+                    respone = i
+                    ele_arr[i].style.display = 'none';
+                }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                let ele = document.getElementsByName("spouse")
+                let len = ele.length;
+                let checkValue = '';
+                for (let i = 0; i < len; i++){
+                    if (ele.item(i).checked){
+                        checkValue = ele.item(i).value;
+                    }
+                }
+
+                for(var j=2;j<=respone;j++){
+                    if(checkValue == 'いない'){
+                        if(j == 6 || j == 7){
+                            continue;
+                        }
+                    }
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -155,7 +180,7 @@ $(function(){
     const submit = document.querySelector('#nickname');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -176,10 +201,32 @@ $(function(){
             for(var i=2;i<30;i++){
                 console.log(ele_arr);
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                let ele = document.getElementsByName("spouse")
+                let len = ele.length;
+                let checkValue = '';
+                for (let i = 0; i < len; i++){
+                    if (ele.item(i).checked){
+                        checkValue = ele.item(i).value;
+                    }
+                }
+
+                for(var j=2;j<=respone;j++){
+                    if(checkValue == 'いない'){
+                        if(j == 6 || j == 7){
+                            continue;
+                        }
+                    }
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -200,7 +247,7 @@ $(function(){
     const submit = document.querySelector('#birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -219,12 +266,33 @@ $(function(){
             // 後続の処理を止める][]
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=3;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                let ele = document.getElementsByName("spouse")
+                let len = ele.length;
+                let checkValue = '';
+                for (let i = 0; i < len; i++){
+                    if (ele.item(i).checked){
+                        checkValue = ele.item(i).value;
+                    }
+                }
+
+                for(var j=2;j<=respone;j++){
+                    if(checkValue == 'いない'){
+                        if(j == 6 || j == 7){
+                            continue;
+                        }
+                    }
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -244,7 +312,7 @@ $(function(){
     const submit = document.querySelector('#yourpost');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -264,13 +332,33 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=4;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                let ele = document.getElementsByName("spouse")
+                let len = ele.length;
+                let checkValue = '';
+                for (let i = 0; i < len; i++){
+                    if (ele.item(i).checked){
+                        checkValue = ele.item(i).value;
+                    }
+                }
+
+                for(var j=2;j<=respone;j++){
+                    if(checkValue == 'いない'){
+                        if(j == 6 || j == 7){
+                            continue;
+                        }
+                    }
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -290,7 +378,7 @@ $(function(){
     const submit = document.querySelector('#job');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -310,13 +398,33 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=5;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                let ele = document.getElementsByName("spouse")
+                let len = ele.length;
+                let checkValue = '';
+                for (let i = 0; i < len; i++){
+                    if (ele.item(i).checked){
+                        checkValue = ele.item(i).value;
+                    }
+                }
+
+                for(var j=2;j<=respone;j++){
+                    if(checkValue == 'いない'){
+                        if(j == 6 || j == 7){
+                            continue;
+                        }
+                    }
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -354,13 +462,33 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=6;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                let ele = document.getElementsByName("spouse")
+                let len = ele.length;
+                let checkValue = '';
+                for (let i = 0; i < len; i++){
+                    if (ele.item(i).checked){
+                        checkValue = ele.item(i).value;
+                    }
+                }
+
+                for(var j=2;j<=respone;j++){
+                    if(checkValue == 'いない'){
+                        if(j == 6 || j == 7){
+                            continue;
+                        }
+                    }
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -381,6 +509,8 @@ $(function(){
                 stat.textContent = "3"
             }
             else if(checkValue == "いない"){
+                var ele_arr = document.getElementsByClassName("form-group");
+
                 let box = document.querySelector('#yourchildren');
                 box.style.display='';
                 const stat = document.querySelector('.last-state-page');
@@ -398,7 +528,7 @@ $(function(){
     const submit = document.querySelector('#spouse-birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -417,13 +547,33 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=7;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                let ele = document.getElementsByName("spouse")
+                let len = ele.length;
+                let checkValue = '';
+                for (let i = 0; i < len; i++){
+                    if (ele.item(i).checked){
+                        checkValue = ele.item(i).value;
+                    }
+                }
+
+                for(var j=2;j<=respone;j++){
+                    if(checkValue == 'いない'){
+                        if(j == 6 || j == 7){
+                            continue;
+                        }
+                    }
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -443,7 +593,7 @@ $(function(){
     const submit = document.querySelector('#spouse-job');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -462,13 +612,33 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=8;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                let ele = document.getElementsByName("spouse")
+                let len = ele.length;
+                let checkValue = '';
+                for (let i = 0; i < len; i++){
+                    if (ele.item(i).checked){
+                        checkValue = ele.item(i).value;
+                    }
+                }
+
+                for(var j=2;j<=respone;j++){
+                    if(checkValue == 'いない'){
+                        if(j == 6 || j == 7){
+                            continue;
+                        }
+                    }
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -506,13 +676,19 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=9;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -534,6 +710,12 @@ $(function(){
                 stat.textContent = "1"
             }
             else if(checkValue == "いない"){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var i=9;i<30;i++){
+                    if(ele_arr[i].style.display != 'none'){
+                        ele_arr[i].style.display = 'none';
+                    }
+                }
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "0";
                 // ボタンの活性化
@@ -552,7 +734,7 @@ $(function(){
     const submit = document.querySelector('#number-children');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -571,13 +753,19 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=10;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -633,7 +821,7 @@ $(function(){
     const submit = document.querySelector('#first-birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -652,13 +840,19 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=11;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -732,13 +926,19 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=12;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -803,7 +1003,7 @@ $(function(){
     const submit = document.querySelector('#second-birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -822,13 +1022,19 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=13;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -901,13 +1107,19 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=14;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -972,7 +1184,7 @@ $(function(){
     const submit = document.querySelector('#third-birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -991,13 +1203,19 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=15;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -1070,13 +1288,19 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=16;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -1141,7 +1365,7 @@ $(function(){
     const submit = document.querySelector('#four-birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -1160,13 +1384,19 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=17;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -1239,13 +1469,19 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=2;i<18;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -1311,7 +1547,7 @@ $(function(){
     const submit = document.querySelector('#five-birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -1330,13 +1566,19 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=19;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -1409,13 +1651,19 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=20;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -1481,7 +1729,7 @@ $(function(){
     const submit = document.querySelector('#six-birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -1500,13 +1748,19 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=21;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -1579,13 +1833,19 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=22;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -1650,7 +1910,7 @@ $(function(){
     const submit = document.querySelector('#seven-birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -1669,13 +1929,19 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=23;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -1748,13 +2014,19 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=24;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -1819,7 +2091,7 @@ $(function(){
     const submit = document.querySelector('#eight-birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -1838,13 +2110,19 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=25;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -1916,13 +2194,19 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=26;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -1987,7 +2271,7 @@ $(function(){
     const submit = document.querySelector('#nine-birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -2006,13 +2290,19 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=27;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -2085,13 +2375,19 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=28;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -2156,7 +2452,7 @@ $(function(){
     const submit = document.querySelector('#ten-birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -2175,13 +2471,19 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=29;i<30;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
-            return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -2254,6 +2556,14 @@ $(function(){
             // 後続の処理を止める
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                    
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -2370,7 +2680,7 @@ $(function(){
     const submit = document.querySelector('#annual-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -2390,11 +2700,19 @@ $(function(){
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=1;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -2425,7 +2743,7 @@ $(function(){
     const submit = document.querySelector('#bonus');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -2445,11 +2763,19 @@ $(function(){
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=2;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -2490,7 +2816,7 @@ $(function(){
     const submit = document.querySelector('#spouse-annual-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -2510,11 +2836,19 @@ $(function(){
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=3;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -2541,7 +2875,7 @@ $(function(){
     const submit = document.querySelector('#spouse-bonus');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -2561,11 +2895,19 @@ $(function(){
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=4;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -2592,7 +2934,7 @@ $(function(){
     const submit = document.querySelector('#food-expenses');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -2612,11 +2954,19 @@ $(function(){
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=5;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -2647,7 +2997,7 @@ $(function(){
     const submit = document.querySelector('#living-cost');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -2667,11 +3017,19 @@ $(function(){
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=6;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -2702,7 +3060,7 @@ $(function(){
     const submit = document.querySelector('#beauty-bill');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -2721,13 +3079,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=7;i<22;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -2758,7 +3123,7 @@ $(function(){
     const submit = document.querySelector('#house-class');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -2777,13 +3142,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=8;i<22;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -2814,7 +3186,7 @@ $(function(){
     const submit = document.querySelector('#house-cost');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -2833,13 +3205,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=9;i<22;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -2891,7 +3270,7 @@ $(function(){
     const submit = document.querySelector('#manage-cost');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -2910,13 +3289,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=10;i<22;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -2947,7 +3333,7 @@ $(function(){
     const submit = document.querySelector('#bill');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -2966,13 +3352,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=11;i<22;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -3003,7 +3396,7 @@ $(function(){
     const submit = document.querySelector('#pc-bill');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -3022,13 +3415,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=12;i<22;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -3059,7 +3459,7 @@ $(function(){
     const submit = document.querySelector('#phone-bill');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -3078,13 +3478,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=13;i<22;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -3115,7 +3522,7 @@ $(function(){
     const submit = document.querySelector('#lone');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -3134,13 +3541,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=14;i<22;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -3171,7 +3585,7 @@ $(function(){
     const submit = document.querySelector('#Insurance-bill');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -3190,13 +3604,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=15;i<22;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -3236,7 +3657,7 @@ $(function(){
     const submit = document.querySelector('#Educational-insurance');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -3255,13 +3676,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=16;i<22;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -3282,7 +3710,7 @@ $(function(){
     const submit = document.querySelector('#education-expenses');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -3301,13 +3729,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=17;i<22;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -3328,7 +3763,7 @@ $(function(){
     const submit = document.querySelector('#medical-insurance');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -3347,13 +3782,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=18;i<22;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -3374,7 +3816,7 @@ $(function(){
     const submit = document.querySelector('#life-insurance');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -3393,13 +3835,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=19;i<22;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -3420,7 +3869,7 @@ $(function(){
     const submit = document.querySelector('#Estate-Investment');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -3439,13 +3888,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=20;i<22;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -3466,7 +3922,7 @@ $(function(){
     const submit = document.querySelector('#asset-management');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -3485,13 +3941,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=21;i<22;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -3512,7 +3975,7 @@ $(function(){
     const submit = document.querySelector('#savings');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -3550,7 +4013,7 @@ $(function(){
 $(function(){
     // 「送信」ボタンの要素を取得
     const submit = document.querySelector('#yourpartnerinput');
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
         let button = document.querySelector("#partnerbirthday")
@@ -3708,7 +4171,7 @@ $(function(){
 $(function(){
     // 「送信」ボタンの要素を取得
     const submit = document.querySelector('#spouse');
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
         let button = document.querySelector("#button1")
@@ -3718,7 +4181,7 @@ $(function(){
 $(function(){
     // 「送信」ボタンの要素を取得
     const submit = document.querySelector('#single');
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
         let button = document.querySelector("#button2")
@@ -3791,7 +4254,7 @@ $(function(){
     const submit = document.querySelector('#myhome-buy');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -3810,8 +4273,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=1;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -3821,17 +4284,34 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-            let box = document.querySelector('#yourestate');
-            //styleのdisplayを変更する関数
-            box.style.display='';
-            const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+            if(String(sessionStorage.getItem('Estate-Investment')) == "0"){
+                let box = document.querySelector('#yoursavingsbalance');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+            else{
+                let box = document.querySelector('#yourestate');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
         }
 	});
 });
@@ -3842,7 +4322,7 @@ $(function(){
     const submit = document.querySelector('#estate');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -3861,8 +4341,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=2;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -3872,6 +4352,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -3895,7 +4382,7 @@ $(function(){
     const submit = document.querySelector('#first-estate');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -3914,8 +4401,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=3;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -3925,6 +4412,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -3946,7 +4440,7 @@ $(function(){
     const submit = document.querySelector('#first-rental-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -3965,8 +4459,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=4;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -3976,6 +4470,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -4009,7 +4510,7 @@ $(function(){
     const submit = document.querySelector('#second-estate');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -4028,8 +4529,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=5;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -4039,6 +4540,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -4060,7 +4568,7 @@ $(function(){
     const submit = document.querySelector('#second-rental-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -4079,8 +4587,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=6;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -4090,6 +4598,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -4123,7 +4638,7 @@ $(function(){
     const submit = document.querySelector('#third-estate');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -4142,8 +4657,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=7;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -4153,6 +4668,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -4174,7 +4696,7 @@ $(function(){
     const submit = document.querySelector('#third-rental-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -4193,8 +4715,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=8;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -4204,6 +4726,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -4237,7 +4766,7 @@ $(function(){
     const submit = document.querySelector('#four-estate');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -4256,8 +4785,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=9;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -4267,6 +4796,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -4288,7 +4824,7 @@ $(function(){
     const submit = document.querySelector('#four-rental-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -4307,8 +4843,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=10;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -4318,6 +4854,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -4351,7 +4894,7 @@ $(function(){
     const submit = document.querySelector('#five-estate');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -4370,8 +4913,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=11;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -4381,6 +4924,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -4402,7 +4952,7 @@ $(function(){
     const submit = document.querySelector('#five-rental-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -4421,8 +4971,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=12;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -4432,6 +4982,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -4465,7 +5022,7 @@ $(function(){
     const submit = document.querySelector('#six-estate');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -4484,8 +5041,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=13;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -4495,6 +5052,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -4516,7 +5080,7 @@ $(function(){
     const submit = document.querySelector('#six-rental-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -4535,8 +5099,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=14;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -4546,6 +5110,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -4579,7 +5150,7 @@ $(function(){
     const submit = document.querySelector('#seven-estate');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -4598,8 +5169,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=15;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -4609,6 +5180,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -4630,7 +5208,7 @@ $(function(){
     const submit = document.querySelector('#seven-rental-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -4649,8 +5227,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=16;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -4660,6 +5238,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -4693,7 +5278,7 @@ $(function(){
     const submit = document.querySelector('#eight-estate');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -4712,8 +5297,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=17;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -4723,6 +5308,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -4744,7 +5336,7 @@ $(function(){
     const submit = document.querySelector('#eight-rental-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -4763,8 +5355,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=18;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -4774,6 +5366,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -4807,7 +5406,7 @@ $(function(){
     const submit = document.querySelector('#nine-estate');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -4826,8 +5425,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=19;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -4837,6 +5436,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -4858,7 +5464,7 @@ $(function(){
     const submit = document.querySelector('#nine-rental-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -4877,8 +5483,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=20;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -4888,6 +5494,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -4921,7 +5534,7 @@ $(function(){
     const submit = document.querySelector('#ten-estate');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -4940,8 +5553,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=21;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -4951,6 +5564,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -4972,7 +5592,7 @@ $(function(){
     const submit = document.querySelector('#ten-rental-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -4991,8 +5611,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=22;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -5002,6 +5622,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -5025,7 +5652,7 @@ $(function(){
     const submit = document.querySelector('#savings-balance');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5044,8 +5671,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=23;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -5055,13 +5682,20 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
             
-            if(children_bool == true){
+            if(children_bool == true && sessionStorage.getItem('Educational-insurance') != "0"){
                 let box = document.querySelector('#yourlastEducationalinsurance');
                 //styleのdisplayを変更する関数
                 box.style.display='';
@@ -5088,7 +5722,7 @@ $(function(){
     const submit = document.querySelector('#last-Educational-insurance');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5107,8 +5741,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=24;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -5118,6 +5752,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -5139,7 +5780,7 @@ $(function(){
     const submit = document.querySelector('#trip');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5158,8 +5799,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=25;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -5169,6 +5810,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -5190,7 +5838,7 @@ $(function(){
     const submit = document.querySelector('#other-expense');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5209,8 +5857,8 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=26;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
@@ -5220,6 +5868,13 @@ $(function(){
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -5243,7 +5898,7 @@ $(function(){
     const submit = document.querySelector('#start-wark');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5262,13 +5917,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=27;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -5290,7 +5952,7 @@ $(function(){
     const submit = document.querySelector('#Starting-salary');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5309,13 +5971,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=28;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -5337,7 +6006,7 @@ $(function(){
     const submit = document.querySelector('#Estimated-annual-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5356,13 +6025,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=29;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -5402,13 +6078,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=30;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -5449,7 +6132,7 @@ $(function(){
     const submit = document.querySelector('#spouse-start-work');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5468,13 +6151,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=31;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -5497,7 +6187,7 @@ $(function(){
     const submit = document.querySelector('#spouse-Starting-salary');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5516,13 +6206,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=32;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -5544,7 +6241,7 @@ $(function(){
     const submit = document.querySelector('#spouse-Estimated-annual-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5563,13 +6260,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=33;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -5609,13 +6313,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=34;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -5648,7 +6359,7 @@ $(function(){
     const submit = document.querySelector('#first-primary-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5667,13 +6378,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=35;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -5695,7 +6413,7 @@ $(function(){
     const submit = document.querySelector('#first-junior-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5714,13 +6432,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=36;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -5742,7 +6467,7 @@ $(function(){
     const submit = document.querySelector('#first-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5761,13 +6486,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=37;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -5789,7 +6521,7 @@ $(function(){
     const submit = document.querySelector('#first-university');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5808,13 +6540,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=38;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -5849,7 +6588,7 @@ $(function(){
     const submit = document.querySelector('#second-primary-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5868,13 +6607,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=39;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -5896,7 +6642,7 @@ $(function(){
     const submit = document.querySelector('#second-junior-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5915,13 +6661,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=40;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -5943,7 +6696,7 @@ $(function(){
     const submit = document.querySelector('#second-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5962,13 +6715,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=41;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -5990,7 +6750,7 @@ $(function(){
     const submit = document.querySelector('#second-university');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6009,13 +6769,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=42;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -6050,7 +6817,7 @@ $(function(){
     const submit = document.querySelector('#third-primary-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6069,13 +6836,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=43;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -6097,7 +6871,7 @@ $(function(){
     const submit = document.querySelector('#third-junior-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6116,13 +6890,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=44;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -6144,7 +6925,7 @@ $(function(){
     const submit = document.querySelector('#third-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6163,13 +6944,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=45;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -6191,7 +6979,7 @@ $(function(){
     const submit = document.querySelector('#third-university');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6210,13 +6998,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=46;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -6250,7 +7045,7 @@ $(function(){
     const submit = document.querySelector('#four-primary-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6269,13 +7064,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=47;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -6297,7 +7099,7 @@ $(function(){
     const submit = document.querySelector('#four-junior-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6316,13 +7118,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=48;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -6344,7 +7153,7 @@ $(function(){
     const submit = document.querySelector('#four-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6363,13 +7172,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=49;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -6391,7 +7207,7 @@ $(function(){
     const submit = document.querySelector('#four-university');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6410,13 +7226,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=50;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -6450,7 +7273,7 @@ $(function(){
     const submit = document.querySelector('#five-primary-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6469,13 +7292,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=51;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -6497,7 +7327,7 @@ $(function(){
     const submit = document.querySelector('#five-junior-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6516,13 +7346,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=52;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -6544,7 +7381,7 @@ $(function(){
     const submit = document.querySelector('#five-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6563,13 +7400,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=53;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -6591,7 +7435,7 @@ $(function(){
     const submit = document.querySelector('#five-university');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6610,13 +7454,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=54;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -6650,7 +7501,7 @@ $(function(){
     const submit = document.querySelector('#six-primary-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6669,13 +7520,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=55;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -6697,7 +7555,7 @@ $(function(){
     const submit = document.querySelector('#six-junior-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6716,13 +7574,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=56;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -6744,7 +7609,7 @@ $(function(){
     const submit = document.querySelector('#six-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6763,13 +7628,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=57;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -6791,7 +7663,7 @@ $(function(){
     const submit = document.querySelector('#six-university');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6810,13 +7682,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=58;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -6850,7 +7729,7 @@ $(function(){
     const submit = document.querySelector('#seven-primary-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6869,13 +7748,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=59;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -6897,7 +7783,7 @@ $(function(){
     const submit = document.querySelector('#seven-junior-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6916,13 +7802,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=60;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -6944,7 +7837,7 @@ $(function(){
     const submit = document.querySelector('#seven-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6963,13 +7856,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=61;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -6991,7 +7891,7 @@ $(function(){
     const submit = document.querySelector('#seven-university');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -7010,13 +7910,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=62;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -7050,7 +7957,7 @@ $(function(){
     const submit = document.querySelector('#eight-primary-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -7069,13 +7976,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=63;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -7097,7 +8011,7 @@ $(function(){
     const submit = document.querySelector('#eight-junior-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -7116,13 +8030,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=64;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -7144,7 +8065,7 @@ $(function(){
     const submit = document.querySelector('#eight-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -7163,13 +8084,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=65;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -7191,7 +8119,7 @@ $(function(){
     const submit = document.querySelector('#eight-university');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -7210,13 +8138,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=66;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -7250,7 +8185,7 @@ $(function(){
     const submit = document.querySelector('#nine-primary-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -7269,13 +8204,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=67;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -7297,7 +8239,7 @@ $(function(){
     const submit = document.querySelector('#nine-junior-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -7316,13 +8258,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=68;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -7344,7 +8293,7 @@ $(function(){
     const submit = document.querySelector('#nine-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -7363,13 +8312,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=69;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -7391,7 +8347,7 @@ $(function(){
     const submit = document.querySelector('#nine-university');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -7410,13 +8366,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=70;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -7450,7 +8413,7 @@ $(function(){
     const submit = document.querySelector('#ten-primary-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -7469,13 +8432,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=71;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -7497,7 +8467,7 @@ $(function(){
     const submit = document.querySelector('#ten-junior-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -7516,13 +8486,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=72;i<73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -7544,7 +8521,7 @@ $(function(){
     const submit = document.querySelector('#ten-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -7563,13 +8540,20 @@ $(function(){
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=73;i<=73;i++){
-                console.log(ele_arr[i])
                 if(ele_arr[i].style.display != 'none'){
+                    respone = i;
                     ele_arr[i].style.display = 'none';
                 }
             }
             return;
         }else{
+            if(respone > 0){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var j=2;j<=respone;j++){
+                    ele_arr[j].style.display = '';
+                }
+                respone = 0;
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -7591,7 +8575,7 @@ $(function(){
     const submit = document.querySelector('#ten-university');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -7633,7 +8617,7 @@ $(function(){
     const submit = document.querySelector('#onetime-password');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 

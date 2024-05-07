@@ -50,7 +50,14 @@ else{
     var myhome = false;
 }
 
-var houseclass = sessionStorage.getItem('house-class')
+var children_number = sessionStorage.getItem('number-children')
+
+if(String(sessionStorage.getItem('Estate-Investment')) == "0"){
+    var estate_bool = false;
+}
+else{
+    var estate_bool = true;
+}
 
 $(function(){
     window.addEventListener('load', function(){
@@ -111,6 +118,13 @@ $(function(){
         
         var houseclass = sessionStorage.getItem('house-class')
 
+        if(sessionStorage.getItem('Estate-Investment') == "0"){
+            var estate_bool = false;
+        }
+        else{
+            var estate_bool = true;
+        }
+
         if(partner_bool2 == true && myhome == true && children_bool2 == true){
             const stat = document.querySelector('.last-state-page');
             var s = children_n * 4 + 14;
@@ -152,17 +166,26 @@ $(function(){
             stat.textContent = String(s);
         }
 
+        console.log(estate_bool);
         if(sessionStorage.getItem('house-class') == "myhouse"){
 			// 次の項目を表示
 			let box = document.querySelector('#yourhome');
 			//styleのdisplayを変更する関数
 			box.style.display='';
         }
-        else{
+        else if(estate_bool == true){
             // 次の項目を表示
 			let box = document.querySelector('#yourestate');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+        }
+        else{
+            // 次の項目を表示
+			let box = document.querySelector('#yoursavingsbalance');
+			//styleのdisplayを変更する関数
+			box.style.display='';
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = Number(stat.textContent) - 1
         }
     });
 });
