@@ -44,7 +44,7 @@
 
 <!-- Page Content -->
 <div class="container mt-5 p-lg-5 bg-light">
-    <form class="needs-validation">
+    <form class="needs-validation" onsubmit="return false;">
     @csrf
         <div class="form-group" style="display: none;" id="yourhome">
            <label for="text">マイホームを購入したのはいつですか。</label><br>
@@ -72,7 +72,7 @@
                 <option value="10">10件以上</option>
             </select>
             <div class="err-msg-name" id="yourestateerr"></div>
-        </div>
+        </div><br>
 
         <div class="form-group" style="display: none;" id="yourfirstestate">
            <label for="text">1件目の不動産投資物件を購入したのはいつですか。</label><br>
@@ -313,8 +313,9 @@
            <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yourotherexpenseerr"></div>
         </div>
+        <br>
 
-        <label for="text" style="display: none;" id="text">ここからの情報は、公的年金の受取額や退職金を概算で見積もるために使用します！</label>
+        <label for="text" style="display: none;" id="text">ここからの情報は、公的年金の受取額や退職金を概算で見積もるために使用します！</label><br>
 
         <div class="form-group" style="display: none;" id="yourstartwork">
            <label for="text">あなたの働き始めた年齢はおいくつですか。</label><br>
@@ -348,16 +349,14 @@
 
         <div class="form-group" style="display: none;" id="yourSeverancepay">
            <label for="text">あなたの現在の職場は退職金がありますか。</label><br>
-           <div class="btn-group btn-group-toggle" data-toggle="buttons" id="yourSeverancepayinput">
-                <label class="btn btn-primary active">
-                    <input type="radio" name="Severance-pay" id="Severance-pay" autocomplete="off" checked>ある
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="Severance-pay" id="not-Severance-pay" autocomplete="off">ない
-                </label>
+           <div class="radiobox" id="yourSeverancepayinput">
+                <input id="Severance-pay" class="radiobutton" name="Severance-pay" type="radio" value="ある" />
+                <label for="Severance-pay" class="radio_label">ある</label>
+                <input id="not-Severance-pay" class="radiobutton" name="Severance-pay" type="radio" value="ない" />
+                <label for="not-Severance-pay" class="radio_label">ない</label> 
             </div>
             <div class="err-msg-name" id="yourSeverancepayerr"></div>
-        </div>
+        </div><br>
 
         <div class="form-group" style="display: none;" id="yourpartnerstratwork">
            <label for="text">パートナーの働き始めた年齢はおいくつですか。</label><br>
@@ -380,7 +379,7 @@
         </div>
 
         <div class="form-group" style="display: none;" id="yourpartnerestimatedannualincome">
-           <label for="text"></label>パートナーの50歳の想定年収はどれくらいを目標としていますか？<br>
+           <label for="text">パートナーの50歳の想定年収はどれくらいを目標としていますか？</label><br>
            <table>
             <th>
            <input type="text" id="spouse-Estimated-annual-income" name="spouse-Estimated-annual-income" class="form-control" placeholder="500"></th>
@@ -391,16 +390,14 @@
 
         <div class="form-group" style="display: none;" id="yourpartnerSeverancepay">
            <label for="text">パートナーの現在の職場は退職金がありますか。</label><br>
-           <div class="btn-group btn-group-toggle" data-toggle="buttons" id="yourpartnerSeverancepayinput">
-                <label class="btn btn-primary active">
-                    <input type="radio" name="spouse-Severance-pay" id="spouse-Severance-pay" autocomplete="off" checked>ある
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="spouse-Severance-pay" id="spouse-Severance-pay-not" autocomplete="off">ない
-                </label>
+           <div class="radiobox" id="yourpartnerSeverancepayinput">
+                <input id="spouse-Severance-pay" class="radiobutton" name="spouse-Severance-pay" type="radio" value="ある" />
+                <label for="spouse-Severance-pay" class="radio_label">ある</label>
+                <input id="spouse-Severance-pay-not" class="radiobutton" name="spouse-Severance-pay" type="radio" value="ない" />
+                <label for="spouse-Severance-pay-not" class="radio_label">ない</label> 
             </div>
             <div class="err-msg-name" id="yourpartnerSeverancepayerr"></div>
-        </div>
+        </div><br>
 
         <div class="form-group" style="display: none;" id="yourfirstprimaryschool">
            <label for="inputState">1人目のお子様の小学校区分を入力してください。（将来の希望ベースでかまいません！）</label><br>
@@ -838,11 +835,11 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                            <h2>情報共有の同意のお願い</h2>
+                        <h2>情報共有の同意のお願い</h2>
                     </div>
                     <div class="modal-body">
                         <section>
-                            <h3>情報共有の同意のお願い/h3>
+                            <h3>情報共有の同意のお願い</h3>
                                 <p>お客様の未来家計簿情報をもとに、専門的なアドバイスを提供するためには、家計見直しのプロ（ファイナンシャルプランナー：FP）および<br>
                                     資産運用のプロ（独立金融アドバイザー：IFA）と情報を共有する必要があります。<br><br>
 

@@ -44,7 +44,7 @@
 
 <!-- Page Content -->
 <div class="container mt-5 p-lg-5 bg-light">
-    <form class="needs-validation" id="calc2">
+    <form class="needs-validation" id="calc2" onsubmit="return false;">
     @csrf
         <div class="form-group">
            <label for="text">あなたの年収を教えてください</label><br>
@@ -133,7 +133,7 @@
                 <option value="rental">賃貸</option>
             </select>
             <div class="err-msg-name" id="yourhouseclasserr"></div>
-        </div>
+        </div><br>
 
         <div class="form-group" style="display: none;" id="yourhousecost">
            <label for="text">毎月の住居費（持ち家の場合、毎月の住宅ローンの金額）を教えてください</label><br>

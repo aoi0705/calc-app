@@ -124,10 +124,10 @@ header {
 	justify-content: space-between;	/*並びかたの種類の指定*/
 	align-items: center;			/*垂直揃えの指定。天地中央に配置されるように。*/
 	background: #FF9696;			/*背景色*/
-	position: fixed; z-index: 1;	/*スクロールしても動かないようにする指定*/
+	/* position: fixed; z-index: 1;	/*スクロールしても動かないようにする指定*/
 	width: 100%;
-	padding: 0 3%;					/*上下、左右へのヘッダー内の余白*/
-	height: 50px;					/*ヘッダーの高さ。変更する場合、数行下にある#mainimgのtopの数値も合わせて変更して下さい。*/
+	/* padding: 0 3%;					/*上下、左右へのヘッダー内の余白*/
+	height: 60px;					/*ヘッダーの高さ。変更する場合、数行下にある#mainimgのtopの数値も合わせて変更して下さい。*/
 }
 
 .headul{
@@ -226,14 +226,14 @@ body{
 	padding: 0;
 	padding-top: 58.00%;
 	position: relative;
-	top: 50px;	/*headerのheightの数値と合わせて下さい。*/
+	top: 60px;	/*headerのheightの数値と合わせて下さい。*/
 	overflow: hidden;
 	background: #FF9696;	/*背景色、背景画像の読み込み、最後の100%は画像幅。*/
 	color: #fff;	/*文字色*/
-	/* background-image: url(../images/calc-image1.png),url(../images/calc-image2.png); */
+	background-image: url(../images/mainlogo.jpg);
 	background-repeat: no-repeat, no-repeat, no-repeat;
-	background-position: top right,top left;
-	background-size: 50%,50%;
+	background-position: right;
+	background-size: 40%
 }
 
 /*テキストブロック*/
@@ -245,16 +245,17 @@ body{
 	height: 100%;	/*高さ*/
 	display: flex;			/*flexボックスを使う指定*/
 	align-items: center;	/*垂直揃えの指定。天地中央に配置されるように。*/
-	margin-left: 23%;
+	margin-left: 5%;
 }
 
 /*h2見出し*/
 #mainimg #text h2 {
 	margin: 0;
-	font-weight: 500 !important;	/*文字の太さ。数値が大きいほど太くなります。*/
+	font-weight: bold !important;	/*文字の太さ。数値が大きいほど太くなります。*/
 	font-size: 2.7vw;	/*文字サイズ。画面幅に対する単位です。*/
 	text-shadow: 1px 1px 2px rgba(0,0,0,0.3);	/*テキストの影。右へ、下へ、ぼかし幅。0,0,0は黒の事で0.3は色が30%出た状態。*/
 	color: #000000;
+	text-align: left !important;
 }
 
 /*pタグ。小文字の説明文。*/
@@ -373,7 +374,7 @@ main h2 {
 	letter-spacing: 0.2em;	/*文字間隔を少しだけ広くとる設定*/
 	color: #FF9696;			/*文字色*/
 	font-family: 'メイリオ', 'Meiryo', sans-serif;	/*GoogleFontsの指定*/
-	font-weight: 400;		/*文字の太さ*/
+	font-weight: bold !important;		/*文字の太さ*/
 }
 
 /*h2内のsupanタグ。小文字部分です。*/
@@ -446,6 +447,35 @@ h4{
 
 #debug_bold{
 	font-weight: bold;
+}
+
+#text{
+	color: #f00;
+	font-weight: bold;
+}
+
+.radiobutton {
+	display: none;
+  }
+  .radio_label{
+	background-color: skyblue;
+	padding: 10px 20px;
+	border-radius: 20px;
+  }
+  .radiobutton:checked + label {
+	background-color: #FF9696;
+  }
+
+.www_h2{
+	font-size: 500% !important;
+	font-weight: bold !important;
+	text-align: center !important;
+}
+.www_p{
+	font-size: 180% !important;
+	font-weight: bold !important;
+	text-align: left !important;
+	width: 800px !important;
 }
 
 /*.form-group{
@@ -1054,13 +1084,11 @@ html, body {
 	flex-direction: row;			/*子要素を横並びにする*/
 	justify-content: space-between;	/*並びかたの種類の指定*/
 	align-items: center;			/*垂直揃えの指定。天地中央に配置されるように。*/
-	
-	margin-left: -6%;
-	margin-right: -6%;
+
 }
 /*画像ブロック*/
 .c2 .image {
-	width: 60%;
+	width: 40%;
 }
 
 /*テキストブロック*/
@@ -1077,15 +1105,15 @@ html, body {
 /*画像を右側に配置する場合の設定*/
 .c2 .image.r {
 	overflow: hidden;
-	/*margin-right: -6%;	画像を画面枠ギリギリまで移動する*/
-	border-radius: 100px 0px 0px 100px;	/*角を丸くする指定。左上、右上、右下、左下への順番。*/
+	margin-right: -6% !important;	/*画像を画面枠ギリギリまで移動する*/
+	border-radius: 100px 100px 100px 100px;	/*角を丸くする指定。左上、右上、右下、左下への順番。*/
 }
 
 /*画像を左側に配置する場合の設定*/
 .c2 .image.l {
 	overflow: hidden;
-	/*margin-left: -6%;	画像を画面枠ギリギリまで移動する*/
-	border-radius: 0px 100px 100px 0px;	/*角を丸くする指定。左上、右上、右下、左下への順番。*/
+	margin-left: -6% !important;	/*画像を画面枠ギリギリまで移動する*/
+	border-radius: 100px 100px 100px 100px;	/*角を丸くする指定。左上、右上、右下、左下への順番。*/
 }
 
 

@@ -107,6 +107,8 @@ $(function() {
 
 
 var respone = 0;
+var comp_flg = false;
+var last_koumoku = "0";
 // バリデーションの処理
 $(function(){
 
@@ -135,9 +137,16 @@ $(function(){
             for(var i=1;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
                 var ele_arr = document.getElementsByClassName("form-group");
@@ -158,6 +167,8 @@ $(function(){
                     }
                     ele_arr[j].style.display = '';
                 }
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
                 respone = 0;
             }
             // エラーメッセージのテキストに空文字を代入
@@ -170,6 +181,13 @@ $(function(){
 			box.style.display='';
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "6"
+
+            var err_arr = document.getElementsByClassName("err-msg-name")
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
         }
 	});
 });
@@ -202,9 +220,15 @@ $(function(){
                 console.log(ele_arr);
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
                 var ele_arr = document.getElementsByClassName("form-group");
@@ -226,7 +250,10 @@ $(function(){
                     ele_arr[j].style.display = '';
                 }
                 respone = 0;
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
+            
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -237,6 +264,13 @@ $(function(){
 			box.style.display='';
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "5"
+
+            console.log(comp_flg)
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2";
+            }
         }
 	});
 });
@@ -268,9 +302,15 @@ $(function(){
             for(var i=3;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
                 var ele_arr = document.getElementsByClassName("form-group");
@@ -292,6 +332,8 @@ $(function(){
                     ele_arr[j].style.display = '';
                 }
                 respone = 0;
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -302,6 +344,11 @@ $(function(){
 			box.style.display='';
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "4"
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
         }
 	});
 });
@@ -334,9 +381,15 @@ $(function(){
             for(var i=4;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
                 var ele_arr = document.getElementsByClassName("form-group");
@@ -358,6 +411,8 @@ $(function(){
                     ele_arr[j].style.display = '';
                 }
                 respone = 0;
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -368,6 +423,11 @@ $(function(){
 			box.style.display='';
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "3"
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
         }
 	});
 });
@@ -400,9 +460,15 @@ $(function(){
             for(var i=5;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
                 var ele_arr = document.getElementsByClassName("form-group");
@@ -424,6 +490,8 @@ $(function(){
                     ele_arr[j].style.display = '';
                 }
                 respone = 0;
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -434,6 +502,11 @@ $(function(){
 			box.style.display='';
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "2"
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
         }
 	});
 });
@@ -464,9 +537,15 @@ $(function(){
             for(var i=6;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
                 var ele_arr = document.getElementsByClassName("form-group");
@@ -488,6 +567,8 @@ $(function(){
                     ele_arr[j].style.display = '';
                 }
                 respone = 0;
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -502,6 +583,13 @@ $(function(){
                     checkValue = ele.item(i).value;
                 }
             }
+
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
+
             if(checkValue == "いる"){
                 let box = document.querySelector('#partnerbirthday');
                 box.style.display='';
@@ -549,9 +637,15 @@ $(function(){
             for(var i=7;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
                 var ele_arr = document.getElementsByClassName("form-group");
@@ -573,6 +667,8 @@ $(function(){
                     ele_arr[j].style.display = '';
                 }
                 respone = 0;
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -583,6 +679,11 @@ $(function(){
 			box.style.display='';
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "2"
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
         }
 	});
 });
@@ -614,9 +715,15 @@ $(function(){
             for(var i=8;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
                 var ele_arr = document.getElementsByClassName("form-group");
@@ -638,6 +745,8 @@ $(function(){
                     ele_arr[j].style.display = '';
                 }
                 respone = 0;
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -648,6 +757,11 @@ $(function(){
 			box.style.display='';
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "1"
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
         }
 	});
 });
@@ -678,16 +792,24 @@ $(function(){
             for(var i=9;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
+                console.log(respone)
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -695,7 +817,7 @@ $(function(){
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 
-            let ele = document.getElementsByName("children")
+            let ele = document.getElementsByName("children");
             let len = ele.length;
             let checkValue = '';
             for (let i = 0; i < len; i++){
@@ -703,17 +825,25 @@ $(function(){
                     checkValue = ele.item(i).value;
                 }
             }
+
             if(checkValue == "いる"){
                 let box = document.querySelector('#childrennumber');
                 box.style.display='';
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "1"
+                if(comp_flg == true){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
             }
             else if(checkValue == "いない"){
                 var ele_arr = document.getElementsByClassName("form-group");
                 for(var i=9;i<30;i++){
                     if(ele_arr[i].style.display != 'none'){
                         ele_arr[i].style.display = 'none';
+                        var st = document.querySelector('.last-state-page').textContent;
+                        last_koumoku = st;
                     }
                 }
                 const stat = document.querySelector('.last-state-page');
@@ -723,6 +853,7 @@ $(function(){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
+                comp_flg = true;
             }            
         }
 	});
@@ -755,16 +886,23 @@ $(function(){
             for(var i=10;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -810,6 +948,11 @@ $(function(){
             box.style.display='';
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(children_number_int) * 2)
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
         }
 	});
 });
@@ -842,16 +985,23 @@ $(function(){
             for(var i=11;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -928,16 +1078,24 @@ $(function(){
             for(var i=12;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            console.log(respone)
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -951,6 +1109,7 @@ $(function(){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
+                comp_flg = true;
             }
             else{
                 // 次の項目を表示
@@ -1024,16 +1183,23 @@ $(function(){
             for(var i=13;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -1078,6 +1244,11 @@ $(function(){
             total = Number(children_number_int) * 2
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(total) - 3)
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
         }
 	});
 });
@@ -1109,16 +1280,23 @@ $(function(){
             for(var i=14;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -1131,6 +1309,7 @@ $(function(){
                 let last_state = document.querySelector(".last-state-page");
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
+                comp_flg = true;
             }
             else{
                 // 次の項目を表示
@@ -1172,6 +1351,12 @@ $(function(){
                 total = Number(children_number_int) * 2
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(total) - 4)
+                
+            }
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
             }
 
         }
@@ -1205,16 +1390,23 @@ $(function(){
             for(var i=15;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -1259,6 +1451,11 @@ $(function(){
             total = Number(children_number_int) * 2
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(total) - 5)
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
         }
 	});
 });
@@ -1290,16 +1487,23 @@ $(function(){
             for(var i=16;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -1313,6 +1517,7 @@ $(function(){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
+                comp_flg = true;
             }
             else{
                 // 次の項目を表示
@@ -1355,6 +1560,11 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(total) - 6)
             }
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
         }
 	});
 });
@@ -1386,16 +1596,23 @@ $(function(){
             for(var i=17;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -1440,6 +1657,11 @@ $(function(){
             total = Number(children_number_int) * 2
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(total) - 7)
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
         }
 	});
 });
@@ -1471,16 +1693,23 @@ $(function(){
             for(var i=2;i<18;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -1494,6 +1723,7 @@ $(function(){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
+                comp_flg = true;
             }
             else{
                 // 次の項目を表示
@@ -1536,6 +1766,11 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(total) - 8)
             }
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
 
         }
 	});
@@ -1568,16 +1803,23 @@ $(function(){
             for(var i=19;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -1622,6 +1864,11 @@ $(function(){
             total = Number(children_number_int) * 2
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(total) - 9)
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
         }
 	});
 });
@@ -1653,16 +1900,23 @@ $(function(){
             for(var i=20;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -1676,6 +1930,7 @@ $(function(){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
+                comp_flg = true;
             }
             else{
                 // 次の項目を表示
@@ -1718,6 +1973,11 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(total) - 10)
             }
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
 
         }
 	});
@@ -1750,16 +2010,23 @@ $(function(){
             for(var i=21;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -1804,6 +2071,11 @@ $(function(){
             total = Number(children_number_int) * 2
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(total) - 11)
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
         }
 	});
 });
@@ -1835,16 +2107,23 @@ $(function(){
             for(var i=22;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -1858,6 +2137,7 @@ $(function(){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
+                comp_flg = true;
             }
             else{
                 // 次の項目を表示
@@ -1900,6 +2180,11 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(total) - 12)
             }
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
         }
 	});
 });
@@ -1931,16 +2216,23 @@ $(function(){
             for(var i=23;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -1985,6 +2277,11 @@ $(function(){
             total = Number(children_number_int) * 2
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(total) - 13)
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
         }
 	});
 });
@@ -2016,16 +2313,23 @@ $(function(){
             for(var i=24;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -2039,6 +2343,7 @@ $(function(){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
+                comp_flg = true;
             }
             else{
                 // 次の項目を表示
@@ -2081,6 +2386,11 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(total) - 14)
             }
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
         }
 	});
 });
@@ -2112,16 +2422,23 @@ $(function(){
             for(var i=25;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -2166,6 +2483,11 @@ $(function(){
             total = Number(children_number_int) * 2
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(total) - 15)
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
         }
 	});
 });
@@ -2196,16 +2518,23 @@ $(function(){
             for(var i=26;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -2219,6 +2548,7 @@ $(function(){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
+                comp_flg = true;
             }
             else{
                 // 次の項目を表示
@@ -2261,6 +2591,12 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(total) - 16)
             }
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+                comp_flg = true;
+            }
         }
 	});
 });
@@ -2292,16 +2628,23 @@ $(function(){
             for(var i=27;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -2346,6 +2689,12 @@ $(function(){
             total = Number(children_number_int) * 2
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(total) - 17)
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+                comp_flg = true;
+            }
         }
 	});
 });
@@ -2377,16 +2726,23 @@ $(function(){
             for(var i=28;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -2399,7 +2755,8 @@ $(function(){
                 let last_state = document.querySelector(".last-state-page");
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
+                next_button.id = "next_page2";
+                comp_flg = true;
             }
             else{
                 // 次の項目を表示
@@ -2442,6 +2799,12 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(total) - 18)
             }
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+                comp_flg = true;
+            }
         }
 	});
 });
@@ -2473,16 +2836,23 @@ $(function(){
             for(var i=29;i<30;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -2527,6 +2897,12 @@ $(function(){
             total = Number(children_number_int) * 2
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(total) - 19)
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+                comp_flg = true;
+            }
         }
 	});
 });
@@ -2554,15 +2930,17 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                    
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -2574,11 +2952,11 @@ $(function(){
             let last_state = document.querySelector(".last-state-page");
             let next_button = document.querySelector("#next_page2-not");
             $('#next_page2-not').prop('disabled', false);
-            next_button.id = "next_page2"
+            next_button.id = "next_page2";
+            comp_flg = true;
         }
 	});
 });
-
 
 
 // 2ページ目に遷移するボタンにセッションストレージに保存する処理
@@ -2674,6 +3052,7 @@ else if(sessionStorage.getItem('children') == "いない"){
     var children_bool = false;
 }
 
+var display_arr = new Array();
 $(function(){
 
     // 「送信」ボタンの要素を取得
@@ -2701,17 +3080,27 @@ $(function(){
             for(var i=1;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
+                // var ele_arr = document.getElementsByClassName("form-group");
+                // for(var j=0;j<22;j++){
+                //     ele_arr[j].style.display = '';
+                // }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -2732,6 +3121,12 @@ $(function(){
             else if(partner_bool == true || children_bool == true){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "19"        
+            }
+
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
             }
         }
 	});
@@ -2764,17 +3159,27 @@ $(function(){
             for(var i=2;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
+                // var ele_arr = document.getElementsByClassName("form-group");
+                // for(var j=0;j<22;j++){
+                //     ele_arr[j].style.display = '';
+                // }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -2805,6 +3210,11 @@ $(function(){
                     const stat = document.querySelector('.last-state-page');
                     stat.textContent = "18"        
                 }
+            }
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
             }
         }
 	});
@@ -2837,17 +3247,23 @@ $(function(){
             for(var i=3;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -2864,6 +3280,11 @@ $(function(){
             else if(partner_bool == true || children_bool == true){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "17"        
+            }
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
             }
         }
 	});
@@ -2896,17 +3317,28 @@ $(function(){
             for(var i=4;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -2955,17 +3387,28 @@ $(function(){
             for(var i=5;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -3018,17 +3461,28 @@ $(function(){
             for(var i=6;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -3081,17 +3535,29 @@ $(function(){
             for(var i=7;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
+
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -3136,7 +3602,7 @@ $(function(){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
-            errMsgName.textContent = '半角数字で入力してください';
+            errMsgName.textContent = 'いずれかを選択してください。';
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
@@ -3144,22 +3610,40 @@ $(function(){
             for(var i=8;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
+            let boxx = document.querySelector("#yourmanagecost");
+            if(document.querySelector("#house-class").value == "apartment"){
+                boxx.style.display = "none";
+            }
+            else{
+                boxx.style.display = "";
+            }
 			// 次の項目を表示
 			let box = document.querySelector('#yourhousecost');
 			//styleのdisplayを変更する関数
@@ -3207,17 +3691,28 @@ $(function(){
             for(var i=9;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -3291,17 +3786,28 @@ $(function(){
             for(var i=10;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -3354,17 +3860,28 @@ $(function(){
             for(var i=11;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -3417,17 +3934,28 @@ $(function(){
             for(var i=12;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -3480,17 +4008,28 @@ $(function(){
             for(var i=13;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -3543,17 +4082,28 @@ $(function(){
             for(var i=14;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -3606,17 +4156,28 @@ $(function(){
             for(var i=15;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -3678,17 +4239,28 @@ $(function(){
             for(var i=16;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -3731,17 +4303,28 @@ $(function(){
             for(var i=17;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -3784,17 +4367,28 @@ $(function(){
             for(var i=18;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -3837,17 +4431,28 @@ $(function(){
             for(var i=19;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -3890,17 +4495,28 @@ $(function(){
             for(var i=20;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -3943,17 +4559,28 @@ $(function(){
             for(var i=21;i<22;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i
+                    display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -3992,8 +4619,15 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -4005,7 +4639,7 @@ $(function(){
             let next_button = document.querySelector("#next_page2-not");
             $('#next_page2-not').prop('disabled', false);
             next_button.id = "next_page2"
-			
+			comp_flg = true;
         }
 	});
 });
@@ -4158,35 +4792,8 @@ $(function(){
         box.style.display='';
         const stat = document.querySelector('.last-state-page');
         stat.textContent = "2"
-
+        comp_flg = true;
     });
-});
-
-
-
-
-
-
-
-$(function(){
-    // 「送信」ボタンの要素を取得
-    const submit = document.querySelector('#spouse');
-    submit.addEventListener('input', (e) => {
-        // デフォルトアクションをキャンセル
-        e.preventDefault();
-        let button = document.querySelector("#button1")
-        button.id="button1-choice"
-	});
-});
-$(function(){
-    // 「送信」ボタンの要素を取得
-    const submit = document.querySelector('#single');
-    submit.addEventListener('input', (e) => {
-        // デフォルトアクションをキャンセル
-        e.preventDefault();
-        let button = document.querySelector("#button2")
-        button.id="button2-choice"
-	});
 });
 
 // ここから3ページ目の処理
@@ -4267,7 +4874,7 @@ $(function(){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
-            errMsgName.textContent = 'いずれかを選択してください。';
+            errMsgName.textContent = '数字4桁で入力してください。';
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
@@ -4275,28 +4882,39 @@ $(function(){
             for(var i=1;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-            if(String(sessionStorage.getItem('Estate-Investment')) == "0"){
+            if(sessionStorage.getItem('Estate-Investment') == "0"){
                 let box = document.querySelector('#yoursavingsbalance');
                 //styleのdisplayを変更する関数
                 box.style.display='';
@@ -4343,21 +4961,32 @@ $(function(){
             for(var i=2;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -4403,21 +5032,32 @@ $(function(){
             for(var i=3;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -4461,21 +5101,32 @@ $(function(){
             for(var i=4;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -4531,21 +5182,32 @@ $(function(){
             for(var i=5;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -4589,21 +5251,32 @@ $(function(){
             for(var i=6;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -4659,21 +5332,32 @@ $(function(){
             for(var i=7;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -4717,21 +5401,32 @@ $(function(){
             for(var i=8;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -4787,21 +5482,32 @@ $(function(){
             for(var i=9;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -4845,21 +5551,32 @@ $(function(){
             for(var i=10;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -4915,21 +5632,32 @@ $(function(){
             for(var i=11;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -4973,21 +5701,32 @@ $(function(){
             for(var i=12;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5043,21 +5782,32 @@ $(function(){
             for(var i=13;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5101,21 +5851,32 @@ $(function(){
             for(var i=14;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5171,21 +5932,32 @@ $(function(){
             for(var i=15;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5229,21 +6001,32 @@ $(function(){
             for(var i=16;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5299,21 +6082,32 @@ $(function(){
             for(var i=17;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5357,21 +6151,32 @@ $(function(){
             for(var i=18;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5427,21 +6232,32 @@ $(function(){
             for(var i=19;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5485,21 +6301,32 @@ $(function(){
             for(var i=20;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5555,21 +6382,32 @@ $(function(){
             for(var i=21;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5613,21 +6451,32 @@ $(function(){
             for(var i=22;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5673,21 +6522,32 @@ $(function(){
             for(var i=23;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5697,6 +6557,14 @@ $(function(){
             
             if(children_bool == true && sessionStorage.getItem('Educational-insurance') != "0"){
                 let box = document.querySelector('#yourlastEducationalinsurance');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+            else if(children_bool == true && sessionStorage.getItem('Educational-insurance') == "0"){
+                let box = document.querySelector('#yourtrip');
                 //styleのdisplayを変更する関数
                 box.style.display='';
                 const base_laststate = document.querySelector(".last-state-page").textContent
@@ -5743,21 +6611,32 @@ $(function(){
             for(var i=24;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5801,21 +6680,32 @@ $(function(){
             for(var i=25;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5859,21 +6749,32 @@ $(function(){
             for(var i=26;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5919,17 +6820,28 @@ $(function(){
             for(var i=27;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5973,17 +6885,28 @@ $(function(){
             for(var i=28;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6027,17 +6950,28 @@ $(function(){
             for(var i=29;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6080,17 +7014,28 @@ $(function(){
             for(var i=30;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6113,6 +7058,7 @@ $(function(){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
+                comp_flg = true;
             }
             else if(partner_bool  == false && children_bool == true){
                 let box = document.querySelector('#yourfirstprimaryschool');
@@ -6153,17 +7099,28 @@ $(function(){
             for(var i=31;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6208,17 +7165,28 @@ $(function(){
             for(var i=32;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6262,17 +7230,28 @@ $(function(){
             for(var i=33;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6315,17 +7294,28 @@ $(function(){
             for(var i=34;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6348,6 +7338,7 @@ $(function(){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
+                comp_flg = true;
             }
         }
 	});
@@ -6380,17 +7371,28 @@ $(function(){
             for(var i=35;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6434,17 +7436,28 @@ $(function(){
             for(var i=36;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6488,17 +7501,28 @@ $(function(){
             for(var i=37;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6542,17 +7566,28 @@ $(function(){
             for(var i=38;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6569,6 +7604,7 @@ $(function(){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
+                comp_flg = true;
             }
             else{
                 let box = document.querySelector('#yoursecondprimaryschool');
@@ -6609,17 +7645,28 @@ $(function(){
             for(var i=39;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6663,17 +7710,28 @@ $(function(){
             for(var i=40;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6717,17 +7775,28 @@ $(function(){
             for(var i=41;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6771,17 +7840,28 @@ $(function(){
             for(var i=42;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6798,6 +7878,7 @@ $(function(){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
+                comp_flg = true;
             }
             else{
                 let box = document.querySelector('#yourthirdprimaryschool');
@@ -6838,17 +7919,29 @@ $(function(){
             for(var i=43;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
+            
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6892,17 +7985,28 @@ $(function(){
             for(var i=44;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6946,17 +8050,28 @@ $(function(){
             for(var i=45;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7000,17 +8115,29 @@ $(function(){
             for(var i=46;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
+            
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7026,6 +8153,7 @@ $(function(){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
+                comp_flg = true;
             }
             else{
                 let box = document.querySelector('#yourfourprimaryschool');
@@ -7066,17 +8194,28 @@ $(function(){
             for(var i=47;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7120,17 +8259,28 @@ $(function(){
             for(var i=48;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7174,17 +8324,28 @@ $(function(){
             for(var i=49;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7228,17 +8389,28 @@ $(function(){
             for(var i=50;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7254,6 +8426,7 @@ $(function(){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
+                comp_flg = true;
             }
             else{
                 let box = document.querySelector('#yourfiveprimaryschool');
@@ -7294,17 +8467,28 @@ $(function(){
             for(var i=51;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7348,17 +8532,28 @@ $(function(){
             for(var i=52;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7402,17 +8597,28 @@ $(function(){
             for(var i=53;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7456,17 +8662,28 @@ $(function(){
             for(var i=54;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7482,6 +8699,7 @@ $(function(){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
+                comp_flg = true;
             }
             else{
                 let box = document.querySelector('#yoursixprimaryschool');
@@ -7522,17 +8740,28 @@ $(function(){
             for(var i=55;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7576,17 +8805,28 @@ $(function(){
             for(var i=56;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7630,17 +8870,28 @@ $(function(){
             for(var i=57;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7684,17 +8935,28 @@ $(function(){
             for(var i=58;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7710,6 +8972,7 @@ $(function(){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
+                comp_flg = true;
             }
             else{
                 let box = document.querySelector('#yoursevenprimaryschool');
@@ -7750,17 +9013,28 @@ $(function(){
             for(var i=59;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7804,17 +9078,28 @@ $(function(){
             for(var i=60;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7858,17 +9143,28 @@ $(function(){
             for(var i=61;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7912,17 +9208,28 @@ $(function(){
             for(var i=62;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7938,6 +9245,7 @@ $(function(){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
+                comp_flg = true;
             }
             else{
                 let box = document.querySelector('#youreightprimaryschool');
@@ -7978,17 +9286,28 @@ $(function(){
             for(var i=63;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8032,17 +9351,28 @@ $(function(){
             for(var i=64;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8086,17 +9416,28 @@ $(function(){
             for(var i=65;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8140,17 +9481,28 @@ $(function(){
             for(var i=66;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8166,6 +9518,7 @@ $(function(){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
+                comp_flg = true;
             }
             else{
                 let box = document.querySelector('#yournineprimaryschool');
@@ -8206,17 +9559,28 @@ $(function(){
             for(var i=67;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8260,17 +9624,28 @@ $(function(){
             for(var i=68;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8314,17 +9689,28 @@ $(function(){
             for(var i=69;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8368,17 +9754,28 @@ $(function(){
             for(var i=70;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8394,6 +9791,7 @@ $(function(){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
+                comp_flg = true;
             }
             else{
                 let box = document.querySelector('#yourtenprimaryschool');
@@ -8434,17 +9832,28 @@ $(function(){
             for(var i=71;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8488,17 +9897,28 @@ $(function(){
             for(var i=72;i<73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8542,17 +9962,28 @@ $(function(){
             for(var i=73;i<=73;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
+                    display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
+                    var st = document.querySelector('.last-state-page').textContent;
+                    last_koumoku = st;
                 }
             }
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
+            if(comp_flg == true){
+                let next_button = document.querySelector("#next_page2-not");
+                $('#next_page2-not').prop('disabled', false);
+                next_button.id = "next_page2"
+            }
             if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var j=2;j<=respone;j++){
-                    ele_arr[j].style.display = '';
-                }
                 respone = 0;
+                display_arr.forEach(disp => {
+                    disp.style.display = '';
+                });
+                var count_ele = document.querySelector('.last-state-page');
+                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8592,7 +10023,9 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
-            return;
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
         }else{
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8606,6 +10039,7 @@ $(function(){
             let next_button = document.querySelector("#next_page2-not");
             $('#next_page2-not').prop('disabled', false);
             next_button.id = "next_page2"
+            comp_flg = true;
         }
 	});
 });

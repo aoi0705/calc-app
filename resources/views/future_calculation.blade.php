@@ -45,7 +45,7 @@
 
 <!-- Page Content -->
 <div class="container mt-5 p-lg-5 bg-light">
-<form class="needs-validation" id="calc1">
+<form class="needs-validation" id="calc1" onsubmit="return false;">
     @csrf
         <div class="form-group" id="sendemail">
            <label for="text">メールアドレス</label><br>
@@ -87,20 +87,18 @@
                 <option value="その他">その他</option>
             </select>
             <div class="err-msg-name" id="joberr"></div>
-        </div>
+        </div><br>
 
         <div class="form-group" style="display: none;" name="yourpartner" id="yourpartner">
         <label for="text">配偶者・パートナーの有無</label><br>
-           <div class="btn-group btn-group-toggle" data-toggle="buttons" id="yourpartnerinput">
-                <label class="btn btn-secondary" id="button1">
-                    <input class="btn-check" type="radio" name="spouse" id="spouse" autocomplete="off" value="いる">いる
-                </label>
-                <label class="btn btn-secondary" id="button2">
-                    <input class="btn-check" type="radio" name="spouse" id="single" autocomplete="off" value="いない">いない
-                </label>
+            <div class="radiobox" id="yourpartnerinput">
+                <input id="spouse" class="radiobutton" name="spouse" type="radio" value="いる" />
+                <label for="spouse" class="radio_label">いる</label>
+                <input id="single" class="radiobutton" name="spouse" type="radio" value="いない" />
+                <label for="single" class="radio_label">いない</label> 
             </div>
             <div class="err-msg-name" id="partnererr"></div>
-        </div>
+        </div><br>
 
         <div class="form-group" style="display: none;" name="partnerbirthday" id="partnerbirthday">
            <label for="text">配偶者・パートナーの生年月日を教えてください</label><br>
@@ -123,16 +121,14 @@
 
         <div class="form-group" style="display: none;" name="yourchildren" id="yourchildren">
            <label for="text">子どもの有無</label><br>
-           <div class="btn-group btn-group-toggle" data-toggle="buttons" id="yourchildreninput">
-                <label class="btn btn-primary active">
-                    <input type="radio" name="children" id="children" autocomplete="off" value="いる">いる
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="children" id="not-children" autocomplete="off" value="いない">いない
-                </label>
+           <div class="radiobox" id="yourchildreninput">
+                <input id="children" class="radiobutton" name="children" type="radio" value="いる" />
+                <label for="children" class="radio_label">いる</label>
+                <input id="not-children" class="radiobutton" name="children" type="radio" value="いない" />
+                <label for="not-children" class="radio_label">いない</label> 
             </div>
             <div class="err-msg-name" id="yourchildrenerr"></div>
-        </div>
+        </div><br>
 
         <div class="form-group" style="display: none;" name="childrennumber" id="childrennumber">
            <label for="inputState">子どもの人数</label><br>
@@ -150,7 +146,7 @@
                 <option value="ten">10人以上</option>
             </select>
             <div class="err-msg-name" id="childrennumbererr"></div>
-        </div>
+        </div><br>
 
         <div class="form-group" style="display: none;" name="firstchildrenbirth" id="firstchildrenbirth">
            <label for="text">1人目の生年月日<br>
@@ -161,19 +157,18 @@
 
         <div class="form-group" style="display: none;" id="firstchildrensex" name="firstchildrensex">
            <label for="text">1人目の性別</label><br>
-           <div class="btn-group btn-group-toggle" data-toggle="buttons" id="firstchildrensexinput">
-                <label class="btn btn-primary active">
-                    <input type="radio" name="first-male" id="first-male" autocomplete="off" checked>男性
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="first-male" id="first-female" autocomplete="off">女性
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="first-male" id="first-other" autocomplete="off">その他
-                </label>
+           <div class="radiobox" id="firstchildrensexinput">
+                <input id="first-male" class="radiobutton" name="first-male" type="radio" value="男性" />
+                <label for="first-male" class="radio_label">男性</label>
+                <input id="first-female" class="radiobutton" name="first-male" type="radio" value="女性" />
+                <label for="first-female" class="radio_label">女性</label> 
+                <input id="first-other" class="radiobutton" name="first-male" type="radio" value="その他" />
+                <label for="first-other" class="radio_label">その他</label> 
             </div>
             <div class="err-msg-name" id="firstchildrensexerr"></div>
-        </div>
+        </div><br>
+
+
 
         <div class="form-group" style="display: none;" name="secondchildrenbirth" id="secondchildrenbirth">
            <label for="text">2人目の生年月日<br>
@@ -184,19 +179,16 @@
 
         <div class="form-group" style="display: none;" id="secondchildrensex" name="secondchildrensex">
            <label for="text">2人目の性別</label><br>
-           <div class="btn-group btn-group-toggle" data-toggle="buttons" id="secondchildrensexinput">
-                <label class="btn btn-primary active">
-                    <input type="radio" name="second-male" id="second-male" autocomplete="off" checked>男性
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="second-male" id="second-female" autocomplete="off">女性
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="second-male" id="second-other" autocomplete="off">その他
-                </label>
+           <div class="radiobox" id="secondchildrensexinput">
+                <input id="second-male" class="radiobutton" name="second-male" type="radio" value="男性" />
+                <label for="second-male" class="radio_label">男性</label>
+                <input id="second-female" class="radiobutton" name="second-male" type="radio" value="女性" />
+                <label for="second-female" class="radio_label">女性</label> 
+                <input id="second-other" class="radiobutton" name="second-male" type="radio" value="その他" />
+                <label for="second-other" class="radio_label">その他</label> 
             </div>
             <div class="err-msg-name" id="secondchildrensexerr"></div>
-        </div>
+        </div><br>
 
         <div class="form-group" style="display: none;" id="thirdchildrenbirth" name="thirdchildrenbirth">
            <label for="text">3人目の生年月日<br>
@@ -207,19 +199,16 @@
 
         <div class="form-group" style="display: none;" id="thirdchildrensex" name="thirdchildrensex">
            <label for="text">3人目の性別</label><br>
-           <div class="btn-group btn-group-toggle" data-toggle="buttons" id="thirdchildrensexinput">
-                <label class="btn btn-primary active">
-                    <input type="radio" name="third-male" id="third-male" autocomplete="off" checked>男性
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="third-male" id="third-female" autocomplete="off">女性
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="third-male" id="third-other" autocomplete="off">その他
-                </label>
+           <div class="radiobox" id="thirdchildrensexinput">
+                <input id="third-male" class="radiobutton" name="third-male" type="radio" value="男性" />
+                <label for="third-male" class="radio_label">男性</label>
+                <input id="third-female" class="radiobutton" name="third-male" type="radio" value="女性" />
+                <label for="third-female" class="radio_label">女性</label> 
+                <input id="third-other" class="radiobutton" name="third-male" type="radio" value="その他" />
+                <label for="third-other" class="radio_label">その他</label> 
             </div>
             <div class="err-msg-name" id="thirdchildrensexerr"></div>
-        </div>
+        </div><br>
 
         <div class="form-group" style="display: none;" id="fourchildrenbirth" name="fourchildrenbirth">
            <label for="text">4人目の生年月日<br>
@@ -230,19 +219,16 @@
 
         <div class="form-group" style="display: none;" id="fourchildrensex" name="fourchildrensex">
            <label for="text">4人目の性別</label><br>
-           <div class="btn-group btn-group-toggle" data-toggle="buttons" id="fourchildrensexinput">
-                <label class="btn btn-primary active">
-                    <input type="radio" name="four-male" id="four-male" autocomplete="off" checked>男性
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="four-male" id="four-female" autocomplete="off">女性
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="four-male" id="four-other" autocomplete="off">その他
-                </label>
+           <div class="radiobox" id="fourchildrensexinput">
+                <input id="four-male" class="radiobutton" name="four-male" type="radio" value="男性" />
+                <label for="four-male" class="radio_label">男性</label>
+                <input id="four-female" class="radiobutton" name="four-male" type="radio" value="女性" />
+                <label for="four-female" class="radio_label">女性</label> 
+                <input id="four-other" class="radiobutton" name="four-male" type="radio" value="その他" />
+                <label for="four-other" class="radio_label">その他</label> 
             </div>
             <div class="err-msg-name" id="fourchildrensexerr"></div>
-        </div>
+        </div><br>
 
         <div class="form-group" style="display: none;" id="fivechildrenbirth" name="fivechildrenbirth">
            <label for="text">5人目の生年月日<br>
@@ -253,19 +239,16 @@
 
         <div class="form-group" style="display: none;" id="fivechildrensex" name="fivechildrensex">
            <label for="text">5人目の性別</label><br>
-           <div class="btn-group btn-group-toggle" data-toggle="buttons" id="fivechildrensexinput">
-                <label class="btn btn-primary active">
-                    <input type="radio" name="five-male" id="five-male" autocomplete="off" checked>男性
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="five-male" id="five-female" autocomplete="off">女性
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="five-male" id="five-other" autocomplete="off">その他
-                </label>
+           <div class="radiobox" id="fivechildrensexinput">
+                <input id="five-male" class="radiobutton" name="five-male" type="radio" value="男性" />
+                <label for="five-male" class="radio_label">男性</label>
+                <input id="five-female" class="radiobutton" name="five-male" type="radio" value="女性" />
+                <label for="five-female" class="radio_label">女性</label> 
+                <input id="five-other" class="radiobutton" name="five-male" type="radio" value="その他" />
+                <label for="five-other" class="radio_label">その他</label> 
             </div>
             <div class="err-msg-name" id="fivechildrensexerr"></div>
-        </div>
+        </div><br>
 
         <div class="form-group" style="display: none;" id="sixchildrenbirth" name="sixchildrenbirth">
            <label for="text">6人目の生年月日<br>
@@ -276,19 +259,16 @@
 
         <div class="form-group" style="display: none;" id="sixchildrensex" name="sixchildrensex">
            <label for="text">6人目の性別</label><br>
-           <div class="btn-group btn-group-toggle" data-toggle="buttons" id="sixchildrensexinput">
-                <label class="btn btn-primary active">
-                    <input type="radio" name="six-male" id="six-male" autocomplete="off" checked>男性
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="six-male" id="six-female" autocomplete="off">女性
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="six-male" id="six-other" autocomplete="off">その他
-                </label>
+           <div class="radiobox" id="sixchildrensexinput">
+                <input id="six-male" class="radiobutton" name="six-male" type="radio" value="男性" />
+                <label for="six-male" class="radio_label">男性</label>
+                <input id="six-female" class="radiobutton" name="six-male" type="radio" value="女性" />
+                <label for="six-female" class="radio_label">女性</label> 
+                <input id="six-other" class="radiobutton" name="six-male" type="radio" value="その他" />
+                <label for="six-other" class="radio_label">その他</label> 
             </div>
             <div class="err-msg-name" id="sixchildrensexerr"></div>
-        </div>
+        </div><br>
 
         <div class="form-group" style="display: none;" id="sevenchildrenbirth" name="sevenchildrenbirth">
            <label for="text">7人目の生年月日<br>
@@ -299,19 +279,16 @@
 
         <div class="form-group" style="display: none;" id="sevenchildrensex" name="sevenchildrensex">
            <label for="text">7人目の性別</label><br>
-           <div class="btn-group btn-group-toggle" data-toggle="buttons" id="sevenchildrensexinput">
-                <label class="btn btn-primary active">
-                    <input type="radio" name="seven-male" id="seven-male" autocomplete="off" checked>男性
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="seven-male" id="seven-female" autocomplete="off">女性
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="seven-male" id="seven-other" autocomplete="off">その他
-                </label>
+           <div class="radiobox" id="sevenchildrensexinput">
+                <input id="seven-male" class="radiobutton" name="seven-male" type="radio" value="男性" />
+                <label for="seven-male" class="radio_label">男性</label>
+                <input id="seven-female" class="radiobutton" name="seven-male" type="radio" value="女性" />
+                <label for="seven-female" class="radio_label">女性</label> 
+                <input id="seven-other" class="radiobutton" name="seven-male" type="radio" value="その他" />
+                <label for="seven-other" class="radio_label">その他</label> 
             </div>
             <div class="err-msg-name" id="sevenchildrensexerr"></div>
-        </div>
+        </div><br>
 
         <div class="form-group" style="display: none;" id="eightchildrenbirth" name="eightchildrenbirth">
            <label for="text">8人目の生年月日<br>
@@ -322,19 +299,16 @@
 
         <div class="form-group" style="display: none;" id="eightchildrensex" name="eightchildrensex">
            <label for="text">8人目の性別</label><br>
-           <div class="btn-group btn-group-toggle" data-toggle="buttons" id="eightchildrensexinput">
-                <label class="btn btn-primary active">
-                    <input type="radio" name="eight-male" id="eight-male" autocomplete="off" checked>男性
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="eight-male" id="eight-female" autocomplete="off">女性
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="eight-male" id="eight-other" autocomplete="off">その他
-                </label>
+           <div class="radiobox" id="eightchildrensexinput">
+                <input id="eight-male" class="radiobutton" name="eight-male" type="radio" value="男性" />
+                <label for="eight-male" class="radio_label">男性</label>
+                <input id="eight-female" class="radiobutton" name="eight-male" type="radio" value="女性" />
+                <label for="eight-female" class="radio_label">女性</label> 
+                <input id="eight-other" class="radiobutton" name="eight-male" type="radio" value="その他" />
+                <label for="eight-other" class="radio_label">その他</label> 
             </div>
             <div class="err-msg-name" id="eightchildrensexerr"></div>
-        </div>
+        </div><br>
 
         <div class="form-group" style="display: none;" id="ninechildrenbirth" name="ninechildrenbirth">
            <label for="text">9人目の生年月日<br>
@@ -345,19 +319,16 @@
 
         <div class="form-group" style="display: none;" id="ninechildrensex" name="ninechildrensex">
            <label for="text">9人目の性別</label><br>
-           <div class="btn-group btn-group-toggle" data-toggle="buttons" id="ninechildrensexinput">
-                <label class="btn btn-primary active">
-                    <input type="radio" name="nine-male" id="nine-male" autocomplete="off" checked>男性
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="nine-male" id="nine-female" autocomplete="off">女性
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="nine-male" id="nine-other" autocomplete="off">その他
-                </label>
+           <div class="radiobox" id="ninechildrensexinput">
+                <input id="nine-male" class="radiobutton" name="nine-male" type="radio" value="男性" />
+                <label for="nine-male" class="radio_label">男性</label>
+                <input id="nine-female" class="radiobutton" name="nine-male" type="radio" value="女性" />
+                <label for="nine-female" class="radio_label">女性</label> 
+                <input id="nine-other" class="radiobutton" name="nine-male" type="radio" value="その他" />
+                <label for="nine-other" class="radio_label">その他</label> 
             </div>
             <div class="err-msg-name" id="ninechildrensexerr"></div>
-        </div>
+        </div><br>
 
         <div class="form-group" style="display: none;" id="tenchildrenbirth" name="tenchildrenbirth">
            <label for="text">10人目の生年月日<br>
@@ -368,19 +339,16 @@
 
         <div class="form-group" style="display: none;" id="tenchildrensex" name="tenchildrensex">
            <label for="text">10人目の性別</label><br>
-           <div class="btn-group btn-group-toggle" data-toggle="buttons" id="tenchildrensexinput">
-                <label class="btn btn-primary active">
-                    <input type="radio" name="ten-male" id="ten-male" autocomplete="off" checked>男性
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="ten-male" id="ten-female" autocomplete="off">女性
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="ten-male" id="ten-other" autocomplete="off">その他
-                </label>
+           <div class="radiobox" id="tenchildrensexinput">
+                <input id="ten-male" class="radiobutton" name="ten-male" type="radio" value="男性" />
+                <label for="ten-male" class="radio_label">男性</label>
+                <input id="ten-female" class="radiobutton" name="ten-male" type="radio" value="女性" />
+                <label for="ten-female" class="radio_label">女性</label> 
+                <input id="ten-other" class="radiobutton" name="ten-male" type="radio" value="その他" />
+                <label for="ten-other" class="radio_label">その他</label> 
             </div>
             <div class="err-msg-name" id="tenchildrensexerr"></div>
-        </div>
+        </div><br>
 </div><!-- /container -->
 
 </section>

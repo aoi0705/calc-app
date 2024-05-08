@@ -141,18 +141,17 @@
 
 <section class="bg1">
 
-<h2 class="hidden">大見出し</h2>
-
 <div class="c2">
 
 <div class="text l">
-<h2>Purpose</h2>
-<p>ライフステージや家族構成に合わせたお金の管理を容易にし、一人ひとりのより良い未来をサポートする。</p>
+<h3 class="www_h2">Purpose</h3>
+<p class="www_p">ライフステージや家族構成に合わせたお金の管理を<br>
+容易にし、一人ひとりのより良い未来をサポートする</p>
 </div>
 <!--/.text-->
 
 <div class="image r">
-<figure><img src="images/mainimg.png" alt=""></figure>
+<figure><img src="images/purpose.png" alt=""></figure>
 </div>
 <!--/.image-->
 
@@ -162,20 +161,18 @@
 
 <section>
 
-<h2 class="hidden">大見出し</h2>
-
 <div class="c2">
 
 <div class="text r">
-<h2>Mission</h2>
-<p>個々のユーザーが自分の将来の家計状況を明確に理解し、賢明な資産運用と<br>
-リスクマネジメントをサポートする
+<h3 class="www_h2">Mission</h3>
+<p class="www_p">個々のユーザーが自分の将来の家計状況を明確に理解し、<br>
+賢明な資産運用とリスクマネジメントをサポートする
 </p>
 </div>
 <!--/.text-->
 
 <div class="image l">
-<figure><img src="images/mainimg.png" alt=""></figure>
+<figure><img src="images/mission.png" alt=""></figure>
 </div>
 <!--/.image-->
 
@@ -185,19 +182,20 @@
 
 <section class="bg1">
 
-<h2 class="hidden">大見出し</h2>
 
 <div class="c2">
 
 <div class="text l">
-<h2>Vision</span></h2>
-<p>金融リテラシーの向上と資産運用の民主化を実現し、すべての人が将来の自分の家計状況を自信を持って管理できる社会を創る
+<h3 class="www_h2">Vision</span></h3>
+<p class="www_p">金融リテラシーの向上と資産運用の民主化を実現し、<br>
+すべての人が将来の自分の家計状況を自信を持って<br>
+管理できる社会を創る
 </p>
 </div>
 <!--/.text-->
 
 <div class="image r">
-<figure><img src="images/mainimg.png" alt=""></figure>
+<figure><img src="images/vision.png" alt=""></figure>
 </div>
 <!--/.image-->
 
