@@ -182,8 +182,40 @@ $(function(){
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "6"
 
-            var err_arr = document.getElementsByClassName("err-msg-name")
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
@@ -265,11 +297,43 @@ $(function(){
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "5"
 
-            console.log(comp_flg)
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2";
+                next_button.id = "next_page2"
             }
         }
 	});
@@ -344,7 +408,40 @@ $(function(){
 			box.style.display='';
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "4"
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
@@ -423,7 +520,40 @@ $(function(){
 			box.style.display='';
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "3"
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
@@ -502,7 +632,40 @@ $(function(){
 			box.style.display='';
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "2"
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
@@ -584,7 +747,41 @@ $(function(){
                 }
             }
 
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            var ele_arr = document.getElementsByClassName("form-group");
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
@@ -679,7 +876,40 @@ $(function(){
 			box.style.display='';
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "2"
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
@@ -757,7 +987,40 @@ $(function(){
 			box.style.display='';
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "1"
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
@@ -766,6 +1029,7 @@ $(function(){
 	});
 });
 
+var number_arr = new Array();
 $(function(){
 
     // 「送信」ボタンの要素を取得
@@ -827,15 +1091,61 @@ $(function(){
             }
 
             if(checkValue == "いる"){
+                let next_button = document.querySelector("#next_page2");
+                $('#next_page2').prop('disabled', true);
+                next_button.id = "next_page2-not"
+
                 let box = document.querySelector('#childrennumber');
                 box.style.display='';
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "1"
-                if(comp_flg == true){
-                    let next_button = document.querySelector("#next_page2");
-                    $('#next_page2').prop('disabled', true);
-                    next_button.id = "next_page2-not"
+                var select = document.getElementById("number-children");
+
+                children_num = select.value;
+                if(children_num == "one"){
+                    var children_number_int = 1;
                 }
+                else if(children_num == "two"){
+                    var children_number_int = 2;
+                }
+                else if(children_num == "three"){
+                    var children_number_int = 3;
+                }
+                else if(children_num == "four"){
+                    var children_number_int = 4;
+                }
+                else if(children_num == "five"){
+                    var children_number_int = 5;
+                }
+                else if(children_num == "six"){
+                    var children_number_int = 6;
+                }
+                else if(children_num == "seven"){
+                    var children_number_int = 7;
+                }
+                else if(children_num == "eight"){
+                    var children_number_int = 8;
+                }
+                else if(children_num == "nine"){
+                    var children_number_int = 9;
+                }
+                else if(children_num == "ten"){
+                    var children_number_int = 10;
+                }
+    
+                var ele_arr = document.getElementsByClassName("form-group");
+                console.log(ele_arr)
+                if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+
+                for(var i=0;i<30;i++){
+                    if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                        ele_arr[i].style.display = ''
+                    }
+                };
             }
             else if(checkValue == "いない"){
                 var ele_arr = document.getElementsByClassName("form-group");
@@ -896,6 +1206,7 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
+            number_arr.push(document.getElementById("childrennumber"))
             if(respone > 0){
                 respone = 0;
                 display_arr.forEach(disp => {
@@ -946,9 +1257,44 @@ $(function(){
             total = Number(children_number_int) * 2
             let box = document.querySelector('#firstchildrenbirth');
             box.style.display='';
+            box.setAttribute('element_yet','not_yet');
+
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(children_number_int) * 2)
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
@@ -995,6 +1341,7 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
+            number_arr.push(document.getElementById("firstchildrenbirth"))
             if(respone > 0){
                 respone = 0;
                 display_arr.forEach(disp => {
@@ -1010,6 +1357,7 @@ $(function(){
 			// 次の項目を表示
 			let box = document.querySelector('#firstchildrensex');
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
 
             var select = document.getElementById("number-children");
             children_num = select.value;
@@ -1088,6 +1436,7 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
+            number_arr.push(document.getElementById("firstchildrensex"))
             console.log(respone)
             if(respone > 0){
                 respone = 0;
@@ -1115,6 +1464,8 @@ $(function(){
                 // 次の項目を表示
                 let box = document.querySelector('#secondchildrenbirth');
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
+                
                 const stat = document.querySelector('.last-state-page');
                 var select = document.getElementById("number-children");
                 children_num = select.value;
@@ -1193,6 +1544,7 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
+            number_arr.push(document.getElementById("secondchildrenbirth"))
             if(respone > 0){
                 respone = 0;
                 display_arr.forEach(disp => {
@@ -1208,6 +1560,8 @@ $(function(){
 			// 次の項目を表示
             let box = document.querySelector('#secondchildrensex');
             box.style.display='';
+            box.setAttribute('element_yet','not_yet');
+            
             var select = document.getElementById("number-children");
             children_num = select.value;
 
@@ -1244,7 +1598,40 @@ $(function(){
             total = Number(children_number_int) * 2
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(total) - 3)
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
@@ -1290,6 +1677,7 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
+            number_arr.push(document.getElementById("secondchildrensex"))
             if(respone > 0){
                 respone = 0;
                 display_arr.forEach(disp => {
@@ -1315,6 +1703,8 @@ $(function(){
                 // 次の項目を表示
                 let box = document.querySelector('#thirdchildrenbirth');
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
+
                 var select = document.getElementById("number-children");
                 children_num = select.value;
     
@@ -1353,7 +1743,40 @@ $(function(){
                 stat.textContent = String(Number(total) - 4)
                 
             }
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
@@ -1400,6 +1823,7 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
+            number_arr.push(document.getElementById("thirdchildrenbirth"))
             if(respone > 0){
                 respone = 0;
                 display_arr.forEach(disp => {
@@ -1415,6 +1839,8 @@ $(function(){
 			// 次の項目を表示
 			let box = document.querySelector('#thirdchildrensex');
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
+            
             var select = document.getElementById("number-children");
             children_num = select.value;
 
@@ -1451,7 +1877,40 @@ $(function(){
             total = Number(children_number_int) * 2
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(total) - 5)
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
@@ -1497,6 +1956,7 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
+            number_arr.push(document.getElementById("thirdchildrensex"))
             if(respone > 0){
                 respone = 0;
                 display_arr.forEach(disp => {
@@ -1523,6 +1983,8 @@ $(function(){
                 // 次の項目を表示
                 let box = document.querySelector('#fourchildrenbirth');
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
+
                 var select = document.getElementById("number-children");
                 children_num = select.value;
     
@@ -1560,7 +2022,40 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(total) - 6)
             }
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
@@ -1606,6 +2101,7 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
+            number_arr.push(document.getElementById("fourchildrenbirth"))
             if(respone > 0){
                 respone = 0;
                 display_arr.forEach(disp => {
@@ -1621,6 +2117,8 @@ $(function(){
 			// 次の項目を表示
             let box = document.querySelector('#fourchildrensex');
             box.style.display='';
+            box.setAttribute('element_yet','not_yet');
+
             var select = document.getElementById("number-children");
             children_num = select.value;
 
@@ -1657,7 +2155,40 @@ $(function(){
             total = Number(children_number_int) * 2
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(total) - 7)
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
@@ -1703,6 +2234,7 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
+            number_arr.push(document.getElementById("fourchildrensex"))
             if(respone > 0){
                 respone = 0;
                 display_arr.forEach(disp => {
@@ -1729,6 +2261,8 @@ $(function(){
                 // 次の項目を表示
                 let box = document.querySelector('#fivechildrenbirth');
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
+
                 var select = document.getElementById("number-children");
                 children_num = select.value;
     
@@ -1766,7 +2300,40 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(total) - 8)
             }
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
@@ -1813,6 +2380,7 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
+            number_arr.push(document.getElementById("fivechildrenbirth"))
             if(respone > 0){
                 respone = 0;
                 display_arr.forEach(disp => {
@@ -1828,6 +2396,8 @@ $(function(){
 			// 次の項目を表示
             let box = document.querySelector('#fivechildrensex');
             box.style.display='';
+            box.setAttribute('element_yet','not_yet');
+
             var select = document.getElementById("number-children");
             children_num = select.value;
 
@@ -1864,7 +2434,40 @@ $(function(){
             total = Number(children_number_int) * 2
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(total) - 9)
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
@@ -1910,6 +2513,7 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
+            number_arr.push(document.getElementById("fivechildrensex"))
             if(respone > 0){
                 respone = 0;
                 display_arr.forEach(disp => {
@@ -1936,6 +2540,8 @@ $(function(){
                 // 次の項目を表示
                 let box = document.querySelector('#sixchildrenbirth');
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
+
                 var select = document.getElementById("number-children");
                 children_num = select.value;
     
@@ -1973,7 +2579,40 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(total) - 10)
             }
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
@@ -2020,6 +2659,7 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
+            number_arr.push(document.getElementById("sixchildrenbirth"))
             if(respone > 0){
                 respone = 0;
                 display_arr.forEach(disp => {
@@ -2035,6 +2675,8 @@ $(function(){
 			// 次の項目を表示
             let box = document.querySelector('#sixchildrensex');
             box.style.display='';
+            box.setAttribute('element_yet','not_yet');
+
             var select = document.getElementById("number-children");
             children_num = select.value;
 
@@ -2071,7 +2713,40 @@ $(function(){
             total = Number(children_number_int) * 2
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(total) - 11)
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
@@ -2117,6 +2792,7 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
+            number_arr.push(document.getElementById("sixchildrensex"))
             if(respone > 0){
                 respone = 0;
                 display_arr.forEach(disp => {
@@ -2143,6 +2819,8 @@ $(function(){
                 // 次の項目を表示
                 let box = document.querySelector('#sevenchildrenbirth');
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
+
                 var select = document.getElementById("number-children");
                 children_num = select.value;
     
@@ -2180,7 +2858,40 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(total) - 12)
             }
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
@@ -2226,6 +2937,7 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
+            number_arr.push(document.getElementById("sevenchildrenbirth"))
             if(respone > 0){
                 respone = 0;
                 display_arr.forEach(disp => {
@@ -2241,6 +2953,8 @@ $(function(){
 			// 次の項目を表示
             let box = document.querySelector('#sevenchildrensex');
             box.style.display='';
+            box.setAttribute('element_yet','not_yet');
+
             var select = document.getElementById("number-children");
             children_num = select.value;
 
@@ -2277,7 +2991,40 @@ $(function(){
             total = Number(children_number_int) * 2
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(total) - 13)
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
@@ -2323,6 +3070,7 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
+            number_arr.push(document.getElementById("sevenchildrensex"))
             if(respone > 0){
                 respone = 0;
                 display_arr.forEach(disp => {
@@ -2349,6 +3097,8 @@ $(function(){
                 // 次の項目を表示
                 let box = document.querySelector('#eightchildrenbirth');
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
+
                 var select = document.getElementById("number-children");
                 children_num = select.value;
     
@@ -2386,7 +3136,40 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(total) - 14)
             }
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
@@ -2432,6 +3215,7 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
+            number_arr.push(document.getElementById("eightchildrenbirth"))
             if(respone > 0){
                 respone = 0;
                 display_arr.forEach(disp => {
@@ -2447,6 +3231,8 @@ $(function(){
 			// 次の項目を表示
             let box = document.querySelector('#eightchildrensex');
             box.style.display='';
+            box.setAttribute('element_yet','not_yet');
+
             var select = document.getElementById("number-children");
             children_num = select.value;
 
@@ -2483,7 +3269,40 @@ $(function(){
             total = Number(children_number_int) * 2
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(total) - 15)
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
@@ -2528,6 +3347,7 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
+            number_arr.push(document.getElementById("eightchildrensex"))
             if(respone > 0){
                 respone = 0;
                 display_arr.forEach(disp => {
@@ -2554,6 +3374,8 @@ $(function(){
                 // 次の項目を表示
                 let box = document.querySelector('#ninechildrenbirth');
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
+
                 var select = document.getElementById("number-children");
                 children_num = select.value;
     
@@ -2591,11 +3413,43 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(total) - 16)
             }
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
-                comp_flg = true;
             }
         }
 	});
@@ -2638,6 +3492,7 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
+            number_arr.push(document.getElementById("ninechildrenbirth"))
             if(respone > 0){
                 respone = 0;
                 display_arr.forEach(disp => {
@@ -2653,6 +3508,8 @@ $(function(){
 			// 次の項目を表示
             let box = document.querySelector('#ninechildrensex');
             box.style.display='';
+            box.setAttribute('element_yet','not_yet');
+
             var select = document.getElementById("number-children");
             children_num = select.value;
 
@@ -2689,11 +3546,43 @@ $(function(){
             total = Number(children_number_int) * 2
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(total) - 17)
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
-                comp_flg = true;
             }
         }
 	});
@@ -2736,6 +3625,7 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
+            number_arr.push(document.getElementById("ninechildrensex"))
             if(respone > 0){
                 respone = 0;
                 display_arr.forEach(disp => {
@@ -2762,6 +3652,8 @@ $(function(){
                 // 次の項目を表示
                 let box = document.querySelector('#tenchildrenbirth');
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
+
                 var select = document.getElementById("number-children");
                 children_num = select.value;
     
@@ -2799,11 +3691,43 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(total) - 18)
             }
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
-                comp_flg = true;
             }
         }
 	});
@@ -2846,6 +3770,7 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
+            number_arr.push(document.getElementById("tenchildrenbirth"))
             if(respone > 0){
                 respone = 0;
                 display_arr.forEach(disp => {
@@ -2861,6 +3786,8 @@ $(function(){
 			// 次の項目を表示
             let box = document.querySelector('#tenchildrensex');
             box.style.display='';
+            box.setAttribute('element_yet','not_yet');
+
             var select = document.getElementById("number-children");
             children_num = select.value;
 
@@ -2897,11 +3824,43 @@ $(function(){
             total = Number(children_number_int) * 2
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(total) - 19)
-            if(comp_flg == true){
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "one"){
+                var children_number_int = 1;
+            }
+            else if(children_num == "two"){
+                var children_number_int = 2;
+            }
+            else if(children_num == "three"){
+                var children_number_int = 3;
+            }
+            else if(children_num == "four"){
+                var children_number_int = 4;
+            }
+            else if(children_num == "five"){
+                var children_number_int = 5;
+            }
+            else if(children_num == "six"){
+                var children_number_int = 6;
+            }
+            else if(children_num == "seven"){
+                var children_number_int = 7;
+            }
+            else if(children_num == "eight"){
+                var children_number_int = 8;
+            }
+            else if(children_num == "nine"){
+                var children_number_int = 9;
+            }
+            else if(children_num == "ten"){
+                var children_number_int = 10;
+            }
+
+            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
-                comp_flg = true;
             }
         }
 	});
@@ -2934,6 +3893,7 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
+            number_arr.push(document.getElementById("tenchildrensex"))
             if(respone > 0){
                 respone = 0;
                 display_arr.forEach(disp => {
@@ -3121,12 +4081,6 @@ $(function(){
             else if(partner_bool == true || children_bool == true){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "19"        
-            }
-
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
             }
         }
 	});

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>株式会社Wealth Journey Navigatore</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
 <meta name="description" content="ここにサイト説明を入れます">
 <link rel="stylesheet" href="css/style.css">
 <style>
@@ -255,7 +255,7 @@
         </div>
 
         <div class="form-group" style="display: none;" id="yourtenestate">
-           <label for="text">9件目の不動産投資物件を購入したのはいつですか。</label><br>
+           <label for="text">10件目の不動産投資物件を購入したのはいつですか。</label><br>
            <table>
             <th>
            <input type="text" id="ten-estate" name="ten-estate" class="form-control" placeholder="2019"></th>

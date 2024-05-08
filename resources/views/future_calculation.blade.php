@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>株式会社Wealth Journey Navigatore</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
 <meta name="description" content="ここにサイト説明を入れます">
 <link rel="stylesheet" href="css/style.css">
 <style>
@@ -33,7 +33,7 @@
 
 <section>
 
-<h2>未来家計簿作成</h2>
+<h2 class="calc-h2">未来家計簿作成</h2>
 
 <ul class="progressbar">
     <li class="active">本人・<br>家族構成</li>
@@ -41,7 +41,7 @@
     <li>未来家計簿<br>情報</li>
 </ul>
 
-<h3>家計簿を作成する上で、まずはあなたとご家族の情報を確認させてください！</h3>
+<h3 class="calc-h3">家計簿を作成する上で、まずはあなたとご家族の情報を確認させてください！</h3>
 
 <!-- Page Content -->
 <div class="container mt-5 p-lg-5 bg-light">
@@ -372,7 +372,9 @@
 <!--jQueryの読み込み-->
 
 <!--このテンプレート専用のスクリプト-->
+<script src="js/elem_screen.js"></script>
 <script src="js/main.js"></script>
+<script src="js/complete_one.js"></script>
 
 <!--開閉ボタン（ハンバーガーアイコン）-->
 <div id="menubar_hdr">
