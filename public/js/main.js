@@ -5002,6 +5002,120 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) + Number(Number(your_estate) * 2))
         }
+
+        var estate_value = document.getElementById("estate").value
+        if(estate_value == "1"){
+            document.getElementById("yoursecondestate").style.display = "none";
+            document.getElementById("yoursecondrentalincome").style.display = "none";
+            document.getElementById("yourthirdestate").style.display = "none";
+            document.getElementById("yourthirdrentalincome").style.display = "none";
+            document.getElementById("yourfourestate").style.display = "none";
+            document.getElementById("yourfourrentalincome").style.display = "none";
+            document.getElementById("yourfiveestate").style.display = "none";
+            document.getElementById("yourfiverentalincome").style.display = "none";
+            document.getElementById("yoursixestate").style.display = "none";
+            document.getElementById("yoursixrentalincome").style.display = "none";
+            document.getElementById("yoursevenestate").style.display = "none";
+            document.getElementById("yoursevenrentalincome").style.display = "none";
+            document.getElementById("youreightestate").style.display = "none";
+            document.getElementById("youreightrentalincome").style.display = "none";
+            document.getElementById("yournineestate").style.display = "none";
+            document.getElementById("yourninerentalincome").style.display = "none";
+            document.getElementById("yourtenestate").style.display = "none";
+            document.getElementById("yourtenrentalincome").style.display = "none";
+        }
+        else if(estate_value == "2"){
+            document.getElementById("yourthirdestate").style.display = "none";
+            document.getElementById("yourthirdrentalincome").style.display = "none";
+            document.getElementById("yourfourestate").style.display = "none";
+            document.getElementById("yourfourrentalincome").style.display = "none";
+            document.getElementById("yourfiveestate").style.display = "none";
+            document.getElementById("yourfiverentalincome").style.display = "none";
+            document.getElementById("yoursixestate").style.display = "none";
+            document.getElementById("yoursixrentalincome").style.display = "none";
+            document.getElementById("yoursevenestate").style.display = "none";
+            document.getElementById("yoursevenrentalincome").style.display = "none";
+            document.getElementById("youreightestate").style.display = "none";
+            document.getElementById("youreightrentalincome").style.display = "none";
+            document.getElementById("yournineestate").style.display = "none";
+            document.getElementById("yourninerentalincome").style.display = "none";
+            document.getElementById("yourtenestate").style.display = "none";
+            document.getElementById("yourtenrentalincome").style.display = "none";
+
+        }
+        else if(estate_value == "3"){
+            document.getElementById("yourfourestate").style.display = "none";
+            document.getElementById("yourfourrentalincome").style.display = "none";
+            document.getElementById("yourfiveestate").style.display = "none";
+            document.getElementById("yourfiverentalincome").style.display = "none";
+            document.getElementById("yoursixestate").style.display = "none";
+            document.getElementById("yoursixrentalincome").style.display = "none";
+            document.getElementById("yoursevenestate").style.display = "none";
+            document.getElementById("yoursevenrentalincome").style.display = "none";
+            document.getElementById("youreightestate").style.display = "none";
+            document.getElementById("youreightrentalincome").style.display = "none";
+            document.getElementById("yournineestate").style.display = "none";
+            document.getElementById("yourninerentalincome").style.display = "none";
+            document.getElementById("yourtenestate").style.display = "none";
+            document.getElementById("yourtenrentalincome").style.display = "none";
+            
+        }
+        else if(estate_value == "4"){
+            document.getElementById("yourfiveestate").style.display = "none";
+            document.getElementById("yourfiverentalincome").style.display = "none";
+            document.getElementById("yoursixestate").style.display = "none";
+            document.getElementById("yoursixrentalincome").style.display = "none";
+            document.getElementById("yoursevenestate").style.display = "none";
+            document.getElementById("yoursevenrentalincome").style.display = "none";
+            document.getElementById("youreightestate").style.display = "none";
+            document.getElementById("youreightrentalincome").style.display = "none";
+            document.getElementById("yournineestate").style.display = "none";
+            document.getElementById("yourninerentalincome").style.display = "none";
+            document.getElementById("yourtenestate").style.display = "none";
+            document.getElementById("yourtenrentalincome").style.display = "none";
+            
+        }
+        else if(estate_value == "5"){
+            document.getElementById("yoursixestate").style.display = "none";
+            document.getElementById("yoursixrentalincome").style.display = "none";
+            document.getElementById("yoursevenestate").style.display = "none";
+            document.getElementById("yoursevenrentalincome").style.display = "none";
+            document.getElementById("youreightestate").style.display = "none";
+            document.getElementById("youreightrentalincome").style.display = "none";
+            document.getElementById("yournineestate").style.display = "none";
+            document.getElementById("yourninerentalincome").style.display = "none";
+            document.getElementById("yourtenestate").style.display = "none";
+            document.getElementById("yourtenrentalincome").style.display = "none";
+            
+        }
+        else if(estate_value == "6"){
+            document.getElementById("yoursevenestate").style.display = "none";
+            document.getElementById("yoursevenrentalincome").style.display = "none";
+            document.getElementById("youreightestate").style.display = "none";
+            document.getElementById("youreightrentalincome").style.display = "none";
+            document.getElementById("yournineestate").style.display = "none";
+            document.getElementById("yourninerentalincome").style.display = "none";
+            document.getElementById("yourtenestate").style.display = "none";
+            document.getElementById("yourtenrentalincome").style.display = "none";
+        }
+        else if(estate_value == "7"){
+            document.getElementById("youreightestate").style.display = "none";
+            document.getElementById("youreightrentalincome").style.display = "none";
+            document.getElementById("yournineestate").style.display = "none";
+            document.getElementById("yourninerentalincome").style.display = "none";
+            document.getElementById("yourtenestate").style.display = "none";
+            document.getElementById("yourtenrentalincome").style.display = "none";
+        }
+        else if(estate_value == "8"){
+            document.getElementById("yournineestate").style.display = "none";
+            document.getElementById("yourninerentalincome").style.display = "none";
+            document.getElementById("yourtenestate").style.display = "none";
+            document.getElementById("yourtenrentalincome").style.display = "none";
+        }
+        else if(estate_value == "9"){
+            document.getElementById("yourtenestate").style.display = "none";
+            document.getElementById("yourtenrentalincome").style.display = "none";
+        }
 	});
 });
 

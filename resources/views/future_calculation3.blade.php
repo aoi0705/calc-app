@@ -831,15 +831,15 @@
     <label class="last-state">項目</label>
 <button  class="btn btn-primary custom-btn" id="next_page2-not" type="button" data-target="#modal1" data-toggle="modal" disabled>未来家計簿を計算する</button><br>
 <a href="javascript:history.back();">現在家計簿情報入力へ戻る</a>
+</footer>
         <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h2>情報共有の同意のお願い</h2>
+                        <h3 class="modal-title">情報共有の同意のお願い</h3>
                     </div>
                     <div class="modal-body">
                         <section>
-                            <h3>情報共有の同意のお願い</h3>
                                 <p>お客様の未来家計簿情報をもとに、専門的なアドバイスを提供するためには、家計見直しのプロ（ファイナンシャルプランナー：FP）および<br>
                                     資産運用のプロ（独立金融アドバイザー：IFA）と情報を共有する必要があります。<br><br>
 
@@ -854,6 +854,7 @@
                                     本サービスは利用できません。
                                 </p>
                         </section>
+                    </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary mx-auto d-block" >同意してサービスを利用する</button>
                         </div>
@@ -861,9 +862,7 @@
                 </div>
             </div>
         </div>
-</footer>
 </form>
-
 </div>
 <!--/#container-->
 
