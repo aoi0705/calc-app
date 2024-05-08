@@ -50,7 +50,7 @@
            <label for="text">マイホームを購入したのはいつですか。</label><br>
            <table>
             <th>
-           <input type="text" id="myhome-buy" name="myhome-buy" class="form-control" placeholder="2020"></th>
+           <input type="number" id="myhome-buy" name="myhome-buy" class="form-control" placeholder="2020"></th>
            <td>
            <label for="text">年</label></td></table>
            <div class="err-msg-name" id="myhomebuyerr"></div>
@@ -78,7 +78,7 @@
            <label for="text">1件目の不動産投資物件を購入したのはいつですか。</label><br>
            <table>
             <th>
-           <input type="text" id="first-estate" name="first-estate" class="form-control" placeholder="2019"></th>
+           <input type="number" id="first-estate" name="first-estate" class="form-control" placeholder="2019"></th>
            <td>
            <label for="text">年</label></td></table>
            <div class="err-msg-name" id="yourfirstestateerr"></div>
@@ -88,7 +88,7 @@
            <label for="text">1件目の不動産投資物件の毎月の家賃収入はどれくらいですか。</label><br>
            <table>
             <th>
-           <input type="text" id="first-rental-income" name="first-rental-income" class="form-control" placeholder="10"></th>
+           <input type="number" id="first-rental-income" name="first-rental-income" class="form-control" placeholder="10"></th>
            <td>
            <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yourfirstrentalincomeerr"></div>
@@ -98,7 +98,7 @@
            <label for="text">2件目の不動産投資物件を購入したのはいつですか。</label><br>
            <table>
             <th>
-           <input type="text" id="second-estate" name="second-estate" class="form-control" placeholder="2019"></th>
+           <input type="number" id="second-estate" name="second-estate" class="form-control" placeholder="2019"></th>
            <td>
            <label for="text">年</label></td></table>
            <div class="err-msg-name" id="yoursecondestateerr"></div>
@@ -108,7 +108,7 @@
            <label for="text">2件目の不動産投資物件の毎月の家賃収入はどれくらいですか。</label><br>
            <table>
             <th>
-           <input type="text" id="second-rental-income" name="second-rental-income" class="form-control" placeholder="10"></th>
+           <input type="number" id="second-rental-income" name="second-rental-income" class="form-control" placeholder="10"></th>
            <td>
            <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yoursecondrentalincomeerr"></div>
@@ -118,7 +118,7 @@
            <label for="text">3件目の不動産投資物件を購入したのはいつですか。</label><br>
            <table>
             <th>
-           <input type="text" id="third-estate" name="third-estate" class="form-control" placeholder="2019"></th>
+           <input type="number" id="third-estate" name="third-estate" class="form-control" placeholder="2019"></th>
            <td>
            <label for="text">年</label></td></table>
            <div class="err-msg-name" id="yourthirdestateerr"></div>
@@ -128,7 +128,7 @@
            <label for="text">3件目の不動産投資物件の毎月の家賃収入はどれくらいですか。</label><br>
            <table>
             <th>
-           <input type="text" id="third-rental-income" name="third-rental-income" class="form-control" placeholder="10"></th>
+           <input type="number" id="third-rental-income" name="third-rental-income" class="form-control" placeholder="10"></th>
            <td>
            <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yourthirdrentalincomeerr"></div>
@@ -138,7 +138,7 @@
            <label for="text">4件目の不動産投資物件を購入したのはいつですか。</label><br>
            <table>
             <th>
-           <input type="text" id="four-estate" name="four-estate" class="form-control" placeholder="2019"></th>
+           <input type="number" id="four-estate" name="four-estate" class="form-control" placeholder="2019"></th>
            <td>
            <label for="text">年</label></td></table>
            <div class="err-msg-name" id="yourfourestateerr"></div>
@@ -148,7 +148,7 @@
            <label for="text">4件目の不動産投資物件の毎月の家賃収入はどれくらいですか。</label><br>
            <table>
             <th>
-           <input type="text" id="four-rental-income" name="four-rental-income" class="form-control" placeholder="10"></th>
+           <input type="number" id="four-rental-income" name="four-rental-income" class="form-control" placeholder="10"></th>
            <td>
            <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yourfourrentalincomeerr"></div>
@@ -158,7 +158,7 @@
            <label for="text">5件目の不動産投資物件を購入したのはいつですか。</label><br>
            <table>
             <th>
-           <input type="text" id="five-estate" name="five-estate" class="form-control" placeholder="2019"></th>
+           <input type="number" id="five-estate" name="five-estate" class="form-control" placeholder="2019"></th>
            <td>
            <label for="text">年</label></td></table>
            <div class="err-msg-name" id="yourfiveestateerr"></div>
@@ -168,7 +168,7 @@
            <label for="text">5件目の不動産投資物件の毎月の家賃収入はどれくらいですか。</label><br>
            <table>
             <th>
-           <input type="text" id="five-rental-income" name="five-rental-income" class="form-control" placeholder="10"></th>
+           <input type="number" id="five-rental-income" name="five-rental-income" class="form-control" placeholder="10"></th>
            <td>
            <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yourfiverentalincomeerr"></div>
@@ -178,7 +178,7 @@
            <label for="text">6件目の不動産投資物件を購入したのはいつですか。</label><br>
            <table>
             <th>
-           <input type="text" id="six-estate" name="six-estate" class="form-control" placeholder="2019"></th>
+           <input type="number" id="six-estate" name="six-estate" class="form-control" placeholder="2019"></th>
            <td>
            <label for="text">年</label></td></table>
            <div class="err-msg-name" id="yoursixestateerr"></div>
@@ -188,7 +188,7 @@
            <label for="text">6件目の不動産投資物件の毎月の家賃収入はどれくらいですか。</label><br>
            <table>
             <th>
-           <input type="text" id="six-rental-income" name="six-rental-income" class="form-control" placeholder="10"></th>
+           <input type="number" id="six-rental-income" name="six-rental-income" class="form-control" placeholder="10"></th>
            <td>
            <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yoursixrentalincomeerr"></div>
@@ -198,7 +198,7 @@
            <label for="text">7件目の不動産投資物件を購入したのはいつですか。</label><br>
            <table>
             <th>
-           <input type="text" id="seven-estate" name="seven-estate" class="form-control" placeholder="2019"></th>
+           <input type="number" id="seven-estate" name="seven-estate" class="form-control" placeholder="2019"></th>
            <td>
            <label for="text">年</label></td></table>
            <div class="err-msg-name" id="yoursevenestateerr"></div>
@@ -208,7 +208,7 @@
            <label for="text">7件目の不動産投資物件の毎月の家賃収入はどれくらいですか。</label><br>
            <table>
             <th>
-           <input type="text" id="seven-rental-income" name="seven-rental-income" class="form-control" placeholder="10"></th>
+           <input type="number" id="seven-rental-income" name="seven-rental-income" class="form-control" placeholder="10"></th>
            <td>
            <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yoursevenrentalincomeerr"></div>
@@ -218,7 +218,7 @@
            <label for="text">8件目の不動産投資物件を購入したのはいつですか。</label><br>
            <table>
             <th>
-           <input type="text" id="eight-estate" name="eight-estate" class="form-control" placeholder="2019"></th>
+           <input type="number" id="eight-estate" name="eight-estate" class="form-control" placeholder="2019"></th>
            <td>
            <label for="text">年</label></td></table>
            <div class="err-msg-name" id="youreightestateerr"></div>
@@ -228,7 +228,7 @@
            <label for="text">8件目の不動産投資物件の毎月の家賃収入はどれくらいですか。</label><br>
            <table>
             <th>
-           <input type="text" id="eight-rental-income" name="eight-rental-income" class="form-control" placeholder="10"></th>
+           <input type="number" id="eight-rental-income" name="eight-rental-income" class="form-control" placeholder="10"></th>
            <td>
            <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="youreightrentalincomeerr"></div>
@@ -238,7 +238,7 @@
            <label for="text">9件目の不動産投資物件を購入したのはいつですか。</label><br>
            <table>
             <th>
-           <input type="text" id="nine-estate" name="nine-estate" class="form-control" placeholder="2019"></th>
+           <input type="number" id="nine-estate" name="nine-estate" class="form-control" placeholder="2019"></th>
            <td>
            <label for="text">年</label></td></table>
            <div class="err-msg-name" id="yournineestateerr"></div>
@@ -248,7 +248,7 @@
            <label for="text">9件目の不動産投資物件の毎月の家賃収入はどれくらいですか。</label><br>
            <table>
             <th>
-           <input type="text" id="nine-rental-income" name="nine-rental-income" class="form-control" placeholder="10"></th>
+           <input type="number" id="nine-rental-income" name="nine-rental-income" class="form-control" placeholder="10"></th>
            <td>
            <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yourninerentalincomeerr"></div>
@@ -258,7 +258,7 @@
            <label for="text">10件目の不動産投資物件を購入したのはいつですか。</label><br>
            <table>
             <th>
-           <input type="text" id="ten-estate" name="ten-estate" class="form-control" placeholder="2019"></th>
+           <input type="number" id="ten-estate" name="ten-estate" class="form-control" placeholder="2019"></th>
            <td>
            <label for="text">年</label></td></table>
            <div class="err-msg-name" id="yourtenestateerr"></div>
@@ -268,7 +268,7 @@
            <label for="text">10件目の不動産投資物件の毎月の家賃収入はどれくらいですか。</label><br>
            <table>
             <th>
-           <input type="text" id="ten-rental-income" name="ten-rental-income" class="form-control" placeholder="10"></th>
+           <input type="number" id="ten-rental-income" name="ten-rental-income" class="form-control" placeholder="10"></th>
            <td>
            <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yourtenrentalincomeerr"></div>
@@ -278,7 +278,7 @@
            <label for="text">現在の貯蓄残高を教えてください</label><br>
            <table>
             <th>
-           <input type="text" id="savings-balance" name="savings-balance" class="form-control" placeholder="500"></th>
+           <input type="number" id="savings-balance" name="savings-balance" class="form-control" placeholder="500"></th>
            <td>
            <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yoursavingsbalanceerr"></div>
@@ -288,7 +288,7 @@
            <label for="text">学資保険の最終的に受取る合計額はどれくらいですか？（ざっくりでかまいません！）</label><br>
            <table>
             <th>
-           <input type="text" id="last-Educational-insurance" name="last-Educational-insurance" class="form-control" placeholder="400"></th>
+           <input type="number" id="last-Educational-insurance" name="last-Educational-insurance" class="form-control" placeholder="400"></th>
            <td>
            <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yourlastEducationalinsuranceerr"></div>
@@ -298,7 +298,7 @@
            <label for="text">毎年の旅行費はどれくらいですか？（ざっくりでかまいません。）</label><br>
            <table>
             <th>
-           <input type="text" id="trip" name="trip" class="form-control" placeholder="100"></th>
+           <input type="number" id="trip" name="trip" class="form-control" placeholder="100"></th>
            <td>
            <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yourtriperr"></div>
@@ -308,7 +308,7 @@
            <label for="text">毎年のその他の出費（家電購入費やローンのボーナス払い等）はどれくらいですか？（ざっくりでかまいません！）</label><br>
            <table>
             <th>
-           <input type="text" id="other-expense" name="other-expense" class="form-control" placeholder="100"></th>
+           <input type="number" id="other-expense" name="other-expense" class="form-control" placeholder="100"></th>
            <td>
            <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yourotherexpenseerr"></div>
@@ -321,7 +321,7 @@
            <label for="text">あなたの働き始めた年齢はおいくつですか。</label><br>
            <table>
             <th>
-           <input type="text" id="start-wark" name="start-work" class="form-control" placeholder="23"></th>
+           <input type="number" id="start-wark" name="start-work" class="form-control" placeholder="23"></th>
            <td>
            <label for="text">歳</label></td></table>
            <div class="err-msg-name" id="yourstartworkerr"></div>
@@ -331,7 +331,7 @@
            <label for="text">あなたの初任給はどれくらいでしたか？（ざっくりでかまいません！）</label><br>
            <table>
             <th>
-           <input type="text" id="Starting-salary" name="Starting-salary" class="form-control" placeholder="22"></th>
+           <input type="number" id="Starting-salary" name="Starting-salary" class="form-control" placeholder="22"></th>
            <td>
            <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yourstartingsalaryerr"></div>
@@ -341,7 +341,7 @@
            <label for="text">あなたの50歳の想定年収はどれくらいを目標としていますか？</label><br>
            <table>
             <th>
-           <input type="text" id="Estimated-annual-income" name="Estimated-annual-income" class="form-control" placeholder="1000"></th>
+           <input type="number" id="Estimated-annual-income" name="Estimated-annual-income" class="form-control" placeholder="1000"></th>
            <td>
            <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yourestimatedannualincomeerr"></div>
@@ -362,7 +362,7 @@
            <label for="text">パートナーの働き始めた年齢はおいくつですか。</label><br>
            <table>
             <th>
-           <input type="text" id="spouse-start-work" name="spouse-start-work" class="form-control" placeholder="23"></th>
+           <input type="number" id="spouse-start-work" name="spouse-start-work" class="form-control" placeholder="23"></th>
            <td>
            <label for="text">歳</label></td></table>
            <div class="err-msg-name" id="yourpartnerstratworkerr"></div>
@@ -372,7 +372,7 @@
            <label for="text">パートナーの初任給はどれくらいでしたか？（ざっくりでかまいません！）</label><br>
            <table>
             <th>
-           <input type="text" id="spouse-Starting-salary" name="spouse-Starting-salary" class="form-control" placeholder="18"></th>
+           <input type="number" id="spouse-Starting-salary" name="spouse-Starting-salary" class="form-control" placeholder="18"></th>
            <td>
            <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yourpartnerstartingsalaryerr"></div>
@@ -382,7 +382,7 @@
            <label for="text">パートナーの50歳の想定年収はどれくらいを目標としていますか？</label><br>
            <table>
             <th>
-           <input type="text" id="spouse-Estimated-annual-income" name="spouse-Estimated-annual-income" class="form-control" placeholder="500"></th>
+           <input type="number" id="spouse-Estimated-annual-income" name="spouse-Estimated-annual-income" class="form-control" placeholder="500"></th>
            <td>
            <label for="text">万円</label></td></table>
            <div class="err-msg-name" id="yourpartnerestimatedannualincomeerr"></div>

@@ -51,11 +51,11 @@
            <label for="text">メールアドレス</label><br>
            <input type="text" id="email" name="email" class="form-control" placeholder="Wealth Journey＠gmail.com"><br>
            <div class="err-msg-name" id="err-msg-email"></div>
-           <button type=submit>ワンタイムパスワードを送付</button><br>
+           <button type=submit class="form_button">ワンタイムパスワードを送付</button><br><br>
            <label for="text">メールアドレス宛に送付したワンタイムパスワードを入力してください（6桁）</label><br>
            <input type="text" id="onetime-password" name="onetime_password" class="form-control" placeholder="123456"><br>
            <div class="err-msg-name" id="onetimepasserr"></div>
-           <button type=submit>認証</button>
+           <button type=submit class="form_button">認証</button><br>
         </div>
 
         <div class="form-group" style="display: none;" name="nickname_form" id="yournickname">
@@ -66,13 +66,13 @@
 
         <div class="form-group" style="display: none;" name="yourbirthday" id="yourbirthday">
            <label for="text">あなたの生年月日（西暦）を教えてください。</label><br>
-           <input type="text" id="birthday" name="birthday" class="form-control" wire:model.lazy="birth" placeholder="19870123"><br>
+           <input type="number" id="birthday" name="birthday" class="form-control" wire:model.lazy="birth" placeholder="19870123"><br>
            <div class="err-msg-name" id="birtherr"></div>
         </div>
 
         <div class="form-group" style="display: none;" name="yourpost" id="yourpost">
            <label for="text">あなたの郵便番号を教えてください</label><br>
-           <input type="text" id="post-number" name="post-number" class="form-control" placeholder="1040061"><br>
+           <input type="number" id="post-number" name="post-number" class="form-control" placeholder="1040061"><br>
            <div class="err-msg-name" id="posterr"></div>
         </div>
 
@@ -102,7 +102,7 @@
 
         <div class="form-group" style="display: none;" name="partnerbirthday" id="partnerbirthday">
            <label for="text">配偶者・パートナーの生年月日を教えてください</label><br>
-           <input type="text" id="spouse-birthday" name="spouse-birthday" class="form-control" placeholder="19870123"><br>
+           <input type="number" id="spouse-birthday" name="spouse-birthday" class="form-control" placeholder="19870123"><br>
            <div class="err-msg-name" id="partnerbirtherr"></div>
         </div>
 
@@ -151,7 +151,7 @@
         <div class="form-group" style="display: none;" name="firstchildrenbirth" id="firstchildrenbirth">
            <label for="text">1人目の生年月日<br>
                 （今後、ご出産予定の場合は、想定時期を入力してください。）</label><br>
-           <input type="text" id="first-birthday" name="first-birthday" class="form-control" placeholder="20200510"><br>
+           <input type="number" id="first-birthday" name="first-birthday" class="form-control" placeholder="20200510"><br>
            <div class="err-msg-name" id="firstchildrenbirtherr"></div>
         </div>
 
@@ -173,7 +173,7 @@
         <div class="form-group" style="display: none;" name="secondchildrenbirth" id="secondchildrenbirth">
            <label for="text">2人目の生年月日<br>
                 （今後、ご出産予定の場合は、想定時期を入力してください。）</label><br>
-           <input type="second-birthday" id="second-birthday" class="form-control" placeholder="20200510"><br>
+           <input type="number" name="second-birthday" id="second-birthday" class="form-control" placeholder="20200510"><br>
            <div class="err-msg-name" id="secondchildrenbirtherr"></div>
         </div>
 
@@ -193,7 +193,7 @@
         <div class="form-group" style="display: none;" id="thirdchildrenbirth" name="thirdchildrenbirth">
            <label for="text">3人目の生年月日<br>
                 （今後、ご出産予定の場合は、想定時期を入力してください。）</label><br>
-           <input type="text" id="third-birthday" name="third-birthday" class="form-control" placeholder="20200510"><br>
+           <input type="number" id="third-birthday" name="third-birthday" class="form-control" placeholder="20200510"><br>
            <div class="err-msg-name" id="thirdchildrenbirtherr"></div>
         </div>
 
@@ -213,7 +213,7 @@
         <div class="form-group" style="display: none;" id="fourchildrenbirth" name="fourchildrenbirth">
            <label for="text">4人目の生年月日<br>
                 （今後、ご出産予定の場合は、想定時期を入力してください。）</label><br>
-           <input type="text" id="four-birthday" name="four-birthday" class="form-control" placeholder="20200510"><br>
+           <input type="number" id="four-birthday" name="four-birthday" class="form-control" placeholder="20200510"><br>
            <div class="err-msg-name" id="fourchildrenbirtherr"></div>
         </div>
 
@@ -233,7 +233,7 @@
         <div class="form-group" style="display: none;" id="fivechildrenbirth" name="fivechildrenbirth">
            <label for="text">5人目の生年月日<br>
                 （今後、ご出産予定の場合は、想定時期を入力してください。）</label><br>
-           <input type="text" id="five-birthday" name="five-birthday" class="form-control" placeholder="20200510"><br>
+           <input type="number" id="five-birthday" name="five-birthday" class="form-control" placeholder="20200510"><br>
            <div class="err-msg-name" id="fivechildrenbirtherr"></div>
         </div>
 
@@ -253,7 +253,7 @@
         <div class="form-group" style="display: none;" id="sixchildrenbirth" name="sixchildrenbirth">
            <label for="text">6人目の生年月日<br>
                 （今後、ご出産予定の場合は、想定時期を入力してください。）</label><br>
-           <input type="text" id="six-birthday" name="six-birthday" class="form-control" placeholder="20200510"><br>
+           <input type="number" id="six-birthday" name="six-birthday" class="form-control" placeholder="20200510"><br>
            <div class="err-msg-name" id="sixchildrenbirtherr"></div>
         </div>
 
@@ -273,7 +273,7 @@
         <div class="form-group" style="display: none;" id="sevenchildrenbirth" name="sevenchildrenbirth">
            <label for="text">7人目の生年月日<br>
                 （今後、ご出産予定の場合は、想定時期を入力してください。）</label><br>
-           <input type="text" id="seven-birthday" name="seven-birthday" class="form-control" placeholder="20200510"><br>
+           <input type="number" id="seven-birthday" name="seven-birthday" class="form-control" placeholder="20200510"><br>
            <div class="err-msg-name" id="sevenchildrenbirtherr"></div>
         </div>
 
@@ -293,7 +293,7 @@
         <div class="form-group" style="display: none;" id="eightchildrenbirth" name="eightchildrenbirth">
            <label for="text">8人目の生年月日<br>
                 （今後、ご出産予定の場合は、想定時期を入力してください。）</label><br>
-           <input type="text" id="eight-birthday" name="eight-birthday" class="form-control" placeholder="20200510"><br>
+           <input type="number" id="eight-birthday" name="eight-birthday" class="form-control" placeholder="20200510"><br>
            <div class="err-msg-name" id="eightchildrenbirtherr"></div>
         </div>
 
@@ -313,7 +313,7 @@
         <div class="form-group" style="display: none;" id="ninechildrenbirth" name="ninechildrenbirth">
            <label for="text">9人目の生年月日<br>
                 （今後、ご出産予定の場合は、想定時期を入力してください。）</label><br>
-           <input type="text" id="nine-birthday" name="nine-birthday" class="form-control" placeholder="20200510"><br>
+           <input type="number" id="nine-birthday" name="nine-birthday" class="form-control" placeholder="20200510"><br>
            <div class="err-msg-name" id="ninechildrenbirtherr"></div>
         </div>
 
@@ -333,7 +333,7 @@
         <div class="form-group" style="display: none;" id="tenchildrenbirth" name="tenchildrenbirth">
            <label for="text">10人目の生年月日<br>
                 （今後、ご出産予定の場合は、想定時期を入力してください。）</label><br>
-           <input type="text" id="ten-birthday" name="ten-birthday" class="form-control" placeholder="20200510"><br>
+           <input type="number" id="ten-birthday" name="ten-birthday" class="form-control" placeholder="20200510"><br>
            <div class="err-msg-name" id="tenchildrenbirtherr"></div>
         </div>
 

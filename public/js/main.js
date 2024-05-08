@@ -159,14 +159,11 @@ $(function(){
                     }
                 }
 
-                for(var j=2;j<=respone;j++){
-                    if(checkValue == 'いない'){
-                        if(j == 6 || j == 7){
-                            continue;
-                        }
+                for(var i=0;i<30;i++){
+                    if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                        ele_arr[i].style.display = ''
                     }
-                    ele_arr[j].style.display = '';
-                }
+                };
                 var count_ele = document.querySelector('.last-state-page');
                 count_ele.textContent = last_koumoku;
                 respone = 0;
@@ -179,6 +176,7 @@ $(function(){
 			let box = document.querySelector('#yournickname');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "6"
 
@@ -273,14 +271,11 @@ $(function(){
                     }
                 }
 
-                for(var j=2;j<=respone;j++){
-                    if(checkValue == 'いない'){
-                        if(j == 6 || j == 7){
-                            continue;
-                        }
+                for(var i=0;i<30;i++){
+                    if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                        ele_arr[i].style.display = ''
                     }
-                    ele_arr[j].style.display = '';
-                }
+                };
                 respone = 0;
                 var count_ele = document.querySelector('.last-state-page');
                 count_ele.textContent = last_koumoku;
@@ -294,6 +289,7 @@ $(function(){
 			let box = document.querySelector('#yourbirthday');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "5"
 
@@ -387,14 +383,11 @@ $(function(){
                     }
                 }
 
-                for(var j=2;j<=respone;j++){
-                    if(checkValue == 'いない'){
-                        if(j == 6 || j == 7){
-                            continue;
-                        }
+                for(var i=0;i<30;i++){
+                    if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                        ele_arr[i].style.display = ''
                     }
-                    ele_arr[j].style.display = '';
-                }
+                };
                 respone = 0;
                 var count_ele = document.querySelector('.last-state-page');
                 count_ele.textContent = last_koumoku;
@@ -406,6 +399,7 @@ $(function(){
 			// 次の項目を表示
 			let box = document.querySelector('#yourpost');
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "4"
             var select = document.getElementById("number-children");
@@ -499,14 +493,11 @@ $(function(){
                     }
                 }
 
-                for(var j=2;j<=respone;j++){
-                    if(checkValue == 'いない'){
-                        if(j == 6 || j == 7){
-                            continue;
-                        }
+                for(var i=0;i<30;i++){
+                    if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                        ele_arr[i].style.display = ''
                     }
-                    ele_arr[j].style.display = '';
-                }
+                };
                 respone = 0;
                 var count_ele = document.querySelector('.last-state-page');
                 count_ele.textContent = last_koumoku;
@@ -518,6 +509,7 @@ $(function(){
 			// 次の項目を表示
 			let box = document.querySelector('#yourjob');
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "3"
             var select = document.getElementById("number-children");
@@ -611,14 +603,11 @@ $(function(){
                     }
                 }
 
-                for(var j=2;j<=respone;j++){
-                    if(checkValue == 'いない'){
-                        if(j == 6 || j == 7){
-                            continue;
-                        }
+                for(var i=0;i<30;i++){
+                    if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                        ele_arr[i].style.display = ''
                     }
-                    ele_arr[j].style.display = '';
-                }
+                };
                 respone = 0;
                 var count_ele = document.querySelector('.last-state-page');
                 count_ele.textContent = last_koumoku;
@@ -630,6 +619,7 @@ $(function(){
 			// 次の項目を表示
 			let box = document.querySelector('#yourpartner');
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "2"
             var select = document.getElementById("number-children");
@@ -721,14 +711,11 @@ $(function(){
                     }
                 }
 
-                for(var j=2;j<=respone;j++){
-                    if(checkValue == 'いない'){
-                        if(j == 6 || j == 7){
-                            continue;
-                        }
+                for(var i=0;i<30;i++){
+                    if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                        ele_arr[i].style.display = ''
                     }
-                    ele_arr[j].style.display = '';
-                }
+                };
                 respone = 0;
                 var count_ele = document.querySelector('.last-state-page');
                 count_ele.textContent = last_koumoku;
@@ -781,7 +768,7 @@ $(function(){
             }
 
             var ele_arr = document.getElementsByClassName("form-group");
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
+            if(children_number_int != null && ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
                 let next_button = document.querySelector("#next_page2-not");
                 $('#next_page2-not').prop('disabled', false);
                 next_button.id = "next_page2"
@@ -790,6 +777,7 @@ $(function(){
             if(checkValue == "いる"){
                 let box = document.querySelector('#partnerbirthday');
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "3"
             }
@@ -798,6 +786,7 @@ $(function(){
 
                 let box = document.querySelector('#yourchildren');
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "1"  
             }
@@ -855,14 +844,11 @@ $(function(){
                     }
                 }
 
-                for(var j=2;j<=respone;j++){
-                    if(checkValue == 'いない'){
-                        if(j == 6 || j == 7){
-                            continue;
-                        }
+                for(var i=0;i<30;i++){
+                    if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                        ele_arr[i].style.display = ''
                     }
-                    ele_arr[j].style.display = '';
-                }
+                };
                 respone = 0;
                 var count_ele = document.querySelector('.last-state-page');
                 count_ele.textContent = last_koumoku;
@@ -874,6 +860,7 @@ $(function(){
 			// 次の項目を表示
 			let box = document.querySelector('#partnerjob');
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "2"
             var select = document.getElementById("number-children");
@@ -966,14 +953,11 @@ $(function(){
                     }
                 }
 
-                for(var j=2;j<=respone;j++){
-                    if(checkValue == 'いない'){
-                        if(j == 6 || j == 7){
-                            continue;
-                        }
+                for(var i=0;i<30;i++){
+                    if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                        ele_arr[i].style.display = ''
                     }
-                    ele_arr[j].style.display = '';
-                }
+                };
                 respone = 0;
                 var count_ele = document.querySelector('.last-state-page');
                 count_ele.textContent = last_koumoku;
@@ -985,6 +969,7 @@ $(function(){
 			// 次の項目を表示
 			let box = document.querySelector('#yourchildren');
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "1"
             var select = document.getElementById("number-children");
@@ -1066,15 +1051,12 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
-            if(respone > 0){
-                console.log(respone)
-                respone = 0;
-                display_arr.forEach(disp => {
-                    disp.style.display = '';
-                });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=0;i<30;i++){
+                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                    ele_arr[i].style.display = ''
+                }
+            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -1097,6 +1079,7 @@ $(function(){
 
                 let box = document.querySelector('#childrennumber');
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "1"
                 var select = document.getElementById("number-children");
@@ -1206,15 +1189,12 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
-            number_arr.push(document.getElementById("childrennumber"))
-            if(respone > 0){
-                respone = 0;
-                display_arr.forEach(disp => {
-                    disp.style.display = '';
-                });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=0;i<30;i++){
+                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                    ele_arr[i].style.display = ''
+                }
+            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -1222,38 +1202,72 @@ $(function(){
 			// 次の項目を表示
             var select = document.getElementById("number-children");
             children_num = select.value;
+            var ele_arr = document.getElementsByClassName("form-group");
 
             if(children_num == "one"){
-                var children_number_int = 1;
+                for(var i=12;i<30;i++){
+                    if(ele_arr[i].style.display != 'none'){
+                        ele_arr[i].style.display = 'none';
+                    }
+                }
             }
             else if(children_num == "two"){
-                var children_number_int = 2;
+                for(var i=14;i<30;i++){
+                    if(ele_arr[i].style.display != 'none'){
+                        ele_arr[i].style.display = 'none';
+                    }
+                }
             }
             else if(children_num == "three"){
-                var children_number_int = 3;
+                for(var i=16;i<30;i++){
+                    if(ele_arr[i].style.display != 'none'){
+                        ele_arr[i].style.display = 'none';
+                    }
+                }
             }
             else if(children_num == "four"){
-                var children_number_int = 4;
+                for(var i=18;i<30;i++){
+                    if(ele_arr[i].style.display != 'none'){
+                        ele_arr[i].style.display = 'none';
+                    }
+                }
             }
             else if(children_num == "five"){
-                var children_number_int = 5;
+                for(var i=20;i<30;i++){
+                    if(ele_arr[i].style.display != 'none'){
+                        ele_arr[i].style.display = 'none';
+                    }
+                }
             }
             else if(children_num == "six"){
-                var children_number_int = 6;
+                for(var i=22;i<30;i++){
+                    if(ele_arr[i].style.display != 'none'){
+                        ele_arr[i].style.display = 'none';
+                    }
+                }
             }
             else if(children_num == "seven"){
-                var children_number_int = 7;
+                for(var i=24;i<30;i++){
+                    if(ele_arr[i].style.display != 'none'){
+                        ele_arr[i].style.display = 'none';
+                    }
+                }
             }
             else if(children_num == "eight"){
-                var children_number_int = 8;
+                for(var i=26;i<30;i++){
+                    if(ele_arr[i].style.display != 'none'){
+                        ele_arr[i].style.display = 'none';
+                    }
+                }
             }
             else if(children_num == "nine"){
-                var children_number_int = 9;
+                for(var i=28;i<30;i++){
+                    if(ele_arr[i].style.display != 'none'){
+                        ele_arr[i].style.display = 'none';
+                    }
+                }
             }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-            
+
             total = Number(children_number_int) * 2
             let box = document.querySelector('#firstchildrenbirth');
             box.style.display='';
@@ -1341,15 +1355,12 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
-            number_arr.push(document.getElementById("firstchildrenbirth"))
-            if(respone > 0){
-                respone = 0;
-                display_arr.forEach(disp => {
-                    disp.style.display = '';
-                });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=0;i<30;i++){
+                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                    ele_arr[i].style.display = ''
+                }
+            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -1436,16 +1447,12 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
-            number_arr.push(document.getElementById("firstchildrensex"))
-            console.log(respone)
-            if(respone > 0){
-                respone = 0;
-                display_arr.forEach(disp => {
-                    disp.style.display = '';
-                });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=0;i<30;i++){
+                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                    ele_arr[i].style.display = ''
+                }
+            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -1544,15 +1551,12 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
-            number_arr.push(document.getElementById("secondchildrenbirth"))
-            if(respone > 0){
-                respone = 0;
-                display_arr.forEach(disp => {
-                    disp.style.display = '';
-                });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=0;i<30;i++){
+                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                    ele_arr[i].style.display = ''
+                }
+            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -1677,15 +1681,12 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
-            number_arr.push(document.getElementById("secondchildrensex"))
-            if(respone > 0){
-                respone = 0;
-                display_arr.forEach(disp => {
-                    disp.style.display = '';
-                });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=0;i<30;i++){
+                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                    ele_arr[i].style.display = ''
+                }
+            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -1823,15 +1824,12 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
-            number_arr.push(document.getElementById("thirdchildrenbirth"))
-            if(respone > 0){
-                respone = 0;
-                display_arr.forEach(disp => {
-                    disp.style.display = '';
-                });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=0;i<30;i++){
+                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                    ele_arr[i].style.display = ''
+                }
+            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -1956,15 +1954,12 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
-            number_arr.push(document.getElementById("thirdchildrensex"))
-            if(respone > 0){
-                respone = 0;
-                display_arr.forEach(disp => {
-                    disp.style.display = '';
-                });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=0;i<30;i++){
+                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                    ele_arr[i].style.display = ''
+                }
+            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -2101,15 +2096,12 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
-            number_arr.push(document.getElementById("fourchildrenbirth"))
-            if(respone > 0){
-                respone = 0;
-                display_arr.forEach(disp => {
-                    disp.style.display = '';
-                });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=0;i<30;i++){
+                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                    ele_arr[i].style.display = ''
+                }
+            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -2234,15 +2226,12 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
-            number_arr.push(document.getElementById("fourchildrensex"))
-            if(respone > 0){
-                respone = 0;
-                display_arr.forEach(disp => {
-                    disp.style.display = '';
-                });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=0;i<30;i++){
+                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                    ele_arr[i].style.display = ''
+                }
+            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -2380,15 +2369,12 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
-            number_arr.push(document.getElementById("fivechildrenbirth"))
-            if(respone > 0){
-                respone = 0;
-                display_arr.forEach(disp => {
-                    disp.style.display = '';
-                });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=0;i<30;i++){
+                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                    ele_arr[i].style.display = ''
+                }
+            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -2513,15 +2499,12 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
-            number_arr.push(document.getElementById("fivechildrensex"))
-            if(respone > 0){
-                respone = 0;
-                display_arr.forEach(disp => {
-                    disp.style.display = '';
-                });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=0;i<30;i++){
+                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                    ele_arr[i].style.display = ''
+                }
+            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -2659,15 +2642,12 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
-            number_arr.push(document.getElementById("sixchildrenbirth"))
-            if(respone > 0){
-                respone = 0;
-                display_arr.forEach(disp => {
-                    disp.style.display = '';
-                });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=0;i<30;i++){
+                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                    ele_arr[i].style.display = ''
+                }
+            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -2792,15 +2772,12 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
-            number_arr.push(document.getElementById("sixchildrensex"))
-            if(respone > 0){
-                respone = 0;
-                display_arr.forEach(disp => {
-                    disp.style.display = '';
-                });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=0;i<30;i++){
+                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                    ele_arr[i].style.display = ''
+                }
+            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -2937,15 +2914,12 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
-            number_arr.push(document.getElementById("sevenchildrenbirth"))
-            if(respone > 0){
-                respone = 0;
-                display_arr.forEach(disp => {
-                    disp.style.display = '';
-                });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=0;i<30;i++){
+                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                    ele_arr[i].style.display = ''
+                }
+            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -3070,15 +3044,12 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
-            number_arr.push(document.getElementById("sevenchildrensex"))
-            if(respone > 0){
-                respone = 0;
-                display_arr.forEach(disp => {
-                    disp.style.display = '';
-                });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=0;i<30;i++){
+                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                    ele_arr[i].style.display = ''
+                }
+            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -3215,15 +3186,12 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
-            number_arr.push(document.getElementById("eightchildrenbirth"))
-            if(respone > 0){
-                respone = 0;
-                display_arr.forEach(disp => {
-                    disp.style.display = '';
-                });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=0;i<30;i++){
+                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                    ele_arr[i].style.display = ''
+                }
+            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -3347,15 +3315,12 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
-            number_arr.push(document.getElementById("eightchildrensex"))
-            if(respone > 0){
-                respone = 0;
-                display_arr.forEach(disp => {
-                    disp.style.display = '';
-                });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=0;i<30;i++){
+                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                    ele_arr[i].style.display = ''
+                }
+            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -3492,15 +3457,12 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
-            number_arr.push(document.getElementById("ninechildrenbirth"))
-            if(respone > 0){
-                respone = 0;
-                display_arr.forEach(disp => {
-                    disp.style.display = '';
-                });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=0;i<30;i++){
+                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                    ele_arr[i].style.display = ''
+                }
+            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -3625,15 +3587,12 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
-            number_arr.push(document.getElementById("ninechildrensex"))
-            if(respone > 0){
-                respone = 0;
-                display_arr.forEach(disp => {
-                    disp.style.display = '';
-                });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=0;i<30;i++){
+                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                    ele_arr[i].style.display = ''
+                }
+            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -3770,15 +3729,12 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
-            number_arr.push(document.getElementById("tenchildrenbirth"))
-            if(respone > 0){
-                respone = 0;
-                display_arr.forEach(disp => {
-                    disp.style.display = '';
-                });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=0;i<30;i++){
+                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                    ele_arr[i].style.display = ''
+                }
+            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -3893,15 +3849,12 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }else{
-            number_arr.push(document.getElementById("tenchildrensex"))
-            if(respone > 0){
-                respone = 0;
-                display_arr.forEach(disp => {
-                    disp.style.display = '';
-                });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=0;i<30;i++){
+                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                    ele_arr[i].style.display = ''
+                }
+            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -4070,6 +4023,7 @@ $(function(){
 			let box = document.querySelector('#yourbonus');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             if(partner_bool == false && children_bool == false){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "17"
@@ -4144,6 +4098,7 @@ $(function(){
                 let box = document.querySelector('#yourpartnerincome');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "19"
             }
@@ -4152,6 +4107,7 @@ $(function(){
                 let box = document.querySelector('#yourfoodexpenses');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 if(children_bool == false && partner_bool == false){
                     const stat = document.querySelector('.last-state-page');
                     stat.textContent = "16"
@@ -4227,6 +4183,7 @@ $(function(){
 			let box = document.querySelector('#yourpartnerbonus');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             if(partner_bool == true && children_bool == true){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "19"
@@ -4302,6 +4259,7 @@ $(function(){
 			let box = document.querySelector('#yourfoodexpenses');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             if(partner_bool == true && children_bool == true){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "18"
@@ -4372,6 +4330,7 @@ $(function(){
 			let box = document.querySelector('#yourlivingcost');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             if(children_bool == false && partner_bool == false){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "15"
@@ -4446,6 +4405,7 @@ $(function(){
 			let box = document.querySelector('#yourbeautybill');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             if(children_bool == false && partner_bool == false){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "14"
@@ -4521,6 +4481,7 @@ $(function(){
 			let box = document.querySelector('#yourhouseclass');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             if(children_bool == false && partner_bool == false){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "13"
@@ -4602,6 +4563,7 @@ $(function(){
 			let box = document.querySelector('#yourhousecost');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             if(children_bool == false && partner_bool == false){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "12"
@@ -4679,6 +4641,7 @@ $(function(){
                 let box = document.querySelector('#yourmanagecost');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 if(children_bool == false && partner_bool == false){
                     const stat = document.querySelector('.last-state-page');
                     stat.textContent = "11"
@@ -4696,6 +4659,7 @@ $(function(){
                 let box = document.querySelector('#yourbill');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 if(children_bool == false && partner_bool == false){
                     const stat = document.querySelector('.last-state-page');
                     stat.textContent = "10"
@@ -4771,6 +4735,7 @@ $(function(){
 			let box = document.querySelector('#yourbill');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             if(children_bool == false && partner_bool == false){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "10"
@@ -4845,6 +4810,7 @@ $(function(){
 			let box = document.querySelector('#yourpcbill');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             if(children_bool == false && partner_bool == false){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "9"
@@ -4919,6 +4885,7 @@ $(function(){
 			let box = document.querySelector('#yourphonebill');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             if(children_bool == false && partner_bool == false){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "8"
@@ -4993,6 +4960,7 @@ $(function(){
 			let box = document.querySelector('#yourlone');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             if(children_bool == false && partner_bool == false){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "7"
@@ -5067,6 +5035,7 @@ $(function(){
 			let box = document.querySelector('#yourinsurancebill');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             if(children_bool == false && partner_bool == false){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "6"
@@ -5142,6 +5111,7 @@ $(function(){
                 let box = document.querySelector('#youreducationalinsurance');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "7"
             }
@@ -5149,6 +5119,7 @@ $(function(){
                 let box = document.querySelector('#yourmedicalinsurance');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 if(children_bool == false && partner_bool == false){
                     const stat = document.querySelector('.last-state-page');
                     stat.textContent = "5"
@@ -5224,6 +5195,7 @@ $(function(){
 			let box = document.querySelector('#youreducationexpenses');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "6"
         }
@@ -5288,6 +5260,7 @@ $(function(){
 			let box = document.querySelector('#yourmedicalinsurance');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "5"
         }
@@ -5352,6 +5325,7 @@ $(function(){
 			let box = document.querySelector('#yourlifeinsurance');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "4"
         }
@@ -5416,6 +5390,7 @@ $(function(){
 			let box = document.querySelector('#yourestateinvestment');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "3"
         }
@@ -5480,6 +5455,7 @@ $(function(){
 			let box = document.querySelector('#yourassetmanagement');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "2"
         }
@@ -5544,6 +5520,7 @@ $(function(){
 			let box = document.querySelector('#yourformcontrol');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "1"
         }
@@ -5622,6 +5599,7 @@ $(function(){
             button2.style.display='none';
             let box = document.querySelector('#yourchildren');
             box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "8"  
         }
@@ -5648,6 +5626,7 @@ $(function(){
             let box = document.querySelector('#youreducationalinsurance');
             //styleのdisplayを変更する関数
             box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "7"
         }
@@ -5659,6 +5638,7 @@ $(function(){
             let box = document.querySelector('#yourmedicalinsurance');
             //styleのdisplayを変更する関数
             box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "4" 
         }
@@ -5681,6 +5661,7 @@ $(function(){
         let box = document.querySelector('#youreducationexpenses');
         //styleのdisplayを変更する関数
         box.style.display='';
+        box.setAttribute('element_yet','not_yet');
         const stat = document.querySelector('.last-state-page');
         stat.textContent = "6"
     });
@@ -5702,6 +5683,7 @@ $(function(){
         let box = document.querySelector('#yourlifeinsurance');
         //styleのdisplayを変更する関数
         box.style.display='';
+        box.setAttribute('element_yet','not_yet');
         const stat = document.querySelector('.last-state-page');
         stat.textContent = "4"
     });
@@ -5723,6 +5705,7 @@ $(function(){
         let box = document.querySelector('#yourestateinvestment');
         //styleのdisplayを変更する関数
         box.style.display='';
+        box.setAttribute('element_yet','not_yet');
         const stat = document.querySelector('.last-state-page');
         stat.textContent = "3"
     });
@@ -5744,6 +5727,7 @@ $(function(){
         let box = document.querySelector('#yourassetmanagement');
         //styleのdisplayを変更する関数
         box.style.display='';
+        box.setAttribute('element_yet','not_yet');
         const stat = document.querySelector('.last-state-page');
         stat.textContent = "2"
         comp_flg = true;
@@ -5872,6 +5856,7 @@ $(function(){
                 let box = document.querySelector('#yoursavingsbalance');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -5880,6 +5865,7 @@ $(function(){
                 let box = document.querySelector('#yourestate');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -5952,6 +5938,7 @@ $(function(){
                 let box = document.querySelector('#yourfirstestate');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) + Number(Number(your_estate) * 2))
@@ -6135,6 +6122,7 @@ $(function(){
 			let box = document.querySelector('#yourfirstrentalincome');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -6207,6 +6195,7 @@ $(function(){
                 let box = document.querySelector('#yoursavingsbalance');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1) 
@@ -6215,6 +6204,7 @@ $(function(){
                 let box = document.querySelector('#yoursecondestate');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -6285,6 +6275,7 @@ $(function(){
 			let box = document.querySelector('#yoursecondrentalincome');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -6357,6 +6348,7 @@ $(function(){
                 let box = document.querySelector('#yoursavingsbalance');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1) 
@@ -6365,6 +6357,7 @@ $(function(){
                 let box = document.querySelector('#yourthirdestate');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -6435,6 +6428,7 @@ $(function(){
 			let box = document.querySelector('#yourthirdrentalincome');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -6507,6 +6501,7 @@ $(function(){
                 let box = document.querySelector('#yoursavingsbalance');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1) 
@@ -6515,6 +6510,7 @@ $(function(){
                 let box = document.querySelector('#yourfourestate');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -6585,6 +6581,7 @@ $(function(){
 			let box = document.querySelector('#yourfourrentalincome');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -6657,6 +6654,7 @@ $(function(){
                 let box = document.querySelector('#yoursavingsbalance');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1) 
@@ -6665,6 +6663,7 @@ $(function(){
                 let box = document.querySelector('#yourfiveestate');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -6735,6 +6734,7 @@ $(function(){
 			let box = document.querySelector('#yourfiverentalincome');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -6807,6 +6807,7 @@ $(function(){
                 let box = document.querySelector('#yoursavingsbalance');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1) 
@@ -6815,6 +6816,7 @@ $(function(){
                 let box = document.querySelector('#yoursixestate');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -6885,6 +6887,7 @@ $(function(){
 			let box = document.querySelector('#yoursixrentalincome');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -6957,6 +6960,7 @@ $(function(){
                 let box = document.querySelector('#yoursavingsbalance');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1) 
@@ -6965,6 +6969,7 @@ $(function(){
                 let box = document.querySelector('#yoursevenestate');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -7035,6 +7040,7 @@ $(function(){
 			let box = document.querySelector('#yoursevenrentalincome');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -7107,6 +7113,7 @@ $(function(){
                 let box = document.querySelector('#yoursavingsbalance');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1) 
@@ -7115,6 +7122,7 @@ $(function(){
                 let box = document.querySelector('#youreightestate');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -7185,6 +7193,7 @@ $(function(){
 			let box = document.querySelector('#youreightrentalincome');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -7257,6 +7266,7 @@ $(function(){
                 let box = document.querySelector('#yoursavingsbalance');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1) 
@@ -7265,6 +7275,7 @@ $(function(){
                 let box = document.querySelector('#yournineestate');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -7335,6 +7346,7 @@ $(function(){
 			let box = document.querySelector('#yourninerentalincome');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -7407,6 +7419,7 @@ $(function(){
                 let box = document.querySelector('#yoursavingsbalance');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1) 
@@ -7415,6 +7428,7 @@ $(function(){
                 let box = document.querySelector('#yourtenestate');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -7485,6 +7499,7 @@ $(function(){
 			let box = document.querySelector('#yourtenrentalincome');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -7556,6 +7571,7 @@ $(function(){
             let box = document.querySelector('#yoursavingsbalance');
             //styleのdisplayを変更する関数
             box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1) 
@@ -7627,6 +7643,7 @@ $(function(){
                 let box = document.querySelector('#yourlastEducationalinsurance');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -7635,6 +7652,7 @@ $(function(){
                 let box = document.querySelector('#yourtrip');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -7644,6 +7662,7 @@ $(function(){
                 let box = document.querySelector('#yourtrip');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -7714,6 +7733,7 @@ $(function(){
 			let box = document.querySelector('#yourtrip');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -7783,6 +7803,7 @@ $(function(){
 			let box = document.querySelector('#yourotherexpense');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -7853,7 +7874,9 @@ $(function(){
             let box2 = document.querySelector('#text');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             box2.style.display='';
+            box2.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -7919,6 +7942,7 @@ $(function(){
 			let box = document.querySelector('#yourstartingsalary');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -7984,6 +8008,7 @@ $(function(){
 			let box = document.querySelector('#yourestimatedannualincome');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -8049,6 +8074,7 @@ $(function(){
 			let box = document.querySelector('#yourSeverancepay');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -8114,6 +8140,7 @@ $(function(){
                 let box = document.querySelector('#yourpartnerstratwork');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "16"
@@ -8132,6 +8159,7 @@ $(function(){
                 let box = document.querySelector('#yourfirstprimaryschool');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -8199,6 +8227,7 @@ $(function(){
 			let box = document.querySelector('#yourpartnerstartingsalary');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -8264,6 +8293,7 @@ $(function(){
 			let box = document.querySelector('#yourpartnerestimatedannualincome');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -8329,6 +8359,7 @@ $(function(){
 			let box = document.querySelector('#yourpartnerSeverancepay');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -8394,6 +8425,7 @@ $(function(){
                 let box = document.querySelector('#yourfirstprimaryschool');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -8470,6 +8502,7 @@ $(function(){
 			let box = document.querySelector('#yourfirstjuniorhighschool');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -8535,6 +8568,7 @@ $(function(){
 			let box = document.querySelector('#yourfirsthighschool');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -8600,6 +8634,7 @@ $(function(){
 			let box = document.querySelector('#yourfirstuniversity');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -8678,6 +8713,7 @@ $(function(){
                 let box = document.querySelector('#yoursecondprimaryschool');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -8744,6 +8780,7 @@ $(function(){
 			let box = document.querySelector('#yoursecondjuniorhighschool');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -8809,6 +8846,7 @@ $(function(){
 			let box = document.querySelector('#yoursecondhighschool');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -8874,6 +8912,7 @@ $(function(){
 			let box = document.querySelector('#yourseconduniversity');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -8952,6 +8991,7 @@ $(function(){
                 let box = document.querySelector('#yourthirdprimaryschool');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -9019,6 +9059,7 @@ $(function(){
 			let box = document.querySelector('#yourthirdjuniorhighschool');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -9084,6 +9125,7 @@ $(function(){
 			let box = document.querySelector('#yourthirdhighschool');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -9149,6 +9191,7 @@ $(function(){
 			let box = document.querySelector('#yourthirduniversity');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -9227,6 +9270,7 @@ $(function(){
                 let box = document.querySelector('#yourfourprimaryschool');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -9293,6 +9337,7 @@ $(function(){
 			let box = document.querySelector('#yourfourjuniorhighschool');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -9358,6 +9403,7 @@ $(function(){
 			let box = document.querySelector('#yourfourhighschool');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -9423,6 +9469,7 @@ $(function(){
 			let box = document.querySelector('#yourfouruniversity');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -9500,6 +9547,7 @@ $(function(){
                 let box = document.querySelector('#yourfiveprimaryschool');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -9566,6 +9614,7 @@ $(function(){
 			let box = document.querySelector('#yourfivejuniorhighschool');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -9631,6 +9680,7 @@ $(function(){
 			let box = document.querySelector('#yourfivehighschool');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -9696,6 +9746,7 @@ $(function(){
 			let box = document.querySelector('#yourfiveuniversity');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -9773,6 +9824,7 @@ $(function(){
                 let box = document.querySelector('#yoursixprimaryschool');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -9839,6 +9891,7 @@ $(function(){
 			let box = document.querySelector('#yoursixjuniorhighschool');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -9904,6 +9957,7 @@ $(function(){
 			let box = document.querySelector('#yoursixhighschool');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -9969,6 +10023,7 @@ $(function(){
 			let box = document.querySelector('#yoursixuniversity');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -10046,6 +10101,7 @@ $(function(){
                 let box = document.querySelector('#yoursevenprimaryschool');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -10112,6 +10168,7 @@ $(function(){
 			let box = document.querySelector('#yoursevenjuniorhighschool');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -10177,6 +10234,7 @@ $(function(){
 			let box = document.querySelector('#yoursevenhighschool');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -10242,6 +10300,7 @@ $(function(){
 			let box = document.querySelector('#yoursevenuniversity');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -10319,6 +10378,7 @@ $(function(){
                 let box = document.querySelector('#youreightprimaryschool');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -10385,6 +10445,7 @@ $(function(){
 			let box = document.querySelector('#youreightjuniorhighschool');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -10450,6 +10511,7 @@ $(function(){
 			let box = document.querySelector('#youreighthighschool');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -10515,6 +10577,7 @@ $(function(){
 			let box = document.querySelector('#youreightuniversity');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -10592,6 +10655,7 @@ $(function(){
                 let box = document.querySelector('#yournineprimaryschool');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -10658,6 +10722,7 @@ $(function(){
 			let box = document.querySelector('#yourninejuniorhighschool');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -10723,6 +10788,7 @@ $(function(){
 			let box = document.querySelector('#yourninehighschool');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -10788,6 +10854,7 @@ $(function(){
 			let box = document.querySelector('#yournineuniversity');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -10865,6 +10932,7 @@ $(function(){
                 let box = document.querySelector('#yourtenprimaryschool');
                 //styleのdisplayを変更する関数
                 box.style.display='';
+                box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
@@ -10931,6 +10999,7 @@ $(function(){
 			let box = document.querySelector('#yourtenjuniorhighschool');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -10996,6 +11065,7 @@ $(function(){
 			let box = document.querySelector('#yourtenhighschool');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)
@@ -11061,6 +11131,7 @@ $(function(){
 			let box = document.querySelector('#yourtenuniversity');
 			//styleのdisplayを変更する関数
 			box.style.display='';
+            box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
             const stat = document.querySelector('.last-state-page');
             stat.textContent = String(Number(base_laststate) - 1)

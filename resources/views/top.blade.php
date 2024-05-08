@@ -71,8 +71,6 @@
 <section id="mainimg">
 <div id="text">
 <div>
-<h2 class="mainimg-title">自身の家計の将来を<br class="br-sp">無料で可視化！<br class="br-pc br-sp">
-正しい資産形成と<br class="br-sp">リスクマネジメントを<br class="br-sp">全力で支援します！</h2>
 <button class="btn1 large radius" type="button" data-target="#modal1" data-toggle="modal"><span class="button_text">未来家計簿を作る</span><i class="btn1 large radius"></i></button>
 <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document" id="modal">
