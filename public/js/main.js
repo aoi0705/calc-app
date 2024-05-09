@@ -710,12 +710,6 @@ $(function(){
                         checkValue = ele.item(i).value;
                     }
                 }
-
-                for(var i=0;i<30;i++){
-                    if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                        ele_arr[i].style.display = ''
-                    }
-                };
                 respone = 0;
                 var count_ele = document.querySelector('.last-state-page');
                 count_ele.textContent = last_koumoku;
@@ -775,6 +769,12 @@ $(function(){
             }
 
             if(checkValue == "いる"){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var i=7;i<9;i++){
+                    if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                        ele_arr[i].style.display = ''
+                    }
+                };
                 let box = document.querySelector('#partnerbirthday');
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
@@ -1052,7 +1052,7 @@ $(function(){
             next_button.id = "next_page2-not"
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=0;i<30;i++){
+            for(var i=10;i<30;i++){
                 if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
                     ele_arr[i].style.display = ''
                 }
@@ -1124,7 +1124,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
 
-                for(var i=0;i<30;i++){
+                for(var i=9;i<30;i++){
                     if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
                         ele_arr[i].style.display = ''
                     }
@@ -1135,8 +1135,6 @@ $(function(){
                 for(var i=9;i<30;i++){
                     if(ele_arr[i].style.display != 'none'){
                         ele_arr[i].style.display = 'none';
-                        var st = document.querySelector('.last-state-page').textContent;
-                        last_koumoku = st;
                     }
                 }
                 const stat = document.querySelector('.last-state-page');
@@ -5935,13 +5933,20 @@ $(function(){
             var children_number = sessionStorage.getItem('number-children')
             var your_estate = document.getElementById("estate").value;
 			// 次の項目を表示
-                let box = document.querySelector('#yourfirstestate');
-                //styleのdisplayを変更する関数
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
-                const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) + Number(Number(your_estate) * 2))
+            let box = document.querySelector('#yourfirstestate');
+            //styleのdisplayを変更する関数
+            box.style.display='';
+            box.setAttribute('element_yet','not_yet');
+            const base_laststate = document.querySelector(".last-state-page").textContent
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = String(Number(base_laststate) + Number(Number(your_estate) * 2))
+            
+            var ele_arr = document.getElementsByClassName("form-group");
+            for(var i=2;i<22;i++){
+                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                    ele_arr[i].style.display = ''
+                }
+            };
         }
 
         var estate_value = document.getElementById("estate").value

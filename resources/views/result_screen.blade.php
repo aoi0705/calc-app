@@ -18,22 +18,29 @@
 
 <header>
 
-<h1 id="logo"><a href="{{ url('/') }}"><img src="images/logo.png" alt="ロゴ"></a></h1>
-
 <!--メニュー-->
-<div id="menubar">
+<div class="br-sp">
+<h1 id="logo"><a href="{{ url('/') }}"><img src="images/logo.jpg" alt="ロゴ" width="70px" height="70px"></a></h1>
+</div>
 
-<nav>
-<ul>
-<li><a href="{{ url('/') }}">TOP</a></li>
-<li><a href="{{ url('/WhoWeAre') }}">Who We Are</a></li>
-<li><a href="{{ url('/Profile') }}">Company Profile</a></li>
+<div id="menubar" class="db">
+
+<nav class="br-pc">
+<ul class="headul">
+<li><h1 id="logo"><a href="{{ url('/') }}"><img src="images/logo.jpg" alt="ロゴ"></a></h1></li>
+<li class="link_text"><a href="#mainimg">TOP</a></li>
+<li class="link_text"><a href="#whoweare">Who we are</a></li>
+<li class="link_text"><a href="#companyprofile">Company Profile</a></li>
 </ul>
 </nav>
 
-<div class="sh">
-<p>小さな端末でのみ表示</p>
-</div>
+<nav class="br-sp">
+<ul>
+<li class="link_text"><a href="#mainimg">TOP</a></li>
+<li class="link_text"><a href="#whoweare">Who we are</a></li>
+<li class="link_text"><a href="#companyprofile">Company Profile</a></li>
+</ul>
+</nav>
 <!--/.sh-->
 
 </div>
@@ -59,43 +66,11 @@
 
 </main>
 
-<div id="footermenu">
-<ul>
-<li class="title">メニュー</li>
-<li><a href="index.html">ホーム</a></li>
-<li><a href="company.html">会社概要</a></li>
-<li><a href="list.html">仕事検索</a></li>
-<li><a href="request.html">企業のご担当者様</a></li>
-<li><a href="faq.html">よく頂く質問</a></li>
-<li><a href="contact.html">お問い合わせ</a></li>
-</ul>
-<ul>
-<li class="title">メニュー見出し</li>
-<li><a href="#">サンプルメニューサンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-</ul>
-<ul>
-<li class="title">メニュー見出し</li>
-<li><a href="#">サンプルメニューサンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-</ul>
-<ul>
-<li class="title">メニュー見出し</li>
-<li><a href="#">サンプルメニューサンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-</ul>
-</div>
 <!--/#footermenu-->
 
 <footer>
 
-<small>フッター</small>
+<a href="{{ url('/') }}"><img src="images/footer_logo.png" alt="ロゴ" width="120px" height="120px"style="display: block; margin: auto;"></a>
 
 </footer>
 

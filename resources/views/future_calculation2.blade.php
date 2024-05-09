@@ -14,7 +14,7 @@
 
     @media screen and (max-width:400px){
         footer{
-            height:50px;
+            height:105px;
         }
     }
 </style>
@@ -32,7 +32,7 @@
 
 <section>
 
-<h2>未来家計簿作成</h2>
+<h2 class="calc-h2">未来家計簿作成</h2>
 
 <ul class="progressbar">
     <li class="complete">本人・<br>家族構成</li>
@@ -40,7 +40,7 @@
     <li>未来家計簿<br>情報</li>
 </ul>
 
-<h3>続いて、現在家計簿情報を入力していきましょう！ご回答いただく項目は以下の22項目です。</h3>
+<h3 class="calc-h3">続いて、現在家計簿情報を入力していきましょう！ご回答いただく項目は以下の22項目です。</h3>
 
 <!-- Page Content -->
 <div class="container mt-5 p-lg-5 bg-light">
@@ -202,7 +202,7 @@
            <input type="number" id="Insurance-bill" name="Insurance-bill" class="form-control" placeholder="10000"></th>
            <td>
            <label for="text">円</label></td></table>
-           <button type="button" id="insurance-not-click">未加入</button>
+           <button type="button" id="insurance-not-click" class="form_button">未加入</button>
            <div class="err-msg-name" id="yourinsurancebillerr"></div>
          </div>
 
@@ -213,7 +213,7 @@
            <input type="number" id="Educational-insurance" name="Educational-insurance" class="form-control" placeholder="10000"></th>
            <td>
            <label for="text">円</label></td></table>
-           <button type="button" id="youreducationalinsurance-not-click">未加入</button>
+           <button type="button" id="youreducationalinsurance-not-click" class="form_button">未加入</button>
            <div class="err-msg-name" id="youreducationalinsuranceerr"></div>
          </div>
 
@@ -234,7 +234,7 @@
            <input type="number" id="medical-insurance" name="medical-insurance" class="form-control" placeholder="5000"></th>
            <td>
            <label for="text">円</label></td></table>
-           <button type="button" id="yourmedicalinsurance-not-click">未加入</button>
+           <button type="button" id="yourmedicalinsurance-not-click" class="form_button">未加入</button>
            <div class="err-msg-name" id="yourmedicalinsuranceerr"></div>
          </div>
 
@@ -245,7 +245,7 @@
            <input type="number" id="life-insurance" name="life-insurance" class="form-control" placeholder="20000"></th>
            <td>
            <label for="text">円</label></td></table>
-           <button type="button" id="yourlifeinsurance-not-click">未加入</button>
+           <button type="button" id="yourlifeinsurance-not-click" class="form_button">未加入</button>
            <div class="err-msg-name" id="yourlifeinsuranceerr"></div>
          </div>
 
@@ -256,7 +256,7 @@
            <input type="number" id="Estate-Investment" name="Estate-Investment" class="form-control" placeholder="20000"></th>
            <td>
            <label for="text">円</label></td></table>
-           <button type="button" id="yourestateinvestment-not-click">未保有</button>
+           <button type="button" id="yourestateinvestment-not-click" class="form_button">未保有</button>
            <div class="err-msg-name" id="yourestateinvestmenterr"></div>
          </div>
 
@@ -305,10 +305,10 @@
 <script src="js/main.js"></script>
 <script src="js/calc2.js"></script>
 
-<!--開閉ボタン（ハンバーガーアイコン）-->
+<!--開閉ボタン（ハンバーガーアイコン）
 <div id="menubar_hdr">
 <span></span><span></span><span></span>
-</div>
+</div>-->
 
 <!--ページの上部へ戻るボタン-->
 <div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>

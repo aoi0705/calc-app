@@ -14,7 +14,7 @@
 
     @media screen and (max-width:400px){
         footer{
-            height:50px;
+            height:105px;
         }
     }
 </style>
@@ -376,10 +376,10 @@
 <script src="js/main.js"></script>
 <script src="js/complete_one.js"></script>
 
-<!--開閉ボタン（ハンバーガーアイコン）-->
+<!--開閉ボタン（ハンバーガーアイコン）
 <div id="menubar_hdr">
 <span></span><span></span><span></span>
-</div>
+</div>-->
 
 <!--ページの上部へ戻るボタン-->
 <div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>

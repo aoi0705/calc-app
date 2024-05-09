@@ -69,7 +69,7 @@
 </header>
 
 <section id="mainimg">
-<div id="text">
+<div id="mainimg_text">
 <div>
 <button class="btn1 large radius" type="button" data-target="#modal1" data-toggle="modal"><span class="button_text">未来家計簿を作る</span><i class="btn1 large radius"></i></button>
 <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
@@ -83,14 +83,14 @@
             <div class="modal-body">
                 <section>
                     <h4>１. 個人情報</h4>
-                        <p>当社は、収集した個人情報を以下の目的のために利用いたします。<br>
+                        <p class="modal-text">当社は、収集した個人情報を以下の目的のために利用いたします。<br>
                             「個人情報」とは，個人情報保護法にいう「個人情報」を指すものとし，生存する個人に関する情報であって，当該情報に含まれる氏名，生年月日，住所，電話番号，連絡先<br>
                             その他の記述等により特定の個人を識別できる情報及び容貌，指紋，声紋にかかるデータ，及び健康保険証の保険者番号などの当該情報単体から特定の個人を識別できる<br>
                             情報（個人識別情報）（当該情報のみでは識別できないが、他の情報と容易に照合することができ、それにより当該個人を識別できるものを含む。）を指します。
                         </p>
 
                     <h4>２. 利用目的</h4>
-                        <p>当社は、収集した個人情報を以下の目的のために利用いたします。<br><br>
+                        <p class="modal-text">当社は、収集した個人情報を以下の目的のために利用いたします。<br><br>
 
                         ・未来家計簿の作成<br>
                         お客様の提供する個人情報を基に、将来の資産状況や家計の予測を行い、具体的な計画を提案します。<br>
@@ -103,12 +103,12 @@
                         </p>
 
                     <h4>３.利用目的の変更</h4>
-                        <p>当社は，利用目的が変更前と関連性を有すると合理的に認められる場合に限り，個人情報の利用目的を変更するものとします。<br>
+                        <p class="modal-text">当社は，利用目的が変更前と関連性を有すると合理的に認められる場合に限り，個人情報の利用目的を変更するものとします。<br>
                             利用目的の変更を行った場合には，変更後の目的について，当社所定の方法により，ユーザーに通知し，または本ウェブサイト上に公表するものとします。
                         </p>
 
                     <h4>４. 第三者提供</h4>
-                        <p>当社は、以下の場合を除き、個人データを第三者へ提供することはありません。<br>
+                        <p class="modal-text">当社は、以下の場合を除き、個人データを第三者へ提供することはありません。<br>
                             ・法令に基づく場合<br>
                             ・人の生命・身体・財産を保護するために必要で、本人の同意が得られない場合<br>
                             ・公衆衛生の向上や児童の健全な育成に必要で、本人の同意が得られない場合<br>
@@ -117,8 +117,8 @@
                         </p>
 
                     <h4>５. FP/IFAへの情報提供</h4>
-                        <p>当社は、以下の目的のため、個人情報をFP/IFAに提供することがあります。</p>
-                        <p>当社は、以下の目的のため、個人情報をFP/IFAに提供することがあります。<br><br>
+                        <p class="modal-text">当社は、以下の目的のため、個人情報をFP/IFAに提供することがあります。</p>
+                        <p class="modal-text">当社は、以下の目的のため、個人情報をFP/IFAに提供することがあります。<br><br>
 
                             ・ライフプランシミュレーションの結果に基づいた個別の金融計画提案のため<br>
                             ・お客様の金融ニーズに適合する商品やサービスの提案のため<br><br>
@@ -128,7 +128,7 @@
                         </p>
 
                     <h4>６. 開示請求</h4>
-                        <p>お客様の個人情報について、ご本人は開示・訂正・削除・利用停止を請求する権利があります。手続にあたっては、ご本人確認のうえ対応させていただきます。<br><br>
+                        <p class="modal-text">お客様の個人情報について、ご本人は開示・訂正・削除・利用停止を請求する権利があります。手続にあたっては、ご本人確認のうえ対応させていただきます。<br><br>
 
                             この同意書は、顧客が自身の情報がどのように使用されるかを明確に理解し、適切に同意するために重要です。ご提供いただく情報の取り扱いに同意される場合のみ、当社のサービスをご利用いただけます。
 
@@ -136,7 +136,7 @@
                 </section>
             </div>
                 <div class="modal-footer">
-                    <button onclick="location.href='./future_calculation'" type="button" class="btn btn-primary mx-auto d-block" id="consent-button">同意する</button>
+                    <button onclick="location.href='./future_calculation'" type="button" class="btn btn-primary mx-auto d-block" id="consent-button" disabled>同意する</button>
                 </div>
         </div>
     </div>
@@ -256,7 +256,7 @@
 </div>
 
 <footer>
-
+<a href="#mainimg"><img src="images/footer_logo.png" alt="ロゴ" width="120px" height="120px"style="display: block; margin: auto;"></a>
 </footer>
 
 <!--開閉ボタン（ハンバーガーアイコン）-->

@@ -32,22 +32,30 @@
 
 <header>
 
-<h1 id="logo"><a href="{{ url('/') }}"><img src="images/logo.png" alt="ロゴ"></a></h1>
-
 <!--メニュー-->
-<div id="menubar">
 
-<nav>
-<ul>
-<li><a href="{{ url('/') }}">TOP</a></li>
-<li><a href="{{ url('/') }}">Who We Are</a></li>
-<li><a href="{{ url('/') }}">Company Profile</a></li>
+<div class="br-sp">
+<h1 id="logo"><a href="{{ url('/') }}"><img src="images/logo.jpg" alt="ロゴ" width="70px" height="70px"></a></h1>
+</div>
+
+<div id="menubar" class="db">
+
+<nav class="br-pc">
+<ul class="headul">
+<li><h1 id="logo"><a href="{{ url('/') }}"><img src="images/logo.jpg" alt="ロゴ"></a></h1></li>
+<li class="link_text"><a href="#mainimg">TOP</a></li>
+<li class="link_text"><a href="#whoweare">Who we are</a></li>
+<li class="link_text"><a href="#companyprofile">Company Profile</a></li>
 </ul>
 </nav>
 
-<div class="sh">
-<p>小さな端末でのみ表示</p>
-</div>
+<nav class="br-sp">
+<ul>
+<li class="link_text"><a href="#mainimg">TOP</a></li>
+<li class="link_text"><a href="#whoweare">Who we are</a></li>
+<li class="link_text"><a href="#companyprofile">Company Profile</a></li>
+</ul>
+</nav>
 <!--/.sh-->
 
 </div>
@@ -58,21 +66,21 @@
 <main>
 
 <section>
-<h2>プライバシーポリシー</h2>
+<h2 class="section-title">プライバシーポリシー</h2>
 
-<h3>第1条（個人情報）</h3>
+<h3 class="privacy_policy_section">第1条（個人情報）</h3>
 <p>「個人情報」とは，個人情報保護法にいう「個人情報」を指すものとし，生存する個人に関する情報であって，当該情報に含まれる氏名，生年月日，住所，電話番号，連絡先<br>
     その他の記述等により特定の個人を識別できる情報及び容貌，指紋，声紋にかかるデータ，及び健康保険証の保険者番号などの当該情報単体から特定の個人を識別できる<br>
     情報（個人識別情報）を指します。
 </p>
 
-<h3>第2条（個人情報の収集方法）</h3>
+<h3 class="privacy_policy_section">第2条（個人情報の収集方法）</h3>
 <p>当社は，ユーザーが利用登録をする際に氏名，生年月日，住所，電話番号，メールアドレス，銀行口座番号，クレジットカード番号，運転免許証番号などの個人情報を<br>
     お尋ねすることがあります。また，ユーザーと提携先などとの間でなされたユーザーの個人情報を含む取引記録や決済に関する情報を,当社の提携先<br>
     （情報提供元，広告主，広告配信先などを含みます。以下，｢提携先｣といいます。）などから収集することがあります。
 </p>
 
-<h3>第３条（個人情報の利用目的）</h3>
+<h3 class="privacy_policy_section">第３条（個人情報の利用目的）</h3>
 <p>当社は、収集した個人情報を以下の目的のために利用いたします。</p>
 <p><strong class="color-theme">未来家計簿の作成</strong><br>
     お客様の提供する個人情報を基に、将来の資産状況や家計の予測を行い、具体的な計画を提案します。<br>
@@ -84,12 +92,12 @@
     お客様からのお問い合わせに対する対応、および当社サービスに関する情報提供や更新通知を行います。
 </p>
 
-<h3>第４条（個人情報の利用目的の変更）</h3>
+<h3 class="privacy_policy_section">第４条（個人情報の利用目的の変更）</h3>
 <p>当社は，利用目的が変更前と関連性を有すると合理的に認められる場合に限り，個人情報の利用目的を変更するものとします。<br>
 利用目的の変更を行った場合には，変更後の目的について，当社所定の方法により，ユーザーに通知し，または本ウェブサイト上に公表するものとします。
 </p>
 
-<h3>第５条（個人情報の第三者提供）</h3>
+<h3 class="privacy_policy_section">第５条（個人情報の第三者提供）</h3>
 <p>当社は、以下の目的のため、個人情報をFP/IFAに提供することがあります。</p>
 <p><strong class="color-theme">ライフプランシミュレーションの結果に基づいた個別の金融計画提案のため</strong><br>
     <strong class="color-theme">お客様の金融ニーズに適合する商品やサービスの提案のため</strong><br>
@@ -104,52 +112,45 @@
     ・国または地方公共団体が法令の遂行に必要で、本人の同意が事務遂行に影響を与える場合
 </p>
 
-<h3>第６条（個人情報の開示請求）</h3>
+<h3 class="privacy_policy_section">第６条（個人情報の開示請求）</h3>
 <p>お客様の個人情報について、ご本人は開示・訂正・削除・利用停止を請求する権利があります。手続にあたっては、ご本人確認のうえ対応させていただきます。
 </p>
+
+<h3 class="privacy_policy_section">第７条（個人情報の訂正及び削除）</h3>
+<p>1.当社の保有する個人情報が誤った情報である場合には、利用者の請求により、当社が定める手続きに従い個人情報の訂正又は削除を行います。</p>
+<p>2.当社は、利用者から前項の請求を受けてその請求に応じる必要があると判断した場合には、遅滞なく、当該個人情報の訂正又は削除を行い、これを利用者に通知します。</p>
+
+<h3 class="privacy_policy_section">第８条（個人情報の利用停止等）
+</h3>
+<p>当社は、利用者から、以下の各号に定める場合に該当するとして、個人情報の利用の停止又は消去（以下「利用停止等」といいます。）を求められた場合には、遅滞なく<br class="br-pc">
+必要な調査を行い、その結果に基づき、法令に従って、個人情報の利用停止等を行い、その旨利用者に通知します。但し、個人情報の利用停止等に多額の費用を有する場合<br class="br-pc">その他利用停止等を行うことが困難な場合であって、利用者の権利利益を保護するために必要なこれに代わるべき措置をとれる場合は、この代替策を講じます。
+</p>
+<p>(1)利用目的の範囲を超えて取り扱われている場合</p>
+<p>(2)不正の手段により取得された個人情報である場合</p>
+<p>(3)違法又は不当な行為を助長し、又は誘発するおそれがある方法により利用されている場合</p>
+<p>(4)当社が利用者の個人情報を利用する必要がなくなった場合</p>
+<p>(5)要配慮個人情報が含まれる個人情報の漏えい、滅失若しくは毀損（以下「漏えい等」といいます。）が発生し、又は発生したおそれがある場合</p>
+<p>(6)不正に利用されることにより財産的被害が生じるおそれがある個人情報の漏えい等が発生し、又は発生したおそれがある場合</p>
+<p>(7)不正の目的をもって行われたおそれがある個人情報の漏えい等が発生し、又は発生したおそれがある場合</p>
+<p>(8)個人情報にかかる本人の数が千人を超える漏えい等が発生し、又は発生したおそれがある場合</p>
+<p>(9)当該個人情報の取扱いにより利用者の権利又は正当な利益が害されるおそれがある場合</p>
+
+<h3 class="privacy_policy_section">第９条（法令、規範の遵守）</h3>
+<p>当社は、保有する個人情報に関して適用される日本の法令、その他規範を遵守します。
+</p>
+
+<br>
+<br>
+<p>2024年5月1日制定・施行</p>
 
 </section>
 
 </main>
 
-<div id="footermenu">
-<ul>
-<li class="title">メニュー</li>
-<li><a href="index.html">ホーム</a></li>
-<li><a href="company.html">会社概要</a></li>
-<li><a href="list.html">仕事検索</a></li>
-<li><a href="request.html">企業のご担当者様</a></li>
-<li><a href="faq.html">よく頂く質問</a></li>
-<li><a href="contact.html">お問い合わせ</a></li>
-</ul>
-<ul>
-<li class="title">メニュー見出し</li>
-<li><a href="#">サンプルメニューサンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-</ul>
-<ul>
-<li class="title">メニュー見出し</li>
-<li><a href="#">サンプルメニューサンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-</ul>
-<ul>
-<li class="title">メニュー見出し</li>
-<li><a href="#">サンプルメニューサンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-<li><a href="#">サンプルメニュー</a></li>
-</ul>
-</div>
 <!--/#footermenu-->
 
 <footer>
-
-<small>フッター</small>
-
+<a href="{{ url('/') }}"><img src="images/footer_logo.png" alt="ロゴ" width="120px" height="120px"style="display: block; margin: auto;"></a>
 </footer>
 
 </div>

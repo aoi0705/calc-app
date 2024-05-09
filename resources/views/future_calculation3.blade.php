@@ -14,7 +14,7 @@
 
     @media screen and (max-width:400px){
         footer{
-            height:50px;
+            height:105px;
         }
     }
 </style>
@@ -32,7 +32,7 @@
 
 <section>
 
-<h2>未来家計簿作成</h2>
+<h2 class="calc-h2">未来家計簿作成</h2>
 
 <ul class="progressbar">
     <li class="complete">本人・<br>家族構成</li>
@@ -40,7 +40,7 @@
     <li class="active">未来家計簿<br>情報</li>
 </ul>
 
-<h3>続いて、未来家計簿情報を入力していきましょう！ご回答いただく項目は以下の20項目です。</h3>
+<h3 class="calc-h3">続いて、未来家計簿情報を入力していきましょう！ご回答いただく項目は以下の20項目です。</h3>
 
 <!-- Page Content -->
 <div class="container mt-5 p-lg-5 bg-light">
@@ -874,10 +874,10 @@
 <script src="js/main.js"></script>
 
 
-<!--開閉ボタン（ハンバーガーアイコン）-->
+<!--開閉ボタン（ハンバーガーアイコン）
 <div id="menubar_hdr">
 <span></span><span></span><span></span>
-</div>
+</div>-->
 
 <!--ページの上部へ戻るボタン-->
 <div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
