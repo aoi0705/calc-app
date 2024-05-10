@@ -372,9 +372,7 @@
 <!--jQueryの読み込み-->
 
 <!--このテンプレート専用のスクリプト-->
-<script src="js/elem_screen.js"></script>
 <script src="js/main.js"></script>
-<script src="js/complete_one.js"></script>
 
 <!--開閉ボタン（ハンバーガーアイコン）
 <div id="menubar_hdr">

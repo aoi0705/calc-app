@@ -236,6 +236,13 @@ body{
 	background-size: 100%;
 }
 
+#consent-button:disabled {
+	background-color: #8a8a8a;
+}
+#consent-button {
+	background-color: #FF9696;
+}
+
 /*テキストブロック*/
 #mainimg #mainimg_text{
 	position: absolute;

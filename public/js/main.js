@@ -139,84 +139,36 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
         }else{
-            if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                let ele = document.getElementsByName("spouse")
-                let len = ele.length;
-                let checkValue = '';
-                for (let i = 0; i < len; i++){
-                    if (ele.item(i).checked){
-                        checkValue = ele.item(i).value;
-                    }
-                }
-
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                // エラーメッセージのテキストに空文字を代入
+                errMsgName.textContent ='';
+                // クラスを削除
+                name.classList.remove('input-invalid');
+                // 次の項目を表示
+                let box = document.querySelector('#yournickname');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                box.setAttribute('element_yet','not_yet');
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
+            }
+            else{
                 for(var i=0;i<30;i++){
                     if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                        ele_arr[i].style.display = ''
+                        if(ele_arr[i].style.display != ''){
+                            ele_arr[i].style.display = ''
+                            
+                            var st = document.querySelector('.last-state-page');
+                            st.textContent = Number(st.textContent) - 1
+                        }
                     }
                 };
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-                respone = 0;
-            }
-            // エラーメッセージのテキストに空文字を代入
-            errMsgName.textContent ='';
-            // クラスを削除
-            name.classList.remove('input-invalid');
-			// 次の項目を表示
-			let box = document.querySelector('#yournickname');
-			//styleのdisplayを変更する関数
-			box.style.display='';
-            box.setAttribute('element_yet','not_yet');
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = "6"
-
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
-            }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
             }
         }
 	});
@@ -237,6 +189,7 @@ $(function(){
         const name = document.querySelector('#nickname');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#nicknameerr');
+        var ele_arr = document.getElementsByClassName("form-group");
         if(!name.value){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
@@ -252,84 +205,37 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
         }else{
-            if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                let ele = document.getElementsByName("spouse")
-                let len = ele.length;
-                let checkValue = '';
-                for (let i = 0; i < len; i++){
-                    if (ele.item(i).checked){
-                        checkValue = ele.item(i).value;
-                    }
-                }
-
-                for(var i=0;i<30;i++){
+            let box = document.querySelector('#yourbirthday');
+            if(box.getAttribute("element_yet") != "not_yet"){
+                // エラーメッセージのテキストに空文字を代入
+                errMsgName.textContent ='';
+                // クラスを削除
+                name.classList.remove('input-invalid');
+                // 次の項目を表示
+                
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                box.setAttribute('element_yet','not_yet');
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
+            }
+            else{
+                for(var i=1;i<30;i++){
                     if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                        ele_arr[i].style.display = ''
+                        if(ele_arr[i].style.display != ''){
+                            ele_arr[i].style.display = ''
+                            
+                            var st = document.querySelector('.last-state-page');
+                            st.textContent = Number(st.textContent) - 1
+                        }
                     }
                 };
-                respone = 0;
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
-            
-            // エラーメッセージのテキストに空文字を代入
-            errMsgName.textContent ='';
-            // クラスを削除
-            name.classList.remove('input-invalid');
-			// 次の項目を表示
-			let box = document.querySelector('#yourbirthday');
-			//styleのdisplayを変更する関数
-			box.style.display='';
-            box.setAttribute('element_yet','not_yet');
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = "5"
-
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
-            }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
             }
         }
 	});
@@ -364,81 +270,36 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
         }else{
-            if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                let ele = document.getElementsByName("spouse")
-                let len = ele.length;
-                let checkValue = '';
-                for (let i = 0; i < len; i++){
-                    if (ele.item(i).checked){
-                        checkValue = ele.item(i).value;
-                    }
-                }
-
-                for(var i=0;i<30;i++){
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                // エラーメッセージのテキストに空文字を代入
+                errMsgName.textContent ='';
+                // クラスを削除
+                name.classList.remove('input-invalid');
+                // 次の項目を表示
+                let box = document.querySelector('#yourpost');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                box.setAttribute('element_yet','not_yet');
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
+            }
+            else{
+                for(var i=2;i<30;i++){
                     if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                        ele_arr[i].style.display = ''
+                        if(ele_arr[i].style.display != ''){
+                            ele_arr[i].style.display = ''
+                            
+                            var st = document.querySelector('.last-state-page');
+                            st.textContent = Number(st.textContent) - 1
+                        }
                     }
                 };
-                respone = 0;
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
-            // エラーメッセージのテキストに空文字を代入
-            errMsgName.textContent ='';
-            // クラスを削除
-            name.classList.remove('input-invalid');
-			// 次の項目を表示
-			let box = document.querySelector('#yourpost');
-			box.style.display='';
-            box.setAttribute('element_yet','not_yet');
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = "4"
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
-            }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
             }
         }
 	});
@@ -474,81 +335,36 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
         }else{
-            if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                let ele = document.getElementsByName("spouse")
-                let len = ele.length;
-                let checkValue = '';
-                for (let i = 0; i < len; i++){
-                    if (ele.item(i).checked){
-                        checkValue = ele.item(i).value;
-                    }
-                }
-
-                for(var i=0;i<30;i++){
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                // エラーメッセージのテキストに空文字を代入
+                errMsgName.textContent ='';
+                // クラスを削除
+                name.classList.remove('input-invalid');
+                // 次の項目を表示
+                let box = document.querySelector('#yourjob');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                box.setAttribute('element_yet','not_yet');
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
+            }
+            else{
+                for(var i=3;i<30;i++){
                     if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                        ele_arr[i].style.display = ''
+                        if(ele_arr[i].style.display != ''){
+                            ele_arr[i].style.display = ''
+                            
+                            var st = document.querySelector('.last-state-page');
+                            st.textContent = Number(st.textContent) - 1
+                        }
                     }
                 };
-                respone = 0;
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
-            // エラーメッセージのテキストに空文字を代入
-            errMsgName.textContent ='';
-            // クラスを削除
-            name_input.classList.remove('input-invalid');
-			// 次の項目を表示
-			let box = document.querySelector('#yourjob');
-			box.style.display='';
-            box.setAttribute('element_yet','not_yet');
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = "3"
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
-            }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
             }
         }
 	});
@@ -584,86 +400,44 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
         }else{
-            if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                let ele = document.getElementsByName("spouse")
-                let len = ele.length;
-                let checkValue = '';
-                for (let i = 0; i < len; i++){
-                    if (ele.item(i).checked){
-                        checkValue = ele.item(i).value;
-                    }
-                }
-
-                for(var i=0;i<30;i++){
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                // エラーメッセージのテキストに空文字を代入
+                errMsgName.textContent ='';
+                // クラスを削除
+                name.classList.remove('input-invalid');
+                // 次の項目を表示
+                let box = document.querySelector('#yourpartner');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                box.setAttribute('element_yet','not_yet');
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
+            }
+            else{
+                for(var i=4;i<30;i++){
                     if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                        ele_arr[i].style.display = ''
+                        if(ele_arr[i].style.display != ''){
+                            ele_arr[i].style.display = ''
+                            
+                            var st = document.querySelector('.last-state-page');
+                            st.textContent = Number(st.textContent) - 1
+                        }
                     }
                 };
-                respone = 0;
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
-            // エラーメッセージのテキストに空文字を代入
-            errMsgName.textContent ='';
-            // クラスを削除
-            name.classList.remove('input-invalid');
-			// 次の項目を表示
-			let box = document.querySelector('#yourpartner');
-			box.style.display='';
-            box.setAttribute('element_yet','not_yet');
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = "2"
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
-            }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
             }
         }
 	});
 });
 
+var old_val = "0";
+var spouse_flg1 = false;
+var spouse_flg2 = false;
 $(function(){
 
     // 「送信」ボタンの要素を取得
@@ -671,6 +445,15 @@ $(function(){
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('click', (e) => {
+        let ele = document.getElementsByName("spouse")
+        let len = ele.length;
+        let checkValue = '';
+        for (let i = 0; i < len; i++){
+            if (ele.item(i).checked){
+                checkValue = ele.item(i).value;
+            }
+        }
+        var ele_arr = document.getElementsByClassName("form-group");
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
@@ -692,109 +475,71 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
         }else{
-            if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                let ele = document.getElementsByName("spouse")
-                let len = ele.length;
-                let checkValue = '';
-                for (let i = 0; i < len; i++){
-                    if (ele.item(i).checked){
-                        checkValue = ele.item(i).value;
+            if(checkValue == 'いる'){
+                if(old_val == 'いない'){
+                    if(spouse_flg1 == false && spouse_flg1 == false){
+                        var st = document.querySelector('.last-state-page');
+                        st.textContent = Number(st.textContent) + 2
+                        let box = document.querySelector("#partnerbirthday")
+                        box.style.display = '';
+                    }
+                    else if(spouse_flg1 == true && spouse_flg2 == false){
+                        var st = document.querySelector('.last-state-page');
+                        st.textContent = Number(st.textContent) + 1
+                        let box = document.querySelector("#partnerbirthday")
+                        box.style.display = '';
+                        let box2 = document.querySelector("#partnerjob")
+                        box2.style.display = '';
+                    }
+                    else if(spouse_flg1 == true && spouse_flg2 == true){
+                        let box = document.querySelector("#partnerbirthday")
+                        box.style.display = '';
+                        let box2 = document.querySelector("#partnerjob")
+                        box2.style.display = '';
                     }
                 }
-                respone = 0;
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
-            }
-            // エラーメッセージのテキストに空文字を代入
-            errMsgName.textContent ='';
-            // クラスを削除
-            name.classList.remove('input-invalid');
-			// 次の項目を表示
-            let ele = document.getElementsByName("spouse")
-            let len = ele.length;
-            let checkValue = '';
-            for (let i = 0; i < len; i++){
-                if (ele.item(i).checked){
-                    checkValue = ele.item(i).value;
+                else if(old_val == '0'){
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 2
+                    let box = document.querySelector("#partnerbirthday")
+                    box.style.display = '';
                 }
+                old_val = 'いる';
             }
+            else if(checkValue == 'いない'){
+                if(old_val == 'いる'){
+                    let box = document.querySelector("#partnerbirthday")
+                    box.style.display = 'none';
+                    let box2 = document.querySelector("#partnerjob")
+                    box2.style.display = 'none';
 
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
-            }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            var ele_arr = document.getElementsByClassName("form-group");
-            if(children_number_int != null && ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
-
-            if(checkValue == "いる"){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var i=7;i<9;i++){
-                    if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                        ele_arr[i].style.display = ''
+                    if(spouse_flg1 == false && spouse_flg2 == false){
+                        var st = document.querySelector('.last-state-page');
+                        st.textContent = Number(st.textContent) - 2
                     }
-                };
-                let box = document.querySelector('#partnerbirthday');
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "3"
-            }
-            else if(checkValue == "いない"){
-                var ele_arr = document.getElementsByClassName("form-group");
+                    else if(spouse_flg1 == true && spouse_flg2 == false){
+                        var st = document.querySelector('.last-state-page');
+                        st.textContent = Number(st.textContent) - 1
+                    }
+                }
+                else if(old_val == '0'){
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) - 1
+                    let box = document.querySelector("#yourchildren")
+                    box.style.display = '';
+                }
 
-                let box = document.querySelector('#yourchildren');
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "1"  
+                old_val = 'いない';
             }
-        }
+
+            }
 	});
 });
-
-
 
 $(function(){
 
@@ -825,82 +570,39 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+            spouse_flg1 = false;
         }else{
-            if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                let ele = document.getElementsByName("spouse")
-                let len = ele.length;
-                let checkValue = '';
-                for (let i = 0; i < len; i++){
-                    if (ele.item(i).checked){
-                        checkValue = ele.item(i).value;
-                    }
-                }
-
-                for(var i=0;i<30;i++){
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                // エラーメッセージのテキストに空文字を代入
+                errMsgName.textContent ='';
+                // クラスを削除
+                name.classList.remove('input-invalid');
+                // 次の項目を表示
+                let box = document.querySelector('#partnerjob');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                box.setAttribute('element_yet','not_yet');
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
+            }
+            else{
+                for(var i=6;i<30;i++){
                     if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                        ele_arr[i].style.display = ''
+                        if(ele_arr[i].style.display != ''){
+                            ele_arr[i].style.display = ''
+                            
+                            var st = document.querySelector('.last-state-page');
+                            st.textContent = Number(st.textContent) - 1
+                        }
                     }
                 };
-                respone = 0;
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
-            // エラーメッセージのテキストに空文字を代入
-            errMsgName.textContent ='';
-            // クラスを削除
-            name.classList.remove('input-invalid');
-			// 次の項目を表示
-			let box = document.querySelector('#partnerjob');
-			box.style.display='';
-            box.setAttribute('element_yet','not_yet');
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = "2"
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
-            }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+            spouse_flg1 = true;
         }
 	});
 });
@@ -934,87 +636,46 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
-        }else{
-            if(respone > 0){
-                var ele_arr = document.getElementsByClassName("form-group");
-                let ele = document.getElementsByName("spouse")
-                let len = ele.length;
-                let checkValue = '';
-                for (let i = 0; i < len; i++){
-                    if (ele.item(i).checked){
-                        checkValue = ele.item(i).value;
-                    }
-                }
+            spouse_flg2 = false;
 
-                for(var i=0;i<30;i++){
+        }else{
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                // エラーメッセージのテキストに空文字を代入
+                errMsgName.textContent ='';
+                // クラスを削除
+                name.classList.remove('input-invalid');
+                // 次の項目を表示
+                let box = document.querySelector('#yourchildren');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                box.setAttribute('element_yet','not_yet');
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
+            }
+            else{
+                for(var i=7;i<30;i++){
                     if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                        ele_arr[i].style.display = ''
+                        if(ele_arr[i].style.display != ''){
+                            ele_arr[i].style.display = ''
+                            
+                            var st = document.querySelector('.last-state-page');
+                            st.textContent = Number(st.textContent) - 1
+                        }
                     }
                 };
-                respone = 0;
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
-            // エラーメッセージのテキストに空文字を代入
-            errMsgName.textContent ='';
-            // クラスを削除
-            name.classList.remove('input-invalid');
-			// 次の項目を表示
-			let box = document.querySelector('#yourchildren');
-			box.style.display='';
-            box.setAttribute('element_yet','not_yet');
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = "1"
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
-            }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+            spouse_flg2 = true;
         }
 	});
 });
 
 var number_arr = new Array();
+var old_val2 = "0";
 $(function(){
 
     // 「送信」ボタンの要素を取得
@@ -1022,6 +683,14 @@ $(function(){
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('click', (e) => {
+        let ele = document.getElementsByName("children")
+        let len = ele.length;
+        let checkValue = '';
+        for (let i = 0; i < len; i++){
+            if (ele.item(i).checked){
+                checkValue = ele.item(i).value;
+            }
+        }
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
@@ -1043,113 +712,68 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=10;i<30;i++){
-                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                    ele_arr[i].style.display = ''
-                }
-            };
-            // エラーメッセージのテキストに空文字を代入
-            errMsgName.textContent ='';
-            // クラスを削除
-            name.classList.remove('input-invalid');
-			// 次の項目を表示
-
-            let ele = document.getElementsByName("children");
-            let len = ele.length;
-            let checkValue = '';
-            for (let i = 0; i < len; i++){
-                if (ele.item(i).checked){
-                    checkValue = ele.item(i).value;
-                }
-            }
-
-            if(checkValue == "いる"){
-                let next_button = document.querySelector("#next_page2");
-                $('#next_page2').prop('disabled', true);
-                next_button.id = "next_page2-not"
-
+            // 次の項目を表示
+            if(checkValue == 'いる'){
                 let box = document.querySelector('#childrennumber');
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "1"
-                var select = document.getElementById("number-children");
-
-                children_num = select.value;
-                if(children_num == "one"){
-                    var children_number_int = 1;
+                if(box.getAttribute('element_yet') != 'not_yet'){
+                    // エラーメッセージのテキストに空文字を代入
+                    errMsgName.textContent ='';
+                    // クラスを削除
+                    name.classList.remove('input-invalid');
+                    //styleのdisplayを変更する関数
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
+                    /*let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1 */
                 }
-                else if(children_num == "two"){
-                    var children_number_int = 2;
+                else{
+                    for(var i=10;i<30;i++){
+                        if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
+                            if(ele_arr[i].style.display != ''){
+                                ele_arr[i].style.display = ''
+                                var st = document.querySelector('.last-state-page');
+                                st.textContent = "1"
+                            }
+                        }
+                    }; 
                 }
-                else if(children_num == "three"){
-                    var children_number_int = 3;
-                }
-                else if(children_num == "four"){
-                    var children_number_int = 4;
-                }
-                else if(children_num == "five"){
-                    var children_number_int = 5;
-                }
-                else if(children_num == "six"){
-                    var children_number_int = 6;
-                }
-                else if(children_num == "seven"){
-                    var children_number_int = 7;
-                }
-                else if(children_num == "eight"){
-                    var children_number_int = 8;
-                }
-                else if(children_num == "nine"){
-                    var children_number_int = 9;
-                }
-                else if(children_num == "ten"){
-                    var children_number_int = 10;
-                }
-    
-                var ele_arr = document.getElementsByClassName("form-group");
-                console.log(ele_arr)
-                if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                    let next_button = document.querySelector("#next_page2-not");
-                    $('#next_page2-not').prop('disabled', false);
-                    next_button.id = "next_page2"
-                }
-
-                for(var i=9;i<30;i++){
-                    if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                        ele_arr[i].style.display = ''
-                    }
-                };
             }
-            else if(checkValue == "いない"){
-                var ele_arr = document.getElementsByClassName("form-group");
-                for(var i=9;i<30;i++){
-                    if(ele_arr[i].style.display != 'none'){
-                        ele_arr[i].style.display = 'none';
-                    }
-                }
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "0";
-                // ボタンの活性化
-                let last_state = document.querySelector(".last-state-page");
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-                comp_flg = true;
-            }            
+            else{
+
+                let count = document.querySelector('.last-state-page');
+                count.textContent = '0'
+                old_val2 = "いない";
+            }
         }
 	});
 });
 
+var one_birth = false;
+var one_sex = false;
+var second_birth = false;
+var second_sex = false;
+var third_birth = false;
+var third_sex = false;
+var four_birth = false;
+var four_sex = false;
+var five_birth = false;
+var five_sex = false;
+var six_birth = false;
+var six_sex = false;
+var seven_birth = false;
+var seven_sex = false;
+var eight_birth = false;
+var eight_sex = false;
+var nine_birth = false;
+var nine_sex = false;
+var ten_birth = false;
+var ten_sex = false;
 $(function(){
 
     // 「送信」ボタンの要素を取得
@@ -1179,20 +803,12 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=0;i<30;i++){
-                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                    ele_arr[i].style.display = ''
-                }
-            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -1201,116 +817,779 @@ $(function(){
             var select = document.getElementById("number-children");
             children_num = select.value;
             var ele_arr = document.getElementsByClassName("form-group");
+            var last_ele = 9;
 
             if(children_num == "one"){
-                for(var i=12;i<30;i++){
+                var las = 2;
+                for(var i=11;i<30;i++){
                     if(ele_arr[i].style.display != 'none'){
                         ele_arr[i].style.display = 'none';
                     }
                 }
+                for(var i=10;i<12;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == "not_yet"){
+                        ele_arr[i].style.display = ""
+                        var last_ele = i
+                    }
+                }
+                if(one_birth == false && one_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 2
+                }
+                else if(one_birth == true && one_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 1
+                }
             }
+
             else if(children_num == "two"){
+                var las = 4;
                 for(var i=14;i<30;i++){
                     if(ele_arr[i].style.display != 'none'){
                         ele_arr[i].style.display = 'none';
                     }
                 }
+                for(var i=10;i<14;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == "not_yet"){
+                        ele_arr[i].style.display = ""
+                        var last_ele = i
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = las - 1
+                    }
+                }
+                if(one_birth == false && one_sex == false && second_birth == false && second_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 4
+                }
+                else if(one_birth == true && one_sex == false && second_birth == false && second_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 3
+                }
+                else if(one_birth == true && one_sex == true && second_birth == false && second_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 2
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 1
+                }
             }
             else if(children_num == "three"){
+                var las = 6;
                 for(var i=16;i<30;i++){
                     if(ele_arr[i].style.display != 'none'){
                         ele_arr[i].style.display = 'none';
                     }
                 }
+                for(var i=10;i<16;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == "not_yet"){
+                        ele_arr[i].style.display = ""
+                        var last_ele = i
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = las - 1
+                    }
+                }
+                if(one_birth == false && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 6
+                }
+                else if(one_birth == true && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 5
+                }
+                else if(one_birth == true && one_sex == true && second_birth == false && second_sex == false && third_birth == false && third_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 4
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == false && third_birth == false && third_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 3
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == false && third_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 2
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 1
+                }
             }
             else if(children_num == "four"){
+                var las = 8;
                 for(var i=18;i<30;i++){
                     if(ele_arr[i].style.display != 'none'){
                         ele_arr[i].style.display = 'none';
                     }
                 }
+                for(var i=10;i<18;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == "not_yet"){
+                        ele_arr[i].style.display = ""
+                        var last_ele = i
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = las - 1
+                    }
+                }
+                if(one_birth == false && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false && four_birth == false && four_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 8
+                }
+                else if(one_birth == true && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false && four_birth == false && four_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 7
+                }
+                else if(one_birth == true && one_sex == true && second_birth == false && second_sex == false && third_birth == false && third_sex == false && four_birth == false && four_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 6
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == false && third_birth == false && third_sex == false && four_birth == false && four_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 5
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == false && third_sex == false && four_birth == false && four_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 4
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == false && four_birth == false && four_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 3
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true && four_birth == false && four_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 2
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true && four_birth == true && four_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 1
+                }
             }
             else if(children_num == "five"){
+                var las = 10;
                 for(var i=20;i<30;i++){
                     if(ele_arr[i].style.display != 'none'){
                         ele_arr[i].style.display = 'none';
                     }
                 }
+                for(var i=10;i<20;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == "not_yet"){
+                        ele_arr[i].style.display = ""
+                        var last_ele = i
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = las - 1
+                    }
+                }
+                if(one_birth == false && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false && four_birth == false && four_sex == false && five_birth == false && five_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 10
+                }
+                else if(one_birth == true && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false && four_birth == false && four_sex == false && five_birth == false && five_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 9
+                }
+                else if(one_birth == true && one_sex == true && second_birth == false && second_sex == false && third_birth == false && third_sex == false && four_birth == false && four_sex == false && five_birth == false && five_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 8
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == false && third_birth == false && third_sex == false && four_birth == false && four_sex == false && five_birth == false && five_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 7
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == false && third_sex == false && four_birth == false && four_sex == false && five_birth == false && five_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 6
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == false && four_birth == false && four_sex == false && five_birth == false && five_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 5
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true && four_birth == false && four_sex == false && five_birth == false && five_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 4
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true && four_birth == true && four_sex == false && five_birth == false && five_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 3
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true && four_birth == true && four_sex == true && five_birth == false && five_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 2
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true && four_birth == true && four_sex == true && five_birth == true && five_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 1
+                }
             }
             else if(children_num == "six"){
+                var las = 12;
                 for(var i=22;i<30;i++){
                     if(ele_arr[i].style.display != 'none'){
                         ele_arr[i].style.display = 'none';
                     }
                 }
+                for(var i=10;i<22;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == "not_yet"){
+                        ele_arr[i].style.display = ""
+                        var last_ele = i
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = las - 1
+                    }
+                }
+                if(one_birth == false && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false &&
+                     four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 12
+                }
+                else if(one_birth == true && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false &&
+                     four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 11
+                }
+                else if(one_birth == true && one_sex == true && second_birth == false && second_sex == false && third_birth == false && third_sex == false &&
+                     four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 10
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == false && third_birth == false && third_sex == false &&
+                     four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 9
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == false && third_sex == false &&
+                     four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 8
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == false &&
+                     four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 7
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                     four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 6
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                     four_birth == true && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 5
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                     four_birth == true && four_sex == true && five_birth == false && five_sex == false && six_birth == false && six_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 4
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                     four_birth == true && four_sex == true && five_birth == true && five_sex == false && six_birth == false && six_sex == false){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 3
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == false && six_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 2
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == false){
+               let count = document.querySelector('.last-state-page');
+               count.textContent =  1
+           }
             }
             else if(children_num == "seven"){
+                var las = 14;
                 for(var i=24;i<30;i++){
                     if(ele_arr[i].style.display != 'none'){
                         ele_arr[i].style.display = 'none';
                     }
                 }
+                for(var i=10;i<24;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == "not_yet"){
+                        ele_arr[i].style.display = ""
+                        var last_ele = i
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = las - 1
+                    }
+                }
+                if(one_birth == false && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                seven_birth == false && seven_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 14
+               }
+               else if(one_birth == true && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 13
+               }
+               else if(one_birth == true && one_sex == true && second_birth == false && second_sex == false && third_birth == false && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 12
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == false && third_birth == false && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 11
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == false && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 10
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 9
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 8
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 7
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 6
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == true && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 5
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                   four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == false && six_sex == false && 
+                   seven_birth == false && seven_sex == false){
+                  let count = document.querySelector('.last-state-page');
+                  count.textContent = 4
+                }
+              else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+               four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == false && 
+               seven_birth == false && seven_sex == false){
+              let count = document.querySelector('.last-state-page');
+              count.textContent = 3
+                }
+              else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+               four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == true && 
+               seven_birth == false && seven_sex == false){
+              let count = document.querySelector('.last-state-page');
+              count.textContent = 2
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == true && 
+                    seven_birth == true && seven_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 1
+                }
+          
             }
             else if(children_num == "eight"){
+                var las = 16;
                 for(var i=26;i<30;i++){
                     if(ele_arr[i].style.display != 'none'){
                         ele_arr[i].style.display = 'none';
                     }
                 }
+                for(var i=10;i<26;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == "not_yet"){
+                        ele_arr[i].style.display = ""
+                        var last_ele = i
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = las - 1
+                    }
+                }
+                if(one_birth == false && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 16
+               }
+               else if(one_birth == true && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 15
+               }
+               else if(one_birth == true && one_sex == true && second_birth == false && second_sex == false && third_birth == false && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 14
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == false && third_birth == false && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == fals && eight_birth == false && eight_sex == falsee){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 13
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == false && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 12
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 11
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 10
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 9
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 8
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == true && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 7
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                   four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == false && six_sex == false && 
+                   seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false){
+                  let count = document.querySelector('.last-state-page');
+                  count.textContent = 6
+                }
+              else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+               four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == false && 
+               seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false){
+              let count = document.querySelector('.last-state-page');
+              count.textContent = 5
+                }
+              else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+               four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == true && 
+               seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false){
+              let count = document.querySelector('.last-state-page');
+              count.textContent = 4
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == true && 
+                    seven_birth == true && seven_sex == false && eight_birth == false && eight_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 3
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == true && 
+                    seven_birth == true && seven_sex == true && eight_birth == false && eight_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 2
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == true && 
+                    seven_birth == true && seven_sex == true && eight_birth == true && eight_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 1
+                }
             }
             else if(children_num == "nine"){
+                var las = 18;
                 for(var i=28;i<30;i++){
                     if(ele_arr[i].style.display != 'none'){
                         ele_arr[i].style.display = 'none';
                     }
                 }
-            }
-
-            total = Number(children_number_int) * 2
-            let box = document.querySelector('#firstchildrenbirth');
-            box.style.display='';
-            box.setAttribute('element_yet','not_yet');
-
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(children_number_int) * 2)
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
-            }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
+                for(var i=10;i<28;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == "not_yet"){
+                        ele_arr[i].style.display = ""
+                        var last_ele = i
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = las - 1
+                    }
+                }
+                if(one_birth == false && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 18
+               }
+               else if(one_birth == true && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 17
+               }
+               else if(one_birth == true && one_sex == true && second_birth == false && second_sex == false && third_birth == false && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 16
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == false && third_birth == false && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == fals && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 15
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == false && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 14
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 13
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 12
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 11
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 10
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == true && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 9
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                   four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == false && six_sex == false && 
+                   seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false){
+                  let count = document.querySelector('.last-state-page');
+                  count.textContent = 8
+                }
+              else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+               four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == false && 
+               seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false){
+              let count = document.querySelector('.last-state-page');
+              count.textContent = 7
+                }
+              else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+               four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == true && 
+               seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false){
+              let count = document.querySelector('.last-state-page');
+              count.textContent = 6
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == true && 
+                    seven_birth == true && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 5
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == true && 
+                    seven_birth == true && seven_sex == true && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 4
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == true && 
+                    seven_birth == true && seven_sex == true && eight_birth == true && eight_sex == false && nine_birth == false && nine_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 3
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == true && 
+                    seven_birth == true && seven_sex == true && eight_birth == true && eight_sex == true && nine_birth == false && nine_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 2
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == true && 
+                    seven_birth == true && seven_sex == true && eight_birth == true && eight_sex == true && nine_birth == true && nine_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 1
+                }
             }
             else if(children_num == "ten"){
-                var children_number_int = 10;
+                var las = 20;
+                for(var i=10;i<30;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == "not_yet"){
+                        ele_arr[i].style.display = ""
+                        var last_ele = i
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = las - 1
+                    }
+                }
+                if(one_birth == false && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false && 
+                ten_birth == false && ten_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 20
+               }
+               else if(one_birth == true && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false && 
+                    ten_birth == false && ten_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 19
+               }
+               else if(one_birth == true && one_sex == true && second_birth == false && second_sex == false && third_birth == false && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false && 
+                    ten_birth == false && ten_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 18
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == false && third_birth == false && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == fals && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false && 
+                    ten_birth == false && ten_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 17
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == false && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false && 
+                    ten_birth == false && ten_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 16
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == false &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false && 
+                    ten_birth == false && ten_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 15
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false && 
+                    ten_birth == false && ten_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 14
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false && 
+                    ten_birth == false && ten_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 13
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false && 
+                    ten_birth == false && ten_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 12
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == true && five_sex == false && six_birth == false && six_sex == false && 
+                    seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false && 
+                    ten_birth == false && ten_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 11
+               }
+               else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                   four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == false && six_sex == false && 
+                   seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false && 
+                   ten_birth == false && ten_sex == false){
+                  let count = document.querySelector('.last-state-page');
+                  count.textContent = 10
+                }
+              else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+               four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == false && 
+               seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false && 
+               ten_birth == false && ten_sex == false){
+              let count = document.querySelector('.last-state-page');
+              count.textContent = 9
+                }
+              else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+               four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == true && 
+               seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false && 
+               ten_birth == false && ten_sex == false){
+              let count = document.querySelector('.last-state-page');
+              count.textContent = 8
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == true && 
+                    seven_birth == true && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false && 
+                    ten_birth == false && ten_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 7
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == true && 
+                    seven_birth == true && seven_sex == true && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false && 
+                    ten_birth == false && ten_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 6
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == true && 
+                    seven_birth == true && seven_sex == true && eight_birth == true && eight_sex == false && nine_birth == false && nine_sex == false && 
+                    ten_birth == false && ten_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 5
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == true && 
+                    seven_birth == true && seven_sex == true && eight_birth == true && eight_sex == true && nine_birth == false && nine_sex == false && 
+                    ten_birth == false && ten_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 4
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == true && 
+                    seven_birth == true && seven_sex == true && eight_birth == true && eight_sex == true && nine_birth == true && nine_sex == false && 
+                    ten_birth == false && ten_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 3
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == true && 
+                    seven_birth == true && seven_sex == true && eight_birth == true && eight_sex == true && nine_birth == true && nine_sex == true && 
+                    ten_birth == false && ten_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 2
+                }
+                else if(one_birth == true && one_sex == true && second_birth == true && second_sex == true && third_birth == true && third_sex == true &&
+                    four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == true && 
+                    seven_birth == true && seven_sex == true && eight_birth == true && eight_sex == true && nine_birth == true && nine_sex == true && 
+                    ten_birth == true && ten_sex == false){
+                   let count = document.querySelector('.last-state-page');
+                   count.textContent = 1
+                }
             }
 
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
+            if(last_ele < 30){
+                if(ele_arr[last_ele+1].getAttribute("element_yet") != "not_yet"){
+                    ele_arr[last_ele+1].style.display = ''
+                    ele_arr[last_ele+1].setAttribute('element_yet','not_yet');
+                }
             }
+
         }
 	});
 });
@@ -1345,65 +1624,87 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+            one_birth = false;
+
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=0;i<30;i++){
-                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                    ele_arr[i].style.display = ''
-                }
-            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#firstchildrensex');
-			box.style.display='';
-            box.setAttribute('element_yet','not_yet');
+            if(box.getAttribute('element_yet') != 'not_yet'){
+                box.style.display='';
+                box.setAttribute('element_yet','not_yet');
 
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-
-            if(children_num == "one"){
-                var children_number_int = 1;
+                var select = document.getElementById("number-children");
+                children_num = select.value;
+                if(children_num == "one"){
+                    var children_number_int = 1;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '1'
+                }
+                else if(children_num == "two"){
+                    var children_number_int = 2;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '3'
+                }
+                else if(children_num == "three"){
+                    var children_number_int = 3;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '5'
+                }
+                else if(children_num == "four"){
+                    var children_number_int = 4;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '7'
+                }
+                else if(children_num == "five"){
+                    var children_number_int = 5;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '9'
+                }
+                else if(children_num == "six"){
+                    var children_number_int = 6;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '11'
+                }
+                else if(children_num == "seven"){
+                    var children_number_int = 7;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '13'
+                }
+                else if(children_num == "eight"){
+                    var children_number_int = 8;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '15'
+                }
+                else if(children_num == "nine"){
+                    var children_number_int = 9;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '17'
+                }
+                else if(children_num == "ten"){
+                    var children_number_int = 10;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '19'
+                }
             }
-            else if(children_num == "two"){
-                var children_number_int = 2;
+            else{
+                for(var i=11;i<30;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == 'not_yet'){
+                        ele_arr[i].style.display = '';
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = Number(count.textContent) - 1;
+                    }
+                }
             }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-            total = Number(children_number_int) * 2
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(total) - 1)
+            one_birth = true;
         }
 	});
 });
@@ -1437,77 +1738,88 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+            one_sex = false;
+
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=0;i<30;i++){
-                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                    ele_arr[i].style.display = ''
-                }
-            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
-            if(children_num == "one"){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "0";
-                // ボタンの活性化
-                let last_state = document.querySelector(".last-state-page");
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-                comp_flg = true;
-            }
-            else{
-                // 次の項目を表示
-                let box = document.querySelector('#secondchildrenbirth');
+			// 次の項目を表示
+			let box = document.querySelector('#secondchildrenbirth');
+            if(box.getAttribute('element_yet') != 'not_yet'){
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
-                
-                const stat = document.querySelector('.last-state-page');
+
                 var select = document.getElementById("number-children");
                 children_num = select.value;
-    
                 if(children_num == "one"){
                     var children_number_int = 1;
+
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '0'
                 }
                 else if(children_num == "two"){
                     var children_number_int = 2;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '2'
                 }
                 else if(children_num == "three"){
                     var children_number_int = 3;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '4'
                 }
                 else if(children_num == "four"){
                     var children_number_int = 4;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '6'
                 }
                 else if(children_num == "five"){
                     var children_number_int = 5;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '8'
                 }
                 else if(children_num == "six"){
                     var children_number_int = 6;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '10'
                 }
                 else if(children_num == "seven"){
                     var children_number_int = 7;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '12'
                 }
                 else if(children_num == "eight"){
                     var children_number_int = 8;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '14'
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '16'
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '18'
                 }
-                total = Number(children_number_int) * 2
-                stat.textContent = String(Number(total) - 2)
             }
+            else{
+                for(var i=12;i<30;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == 'not_yet'){
+                        ele_arr[i].style.display = '';
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = Number(count.textContent) - 1;
+                    }
+                }
+            }
+            one_sex = true;
         }
 	});
 });
@@ -1541,103 +1853,82 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+            second_birth = false;
+
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=0;i<30;i++){
-                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                    ele_arr[i].style.display = ''
-                }
-            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-            let box = document.querySelector('#secondchildrensex');
-            box.style.display='';
-            box.setAttribute('element_yet','not_yet');
-            
-            var select = document.getElementById("number-children");
-            children_num = select.value;
+			let box = document.querySelector('#secondchildrensex');
+            if(box.getAttribute('element_yet') != 'not_yet'){
+                box.style.display='';
+                box.setAttribute('element_yet','not_yet');
 
-            if(children_num == "one"){
-                var children_number_int = 1;
+                var select = document.getElementById("number-children");
+                children_num = select.value;
+                if(children_num == "two"){
+                    var children_number_int = 2;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '1'
+                }
+                else if(children_num == "three"){
+                    var children_number_int = 3;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '3'
+                }
+                else if(children_num == "four"){
+                    var children_number_int = 4;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '5'
+                }
+                else if(children_num == "five"){
+                    var children_number_int = 5;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '7'
+                }
+                else if(children_num == "six"){
+                    var children_number_int = 6;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '9'
+                }
+                else if(children_num == "seven"){
+                    var children_number_int = 7;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '11'
+                }
+                else if(children_num == "eight"){
+                    var children_number_int = 8;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '13'
+                }
+                else if(children_num == "nine"){
+                    var children_number_int = 9;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '15'
+                }
+                else if(children_num == "ten"){
+                    var children_number_int = 10;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '17'
+                }
             }
-            else if(children_num == "two"){
-                var children_number_int = 2;
+            else{
+                for(var i=13;i<30;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == 'not_yet'){
+                        ele_arr[i].style.display = '';
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = Number(count.textContent) - 1;
+                    }
+                }
             }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-            total = Number(children_number_int) * 2
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(total) - 3)
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
-            }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+            second_birth = true;
         }
 	});
 });
@@ -1671,116 +1962,83 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+            second_sex = false;
+
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=0;i<30;i++){
-                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                    ele_arr[i].style.display = ''
-                }
-            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
-            if(children_num == "two"){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "0";
-                // ボタンの活性化
-                let last_state = document.querySelector(".last-state-page");
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                comp_flg = true;
-            }
-            else{
-                // 次の項目を表示
-                let box = document.querySelector('#thirdchildrenbirth');
+			// 次の項目を表示
+			let box = document.querySelector('#thirdchildrenbirth');
+            if(box.getAttribute('element_yet') != 'not_yet'){
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
-    
-                if(children_num == "one"){
-                    var children_number_int = 1;
-                }
-                else if(children_num == "two"){
+                if(children_num == "two"){
                     var children_number_int = 2;
+
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '0'
                 }
                 else if(children_num == "three"){
                     var children_number_int = 3;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '2'
                 }
                 else if(children_num == "four"){
                     var children_number_int = 4;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '4'
                 }
                 else if(children_num == "five"){
                     var children_number_int = 5;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '6'
                 }
                 else if(children_num == "six"){
                     var children_number_int = 6;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '8'
                 }
                 else if(children_num == "seven"){
                     var children_number_int = 7;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '10'
                 }
                 else if(children_num == "eight"){
                     var children_number_int = 8;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '12'
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '14'
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '16'
                 }
-                total = Number(children_number_int) * 2
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(total) - 4)
-                
             }
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
+            else{
+                for(var i=14;i<30;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == 'not_yet'){
+                        ele_arr[i].style.display = '';
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = Number(count.textContent) - 1;
+                    }
+                }
             }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
-
+            second_sex = true;
         }
 	});
 });
@@ -1814,103 +2072,77 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+            third_birth = false;
+
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=0;i<30;i++){
-                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                    ele_arr[i].style.display = ''
-                }
-            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#thirdchildrensex');
-			box.style.display='';
-            box.setAttribute('element_yet','not_yet');
-            
-            var select = document.getElementById("number-children");
-            children_num = select.value;
+            if(box.getAttribute('element_yet') != 'not_yet'){
+                box.style.display='';
+                box.setAttribute('element_yet','not_yet');
 
-            if(children_num == "one"){
-                var children_number_int = 1;
+                var select = document.getElementById("number-children");
+                children_num = select.value;
+                if(children_num == "three"){
+                    var children_number_int = 3;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '1'
+                }
+                else if(children_num == "four"){
+                    var children_number_int = 4;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '3'
+                }
+                else if(children_num == "five"){
+                    var children_number_int = 5;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '5'
+                }
+                else if(children_num == "six"){
+                    var children_number_int = 6;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '7'
+                }
+                else if(children_num == "seven"){
+                    var children_number_int = 7;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '9'
+                }
+                else if(children_num == "eight"){
+                    var children_number_int = 8;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '11'
+                }
+                else if(children_num == "nine"){
+                    var children_number_int = 9;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '13'
+                }
+                else if(children_num == "ten"){
+                    var children_number_int = 10;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '15'
+                }
             }
-            else if(children_num == "two"){
-                var children_number_int = 2;
+            else{
+                for(var i=15;i<30;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == 'not_yet'){
+                        ele_arr[i].style.display = '';
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = Number(count.textContent) - 1;
+                    }
+                }
             }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-            total = Number(children_number_int) * 2
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(total) - 5)
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
-            }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+            third_birth = true;
         }
 	});
 });
@@ -1944,115 +2176,78 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+            third_sex = false;
+
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=0;i<30;i++){
-                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                    ele_arr[i].style.display = ''
-                }
-            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
-            if(children_num == "three"){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "0";
-                // ボタンの活性化
-                let last_state = document.querySelector(".last-state-page");
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-                comp_flg = true;
-            }
-            else{
-                // 次の項目を表示
-                let box = document.querySelector('#fourchildrenbirth');
+			// 次の項目を表示
+			let box = document.querySelector('#fourchildrenbirth');
+            if(box.getAttribute('element_yet') != 'not_yet'){
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
-    
-                if(children_num == "one"){
-                    var children_number_int = 1;
-                }
-                else if(children_num == "two"){
-                    var children_number_int = 2;
-                }
-                else if(children_num == "three"){
+                if(children_num == "three"){
                     var children_number_int = 3;
+
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '0'
                 }
                 else if(children_num == "four"){
                     var children_number_int = 4;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '2'
                 }
                 else if(children_num == "five"){
                     var children_number_int = 5;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '4'
                 }
                 else if(children_num == "six"){
                     var children_number_int = 6;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '6'
                 }
                 else if(children_num == "seven"){
                     var children_number_int = 7;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '8'
                 }
                 else if(children_num == "eight"){
                     var children_number_int = 8;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '10'
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '12'
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '14'
                 }
-                total = Number(children_number_int) * 2
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(total) - 6)
             }
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
+            else{
+                for(var i=16;i<30;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == 'not_yet'){
+                        ele_arr[i].style.display = '';
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = Number(count.textContent) - 1;
+                    }
+                }
             }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+            third_sex = true;
         }
 	});
 });
@@ -2086,103 +2281,72 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+            four_birth = false;
+
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=0;i<30;i++){
-                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                    ele_arr[i].style.display = ''
-                }
-            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-            let box = document.querySelector('#fourchildrensex');
-            box.style.display='';
-            box.setAttribute('element_yet','not_yet');
+			let box = document.querySelector('#fourchildrensex');
+            if(box.getAttribute('element_yet') != 'not_yet'){
+                box.style.display='';
+                box.setAttribute('element_yet','not_yet');
 
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-
-            if(children_num == "one"){
-                var children_number_int = 1;
+                var select = document.getElementById("number-children");
+                children_num = select.value;
+                if(children_num == "four"){
+                    var children_number_int = 4;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '1'
+                }
+                else if(children_num == "five"){
+                    var children_number_int = 5;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '3'
+                }
+                else if(children_num == "six"){
+                    var children_number_int = 6;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '5'
+                }
+                else if(children_num == "seven"){
+                    var children_number_int = 7;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '7'
+                }
+                else if(children_num == "eight"){
+                    var children_number_int = 8;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '9'
+                }
+                else if(children_num == "nine"){
+                    var children_number_int = 9;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '11'
+                }
+                else if(children_num == "ten"){
+                    var children_number_int = 10;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '13'
+                }
             }
-            else if(children_num == "two"){
-                var children_number_int = 2;
+            else{
+                for(var i=17;i<30;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == 'not_yet'){
+                        ele_arr[i].style.display = '';
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = Number(count.textContent) - 1;
+                    }
+                }
             }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-            total = Number(children_number_int) * 2
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(total) - 7)
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
-            }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+            four_birth = true;
         }
 	});
 });
@@ -2216,115 +2380,73 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+            four_sex = false;
+
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=0;i<30;i++){
-                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                    ele_arr[i].style.display = ''
-                }
-            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
-            if(children_num == "four"){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "0";
-                // ボタンの活性化
-                let last_state = document.querySelector(".last-state-page");
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-                comp_flg = true;
-            }
-            else{
-                // 次の項目を表示
-                let box = document.querySelector('#fivechildrenbirth');
+			// 次の項目を表示
+			let box = document.querySelector('#fivechildrenbirth');
+            if(box.getAttribute('element_yet') != 'not_yet'){
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
-    
-                if(children_num == "one"){
-                    var children_number_int = 1;
-                }
-                else if(children_num == "two"){
-                    var children_number_int = 2;
-                }
-                else if(children_num == "three"){
-                    var children_number_int = 3;
-                }
-                else if(children_num == "four"){
+                if(children_num == "four"){
                     var children_number_int = 4;
+
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '0'
                 }
                 else if(children_num == "five"){
                     var children_number_int = 5;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '2'
                 }
                 else if(children_num == "six"){
                     var children_number_int = 6;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '4'
                 }
                 else if(children_num == "seven"){
                     var children_number_int = 7;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '6'
                 }
                 else if(children_num == "eight"){
                     var children_number_int = 8;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '8'
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '10'
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '12'
                 }
-                total = Number(children_number_int) * 2
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(total) - 8)
             }
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
+            else{
+                for(var i=18;i<30;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == 'not_yet'){
+                        ele_arr[i].style.display = '';
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = Number(count.textContent) - 1;
+                    }
+                }
             }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+            four_sex = true;
 
         }
 	});
@@ -2359,103 +2481,67 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+            five_birth = false;
+
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=0;i<30;i++){
-                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                    ele_arr[i].style.display = ''
-                }
-            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-            let box = document.querySelector('#fivechildrensex');
-            box.style.display='';
-            box.setAttribute('element_yet','not_yet');
+			let box = document.querySelector('#fivechildrensex');
+            if(box.getAttribute('element_yet') != 'not_yet'){
+                box.style.display='';
+                box.setAttribute('element_yet','not_yet');
 
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-
-            if(children_num == "one"){
-                var children_number_int = 1;
+                var select = document.getElementById("number-children");
+                children_num = select.value;
+                if(children_num == "five"){
+                    var children_number_int = 5;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '1'
+                }
+                else if(children_num == "six"){
+                    var children_number_int = 6;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '3'
+                }
+                else if(children_num == "seven"){
+                    var children_number_int = 7;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '5'
+                }
+                else if(children_num == "eight"){
+                    var children_number_int = 8;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '7'
+                }
+                else if(children_num == "nine"){
+                    var children_number_int = 9;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '9'
+                }
+                else if(children_num == "ten"){
+                    var children_number_int = 10;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '11'
+                }
             }
-            else if(children_num == "two"){
-                var children_number_int = 2;
+            else{
+                for(var i=19;i<30;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == 'not_yet'){
+                        ele_arr[i].style.display = '';
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = Number(count.textContent) - 1;
+                    }
+                }
             }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-            total = Number(children_number_int) * 2
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(total) - 9)
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
-            }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+            five_birth = true;
         }
 	});
 });
@@ -2489,116 +2575,68 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+            five_sex = false;
+
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=0;i<30;i++){
-                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                    ele_arr[i].style.display = ''
-                }
-            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
-            if(children_num == "five"){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "0";
-                // ボタンの活性化
-                let last_state = document.querySelector(".last-state-page");
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-                comp_flg = true;
-            }
-            else{
-                // 次の項目を表示
-                let box = document.querySelector('#sixchildrenbirth');
+			// 次の項目を表示
+			let box = document.querySelector('#sixchildrenbirth');
+            if(box.getAttribute('element_yet') != 'not_yet'){
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
-    
-                if(children_num == "one"){
-                    var children_number_int = 1;
-                }
-                else if(children_num == "two"){
-                    var children_number_int = 2;
-                }
-                else if(children_num == "three"){
-                    var children_number_int = 3;
-                }
-                else if(children_num == "four"){
-                    var children_number_int = 4;
-                }
-                else if(children_num == "five"){
+                if(children_num == "five"){
                     var children_number_int = 5;
+
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '0'
                 }
                 else if(children_num == "six"){
                     var children_number_int = 6;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '2'
                 }
                 else if(children_num == "seven"){
                     var children_number_int = 7;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '4'
                 }
                 else if(children_num == "eight"){
                     var children_number_int = 8;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '6'
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '8'
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '10'
                 }
-                total = Number(children_number_int) * 2
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(total) - 10)
             }
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
+            else{
+                for(var i=20;i<30;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == 'not_yet'){
+                        ele_arr[i].style.display = '';
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = Number(count.textContent) - 1;
+                    }
+                }
             }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
-
+            five_sex = true;
         }
 	});
 });
@@ -2632,103 +2670,62 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+            six_birth = false;
+
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=0;i<30;i++){
-                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                    ele_arr[i].style.display = ''
-                }
-            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-            let box = document.querySelector('#sixchildrensex');
-            box.style.display='';
-            box.setAttribute('element_yet','not_yet');
+			let box = document.querySelector('#sixchildrensex');
+            if(box.getAttribute('element_yet') != 'not_yet'){
+                box.style.display='';
+                box.setAttribute('element_yet','not_yet');
 
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-
-            if(children_num == "one"){
-                var children_number_int = 1;
+                var select = document.getElementById("number-children");
+                children_num = select.value;
+                if(children_num == "six"){
+                    var children_number_int = 6;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '1'
+                }
+                else if(children_num == "seven"){
+                    var children_number_int = 7;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '3'
+                }
+                else if(children_num == "eight"){
+                    var children_number_int = 8;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '5'
+                }
+                else if(children_num == "nine"){
+                    var children_number_int = 9;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '7'
+                }
+                else if(children_num == "ten"){
+                    var children_number_int = 10;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '9'
+                }
             }
-            else if(children_num == "two"){
-                var children_number_int = 2;
+            else{
+                for(var i=21;i<30;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == 'not_yet'){
+                        ele_arr[i].style.display = '';
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = Number(count.textContent) - 1;
+                    }
+                }
             }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-            total = Number(children_number_int) * 2
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(total) - 11)
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
-            }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+            six_birth = true;
         }
 	});
 });
@@ -2762,115 +2759,63 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+            six_sex = false;
+
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=0;i<30;i++){
-                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                    ele_arr[i].style.display = ''
-                }
-            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
-            if(children_num == "six"){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "0";
-                // ボタンの活性化
-                let last_state = document.querySelector(".last-state-page");
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-                comp_flg = true;
-            }
-            else{
-                // 次の項目を表示
-                let box = document.querySelector('#sevenchildrenbirth');
+			// 次の項目を表示
+			let box = document.querySelector('#sevenchildrenbirth');
+            if(box.getAttribute('element_yet') != 'not_yet'){
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
-    
-                if(children_num == "one"){
-                    var children_number_int = 1;
-                }
-                else if(children_num == "two"){
-                    var children_number_int = 2;
-                }
-                else if(children_num == "three"){
-                    var children_number_int = 3;
-                }
-                else if(children_num == "four"){
-                    var children_number_int = 4;
-                }
-                else if(children_num == "five"){
-                    var children_number_int = 5;
-                }
-                else if(children_num == "six"){
+                if(children_num == "six"){
                     var children_number_int = 6;
+
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '0'
                 }
                 else if(children_num == "seven"){
                     var children_number_int = 7;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '2'
                 }
                 else if(children_num == "eight"){
                     var children_number_int = 8;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '4'
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '6'
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '8'
                 }
-                total = Number(children_number_int) * 2
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(total) - 12)
             }
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
+            else{
+                for(var i=22;i<30;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == 'not_yet'){
+                        ele_arr[i].style.display = '';
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = Number(count.textContent) - 1;
+                    }
+                }
             }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+            six_sex = true;
         }
 	});
 });
@@ -2904,103 +2849,57 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+            seven_birth = false;
+
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=0;i<30;i++){
-                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                    ele_arr[i].style.display = ''
-                }
-            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-            let box = document.querySelector('#sevenchildrensex');
-            box.style.display='';
-            box.setAttribute('element_yet','not_yet');
+			let box = document.querySelector('#sevenchildrensex');
+            if(box.getAttribute('element_yet') != 'not_yet'){
+                box.style.display='';
+                box.setAttribute('element_yet','not_yet');
 
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-
-            if(children_num == "one"){
-                var children_number_int = 1;
+                var select = document.getElementById("number-children");
+                children_num = select.value;
+                if(children_num == "seven"){
+                    var children_number_int = 7;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '1'
+                }
+                else if(children_num == "eight"){
+                    var children_number_int = 8;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '3'
+                }
+                else if(children_num == "nine"){
+                    var children_number_int = 9;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '5'
+                }
+                else if(children_num == "ten"){
+                    var children_number_int = 10;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '7'
+                }
             }
-            else if(children_num == "two"){
-                var children_number_int = 2;
+            else{
+                for(var i=23;i<30;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == 'not_yet'){
+                        ele_arr[i].style.display = '';
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = Number(count.textContent) - 1;
+                    }
+                }
             }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-            total = Number(children_number_int) * 2
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(total) - 13)
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
-            }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+            seven_birth = true;
         }
 	});
 });
@@ -3034,115 +2933,58 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+            seven_sex = false;
+
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=0;i<30;i++){
-                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                    ele_arr[i].style.display = ''
-                }
-            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
-            if(children_num == "seven"){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "0";
-                // ボタンの活性化
-                let last_state = document.querySelector(".last-state-page");
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-                comp_flg = true;
-            }
-            else{
-                // 次の項目を表示
-                let box = document.querySelector('#eightchildrenbirth');
+			// 次の項目を表示
+			let box = document.querySelector('#eightchildrenbirth');
+            if(box.getAttribute('element_yet') != 'not_yet'){
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
-    
-                if(children_num == "one"){
-                    var children_number_int = 1;
-                }
-                else if(children_num == "two"){
-                    var children_number_int = 2;
-                }
-                else if(children_num == "three"){
-                    var children_number_int = 3;
-                }
-                else if(children_num == "four"){
-                    var children_number_int = 4;
-                }
-                else if(children_num == "five"){
-                    var children_number_int = 5;
-                }
-                else if(children_num == "six"){
-                    var children_number_int = 6;
-                }
-                else if(children_num == "seven"){
+                if(children_num == "seven"){
                     var children_number_int = 7;
+
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '0'
                 }
                 else if(children_num == "eight"){
                     var children_number_int = 8;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '2'
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '4'
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '6'
                 }
-                total = Number(children_number_int) * 2
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(total) - 14)
             }
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
+            else{
+                for(var i=24;i<30;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == 'not_yet'){
+                        ele_arr[i].style.display = '';
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = Number(count.textContent) - 1;
+                    }
+                }
             }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+            seven_sex = true;
         }
 	});
 });
@@ -3176,103 +3018,52 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+            eight_birth = false;
+
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=0;i<30;i++){
-                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                    ele_arr[i].style.display = ''
-                }
-            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-            let box = document.querySelector('#eightchildrensex');
-            box.style.display='';
-            box.setAttribute('element_yet','not_yet');
+			let box = document.querySelector('#eightchildrensex');
+            if(box.getAttribute('element_yet') != 'not_yet'){
+                box.style.display='';
+                box.setAttribute('element_yet','not_yet');
 
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-
-            if(children_num == "one"){
-                var children_number_int = 1;
+                var select = document.getElementById("number-children");
+                children_num = select.value;
+                if(children_num == "eight"){
+                    var children_number_int = 8;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '1'
+                }
+                else if(children_num == "nine"){
+                    var children_number_int = 9;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '3'
+                }
+                else if(children_num == "ten"){
+                    var children_number_int = 10;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '5'
+                }
             }
-            else if(children_num == "two"){
-                var children_number_int = 2;
+            else{
+                for(var i=25;i<30;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == 'not_yet'){
+                        ele_arr[i].style.display = '';
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = Number(count.textContent) - 1;
+                    }
+                }
             }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-            total = Number(children_number_int) * 2
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(total) - 15)
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
-            }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+            eight_birth = true;
         }
 	});
 });
@@ -3305,115 +3096,53 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+            eight_sex = false;
+
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=0;i<30;i++){
-                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                    ele_arr[i].style.display = ''
-                }
-            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
-            if(children_num == "eight"){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "0";
-                // ボタンの活性化
-                let last_state = document.querySelector(".last-state-page");
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-                comp_flg = true;
-            }
-            else{
-                // 次の項目を表示
-                let box = document.querySelector('#ninechildrenbirth');
+			// 次の項目を表示
+			let box = document.querySelector('#ninechildrenbirth');
+            if(box.getAttribute('element_yet') != 'not_yet'){
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
-    
-                if(children_num == "one"){
-                    var children_number_int = 1;
-                }
-                else if(children_num == "two"){
-                    var children_number_int = 2;
-                }
-                else if(children_num == "three"){
-                    var children_number_int = 3;
-                }
-                else if(children_num == "four"){
-                    var children_number_int = 4;
-                }
-                else if(children_num == "five"){
-                    var children_number_int = 5;
-                }
-                else if(children_num == "six"){
-                    var children_number_int = 6;
-                }
-                else if(children_num == "seven"){
-                    var children_number_int = 7;
-                }
-                else if(children_num == "eight"){
+                if(children_num == "eight"){
                     var children_number_int = 8;
+
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '0'
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '2'
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '4'
                 }
-                total = Number(children_number_int) * 2
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(total) - 16)
             }
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
+            else{
+                for(var i=26;i<30;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == 'not_yet'){
+                        ele_arr[i].style.display = '';
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = Number(count.textContent) - 1;
+                    }
+                }
             }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+            eight_sex = true;
         }
 	});
 });
@@ -3447,103 +3176,47 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+            nine_birth = false;
+
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=0;i<30;i++){
-                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                    ele_arr[i].style.display = ''
-                }
-            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-            let box = document.querySelector('#ninechildrensex');
-            box.style.display='';
-            box.setAttribute('element_yet','not_yet');
+			let box = document.querySelector('#ninechildrensex');
+            if(box.getAttribute('element_yet') != 'not_yet'){
+                box.style.display='';
+                box.setAttribute('element_yet','not_yet');
 
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-
-            if(children_num == "one"){
-                var children_number_int = 1;
+                var select = document.getElementById("number-children");
+                children_num = select.value;
+                if(children_num == "nine"){
+                    var children_number_int = 9;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '1'
+                }
+                else if(children_num == "ten"){
+                    var children_number_int = 10;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '3'
+                }
             }
-            else if(children_num == "two"){
-                var children_number_int = 2;
+            else{
+                for(var i=27;i<30;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == 'not_yet'){
+                        ele_arr[i].style.display = '';
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = Number(count.textContent) - 1;
+                    }
+                }
             }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-            total = Number(children_number_int) * 2
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(total) - 17)
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
-            }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+            nine_birth = true;
         }
 	});
 });
@@ -3577,115 +3250,48 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+            nine_sex = false;
+
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=0;i<30;i++){
-                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                    ele_arr[i].style.display = ''
-                }
-            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
-            if(children_num == "nine"){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "0";
-                // ボタンの活性化
-                let last_state = document.querySelector(".last-state-page");
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2";
-                comp_flg = true;
-            }
-            else{
-                // 次の項目を表示
-                let box = document.querySelector('#tenchildrenbirth');
+			// 次の項目を表示
+			let box = document.querySelector('#tenchildrenbirth');
+            if(box.getAttribute('element_yet') != 'not_yet'){
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
-    
-                if(children_num == "one"){
-                    var children_number_int = 1;
-                }
-                else if(children_num == "two"){
-                    var children_number_int = 2;
-                }
-                else if(children_num == "three"){
-                    var children_number_int = 3;
-                }
-                else if(children_num == "four"){
-                    var children_number_int = 4;
-                }
-                else if(children_num == "five"){
-                    var children_number_int = 5;
-                }
-                else if(children_num == "six"){
-                    var children_number_int = 6;
-                }
-                else if(children_num == "seven"){
-                    var children_number_int = 7;
-                }
-                else if(children_num == "eight"){
-                    var children_number_int = 8;
-                }
-                else if(children_num == "nine"){
+                if(children_num == "nine"){
                     var children_number_int = 9;
+
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '0'
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '2'
                 }
-                total = Number(children_number_int) * 2
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(total) - 18)
             }
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
+            else{
+                for(var i=28;i<30;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == 'not_yet'){
+                        ele_arr[i].style.display = '';
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = Number(count.textContent) - 1;
+                    }
+                }
             }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+            nine_sex = true;
         }
 	});
 });
@@ -3719,103 +3325,42 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+            ten_birth = false;
+
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=0;i<30;i++){
-                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                    ele_arr[i].style.display = ''
-                }
-            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-            let box = document.querySelector('#tenchildrensex');
-            box.style.display='';
-            box.setAttribute('element_yet','not_yet');
+			let box = document.querySelector('#tenchildrensex');
+            if(box.getAttribute('element_yet') != 'not_yet'){
+                box.style.display='';
+                box.setAttribute('element_yet','not_yet');
 
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-
-            if(children_num == "one"){
-                var children_number_int = 1;
+                var select = document.getElementById("number-children");
+                children_num = select.value;
+                if(children_num == "ten"){
+                    var children_number_int = 10;
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '1'
+                }
             }
-            else if(children_num == "two"){
-                var children_number_int = 2;
+            else{
+                for(var i=29;i<30;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == 'not_yet'){
+                        ele_arr[i].style.display = '';
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = Number(count.textContent) - 1;
+                    }
+                }
             }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-            total = Number(children_number_int) * 2
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(total) - 19)
-            var select = document.getElementById("number-children");
-            children_num = select.value;
-            if(children_num == "one"){
-                var children_number_int = 1;
-            }
-            else if(children_num == "two"){
-                var children_number_int = 2;
-            }
-            else if(children_num == "three"){
-                var children_number_int = 3;
-            }
-            else if(children_num == "four"){
-                var children_number_int = 4;
-            }
-            else if(children_num == "five"){
-                var children_number_int = 5;
-            }
-            else if(children_num == "six"){
-                var children_number_int = 6;
-            }
-            else if(children_num == "seven"){
-                var children_number_int = 7;
-            }
-            else if(children_num == "eight"){
-                var children_number_int = 8;
-            }
-            else if(children_num == "nine"){
-                var children_number_int = 9;
-            }
-            else if(children_num == "ten"){
-                var children_number_int = 10;
-            }
-
-            if(ele_arr[children_number_int * 2 + 10].textContent != "" && ele_arr[children_number_int * 2 + 10].style.display != 'none'){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+            ten_birth = true;
         }
 	});
 });
@@ -3843,28 +3388,38 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+            ten_sex = false;
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=0;i<30;i++){
-                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                    ele_arr[i].style.display = ''
-                }
-            };
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = "0";
-            // ボタンの活性化
-            let last_state = document.querySelector(".last-state-page");
-            let next_button = document.querySelector("#next_page2-not");
-            $('#next_page2-not').prop('disabled', false);
-            next_button.id = "next_page2";
-            comp_flg = true;
+			// 次の項目を表示
+			let box = document.querySelector('#tenchildrensex');
+            if(box.getAttribute('element_yet') != 'not_yet'){
+                box.style.display='';
+                box.setAttribute('element_yet','not_yet');
+
+                var select = document.getElementById("number-children");
+                children_num = select.value;
+                if(children_num == "ten"){
+                    var children_number_int = 10;
+
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = '0'
+                }
+            }
+            else{
+                for(var i=29;i<30;i++){
+                    if(ele_arr[i].getAttribute("element_yet") == 'not_yet'){
+                        ele_arr[i].style.display = '';
+                        let count = document.querySelector('.last-state-page');
+                        count.textContent = Number(count.textContent) - 1;
+                    }
+                }
+            }
+            ten_sex = true;
         }
 	});
 });
@@ -3993,13 +3548,11 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
             if(respone > 0){
                 // var ele_arr = document.getElementsByClassName("form-group");
@@ -4007,11 +3560,13 @@ $(function(){
                 //     ele_arr[j].style.display = '';
                 // }
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -4022,17 +3577,10 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            if(partner_bool == false && children_bool == false){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "17"
-            }
-            else if(partner_bool == true && children_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "21"
-            }
-            else if(partner_bool == true || children_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "19"        
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
             }
         }
 	});
@@ -4067,13 +3615,11 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
             if(respone > 0){
                 // var ele_arr = document.getElementsByClassName("form-group");
@@ -4081,11 +3627,13 @@ $(function(){
                 //     ele_arr[j].style.display = '';
                 // }
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -4097,8 +3645,11 @@ $(function(){
                 //styleのdisplayを変更する関数
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "19"
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1
+                    submit.setAttribute("count_yet","not_yet");
+                }
             }
             else if(partner_bool == false){
                 // 次の項目を表示
@@ -4106,24 +3657,13 @@ $(function(){
                 //styleのdisplayを変更する関数
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
-                if(children_bool == false && partner_bool == false){
-                    const stat = document.querySelector('.last-state-page');
-                    stat.textContent = "16"
-                }    
-                else if(partner_bool == true && children_bool == true){
-                    const stat = document.querySelector('.last-state-page');
-                    stat.textContent = "20"
-                }
-                else if(partner_bool == true || children_bool == true){
-                    const stat = document.querySelector('.last-state-page');
-                    stat.textContent = "18"        
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1
+                    submit.setAttribute("count_yet","not_yet");
                 }
             }
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
         }
 	});
 });
@@ -4157,21 +3697,21 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -4182,19 +3722,12 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            if(partner_bool == true && children_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "19"
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
             }
-            else if(partner_bool == true || children_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "17"        
-            }
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
         }
 	});
 });
@@ -4228,26 +3761,22 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -4258,13 +3787,10 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            if(partner_bool == true && children_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "18"
-            }
-            else if(partner_bool == true || children_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "16"        
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
             }
         }
 	});
@@ -4299,26 +3825,22 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -4329,17 +3851,10 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            if(children_bool == false && partner_bool == false){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "15"
-            }   
-            else if(partner_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "15"
-            }
-            else if(children_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "17"
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
             }
         }
 	});
@@ -4374,26 +3889,22 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -4404,17 +3915,10 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            if(children_bool == false && partner_bool == false){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "14"
-            }   
-            else if(partner_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "14"
-            }
-            else if(children_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "16"
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
             }
         }
 	});
@@ -4449,26 +3953,22 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
 
             }
             // エラーメッセージのテキストに空文字を代入
@@ -4480,17 +3980,10 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            if(children_bool == false && partner_bool == false){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "13"
-            }   
-            else if(partner_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "13"
-            }
-            else if(children_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "15"
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
             }
         }
 	});
@@ -4525,26 +4018,22 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -4562,17 +4051,10 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            if(children_bool == false && partner_bool == false){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "12"
-            }   
-            else if(partner_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "12"
-            }
-            else if(children_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "14"
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
             }
         }
 	});
@@ -4607,26 +4089,22 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -4640,35 +4118,21 @@ $(function(){
                 //styleのdisplayを変更する関数
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
-                if(children_bool == false && partner_bool == false){
-                    const stat = document.querySelector('.last-state-page');
-                    stat.textContent = "11"
-                }   
-                else if(partner_bool == true){
-                    const stat = document.querySelector('.last-state-page');
-                    stat.textContent = "11"
-                }
-                else if(children_bool == true){
-                    const stat = document.querySelector('.last-state-page');
-                    stat.textContent = "13"
-                }
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    // count.textContent = Number(count.textContent) - 1
+                    submit.setAttribute("count_yet","not_yet");
+                }1
             }
             else{
                 let box = document.querySelector('#yourbill');
                 //styleのdisplayを変更する関数
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
-                if(children_bool == false && partner_bool == false){
-                    const stat = document.querySelector('.last-state-page');
-                    stat.textContent = "10"
-                }   
-                else if(partner_bool == true){
-                    const stat = document.querySelector('.last-state-page');
-                    stat.textContent = "10"
-                }
-                else if(children_bool == true){
-                    const stat = document.querySelector('.last-state-page');
-                    stat.textContent = "12"
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1
+                    submit.setAttribute("count_yet","not_yet");
                 }
             }
         }
@@ -4704,26 +4168,22 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -4734,17 +4194,10 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            if(children_bool == false && partner_bool == false){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "10"
-            }  
-            else if(partner_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "10"
-            } 
-            else if(children_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "12"
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
             }
         }
 	});
@@ -4779,26 +4232,22 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -4809,17 +4258,10 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            if(children_bool == false && partner_bool == false){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "9"
-            }   
-            else if(partner_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "9"
-            }
-            else if(children_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "11"
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
             }
         }
 	});
@@ -4854,26 +4296,22 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -4884,17 +4322,10 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            if(children_bool == false && partner_bool == false){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "8"
-            }   
-            else if(partner_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "8"
-            }
-            else if(children_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "10"
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
             }
         }
 	});
@@ -4929,26 +4360,22 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -4959,17 +4386,10 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            if(children_bool == false && partner_bool == false){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "7"
-            } 
-            else if(partner_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "7"
-            }  
-            else if(children_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "9"
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
             }
         }
 	});
@@ -5004,26 +4424,22 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5034,17 +4450,10 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            if(children_bool == false && partner_bool == false){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "6"
-            }  
-            else if(partner_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "6"
-            } 
-            else if(children_bool == true){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "8"
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
             }
         }
 	});
@@ -5079,26 +4488,22 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5118,17 +4523,10 @@ $(function(){
                 //styleのdisplayを変更する関数
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
-                if(children_bool == false && partner_bool == false){
-                    const stat = document.querySelector('.last-state-page');
-                    stat.textContent = "5"
-                }   
-                else if(partner_bool == true){
-                    const stat = document.querySelector('.last-state-page');
-                    stat.textContent = "5"
-                }
-                else if(children_bool == true){
-                    const stat = document.querySelector('.last-state-page');
-                    stat.textContent = "7"
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1
+                    submit.setAttribute("count_yet","not_yet");
                 }
             }
         }
@@ -5164,26 +4562,22 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5194,8 +4588,11 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = "6"
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
+            }
         }
 	});
 });
@@ -5229,26 +4626,22 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5259,8 +4652,11 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = "5"
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
+            }
         }
 	});
 });
@@ -5294,26 +4690,22 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5324,8 +4716,11 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = "4"
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
+            }
         }
 	});
 });
@@ -5359,26 +4754,22 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5389,8 +4780,11 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = "3"
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
+            }
         }
 	});
 });
@@ -5424,26 +4818,21 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5454,8 +4843,11 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = "2"
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
+            }
         }
 	});
 });
@@ -5489,26 +4881,21 @@ $(function(){
                     respone = i
                     display_arr.push(ele_arr[i])
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5519,8 +4906,11 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = "1"
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
+            }
         }
 	});
 });
@@ -5548,58 +4938,20 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = "0"
+            let count = document.querySelector('.last-state-page');
+            count.textContent = "0";
 			// 確認ボタンを有効化
             let last_state = document.querySelector(".last-state-page");
             let next_button = document.querySelector("#next_page2-not");
             $('#next_page2-not').prop('disabled', false);
             next_button.id = "next_page2"
 			comp_flg = true;
-        }
-	});
-});
-
-$(function(){
-    // 「送信」ボタンの要素を取得
-    const submit = document.querySelector('#yourpartnerinput');
-    submit.addEventListener('input', (e) => {
-        // デフォルトアクションをキャンセル
-        e.preventDefault();
-        let button = document.querySelector("#partnerbirthday")
-        let button2 = document.querySelector("#partnerjob")
-        let ele = document.getElementsByName("spouse")
-        let len = ele.length;
-        let checkValue = '';
-        for (let i = 0; i < len; i++){
-            if (ele.item(i).checked){
-                checkValue = ele.item(i).value;
-            }
-        }
-        if(checkValue == "いる"){
-            let box = document.querySelector('#partnerbirthday');
-        }
-        else if(checkValue == "いない"){
-            button.style.display='none';
-            button2.style.display='none';
-            let box = document.querySelector('#yourchildren');
-            box.style.display='';
-            box.setAttribute('element_yet','not_yet');
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = "8"  
         }
 	});
 });
@@ -5638,7 +4990,8 @@ $(function(){
             box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const stat = document.querySelector('.last-state-page');
-            stat.textContent = "4" 
+            stat.textContent = Number(stat.textContent) - 1
+            input.setAttribute("count_yet","not_yet");
         }
     });
 });
@@ -5661,7 +5014,8 @@ $(function(){
         box.style.display='';
         box.setAttribute('element_yet','not_yet');
         const stat = document.querySelector('.last-state-page');
-        stat.textContent = "6"
+        stat.textContent = Number(stat.textContent) - 1
+        input.setAttribute("count_yet","not_yet");
     });
 });
 
@@ -5683,7 +5037,8 @@ $(function(){
         box.style.display='';
         box.setAttribute('element_yet','not_yet');
         const stat = document.querySelector('.last-state-page');
-        stat.textContent = "4"
+        stat.textContent = Number(stat.textContent) - 1
+        input.setAttribute("count_yet","not_yet");
     });
 });
 
@@ -5705,7 +5060,8 @@ $(function(){
         box.style.display='';
         box.setAttribute('element_yet','not_yet');
         const stat = document.querySelector('.last-state-page');
-        stat.textContent = "3"
+        stat.textContent = Number(stat.textContent) - 1
+        input.setAttribute("count_yet","not_yet");
     });
 });
 
@@ -5727,8 +5083,9 @@ $(function(){
         box.style.display='';
         box.setAttribute('element_yet','not_yet');
         const stat = document.querySelector('.last-state-page');
-        stat.textContent = "2"
+        stat.textContent = Number(stat.textContent) - 1
         comp_flg = true;
+        input.setAttribute("count_yet","not_yet");
     });
 });
 
@@ -5820,30 +5177,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5856,8 +5209,11 @@ $(function(){
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1
+                    submit.setAttribute("count_yet","not_yet");
+                }
             }
             else{
                 let box = document.querySelector('#yourestate');
@@ -5865,8 +5221,11 @@ $(function(){
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1
+                    submit.setAttribute("count_yet","not_yet");
+                }
             }
         }
 	});
@@ -5887,6 +5246,7 @@ $(function(){
         const name = document.querySelector('#estate');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourestateerr');
+        var ele_arr = document.getElementsByClassName("form-group");
         if(!name.value){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
@@ -5901,30 +5261,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -5938,18 +5294,28 @@ $(function(){
             box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) + Number(Number(your_estate) * 2))
-            
+            if(submit.getAttribute('count_yet') != 'not_yet'){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) + Number(Number(your_estate) * 2))
+                submit.setAttribute("count_yet","not_yet")
+            }
+            var re_flg = false;
             var ele_arr = document.getElementsByClassName("form-group");
             for(var i=2;i<22;i++){
                 if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
                     ele_arr[i].style.display = ''
+                    re_flg = true;
+                    var a = i;
                 }
             };
+
+            if(re_flg == true){
+                ele_arr[a+1].style.display = '';
+            }
         }
 
         var estate_value = document.getElementById("estate").value
+        var b = -1;
         if(estate_value == "1"){
             document.getElementById("yoursecondestate").style.display = "none";
             document.getElementById("yoursecondrentalincome").style.display = "none";
@@ -5969,6 +5335,14 @@ $(function(){
             document.getElementById("yourninerentalincome").style.display = "none";
             document.getElementById("yourtenestate").style.display = "none";
             document.getElementById("yourtenrentalincome").style.display = "none";
+
+            for(var i=2;i<4;i++){
+                if(ele_arr[i].getAttribute("element_yet") != "not_yet"){
+                    b = b + 1;
+                }
+            }
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = Number(stat.textContent) + b
         }
         else if(estate_value == "2"){
             document.getElementById("yourthirdestate").style.display = "none";
@@ -5988,6 +5362,13 @@ $(function(){
             document.getElementById("yourtenestate").style.display = "none";
             document.getElementById("yourtenrentalincome").style.display = "none";
 
+            for(var i=2;i<6;i++){
+                if(ele_arr[i].getAttribute("element_yet") != "not_yet"){
+                    b = b + 1;
+                }
+            }
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = Number(stat.textContent) + b
         }
         else if(estate_value == "3"){
             document.getElementById("yourfourestate").style.display = "none";
@@ -6004,6 +5385,14 @@ $(function(){
             document.getElementById("yourninerentalincome").style.display = "none";
             document.getElementById("yourtenestate").style.display = "none";
             document.getElementById("yourtenrentalincome").style.display = "none";
+
+            for(var i=2;i<8;i++){
+                if(ele_arr[i].getAttribute("element_yet") != "not_yet"){
+                    b = b + 1;
+                }
+            }
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = Number(stat.textContent) + b
             
         }
         else if(estate_value == "4"){
@@ -6019,6 +5408,14 @@ $(function(){
             document.getElementById("yourninerentalincome").style.display = "none";
             document.getElementById("yourtenestate").style.display = "none";
             document.getElementById("yourtenrentalincome").style.display = "none";
+
+            for(var i=2;i<10;i++){
+                if(ele_arr[i].getAttribute("element_yet") != "not_yet"){
+                    b = b + 1;
+                }
+            }
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = Number(stat.textContent) + b
             
         }
         else if(estate_value == "5"){
@@ -6032,6 +5429,14 @@ $(function(){
             document.getElementById("yourninerentalincome").style.display = "none";
             document.getElementById("yourtenestate").style.display = "none";
             document.getElementById("yourtenrentalincome").style.display = "none";
+
+            for(var i=2;i<12;i++){
+                if(ele_arr[i].getAttribute("element_yet") != "not_yet"){
+                    b = b + 1;
+                }
+            }
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = Number(stat.textContent) + b
             
         }
         else if(estate_value == "6"){
@@ -6043,6 +5448,14 @@ $(function(){
             document.getElementById("yourninerentalincome").style.display = "none";
             document.getElementById("yourtenestate").style.display = "none";
             document.getElementById("yourtenrentalincome").style.display = "none";
+
+            for(var i=2;i<14;i++){
+                if(ele_arr[i].getAttribute("element_yet") != "not_yet"){
+                    b = b + 1;
+                }
+            }
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = Number(stat.textContent) + b
         }
         else if(estate_value == "7"){
             document.getElementById("youreightestate").style.display = "none";
@@ -6051,16 +5464,40 @@ $(function(){
             document.getElementById("yourninerentalincome").style.display = "none";
             document.getElementById("yourtenestate").style.display = "none";
             document.getElementById("yourtenrentalincome").style.display = "none";
+
+            for(var i=2;i<16;i++){
+                if(ele_arr[i].getAttribute("element_yet") != "not_yet"){
+                    b = b + 1;
+                }
+            }
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = Number(stat.textContent) + b
         }
         else if(estate_value == "8"){
             document.getElementById("yournineestate").style.display = "none";
             document.getElementById("yourninerentalincome").style.display = "none";
             document.getElementById("yourtenestate").style.display = "none";
             document.getElementById("yourtenrentalincome").style.display = "none";
+
+            for(var i=2;i<18;i++){
+                if(ele_arr[i].getAttribute("element_yet") != "not_yet"){
+                    b = b + 1;
+                }
+            }
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = Number(stat.textContent) + b
         }
         else if(estate_value == "9"){
             document.getElementById("yourtenestate").style.display = "none";
             document.getElementById("yourtenrentalincome").style.display = "none";
+
+            for(var i=2;i<20;i++){
+                if(ele_arr[i].getAttribute("element_yet") != "not_yet"){
+                    b = b + 1;
+                }
+            }
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = Number(stat.textContent) + b
         }
 	});
 });
@@ -6094,30 +5531,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6129,8 +5562,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1
+                submit.setAttribute("count_yet","not_yet");
+            }
         }
 	});
 });
@@ -6164,30 +5600,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6202,8 +5634,11 @@ $(function(){
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) - 1) 
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
             }
             else{
                 let box = document.querySelector('#yoursecondestate');
@@ -6211,8 +5646,11 @@ $(function(){
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
             }
         }
 	});
@@ -6247,30 +5685,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6282,8 +5716,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1;
+                submit.setAttribute("count_yet","not_yet");
+            }
         }
 	});
 });
@@ -6317,30 +5754,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6355,8 +5788,11 @@ $(function(){
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) - 1) 
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
             }
             else{
                 let box = document.querySelector('#yourthirdestate');
@@ -6364,8 +5800,11 @@ $(function(){
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
             }
         }
 	});
@@ -6400,30 +5839,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6435,8 +5870,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1;
+                submit.setAttribute("count_yet","not_yet");
+            }
         }
 	});
 });
@@ -6470,30 +5908,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6508,8 +5942,11 @@ $(function(){
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) - 1) 
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
             }
             else{
                 let box = document.querySelector('#yourfourestate');
@@ -6517,8 +5954,11 @@ $(function(){
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
             }
         }
 	});
@@ -6553,30 +5993,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6588,8 +6024,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -6623,30 +6062,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6706,30 +6141,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6741,8 +6172,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -6776,30 +6210,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6859,30 +6289,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -6894,8 +6320,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -6929,30 +6358,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7012,30 +6437,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7047,8 +6468,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -7082,30 +6506,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7165,30 +6585,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7200,8 +6616,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -7235,30 +6654,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7318,30 +6733,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7353,8 +6764,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -7388,30 +6802,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7471,30 +6881,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7506,8 +6912,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -7541,30 +6950,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7578,8 +6983,11 @@ $(function(){
             box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1) 
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                } 
         }
 	});
 });
@@ -7613,30 +7021,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7705,30 +7109,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7740,8 +7140,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -7775,30 +7178,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7810,8 +7209,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -7845,30 +7247,26 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7883,8 +7281,11 @@ $(function(){
             box2.style.display='';
             box2.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -7918,26 +7319,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -7949,8 +7346,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -7984,26 +7384,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8015,8 +7411,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -8050,26 +7449,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8081,8 +7476,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -8115,26 +7513,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8202,26 +7596,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8234,8 +7624,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -8269,26 +7662,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8300,8 +7689,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -8335,26 +7727,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8366,8 +7754,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -8400,26 +7791,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8478,26 +7865,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8509,8 +7892,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -8544,26 +7930,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8575,8 +7957,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -8610,26 +7995,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8641,8 +8022,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -8676,26 +8060,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8756,26 +8136,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8787,8 +8163,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -8822,26 +8201,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8853,8 +8228,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -8888,26 +8266,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -8919,8 +8293,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -8954,26 +8331,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -9034,27 +8407,23 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
             
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -9066,8 +8435,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -9101,26 +8473,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -9132,8 +8500,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -9167,26 +8538,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -9198,8 +8565,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -9233,27 +8603,23 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
             
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -9313,26 +8679,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -9344,8 +8706,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -9379,26 +8744,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -9410,8 +8771,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -9445,26 +8809,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -9476,8 +8836,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -9511,26 +8874,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -9590,26 +8949,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -9621,8 +8976,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -9656,26 +9014,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -9687,8 +9041,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -9722,26 +9079,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -9753,8 +9106,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -9788,26 +9144,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -9867,26 +9219,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -9898,8 +9246,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -9933,26 +9284,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -9964,8 +9311,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -9999,26 +9349,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -10030,8 +9376,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -10065,26 +9414,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -10144,26 +9489,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -10175,8 +9516,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -10210,26 +9554,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -10241,8 +9581,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -10276,26 +9619,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -10307,8 +9646,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -10342,26 +9684,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -10421,26 +9759,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -10452,8 +9786,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -10487,26 +9824,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -10518,8 +9851,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -10553,26 +9889,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -10584,8 +9916,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -10619,26 +9954,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -10698,26 +10029,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -10729,8 +10056,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -10764,26 +10094,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -10795,8 +10121,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -10830,26 +10159,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -10861,8 +10186,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -10896,26 +10224,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -10975,26 +10299,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -11006,8 +10326,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -11041,26 +10364,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -11072,8 +10391,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -11107,26 +10429,22 @@ $(function(){
                     respone = i;
                     display_arr.push(ele_arr[i]);
                     ele_arr[i].style.display = 'none';
-                    var st = document.querySelector('.last-state-page').textContent;
-                    last_koumoku = st;
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = Number(st.textContent) + 1;
                 }
             }
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
-            if(comp_flg == true){
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-            }
+
             if(respone > 0){
                 respone = 0;
+                var st = document.querySelector('.last-state-page');
                 display_arr.forEach(disp => {
-                    disp.style.display = '';
+                    if(disp.style.display == 'none'){
+                        disp.style.display = '';
+                        st.textContent = Number(st.textContent) - 1
+                    }
                 });
-                var count_ele = document.querySelector('.last-state-page');
-                count_ele.textContent = last_koumoku;
             }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
@@ -11138,8 +10456,11 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = Number(count.textContent) - 1;
+                    submit.setAttribute("count_yet","not_yet");
+                }
         }
 	});
 });
@@ -11167,9 +10488,7 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
-            let next_button = document.querySelector("#next_page2");
-            $('#next_page2').prop('disabled', true);
-            next_button.id = "next_page2-not"
+
         }else{
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';

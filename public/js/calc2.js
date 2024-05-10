@@ -123,15 +123,15 @@ $(function(){
 
         if(partner_bool2 == true && children_bool2 == true){
             const stat = document.querySelector('.last-state-page');
-            stat.textContent = "22"
+            stat.textContent = "21"
         }
         else if(partner_bool2 == false && children_bool2 == false){
             const stat = document.querySelector('.last-state-page');
-            stat.textContent = "18"
+            stat.textContent = "17"
         }
         else{
             const stat = document.querySelector('.last-state-page');
-            stat.textContent = "20"
+            stat.textContent = "19"
         }
     });
 });
