@@ -1,5 +1,7 @@
 // const { stringify } = require("postcss");
 
+//const { stringify } = require("postcss");
+
 //タイマー
 $(function() {
 	var timer = false;
@@ -676,6 +678,7 @@ $(function(){
 
 var number_arr = new Array();
 var old_val2 = "0";
+var last_s = 9;
 $(function(){
 
     // 「送信」ボタンの要素を取得
@@ -683,6 +686,7 @@ $(function(){
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('click', (e) => {
+        var ele_arr = document.getElementsByClassName("form-group");
         let ele = document.getElementsByName("children")
         let len = ele.length;
         let checkValue = '';
@@ -721,33 +725,46 @@ $(function(){
             // 次の項目を表示
             if(checkValue == 'いる'){
                 let box = document.querySelector('#childrennumber');
-                if(box.getAttribute('element_yet') != 'not_yet'){
-                    // エラーメッセージのテキストに空文字を代入
-                    errMsgName.textContent ='';
-                    // クラスを削除
-                    name.classList.remove('input-invalid');
-                    //styleのdisplayを変更する関数
-                    box.style.display='';
-                    box.setAttribute('element_yet','not_yet');
-                    /*let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1 */
-                }
-                else{
+                box.style.display = ''
+                if(old_val2 == 'いない'){
                     for(var i=10;i<30;i++){
-                        if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                            if(ele_arr[i].style.display != ''){
-                                ele_arr[i].style.display = ''
-                                var st = document.querySelector('.last-state-page');
-                                st.textContent = "1"
-                            }
+                        if(ele_arr[i].getAttribute("element_yet") == 'not_yet'){
+                            ele_arr[i].style.display = ''
+                            var st = document.querySelector('.last-state-page');
+                            st.textContent = Number(st.textContent) + 1;
                         }
-                    }; 
+                    }
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                    if(document.querySelector('.last-state-page').textContent == '0'){
+                        var st = document.querySelector('.last-state-page');
+                        st.textContent = "1";
+                    }
                 }
+                else if(old_val2 == '0'){
+                    box.style.display = '';
+                    var st = document.querySelector('.last-state-page');
+                    st.textContent = "1"
+                    box.setAttribute('element_yet','not_yet');
+                }
+                old_val2 = 'いる';
+                
             }
-            else{
-
+            else if(checkValue == 'いない'){
+                for (var i=9;i<30;i++){
+                    if(ele_arr[i].style.display == ''){
+                        ele_arr[i].style.display = 'none';
+                        last_s = i
+                    }
+                }
                 let count = document.querySelector('.last-state-page');
                 count.textContent = '0'
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id = "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
                 old_val2 = "いない";
             }
         }
@@ -774,6 +791,7 @@ var nine_birth = false;
 var nine_sex = false;
 var ten_birth = false;
 var ten_sex = false;
+var ele_bool = new Array(one_birth,one_sex,second_birth,second_sex,third_birth,third_sex,four_birth,four_sex,five_birth,five_sex,six_birth,six_sex,seven_birth,seven_sex,eight_birth,eight_sex,nine_birth,nine_sex,ten_birth,ten_sex)
 $(function(){
 
     // 「送信」ボタンの要素を取得
@@ -818,20 +836,29 @@ $(function(){
             children_num = select.value;
             var ele_arr = document.getElementsByClassName("form-group");
             var last_ele = 9;
+            var arr_cnt = 0;
 
             if(children_num == "one"){
                 var las = 2;
-                for(var i=11;i<30;i++){
+                for(var i=10;i<12;i++){
+                    if(ele_arr[i].getAttribute('spone') == 'y'){
+                        ele_arr[i].style.display = '';
+                        last_ele = i;
+                    }
+                }
+                console.log(last_ele)
+                if(last_ele < 30){
+                    ele_arr[last_ele+1].style.display = ''
+                    ele_arr[last_ele+1].setAttribute('element_yet','not_yet');
+                }
+                for(var i=12;i<30;i++){
                     if(ele_arr[i].style.display != 'none'){
                         ele_arr[i].style.display = 'none';
                     }
                 }
-                for(var i=10;i<12;i++){
-                    if(ele_arr[i].getAttribute("element_yet") == "not_yet"){
-                        ele_arr[i].style.display = ""
-                        var last_ele = i
-                    }
-                }
+
+                console.log(one_birth)
+                console.log(one_sex)
                 if(one_birth == false && one_sex == false){
                     let count = document.querySelector('.last-state-page');
                     count.textContent = 2
@@ -840,23 +867,31 @@ $(function(){
                     let count = document.querySelector('.last-state-page');
                     count.textContent = 1
                 }
+                else{
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 0
+                }
             }
 
             else if(children_num == "two"){
                 var las = 4;
+                for(var i=10;i<14;i++){
+                    if(ele_arr[i].getAttribute('spone') == 'y'){
+                        ele_arr[i].style.display = '';
+                        last_ele = i;
+                    }
+                }
+                console.log(last_ele)
+                if(last_ele < 30){
+                    ele_arr[last_ele+1].style.display = ''
+                    ele_arr[last_ele+1].setAttribute('element_yet','not_yet');
+                }
                 for(var i=14;i<30;i++){
                     if(ele_arr[i].style.display != 'none'){
                         ele_arr[i].style.display = 'none';
                     }
                 }
-                for(var i=10;i<14;i++){
-                    if(ele_arr[i].getAttribute("element_yet") == "not_yet"){
-                        ele_arr[i].style.display = ""
-                        var last_ele = i
-                        let count = document.querySelector('.last-state-page');
-                        count.textContent = las - 1
-                    }
-                }
+
                 if(one_birth == false && one_sex == false && second_birth == false && second_sex == false){
                     let count = document.querySelector('.last-state-page');
                     count.textContent = 4
@@ -873,22 +908,31 @@ $(function(){
                     let count = document.querySelector('.last-state-page');
                     count.textContent = 1
                 }
+                else{
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 0
+                }
             }
             else if(children_num == "three"){
                 var las = 6;
+
+                for(var i=10;i<16;i++){
+                    if(ele_arr[i].getAttribute('spone') == 'y'){
+                        ele_arr[i].style.display = '';
+                        last_ele = i;
+                    }
+                }
+                console.log(last_ele)
+                if(last_ele < 30){
+                    ele_arr[last_ele+1].style.display = ''
+                    ele_arr[last_ele+1].setAttribute('element_yet','not_yet');
+                }
                 for(var i=16;i<30;i++){
                     if(ele_arr[i].style.display != 'none'){
                         ele_arr[i].style.display = 'none';
                     }
                 }
-                for(var i=10;i<16;i++){
-                    if(ele_arr[i].getAttribute("element_yet") == "not_yet"){
-                        ele_arr[i].style.display = ""
-                        var last_ele = i
-                        let count = document.querySelector('.last-state-page');
-                        count.textContent = las - 1
-                    }
-                }
+
                 if(one_birth == false && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false){
                     let count = document.querySelector('.last-state-page');
                     count.textContent = 6
@@ -913,22 +957,31 @@ $(function(){
                     let count = document.querySelector('.last-state-page');
                     count.textContent = 1
                 }
+                else{
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 0
+                }
             }
             else if(children_num == "four"){
                 var las = 8;
+
+                for(var i=10;i<18;i++){
+                    if(ele_arr[i].getAttribute('spone') == 'y'){
+                        ele_arr[i].style.display = '';
+                        last_ele = i;
+                    }
+                }
+                console.log(last_ele)
+                if(last_ele < 30){
+                    ele_arr[last_ele+1].style.display = ''
+                    ele_arr[last_ele+1].setAttribute('element_yet','not_yet');
+                }
                 for(var i=18;i<30;i++){
                     if(ele_arr[i].style.display != 'none'){
                         ele_arr[i].style.display = 'none';
                     }
                 }
-                for(var i=10;i<18;i++){
-                    if(ele_arr[i].getAttribute("element_yet") == "not_yet"){
-                        ele_arr[i].style.display = ""
-                        var last_ele = i
-                        let count = document.querySelector('.last-state-page');
-                        count.textContent = las - 1
-                    }
-                }
+
                 if(one_birth == false && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false && four_birth == false && four_sex == false){
                     let count = document.querySelector('.last-state-page');
                     count.textContent = 8
@@ -961,22 +1014,31 @@ $(function(){
                     let count = document.querySelector('.last-state-page');
                     count.textContent = 1
                 }
+                else{
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 0
+                }
             }
             else if(children_num == "five"){
                 var las = 10;
+
+                for(var i=10;i<20;i++){
+                    if(ele_arr[i].getAttribute('spone') == 'y'){
+                        ele_arr[i].style.display = '';
+                        last_ele = i;
+                    }
+                }
+                console.log(last_ele)
+                if(last_ele < 30){
+                    ele_arr[last_ele+1].style.display = ''
+                    ele_arr[last_ele+1].setAttribute('element_yet','not_yet');
+                }
                 for(var i=20;i<30;i++){
                     if(ele_arr[i].style.display != 'none'){
                         ele_arr[i].style.display = 'none';
                     }
                 }
-                for(var i=10;i<20;i++){
-                    if(ele_arr[i].getAttribute("element_yet") == "not_yet"){
-                        ele_arr[i].style.display = ""
-                        var last_ele = i
-                        let count = document.querySelector('.last-state-page');
-                        count.textContent = las - 1
-                    }
-                }
+
                 if(one_birth == false && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false && four_birth == false && four_sex == false && five_birth == false && five_sex == false){
                     let count = document.querySelector('.last-state-page');
                     count.textContent = 10
@@ -1017,22 +1079,31 @@ $(function(){
                     let count = document.querySelector('.last-state-page');
                     count.textContent = 1
                 }
+                else{
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 0
+                }
             }
             else if(children_num == "six"){
                 var las = 12;
+
+                for(var i=10;i<22;i++){
+                    if(ele_arr[i].getAttribute('spone') == 'y'){
+                        ele_arr[i].style.display = '';
+                        last_ele = i;
+                    }
+                }
+                console.log(last_ele)
+                if(last_ele < 30){
+                    ele_arr[last_ele+1].style.display = ''
+                    ele_arr[last_ele+1].setAttribute('element_yet','not_yet');
+                }
                 for(var i=22;i<30;i++){
                     if(ele_arr[i].style.display != 'none'){
                         ele_arr[i].style.display = 'none';
                     }
                 }
-                for(var i=10;i<22;i++){
-                    if(ele_arr[i].getAttribute("element_yet") == "not_yet"){
-                        ele_arr[i].style.display = ""
-                        var last_ele = i
-                        let count = document.querySelector('.last-state-page');
-                        count.textContent = las - 1
-                    }
-                }
+
                 if(one_birth == false && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false &&
                      four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false){
                     let count = document.querySelector('.last-state-page');
@@ -1092,23 +1163,33 @@ $(function(){
                 four_birth == true && four_sex == true && five_birth == true && five_sex == true && six_birth == true && six_sex == false){
                let count = document.querySelector('.last-state-page');
                count.textContent =  1
-           }
+                }
+                else{
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 0
+                }
+           
             }
             else if(children_num == "seven"){
                 var las = 14;
+
+                for(var i=10;i<24;i++){
+                    if(ele_arr[i].getAttribute('spone') == 'y'){
+                        ele_arr[i].style.display = '';
+                        last_ele = i;
+                    }
+                }
+                console.log(last_ele)
+                if(last_ele < 30){
+                    ele_arr[last_ele+1].style.display = ''
+                    ele_arr[last_ele+1].setAttribute('element_yet','not_yet');
+                }
                 for(var i=24;i<30;i++){
                     if(ele_arr[i].style.display != 'none'){
                         ele_arr[i].style.display = 'none';
                     }
                 }
-                for(var i=10;i<24;i++){
-                    if(ele_arr[i].getAttribute("element_yet") == "not_yet"){
-                        ele_arr[i].style.display = ""
-                        var last_ele = i
-                        let count = document.querySelector('.last-state-page');
-                        count.textContent = las - 1
-                    }
-                }
+                
                 if(one_birth == false && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false &&
                     four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
                 seven_birth == false && seven_sex == false){
@@ -1193,23 +1274,32 @@ $(function(){
                    let count = document.querySelector('.last-state-page');
                    count.textContent = 1
                 }
+                else{
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 0
+                }
           
             }
             else if(children_num == "eight"){
                 var las = 16;
+
+                for(var i=10;i<26;i++){
+                    if(ele_arr[i].getAttribute('spone') == 'y'){
+                        ele_arr[i].style.display = '';
+                        last_ele = i;
+                    }
+                }
+                console.log(last_ele)
+                if(last_ele < 30){
+                    ele_arr[last_ele+1].style.display = ''
+                    ele_arr[last_ele+1].setAttribute('element_yet','not_yet');
+                }
                 for(var i=26;i<30;i++){
                     if(ele_arr[i].style.display != 'none'){
                         ele_arr[i].style.display = 'none';
                     }
                 }
-                for(var i=10;i<26;i++){
-                    if(ele_arr[i].getAttribute("element_yet") == "not_yet"){
-                        ele_arr[i].style.display = ""
-                        var last_ele = i
-                        let count = document.querySelector('.last-state-page');
-                        count.textContent = las - 1
-                    }
-                }
+
                 if(one_birth == false && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false &&
                     four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
                 seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false){
@@ -1306,22 +1396,31 @@ $(function(){
                    let count = document.querySelector('.last-state-page');
                    count.textContent = 1
                 }
+                else{
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 0
+                }
             }
             else if(children_num == "nine"){
                 var las = 18;
+
+                for(var i=10;i<28;i++){
+                    if(ele_arr[i].getAttribute('spone') == 'y'){
+                        ele_arr[i].style.display = '';
+                        last_ele = i;
+                    }
+                }
+                console.log(last_ele)
+                if(last_ele < 30){
+                    ele_arr[last_ele+1].style.display = ''
+                    ele_arr[last_ele+1].setAttribute('element_yet','not_yet');
+                }
                 for(var i=28;i<30;i++){
                     if(ele_arr[i].style.display != 'none'){
                         ele_arr[i].style.display = 'none';
                     }
                 }
-                for(var i=10;i<28;i++){
-                    if(ele_arr[i].getAttribute("element_yet") == "not_yet"){
-                        ele_arr[i].style.display = ""
-                        var last_ele = i
-                        let count = document.querySelector('.last-state-page');
-                        count.textContent = las - 1
-                    }
-                }
+
                 if(one_birth == false && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false &&
                     four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
                 seven_birth == false && seven_sex == false && eight_birth == false && eight_sex == false && nine_birth == false && nine_sex == false){
@@ -1430,16 +1529,23 @@ $(function(){
                    let count = document.querySelector('.last-state-page');
                    count.textContent = 1
                 }
+                else{
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 0
+                }
             }
             else if(children_num == "ten"){
                 var las = 20;
                 for(var i=10;i<30;i++){
-                    if(ele_arr[i].getAttribute("element_yet") == "not_yet"){
-                        ele_arr[i].style.display = ""
-                        var last_ele = i
-                        let count = document.querySelector('.last-state-page');
-                        count.textContent = las - 1
+                    if(ele_arr[i].getAttribute('spone') == 'y'){
+                        ele_arr[i].style.display = '';
+                        last_ele = i;
                     }
+                }
+                console.log(last_ele)
+                if(last_ele < 30){
+                    ele_arr[last_ele+1].style.display = ''
+                    ele_arr[last_ele+1].setAttribute('element_yet','not_yet');
                 }
                 if(one_birth == false && one_sex == false && second_birth == false && second_sex == false && third_birth == false && third_sex == false &&
                     four_birth == false && four_sex == false && five_birth == false && five_sex == false && six_birth == false && six_sex == false && 
@@ -1581,15 +1687,18 @@ $(function(){
                    let count = document.querySelector('.last-state-page');
                    count.textContent = 1
                 }
-            }
-
-            if(last_ele < 30){
-                if(ele_arr[last_ele+1].getAttribute("element_yet") != "not_yet"){
-                    ele_arr[last_ele+1].style.display = ''
-                    ele_arr[last_ele+1].setAttribute('element_yet','not_yet');
+                else{
+                    let count = document.querySelector('.last-state-page');
+                    count.textContent = 0
                 }
             }
 
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != '0'){
+                let next_button = document.querySelector("#next_page2");
+                $('#next_page2').prop('disabled', true);
+                next_button.id = "next_page2-not"
+            }
         }
 	});
 });
@@ -1629,6 +1738,7 @@ $(function(){
                 }
             }
             one_birth = false;
+            document.querySelector("#firstchildrenbirth").setAttribute("spone","n")
 
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
@@ -1638,9 +1748,7 @@ $(function(){
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#firstchildrensex');
-            if(box.getAttribute('element_yet') != 'not_yet'){
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
+            if(one_sex == false){
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
@@ -1648,51 +1756,71 @@ $(function(){
                     var children_number_int = 1;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '1'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "two"){
                     var children_number_int = 2;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '3'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "three"){
                     var children_number_int = 3;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '5'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "four"){
                     var children_number_int = 4;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '7'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "five"){
                     var children_number_int = 5;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '9'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "six"){
                     var children_number_int = 6;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '11'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "seven"){
                     var children_number_int = 7;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '13'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "eight"){
                     var children_number_int = 8;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '15'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '17'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '19'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
             }
             else{
@@ -1705,6 +1833,7 @@ $(function(){
                 }
             }
             one_birth = true;
+            document.querySelector("#firstchildrenbirth").setAttribute("spone","y")
         }
 	});
 });
@@ -1743,6 +1872,7 @@ $(function(){
                 }
             }
             one_sex = false;
+            document.querySelector("#firstchildrensex").setAttribute("spone","n")
 
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
@@ -1752,10 +1882,7 @@ $(function(){
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#secondchildrenbirth');
-            if(box.getAttribute('element_yet') != 'not_yet'){
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
-
+            if(second_birth == false){
                 var select = document.getElementById("number-children");
                 children_num = select.value;
                 if(children_num == "one"){
@@ -1763,51 +1890,74 @@ $(function(){
 
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '0'
+                    if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                        let next_button = document.querySelector("#next_page2-not");
+                        $('#next_page2-not').prop('disabled', false);
+                        next_button.id = "next_page2"
+                    }
                 }
                 else if(children_num == "two"){
                     var children_number_int = 2;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '2'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "three"){
                     var children_number_int = 3;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '4'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "four"){
                     var children_number_int = 4;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '6'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "five"){
                     var children_number_int = 5;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '8'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "six"){
                     var children_number_int = 6;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '10'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "seven"){
                     var children_number_int = 7;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '12'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "eight"){
                     var children_number_int = 8;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '14'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '16'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '18'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
             }
             else{
@@ -1820,6 +1970,7 @@ $(function(){
                 }
             }
             one_sex = true;
+            document.querySelector("#firstchildrensex").setAttribute("spone","y")
         }
 	});
 });
@@ -1858,6 +2009,7 @@ $(function(){
                 }
             }
             second_birth = false;
+            document.querySelector("#secondchildrenbirth").setAttribute("spone","n")
 
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
@@ -1867,9 +2019,7 @@ $(function(){
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#secondchildrensex');
-            if(box.getAttribute('element_yet') != 'not_yet'){
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
+            if(second_sex == false){
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
@@ -1877,46 +2027,65 @@ $(function(){
                     var children_number_int = 2;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '1'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
+
                 }
                 else if(children_num == "three"){
                     var children_number_int = 3;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '3'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "four"){
                     var children_number_int = 4;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '5'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "five"){
                     var children_number_int = 5;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '7'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "six"){
                     var children_number_int = 6;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '9'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "seven"){
                     var children_number_int = 7;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '11'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "eight"){
                     var children_number_int = 8;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '13'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '15'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '17'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
             }
             else{
@@ -1929,6 +2098,7 @@ $(function(){
                 }
             }
             second_birth = true;
+            document.querySelector("#secondchildrenbirth").setAttribute("spone","y")
         }
 	});
 });
@@ -1967,6 +2137,7 @@ $(function(){
                 }
             }
             second_sex = false;
+            document.querySelector("#secondchildrensex").setAttribute("spone","n")
 
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
@@ -1976,9 +2147,7 @@ $(function(){
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#thirdchildrenbirth');
-            if(box.getAttribute('element_yet') != 'not_yet'){
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
+            if(third_birth == false){
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
@@ -1987,46 +2156,67 @@ $(function(){
 
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '0'
+                    if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                        let next_button = document.querySelector("#next_page2-not");
+                        $('#next_page2-not').prop('disabled', false);
+                        next_button.id = "next_page2"
+                    }
                 }
                 else if(children_num == "three"){
                     var children_number_int = 3;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '2'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "four"){
                     var children_number_int = 4;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '4'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "five"){
                     var children_number_int = 5;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '6'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "six"){
                     var children_number_int = 6;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '8'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "seven"){
                     var children_number_int = 7;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '10'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "eight"){
                     var children_number_int = 8;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '12'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '14'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '16'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
             }
             else{
@@ -2039,6 +2229,7 @@ $(function(){
                 }
             }
             second_sex = true;
+            document.querySelector("#secondchildrensex").setAttribute("spone","y")
         }
 	});
 });
@@ -2077,6 +2268,7 @@ $(function(){
                 }
             }
             third_birth = false;
+            document.querySelector("#thirdchildrenbirth").setAttribute("spone","n")
 
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
@@ -2086,9 +2278,7 @@ $(function(){
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#thirdchildrensex');
-            if(box.getAttribute('element_yet') != 'not_yet'){
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
+            if(third_sex == false){
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
@@ -2096,41 +2286,57 @@ $(function(){
                     var children_number_int = 3;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '1'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "four"){
                     var children_number_int = 4;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '3'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "five"){
                     var children_number_int = 5;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '5'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "six"){
                     var children_number_int = 6;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '7'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "seven"){
                     var children_number_int = 7;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '9'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "eight"){
                     var children_number_int = 8;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '11'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '13'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '15'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
             }
             else{
@@ -2143,6 +2349,7 @@ $(function(){
                 }
             }
             third_birth = true;
+            document.querySelector("#thirdchildrenbirth").setAttribute("spone","y")
         }
 	});
 });
@@ -2181,6 +2388,7 @@ $(function(){
                 }
             }
             third_sex = false;
+            document.querySelector("#thirdchildrensex").setAttribute("spone","n")
 
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
@@ -2190,9 +2398,7 @@ $(function(){
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#fourchildrenbirth');
-            if(box.getAttribute('element_yet') != 'not_yet'){
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
+            if(four_birth == false){
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
@@ -2201,41 +2407,60 @@ $(function(){
 
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '0'
+                    if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                        let next_button = document.querySelector("#next_page2-not");
+                        $('#next_page2-not').prop('disabled', false);
+                        next_button.id = "next_page2"
+                    }
                 }
                 else if(children_num == "four"){
                     var children_number_int = 4;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '2'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "five"){
                     var children_number_int = 5;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '4'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "six"){
                     var children_number_int = 6;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '6'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "seven"){
                     var children_number_int = 7;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '8'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "eight"){
                     var children_number_int = 8;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '10'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '12'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '14'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
             }
             else{
@@ -2248,6 +2473,7 @@ $(function(){
                 }
             }
             third_sex = true;
+            document.querySelector("#thirdchildrensex").setAttribute("spone","y")
         }
 	});
 });
@@ -2286,6 +2512,7 @@ $(function(){
                 }
             }
             four_birth = false;
+            document.querySelector("#fourchildrenbirth").setAttribute("spone","n")
 
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
@@ -2295,9 +2522,7 @@ $(function(){
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#fourchildrensex');
-            if(box.getAttribute('element_yet') != 'not_yet'){
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
+            if(four_sex == false){
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
@@ -2305,36 +2530,55 @@ $(function(){
                     var children_number_int = 4;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '1'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
+                    if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                        let next_button = document.querySelector("#next_page2-not");
+                        $('#next_page2-not').prop('disabled', false);
+                        next_button.id = "next_page2"
+                    }
                 }
                 else if(children_num == "five"){
                     var children_number_int = 5;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '3'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "six"){
                     var children_number_int = 6;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '5'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "seven"){
                     var children_number_int = 7;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '7'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "eight"){
                     var children_number_int = 8;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '9'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '11'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '13'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
             }
             else{
@@ -2347,6 +2591,7 @@ $(function(){
                 }
             }
             four_birth = true;
+            document.querySelector("#fourchildrenbirth").setAttribute("spone","y")
         }
 	});
 });
@@ -2385,6 +2630,7 @@ $(function(){
                 }
             }
             four_sex = false;
+            document.querySelector("#fourchildrensex").setAttribute("spone","n")
 
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
@@ -2394,9 +2640,7 @@ $(function(){
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#fivechildrenbirth');
-            if(box.getAttribute('element_yet') != 'not_yet'){
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
+            if(five_birth == false){
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
@@ -2410,31 +2654,43 @@ $(function(){
                     var children_number_int = 5;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '2'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "six"){
                     var children_number_int = 6;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '4'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "seven"){
                     var children_number_int = 7;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '6'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "eight"){
                     var children_number_int = 8;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '8'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '10'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '12'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
             }
             else{
@@ -2447,6 +2703,7 @@ $(function(){
                 }
             }
             four_sex = true;
+            document.querySelector("#fourchildrensex").setAttribute("spone","y")
 
         }
 	});
@@ -2486,6 +2743,7 @@ $(function(){
                 }
             }
             five_birth = false;
+            document.querySelector("#fivechildrenbirth").setAttribute("spone","n")
 
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
@@ -2495,9 +2753,7 @@ $(function(){
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#fivechildrensex');
-            if(box.getAttribute('element_yet') != 'not_yet'){
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
+            if(five_sex == false){
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
@@ -2505,31 +2761,43 @@ $(function(){
                     var children_number_int = 5;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '1'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "six"){
                     var children_number_int = 6;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '3'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "seven"){
                     var children_number_int = 7;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '5'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "eight"){
                     var children_number_int = 8;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '7'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '9'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '11'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
             }
             else{
@@ -2542,6 +2810,7 @@ $(function(){
                 }
             }
             five_birth = true;
+            document.querySelector("#fivechildrenbirth").setAttribute("spone","y")
         }
 	});
 });
@@ -2580,6 +2849,7 @@ $(function(){
                 }
             }
             five_sex = false;
+            document.querySelector("#fivechildrensex").setAttribute("spone","n")
 
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
@@ -2589,9 +2859,7 @@ $(function(){
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#sixchildrenbirth');
-            if(box.getAttribute('element_yet') != 'not_yet'){
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
+            if(six_birth == false){
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
@@ -2600,31 +2868,46 @@ $(function(){
 
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '0'
+                    if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                        let next_button = document.querySelector("#next_page2-not");
+                        $('#next_page2-not').prop('disabled', false);
+                        next_button.id = "next_page2"
+                    }
                 }
                 else if(children_num == "six"){
                     var children_number_int = 6;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '2'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "seven"){
                     var children_number_int = 7;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '4'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "eight"){
                     var children_number_int = 8;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '6'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '8'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '10'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
             }
             else{
@@ -2637,6 +2920,7 @@ $(function(){
                 }
             }
             five_sex = true;
+            document.querySelector("#fivechildrensex").setAttribute("spone","y")
         }
 	});
 });
@@ -2675,6 +2959,7 @@ $(function(){
                 }
             }
             six_birth = false;
+            document.querySelector("#sixchildrenbirth").setAttribute("spone","n")
 
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
@@ -2684,9 +2969,7 @@ $(function(){
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#sixchildrensex');
-            if(box.getAttribute('element_yet') != 'not_yet'){
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
+            if(six_sex == false){
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
@@ -2694,26 +2977,36 @@ $(function(){
                     var children_number_int = 6;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '1'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "seven"){
                     var children_number_int = 7;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '3'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "eight"){
                     var children_number_int = 8;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '5'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '7'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '9'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
             }
             else{
@@ -2726,6 +3019,7 @@ $(function(){
                 }
             }
             six_birth = true;
+            document.querySelector("#sixchildrenbirth").setAttribute("spone","y")
         }
 	});
 });
@@ -2764,6 +3058,7 @@ $(function(){
                 }
             }
             six_sex = false;
+            document.querySelector("#sixchildrensex").setAttribute("spone","n")
 
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
@@ -2773,9 +3068,7 @@ $(function(){
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#sevenchildrenbirth');
-            if(box.getAttribute('element_yet') != 'not_yet'){
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
+            if(seven_birth == false){
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
@@ -2784,26 +3077,39 @@ $(function(){
 
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '0'
+                    if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                        let next_button = document.querySelector("#next_page2-not");
+                        $('#next_page2-not').prop('disabled', false);
+                        next_button.id = "next_page2"
+                    }
                 }
                 else if(children_num == "seven"){
                     var children_number_int = 7;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '2'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "eight"){
                     var children_number_int = 8;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '4'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '6'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '8'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
             }
             else{
@@ -2816,6 +3122,7 @@ $(function(){
                 }
             }
             six_sex = true;
+            document.querySelector("#sixchildrensex").setAttribute("spone","y")
         }
 	});
 });
@@ -2854,6 +3161,7 @@ $(function(){
                 }
             }
             seven_birth = false;
+            document.querySelector("#sevenchildrenbirth").setAttribute("spone","n")
 
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
@@ -2863,9 +3171,7 @@ $(function(){
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#sevenchildrensex');
-            if(box.getAttribute('element_yet') != 'not_yet'){
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
+            if(seven_sex == false){
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
@@ -2873,21 +3179,29 @@ $(function(){
                     var children_number_int = 7;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '1'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "eight"){
                     var children_number_int = 8;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '3'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '5'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '7'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
             }
             else{
@@ -2900,6 +3214,7 @@ $(function(){
                 }
             }
             seven_birth = true;
+            document.querySelector("#sevenchildrenbirth").setAttribute("spone","y")
         }
 	});
 });
@@ -2938,6 +3253,7 @@ $(function(){
                 }
             }
             seven_sex = false;
+            document.querySelector("#sevenchildrensex").setAttribute("spone","n")
 
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
@@ -2947,9 +3263,7 @@ $(function(){
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#eightchildrenbirth');
-            if(box.getAttribute('element_yet') != 'not_yet'){
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
+            if(eight_birth == false){
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
@@ -2958,21 +3272,32 @@ $(function(){
 
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '0'
+                    if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                        let next_button = document.querySelector("#next_page2-not");
+                        $('#next_page2-not').prop('disabled', false);
+                        next_button.id = "next_page2"
+                    }
                 }
                 else if(children_num == "eight"){
                     var children_number_int = 8;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '2'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '4'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '6'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
             }
             else{
@@ -2985,6 +3310,7 @@ $(function(){
                 }
             }
             seven_sex = true;
+            document.querySelector("#sevenchildrensex").setAttribute("spone","y")
         }
 	});
 });
@@ -3023,6 +3349,7 @@ $(function(){
                 }
             }
             eight_birth = false;
+            document.querySelector("#eightchildrenbirth").setAttribute("spone","n")
 
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
@@ -3032,9 +3359,7 @@ $(function(){
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#eightchildrensex');
-            if(box.getAttribute('element_yet') != 'not_yet'){
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
+            if(eight_sex == false){
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
@@ -3042,16 +3367,22 @@ $(function(){
                     var children_number_int = 8;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '1'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '3'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '5'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
             }
             else{
@@ -3064,6 +3395,7 @@ $(function(){
                 }
             }
             eight_birth = true;
+            document.querySelector("#eightchildrenbirth").setAttribute("spone","y")
         }
 	});
 });
@@ -3101,6 +3433,7 @@ $(function(){
                 }
             }
             eight_sex = false;
+            document.querySelector("#eightchildrensex").setAttribute("spone","n")
 
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
@@ -3110,9 +3443,7 @@ $(function(){
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#ninechildrenbirth');
-            if(box.getAttribute('element_yet') != 'not_yet'){
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
+            if(nine_birth == false){
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
@@ -3121,16 +3452,25 @@ $(function(){
 
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '0'
+                    if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                        let next_button = document.querySelector("#next_page2-not");
+                        $('#next_page2-not').prop('disabled', false);
+                        next_button.id = "next_page2"
+                    }
                 }
                 else if(children_num == "nine"){
                     var children_number_int = 9;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '2'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '4'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
             }
             else{
@@ -3143,6 +3483,7 @@ $(function(){
                 }
             }
             eight_sex = true;
+            document.querySelector("#eightchildrensex").setAttribute("spone","y")
         }
 	});
 });
@@ -3181,6 +3522,7 @@ $(function(){
                 }
             }
             nine_birth = false;
+            document.querySelector("#ninechildrenbirth").setAttribute("spone","n")
 
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
@@ -3190,9 +3532,7 @@ $(function(){
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#ninechildrensex');
-            if(box.getAttribute('element_yet') != 'not_yet'){
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
+            if(nine_sex == false){
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
@@ -3200,11 +3540,15 @@ $(function(){
                     var children_number_int = 9;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '1'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '3'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
             }
             else{
@@ -3217,6 +3561,7 @@ $(function(){
                 }
             }
             nine_birth = true;
+            document.querySelector("#ninechildrenbirth").setAttribute("spone","y")
         }
 	});
 });
@@ -3255,6 +3600,7 @@ $(function(){
                 }
             }
             nine_sex = false;
+            document.querySelector("#ninechildrensex").setAttribute("spone","n")
 
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
@@ -3264,9 +3610,7 @@ $(function(){
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#tenchildrenbirth');
-            if(box.getAttribute('element_yet') != 'not_yet'){
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
+            if(ten_birth == false){
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
@@ -3275,11 +3619,18 @@ $(function(){
 
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '0'
+                    if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                        let next_button = document.querySelector("#next_page2-not");
+                        $('#next_page2-not').prop('disabled', false);
+                        next_button.id = "next_page2"
+                    }
                 }
                 else if(children_num == "ten"){
                     var children_number_int = 10;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '2'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
             }
             else{
@@ -3292,6 +3643,7 @@ $(function(){
                 }
             }
             nine_sex = true;
+            document.querySelector("#ninechildrensex").setAttribute("spone","y")
         }
 	});
 });
@@ -3330,6 +3682,7 @@ $(function(){
                 }
             }
             ten_birth = false;
+            document.querySelector("#tenchildrenbirth").setAttribute("spone","n")
 
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
@@ -3339,9 +3692,7 @@ $(function(){
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#tenchildrensex');
-            if(box.getAttribute('element_yet') != 'not_yet'){
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
+            if(ten_sex == false){
 
                 var select = document.getElementById("number-children");
                 children_num = select.value;
@@ -3349,6 +3700,8 @@ $(function(){
                     var children_number_int = 10;
                     let count = document.querySelector('.last-state-page');
                     count.textContent = '1'
+                    box.style.display='';
+                    box.setAttribute('element_yet','not_yet');
                 }
             }
             else{
@@ -3361,6 +3714,7 @@ $(function(){
                 }
             }
             ten_birth = true;
+            document.querySelector("#tenchildrenbirth").setAttribute("spone","y")
         }
 	});
 });
@@ -3389,6 +3743,7 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             ten_sex = false;
+            document.querySelector("#tenchildrensex").setAttribute("spone","n")
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
             // エラーメッセージのテキストに空文字を代入
@@ -3397,29 +3752,25 @@ $(function(){
             name.classList.remove('input-invalid');
 			// 次の項目を表示
 			let box = document.querySelector('#tenchildrensex');
-            if(box.getAttribute('element_yet') != 'not_yet'){
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
+            box.style.display='';
+            box.setAttribute('element_yet','not_yet');
 
-                var select = document.getElementById("number-children");
-                children_num = select.value;
-                if(children_num == "ten"){
-                    var children_number_int = 10;
+            var select = document.getElementById("number-children");
+            children_num = select.value;
+            if(children_num == "ten"){
+                var children_number_int = 10;
 
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = '0'
+                let count = document.querySelector('.last-state-page');
+                count.textContent = '0'
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
-            else{
-                for(var i=29;i<30;i++){
-                    if(ele_arr[i].getAttribute("element_yet") == 'not_yet'){
-                        ele_arr[i].style.display = '';
-                        let count = document.querySelector('.last-state-page');
-                        count.textContent = Number(count.textContent) - 1;
-                    }
-                }
-            }
+
             ten_sex = true;
+            document.querySelector("#tenchildrensex").setAttribute("spone","y")
         }
 	});
 });
@@ -5148,6 +5499,16 @@ var your_estate = document.getElementById("estate").value;
 const base_laststate = document.querySelector(".last-state-page").textContent
 console.log(base_laststate)
 
+var load_state = '0';
+
+$(function(){
+    window.addEventListener('load', function(){
+        let count = document.querySelector('.last-state-page');
+        load_state = count.textContent
+
+    });
+});
+
 $(function(){
 
     // 「送信」ボタンの要素を取得
@@ -5231,13 +5592,17 @@ $(function(){
 	});
 });
 
+var estate_oldval = 0;
+var last_estate = 0;
+var last_ele2 = 1;
+
 $(function(){
 
     // 「送信」ボタンの要素を取得
     const submit = document.querySelector('#estate');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5271,17 +5636,6 @@ $(function(){
             }
 
         }else{
-
-            if(respone > 0){
-                respone = 0;
-                var st = document.querySelector('.last-state-page');
-                display_arr.forEach(disp => {
-                    if(disp.style.display == 'none'){
-                        disp.style.display = '';
-                        st.textContent = Number(st.textContent) - 1
-                    }
-                });
-            }
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -5294,210 +5648,447 @@ $(function(){
             box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-            if(submit.getAttribute('count_yet') != 'not_yet'){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) + Number(Number(your_estate) * 2))
-                submit.setAttribute("count_yet","not_yet")
-            }
-            var re_flg = false;
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=2;i<22;i++){
-                if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
-                    ele_arr[i].style.display = ''
-                    re_flg = true;
-                    var a = i;
+
+            var estate_value = document.getElementById("estate").value
+
+            var b = -1;
+            var temp_count = 0;
+
+            if(estate_value == "1"){
+                if(Number(estate_oldval) > Number(estate_value)){
+                    var j = Number(estate_oldval) - Number(estate_value);
+                    j = j * 2;
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - j;
                 }
-            };
-
-            if(re_flg == true){
-                ele_arr[a+1].style.display = '';
-            }
-        }
-
-        var estate_value = document.getElementById("estate").value
-        var b = -1;
-        if(estate_value == "1"){
-            document.getElementById("yoursecondestate").style.display = "none";
-            document.getElementById("yoursecondrentalincome").style.display = "none";
-            document.getElementById("yourthirdestate").style.display = "none";
-            document.getElementById("yourthirdrentalincome").style.display = "none";
-            document.getElementById("yourfourestate").style.display = "none";
-            document.getElementById("yourfourrentalincome").style.display = "none";
-            document.getElementById("yourfiveestate").style.display = "none";
-            document.getElementById("yourfiverentalincome").style.display = "none";
-            document.getElementById("yoursixestate").style.display = "none";
-            document.getElementById("yoursixrentalincome").style.display = "none";
-            document.getElementById("yoursevenestate").style.display = "none";
-            document.getElementById("yoursevenrentalincome").style.display = "none";
-            document.getElementById("youreightestate").style.display = "none";
-            document.getElementById("youreightrentalincome").style.display = "none";
-            document.getElementById("yournineestate").style.display = "none";
-            document.getElementById("yourninerentalincome").style.display = "none";
-            document.getElementById("yourtenestate").style.display = "none";
-            document.getElementById("yourtenrentalincome").style.display = "none";
-
-            for(var i=2;i<4;i++){
-                if(ele_arr[i].getAttribute("element_yet") != "not_yet"){
-                    b = b + 1;
+                else if(Number(estate_oldval) < Number(estate_value)){
+                    var j = Number(estate_value) - Number(estate_oldval);
+                    j = j * 2;
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) + j;
                 }
-            }
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = Number(stat.textContent) + b
-        }
-        else if(estate_value == "2"){
-            document.getElementById("yourthirdestate").style.display = "none";
-            document.getElementById("yourthirdrentalincome").style.display = "none";
-            document.getElementById("yourfourestate").style.display = "none";
-            document.getElementById("yourfourrentalincome").style.display = "none";
-            document.getElementById("yourfiveestate").style.display = "none";
-            document.getElementById("yourfiverentalincome").style.display = "none";
-            document.getElementById("yoursixestate").style.display = "none";
-            document.getElementById("yoursixrentalincome").style.display = "none";
-            document.getElementById("yoursevenestate").style.display = "none";
-            document.getElementById("yoursevenrentalincome").style.display = "none";
-            document.getElementById("youreightestate").style.display = "none";
-            document.getElementById("youreightrentalincome").style.display = "none";
-            document.getElementById("yournineestate").style.display = "none";
-            document.getElementById("yourninerentalincome").style.display = "none";
-            document.getElementById("yourtenestate").style.display = "none";
-            document.getElementById("yourtenrentalincome").style.display = "none";
 
-            for(var i=2;i<6;i++){
-                if(ele_arr[i].getAttribute("element_yet") != "not_yet"){
-                    b = b + 1;
+                for(var i=2;i<4;i++){
+                    if(ele_arr[i].getAttribute("spone") == "y"){
+                        var t = document.querySelector('.last-state-page');
+                        t.textContent = Number(t.textContent) - 1;
+                        last_ele2 = i;
+                    }
                 }
-            }
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = Number(stat.textContent) + b
-        }
-        else if(estate_value == "3"){
-            document.getElementById("yourfourestate").style.display = "none";
-            document.getElementById("yourfourrentalincome").style.display = "none";
-            document.getElementById("yourfiveestate").style.display = "none";
-            document.getElementById("yourfiverentalincome").style.display = "none";
-            document.getElementById("yoursixestate").style.display = "none";
-            document.getElementById("yoursixrentalincome").style.display = "none";
-            document.getElementById("yoursevenestate").style.display = "none";
-            document.getElementById("yoursevenrentalincome").style.display = "none";
-            document.getElementById("youreightestate").style.display = "none";
-            document.getElementById("youreightrentalincome").style.display = "none";
-            document.getElementById("yournineestate").style.display = "none";
-            document.getElementById("yourninerentalincome").style.display = "none";
-            document.getElementById("yourtenestate").style.display = "none";
-            document.getElementById("yourtenrentalincome").style.display = "none";
+                if(last_ele2 == 3){
+                    let next_box = document.querySelector("#yoursavingsbalance");
+                    next_box.style.display = ''
+                }
+                else{
+                    let next_box = document.querySelector("#yoursavingsbalance");
+                    next_box.style.display = 'none'
+                    ele_arr[last_ele2+1].style.display = '';
+                }
 
-            for(var i=2;i<8;i++){
-                if(ele_arr[i].getAttribute("element_yet") != "not_yet"){
-                    b = b + 1;
-                }
+                document.getElementById("yoursecondestate").style.display = "none";
+                document.getElementById("yoursecondrentalincome").style.display = "none";
+                document.getElementById("yourthirdestate").style.display = "none";
+                document.getElementById("yourthirdrentalincome").style.display = "none";
+                document.getElementById("yourfourestate").style.display = "none";
+                document.getElementById("yourfourrentalincome").style.display = "none";
+                document.getElementById("yourfiveestate").style.display = "none";
+                document.getElementById("yourfiverentalincome").style.display = "none";
+                document.getElementById("yoursixestate").style.display = "none";
+                document.getElementById("yoursixrentalincome").style.display = "none";
+                document.getElementById("yoursevenestate").style.display = "none";
+                document.getElementById("yoursevenrentalincome").style.display = "none";
+                document.getElementById("youreightestate").style.display = "none";
+                document.getElementById("youreightrentalincome").style.display = "none";
+                document.getElementById("yournineestate").style.display = "none";
+                document.getElementById("yourninerentalincome").style.display = "none";
+                document.getElementById("yourtenestate").style.display = "none";
+                document.getElementById("yourtenrentalincome").style.display = "none";
+
+                estate_oldval = Number(estate_value)         
+    
             }
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = Number(stat.textContent) + b
+            else if(estate_value == "2"){
+                if(Number(estate_oldval) > Number(estate_value)){
+                    var j = Number(estate_oldval) - Number(estate_value);
+                    j = j * 2;
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - j;
+                }
+                else if(Number(estate_oldval) < Number(estate_value)){
+                    var j = Number(estate_value) - Number(estate_oldval);
+                    j = j * 2;
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) + j;
+                }
+
+                for(var i=2;i<6;i++){
+                    if(ele_arr[i].getAttribute("spone") == "y"){
+                        var t = document.querySelector('.last-state-page');
+                        t.textContent = Number(t.textContent) - 1;
+                    }
+                }
+                if(last_ele2 == 5){
+                    let next_box = document.querySelector("#yoursavingsbalance");
+                    next_box.style.display = ''
+                }
+                else{
+                    let next_box = document.querySelector("#yoursavingsbalance");
+                    next_box.style.display = 'none'
+                    ele_arr[last_ele2+1].style.display = '';
+                }
+
+                document.getElementById("yourthirdestate").style.display = "none";
+                document.getElementById("yourthirdrentalincome").style.display = "none";
+                document.getElementById("yourfourestate").style.display = "none";
+                document.getElementById("yourfourrentalincome").style.display = "none";
+                document.getElementById("yourfiveestate").style.display = "none";
+                document.getElementById("yourfiverentalincome").style.display = "none";
+                document.getElementById("yoursixestate").style.display = "none";
+                document.getElementById("yoursixrentalincome").style.display = "none";
+                document.getElementById("yoursevenestate").style.display = "none";
+                document.getElementById("yoursevenrentalincome").style.display = "none";
+                document.getElementById("youreightestate").style.display = "none";
+                document.getElementById("youreightrentalincome").style.display = "none";
+                document.getElementById("yournineestate").style.display = "none";
+                document.getElementById("yourninerentalincome").style.display = "none";
+                document.getElementById("yourtenestate").style.display = "none";
+                document.getElementById("yourtenrentalincome").style.display = "none";
+
+                estate_oldval = Number(estate_value)
+    
+            }
+            else if(estate_value == "3"){
+                if(Number(estate_oldval) > Number(estate_value)){
+                    var j = Number(estate_oldval) - Number(estate_value);
+                    j = j * 2;
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - j;
+                }
+                else if(Number(estate_oldval) < Number(estate_value)){
+                    var j = Number(estate_value) - Number(estate_oldval);
+                    j = j * 2;
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) + j;
+                }
+
+                for(var i=2;i<8;i++){
+                    if(ele_arr[i].getAttribute("spone") == "y"){
+                        var t = document.querySelector('.last-state-page');
+                        t.textContent = Number(t.textContent) - 1;
+                        last_ele2 = i;
+                    }
+                }
+                if(last_ele2 == 7){
+                    let next_box = document.querySelector("#yoursavingsbalance");
+                    next_box.style.display = ''
+                }
+                else{
+                    ele_arr[last_ele2+1].style.display = '';
+                    let next_box = document.querySelector("#yoursavingsbalance");
+                    next_box.style.display = 'none'
+                }
+                
+                console.log(last_ele2)
+                document.getElementById("yourfourestate").style.display = "none";
+                document.getElementById("yourfourrentalincome").style.display = "none";
+                document.getElementById("yourfiveestate").style.display = "none";
+                document.getElementById("yourfiverentalincome").style.display = "none";
+                document.getElementById("yoursixestate").style.display = "none";
+                document.getElementById("yoursixrentalincome").style.display = "none";
+                document.getElementById("yoursevenestate").style.display = "none";
+                document.getElementById("yoursevenrentalincome").style.display = "none";
+                document.getElementById("youreightestate").style.display = "none";
+                document.getElementById("youreightrentalincome").style.display = "none";
+                document.getElementById("yournineestate").style.display = "none";
+                document.getElementById("yourninerentalincome").style.display = "none";
+                document.getElementById("yourtenestate").style.display = "none";
+                document.getElementById("yourtenrentalincome").style.display = "none";
+
+                estate_oldval = Number(estate_value)
+                
+            }
+            else if(estate_value == "4"){
+                if(Number(estate_oldval) > Number(estate_value)){
+                    var j = Number(estate_oldval) - Number(estate_value);
+                    j = j * 2;
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - j;
+                }
+                else if(Number(estate_oldval) < Number(estate_value)){
+                    var j = Number(estate_value) - Number(estate_oldval);
+                    j = j * 2;
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) + j;
+                }
+
+                for(var i=2;i<10;i++){
+                    if(ele_arr[i].getAttribute("spone") == "y"){
+                        var t = document.querySelector('.last-state-page');
+                        t.textContent = Number(t.textContent) - 1;
+                    }
+                }
+                if(last_ele2 == 9){
+                    let next_box = document.querySelector("#yoursavingsbalance");
+                    next_box.style.display = ''
+                }
+                else{
+                    let next_box = document.querySelector("#yoursavingsbalance");
+                    next_box.style.display = 'none'
+                    ele_arr[last_ele2+1].style.display = '';
+                }
+    
+                document.getElementById("yourfiveestate").style.display = "none";
+                document.getElementById("yourfiverentalincome").style.display = "none";
+                document.getElementById("yoursixestate").style.display = "none";
+                document.getElementById("yoursixrentalincome").style.display = "none";
+                document.getElementById("yoursevenestate").style.display = "none";
+                document.getElementById("yoursevenrentalincome").style.display = "none";
+                document.getElementById("youreightestate").style.display = "none";
+                document.getElementById("youreightrentalincome").style.display = "none";
+                document.getElementById("yournineestate").style.display = "none";
+                document.getElementById("yourninerentalincome").style.display = "none";
+                document.getElementById("yourtenestate").style.display = "none";
+                document.getElementById("yourtenrentalincome").style.display = "none";  
+
+                estate_oldval = Number(estate_value)
+                
+            }
+            else if(estate_value == "5"){
+                if(Number(estate_oldval) > Number(estate_value)){
+                    var j = Number(estate_oldval) - Number(estate_value);
+                    j = j * 2;
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - j;
+                }
+                else if(Number(estate_oldval) < Number(estate_value)){
+                    var j = Number(estate_value) - Number(estate_oldval);
+                    j = j * 2;
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) + j;
+                }
+
+                for(var i=2;i<12;i++){
+                    if(ele_arr[i].getAttribute("spone") == "y"){
+                        var t = document.querySelector('.last-state-page');
+                        t.textContent = Number(t.textContent) - 1;
+                    }
+                }
+                if(last_ele2 == 11){
+                    let next_box = document.querySelector("#yoursavingsbalance");
+                    next_box.style.display = ''
+                }
+                else{
+                    let next_box = document.querySelector("#yoursavingsbalance");
+                    next_box.style.display = 'none'
+                    ele_arr[last_ele2+1].style.display = '';
+                }
+
+    
+                document.getElementById("yoursixestate").style.display = "none";
+                document.getElementById("yoursixrentalincome").style.display = "none";
+                document.getElementById("yoursevenestate").style.display = "none";
+                document.getElementById("yoursevenrentalincome").style.display = "none";
+                document.getElementById("youreightestate").style.display = "none";
+                document.getElementById("youreightrentalincome").style.display = "none";
+                document.getElementById("yournineestate").style.display = "none";
+                document.getElementById("yourninerentalincome").style.display = "none";
+                document.getElementById("yourtenestate").style.display = "none";
+                document.getElementById("yourtenrentalincome").style.display = "none";
+
+                estate_oldval = Number(estate_value)
+                
+            }
+            else if(estate_value == "6"){
+                if(Number(estate_oldval) > Number(estate_value)){
+                    var j = Number(estate_oldval) - Number(estate_value);
+                    j = j * 2;
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - j;
+                }
+                else if(Number(estate_oldval) < Number(estate_value)){
+                    var j = Number(estate_value) - Number(estate_oldval);
+                    j = j * 2;
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) + j;
+                }
+
+                for(var i=2;i<14;i++){
+                    if(ele_arr[i].getAttribute("spone") == "y"){
+                        var t = document.querySelector('.last-state-page');
+                        t.textContent = Number(t.textContent) - 1;
+                    }
+                }
+                if(last_ele2 == 13){
+                    let next_box = document.querySelector("#yoursavingsbalance");
+                    next_box.style.display = ''
+                }
+                else{
+                    let next_box = document.querySelector("#yoursavingsbalance");
+                    next_box.style.display = 'none'
+                    ele_arr[last_ele2+1].style.display = '';
+                }
+    
+                document.getElementById("yoursevenestate").style.display = "none";
+                document.getElementById("yoursevenrentalincome").style.display = "none";
+                document.getElementById("youreightestate").style.display = "none";
+                document.getElementById("youreightrentalincome").style.display = "none";
+                document.getElementById("yournineestate").style.display = "none";
+                document.getElementById("yourninerentalincome").style.display = "none";
+                document.getElementById("yourtenestate").style.display = "none";
+                document.getElementById("yourtenrentalincome").style.display = "none";
+   
+
+                estate_oldval = Number(estate_value)
+            }
+            else if(estate_value == "7"){
+                if(Number(estate_oldval) > Number(estate_value)){
+                    var j = Number(estate_oldval) - Number(estate_value);
+                    j = j * 2;
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - j;
+                }
+                else if(Number(estate_oldval) < Number(estate_value)){
+                    var j = Number(estate_value) - Number(estate_oldval);
+                    j = j * 2;
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) + j;
+                }
+
+                for(var i=2;i<16;i++){
+                    if(ele_arr[i].getAttribute("spone") == "y"){
+                        var t = document.querySelector('.last-state-page');
+                        t.textContent = Number(t.textContent) - 1;
+                    }
+                }
+                if(last_ele2 == 15){
+                    let next_box = document.querySelector("#yoursavingsbalance");
+                    next_box.style.display = ''
+                }
+                else{
+                    let next_box = document.querySelector("#yoursavingsbalance");
+                    next_box.style.display = 'none'
+                    ele_arr[last_ele2+1].style.display = '';
+                }
+    
+                document.getElementById("youreightestate").style.display = "none";
+                document.getElementById("youreightrentalincome").style.display = "none";
+                document.getElementById("yournineestate").style.display = "none";
+                document.getElementById("yourninerentalincome").style.display = "none";
+                document.getElementById("yourtenestate").style.display = "none";
+                document.getElementById("yourtenrentalincome").style.display = "none";
+
+                estate_oldval = Number(estate_value)
+            }
+            else if(estate_value == "8"){
+                if(Number(estate_oldval) > Number(estate_value)){
+                    var j = Number(estate_oldval) - Number(estate_value);
+                    j = j * 2;
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - j;
+                }
+                else if(Number(estate_oldval) < Number(estate_value)){
+                    var j = Number(estate_value) - Number(estate_oldval);
+                    j = j * 2;
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) + j;
+                }
+
+                for(var i=2;i<18;i++){
+                    if(ele_arr[i].getAttribute("spone") == "y"){
+                        var t = document.querySelector('.last-state-page');
+                        t.textContent = Number(t.textContent) - 1;
+                    }
+                }
+                if(last_ele2 == 17){
+                    let next_box = document.querySelector("#yoursavingsbalance");
+                    next_box.style.display = ''
+                }
+                else{
+                    let next_box = document.querySelector("#yoursavingsbalance");
+                    next_box.style.display = 'none'
+                    ele_arr[last_ele2+1].style.display = '';
+                }
+
+    
+                document.getElementById("yournineestate").style.display = "none";
+                document.getElementById("yourninerentalincome").style.display = "none";
+                document.getElementById("yourtenestate").style.display = "none";
+                document.getElementById("yourtenrentalincome").style.display = "none";
+
+                estate_oldval = Number(estate_value)
+    
+            }
+            else if(estate_value == "9"){
+                if(Number(estate_oldval) > Number(estate_value)){
+                    var j = Number(estate_oldval) - Number(estate_value);
+                    j = j * 2;
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - j;
+                }
+                else if(Number(estate_oldval) < Number(estate_value)){
+                    var j = Number(estate_value) - Number(estate_oldval);
+                    j = j * 2;
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) + j;
+                }
+
+                for(var i=2;i<20;i++){
+                    if(ele_arr[i].getAttribute("spone") == "y"){
+                        var t = document.querySelector('.last-state-page');
+                        t.textContent = Number(t.textContent) - 1;
+                    }
+                }
+                if(last_ele2 == 19){
+                    let next_box = document.querySelector("#yoursavingsbalance");
+                    next_box.style.display = ''
+                }
+                else{
+                    let next_box = document.querySelector("#yoursavingsbalance");
+                    next_box.style.display = 'none'
+                    ele_arr[last_ele2+1].style.display = '';
+                }
+
+    
+                document.getElementById("yourtenestate").style.display = "none";
+                document.getElementById("yourtenrentalincome").style.display = "none";  
+
+                estate_oldval = Number(estate_value)
+    
+            }
+            else if(estate_value == '10'){
+                if(Number(estate_oldval) > Number(estate_value)){
+                    var j = Number(estate_oldval) - Number(estate_value);
+                    j = j * 2;
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - j;
+                }
+                else if(Number(estate_oldval) < Number(estate_value)){
+                    var j = Number(estate_value) - Number(estate_oldval);
+                    j = j * 2;
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) + j;
+                }
+
+                for(var i=2;i<22;i++){
+                    if(ele_arr[i].getAttribute("spone") == "y"){
+                        var t = document.querySelector('.last-state-page');
+                        t.textContent = Number(t.textContent) - 1;
+                    }
+                }
+                if(last_ele2 == 21){
+                    let next_box = document.querySelector("#yoursavingsbalance");
+                    next_box.style.display = ''
+                }
+                else{
+                    let next_box = document.querySelector("#yoursavingsbalance");
+                    next_box.style.display = 'none'
+                    ele_arr[last_ele2+1].style.display = '';
+                }
+
+                estate_oldval = Number(estate_value)
+            }
             
-        }
-        else if(estate_value == "4"){
-            document.getElementById("yourfiveestate").style.display = "none";
-            document.getElementById("yourfiverentalincome").style.display = "none";
-            document.getElementById("yoursixestate").style.display = "none";
-            document.getElementById("yoursixrentalincome").style.display = "none";
-            document.getElementById("yoursevenestate").style.display = "none";
-            document.getElementById("yoursevenrentalincome").style.display = "none";
-            document.getElementById("youreightestate").style.display = "none";
-            document.getElementById("youreightrentalincome").style.display = "none";
-            document.getElementById("yournineestate").style.display = "none";
-            document.getElementById("yourninerentalincome").style.display = "none";
-            document.getElementById("yourtenestate").style.display = "none";
-            document.getElementById("yourtenrentalincome").style.display = "none";
-
-            for(var i=2;i<10;i++){
-                if(ele_arr[i].getAttribute("element_yet") != "not_yet"){
-                    b = b + 1;
-                }
-            }
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = Number(stat.textContent) + b
-            
-        }
-        else if(estate_value == "5"){
-            document.getElementById("yoursixestate").style.display = "none";
-            document.getElementById("yoursixrentalincome").style.display = "none";
-            document.getElementById("yoursevenestate").style.display = "none";
-            document.getElementById("yoursevenrentalincome").style.display = "none";
-            document.getElementById("youreightestate").style.display = "none";
-            document.getElementById("youreightrentalincome").style.display = "none";
-            document.getElementById("yournineestate").style.display = "none";
-            document.getElementById("yourninerentalincome").style.display = "none";
-            document.getElementById("yourtenestate").style.display = "none";
-            document.getElementById("yourtenrentalincome").style.display = "none";
-
-            for(var i=2;i<12;i++){
-                if(ele_arr[i].getAttribute("element_yet") != "not_yet"){
-                    b = b + 1;
-                }
-            }
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = Number(stat.textContent) + b
-            
-        }
-        else if(estate_value == "6"){
-            document.getElementById("yoursevenestate").style.display = "none";
-            document.getElementById("yoursevenrentalincome").style.display = "none";
-            document.getElementById("youreightestate").style.display = "none";
-            document.getElementById("youreightrentalincome").style.display = "none";
-            document.getElementById("yournineestate").style.display = "none";
-            document.getElementById("yourninerentalincome").style.display = "none";
-            document.getElementById("yourtenestate").style.display = "none";
-            document.getElementById("yourtenrentalincome").style.display = "none";
-
-            for(var i=2;i<14;i++){
-                if(ele_arr[i].getAttribute("element_yet") != "not_yet"){
-                    b = b + 1;
-                }
-            }
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = Number(stat.textContent) + b
-        }
-        else if(estate_value == "7"){
-            document.getElementById("youreightestate").style.display = "none";
-            document.getElementById("youreightrentalincome").style.display = "none";
-            document.getElementById("yournineestate").style.display = "none";
-            document.getElementById("yourninerentalincome").style.display = "none";
-            document.getElementById("yourtenestate").style.display = "none";
-            document.getElementById("yourtenrentalincome").style.display = "none";
-
-            for(var i=2;i<16;i++){
-                if(ele_arr[i].getAttribute("element_yet") != "not_yet"){
-                    b = b + 1;
-                }
-            }
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = Number(stat.textContent) + b
-        }
-        else if(estate_value == "8"){
-            document.getElementById("yournineestate").style.display = "none";
-            document.getElementById("yourninerentalincome").style.display = "none";
-            document.getElementById("yourtenestate").style.display = "none";
-            document.getElementById("yourtenrentalincome").style.display = "none";
-
-            for(var i=2;i<18;i++){
-                if(ele_arr[i].getAttribute("element_yet") != "not_yet"){
-                    b = b + 1;
-                }
-            }
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = Number(stat.textContent) + b
-        }
-        else if(estate_value == "9"){
-            document.getElementById("yourtenestate").style.display = "none";
-            document.getElementById("yourtenrentalincome").style.display = "none";
-
-            for(var i=2;i<20;i++){
-                if(ele_arr[i].getAttribute("element_yet") != "not_yet"){
-                    b = b + 1;
-                }
-            }
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = Number(stat.textContent) + b
         }
 	});
 });
@@ -5540,6 +6131,8 @@ $(function(){
                 infomess.style.display = 'none';
             }
 
+            document.querySelector("#yourfirstestate").setAttribute("spone","n")
+
         }else{
 
             if(respone > 0){
@@ -5567,6 +6160,7 @@ $(function(){
                 count.textContent = Number(count.textContent) - 1
                 submit.setAttribute("count_yet","not_yet");
             }
+            document.querySelector("#yourfirstestate").setAttribute("spone","y")
         }
 	});
 });
@@ -5608,6 +6202,7 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            document.querySelector("#yourfirstrentalincome").setAttribute("spone","n")
 
         }else{
 
@@ -5652,6 +6247,7 @@ $(function(){
                     submit.setAttribute("count_yet","not_yet");
                 }
             }
+            document.querySelector("#yourfirstrentalincome").setAttribute("spone","y")
         }
 	});
 });
@@ -5693,6 +6289,7 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            document.querySelector("#yoursecondestate").setAttribute("spone","n")
 
         }else{
 
@@ -5721,6 +6318,7 @@ $(function(){
                 count.textContent = Number(count.textContent) - 1;
                 submit.setAttribute("count_yet","not_yet");
             }
+            document.querySelector("#yoursecondestate").setAttribute("spone","y")
         }
 	});
 });
@@ -5762,6 +6360,7 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            document.querySelector("#yoursecondrentalincome").setAttribute("spone","n")
 
         }else{
 
@@ -5806,6 +6405,7 @@ $(function(){
                     submit.setAttribute("count_yet","not_yet");
                 }
             }
+            document.querySelector("#yoursecondrentalincome").setAttribute("spone","y")
         }
 	});
 });
@@ -5847,6 +6447,7 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            document.querySelector("#yourthirdestate").setAttribute("spone","n")
 
         }else{
 
@@ -5875,6 +6476,7 @@ $(function(){
                 count.textContent = Number(count.textContent) - 1;
                 submit.setAttribute("count_yet","not_yet");
             }
+            document.querySelector("#yourthirdestate").setAttribute("spone","y")
         }
 	});
 });
@@ -5916,6 +6518,7 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            document.querySelector("#yourthirdrentalincome").setAttribute("spone","n")
 
         }else{
 
@@ -5960,6 +6563,7 @@ $(function(){
                     submit.setAttribute("count_yet","not_yet");
                 }
             }
+            document.querySelector("#yourthirdrentalincome").setAttribute("spone","y")
         }
 	});
 });
@@ -6001,6 +6605,7 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            document.querySelector("#yourfourestate").setAttribute("spone","n")
 
         }else{
 
@@ -6024,11 +6629,12 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1;
+                submit.setAttribute("count_yet","not_yet");
+            }
+            document.querySelector("#yourfourestate").setAttribute("spone","y")
         }
 	});
 });
@@ -6070,6 +6676,7 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            document.querySelector("#yourfourrentalincome").setAttribute("spone","n")
 
         }else{
 
@@ -6108,6 +6715,7 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
             }
+            document.querySelector("#yourfourrentalincome").setAttribute("spone","y")
         }
 	});
 });
@@ -6149,6 +6757,7 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            document.querySelector("#yourfiveestate").setAttribute("spone","n")
 
         }else{
 
@@ -6177,6 +6786,7 @@ $(function(){
                     count.textContent = Number(count.textContent) - 1;
                     submit.setAttribute("count_yet","not_yet");
                 }
+                document.querySelector("#yourfiveestate").setAttribute("spone","y")
         }
 	});
 });
@@ -6218,6 +6828,7 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            document.querySelector("#yourfiverentalincome").setAttribute("spone","n")
 
         }else{
 
@@ -6256,6 +6867,7 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
             }
+            document.querySelector("#yourfiverentalincome").setAttribute("spone","y")
         }
 	});
 });
@@ -6297,6 +6909,7 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            document.querySelector("#yoursixestate").setAttribute("spone","n")
 
         }else{
 
@@ -6325,6 +6938,7 @@ $(function(){
                     count.textContent = Number(count.textContent) - 1;
                     submit.setAttribute("count_yet","not_yet");
                 }
+                document.querySelector("#yoursixestate").setAttribute("spone","y")
         }
 	});
 });
@@ -6366,6 +6980,7 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            document.querySelector("#yoursixrentalincome").setAttribute("spone","n")
 
         }else{
 
@@ -6404,6 +7019,7 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
             }
+            document.querySelector("#yoursixrentalincome").setAttribute("spone","y")
         }
 	});
 });
@@ -6445,6 +7061,7 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            document.querySelector("#yoursevenestate").setAttribute("spone","n")
 
         }else{
 
@@ -6473,6 +7090,7 @@ $(function(){
                     count.textContent = Number(count.textContent) - 1;
                     submit.setAttribute("count_yet","not_yet");
                 }
+                document.querySelector("#yoursevenestate").setAttribute("spone","y")
         }
 	});
 });
@@ -6514,6 +7132,7 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            document.querySelector("#yoursevenrentalincome").setAttribute("spone","n")
 
         }else{
 
@@ -6552,6 +7171,7 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
             }
+            document.querySelector("#yoursevenrentalincome").setAttribute("spone","y")
         }
 	});
 });
@@ -6593,6 +7213,7 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            document.querySelector("#youreightestate").setAttribute("spone","n")
 
         }else{
 
@@ -6621,6 +7242,7 @@ $(function(){
                     count.textContent = Number(count.textContent) - 1;
                     submit.setAttribute("count_yet","not_yet");
                 }
+                document.querySelector("#youreightestate").setAttribute("spone","y")
         }
 	});
 });
@@ -6662,6 +7284,7 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            document.querySelector("#youreightrentalincome").setAttribute("spone","n")
 
         }else{
 
@@ -6700,6 +7323,7 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
             }
+            document.querySelector("#youreightrentalincome").setAttribute("spone","y")
         }
 	});
 });
@@ -6741,6 +7365,7 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            document.querySelector("#yournineestate").setAttribute("spone","n")
 
         }else{
 
@@ -6769,6 +7394,7 @@ $(function(){
                     count.textContent = Number(count.textContent) - 1;
                     submit.setAttribute("count_yet","not_yet");
                 }
+                document.querySelector("#yournineestate").setAttribute("spone","y")
         }
 	});
 });
@@ -6810,6 +7436,7 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            document.querySelector("#yourninerentalincome").setAttribute("spone","n")
 
         }else{
 
@@ -6848,6 +7475,7 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
             }
+            document.querySelector("#yourninerentalincome").setAttribute("spone","y")
         }
 	});
 });
@@ -6889,6 +7517,7 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            document.querySelector("#yourtenestate").setAttribute("spone","n")
 
         }else{
 
@@ -6917,6 +7546,7 @@ $(function(){
                     count.textContent = Number(count.textContent) - 1;
                     submit.setAttribute("count_yet","not_yet");
                 }
+                document.querySelector("#yourtenestate").setAttribute("spone","y")
         }
 	});
 });
@@ -6958,6 +7588,7 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            document.querySelector("#yourtenrentalincome").setAttribute("spone","n")
 
         }else{
 
@@ -6988,6 +7619,7 @@ $(function(){
                     count.textContent = Number(count.textContent) - 1;
                     submit.setAttribute("count_yet","not_yet");
                 } 
+                document.querySelector("#yourtenrentalincome").setAttribute("spone","y")
         }
 	});
 });
@@ -7836,6 +8468,7 @@ $(function(){
 	});
 });
 
+var chil = sessionStorage.getItem('number-children');
 $(function(){
 
     // 「送信」ボタンの要素を取得
@@ -7892,11 +8525,47 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+
+            if(chil == 'one'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "3"
+            }
+            else if(chil == 'two'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "7"
+            }
+            else if(chil == 'three'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "11"
+            }
+            else if(chil == 'four'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "15"
+            }
+            else if(chil == 'five'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "19"
+            }
+            else if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "23"
+            }
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "27"
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "31"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "35"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "39"
+            }
         }
 	});
 });
@@ -7956,12 +8625,46 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'one'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "2"
+            }
+            else if(chil == 'two'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "6"
+            }
+            else if(chil == 'three'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "10"
+            }
+            else if(chil == 'four'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "14"
+            }
+            else if(chil == 'five'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "18"
+            }
+            else if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "2"
+            }
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "26"
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "30"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "34"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "38"
+            }
         }
 	});
 });
@@ -8021,12 +8724,46 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'one'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "1"
+            }
+            else if(chil == 'two'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "5"
+            }
+            else if(chil == 'three'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "9"
+            }
+            else if(chil == 'four'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "13"
+            }
+            else if(chil == 'five'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "17"
+            }
+            else if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "21"
+            }
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "25"
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "29"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "33"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "37"
+            }
         }
 	});
 });
@@ -8084,24 +8821,64 @@ $(function(){
 			// 次の項目を表示
             var children_number = sessionStorage.getItem('number-children')
             var your_estate = document.getElementById("estate").value;
-            if(children_number == "one"){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "0"
-                // 登録ボタンを活性化
-                let last_state = document.querySelector(".last-state-page");
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-                comp_flg = true;
+
+            if(chil == 'one'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "0"
             }
-            else{
-                let box = document.querySelector('#yoursecondprimaryschool');
-                //styleのdisplayを変更する関数
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
-                const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) - 1)
+            else if(chil == 'two'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "4"
+                let box = document.querySelector("#yoursecondprimaryschool");
+                box.style.display = '';
+            }
+            else if(chil == 'three'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "8"
+                let box = document.querySelector("#yoursecondprimaryschool");
+                box.style.display = '';
+            }
+            else if(chil == 'four'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "12"
+                let box = document.querySelector("#yoursecondprimaryschool");
+                box.style.display = '';
+            }
+            else if(chil == 'five'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "16"
+                let box = document.querySelector("#yoursecondprimaryschool");
+                box.style.display = '';
+            }
+            else if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "20"
+                let box = document.querySelector("#yoursecondprimaryschool");
+                box.style.display = '';
+            }
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "24"
+                let box = document.querySelector("#yoursecondprimaryschool");
+                box.style.display = '';
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "28"
+                let box = document.querySelector("#yoursecondprimaryschool");
+                box.style.display = '';
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "32"
+                let box = document.querySelector("#yoursecondprimaryschool");
+                box.style.display = '';
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "36"
+                let box = document.querySelector("#yoursecondprimaryschool");
+                box.style.display = '';
             }
         }
 	});
@@ -8162,12 +8939,42 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'two'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "3"
+            }
+            else if(chil == 'three'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "7"
+            }
+            else if(chil == 'four'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "11"
+            }
+            else if(chil == 'five'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "15"
+            }
+            else if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "19"
+            }
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "23"
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "27"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "31"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "35"
+            }
         }
 	});
 });
@@ -8227,12 +9034,42 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'two'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "2"
+            }
+            else if(chil == 'three'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "6"
+            }
+            else if(chil == 'four'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "10"
+            }
+            else if(chil == 'five'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "14"
+            }
+            else if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "18"
+            }
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "22"
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "26"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "30"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "34"
+            }
         }
 	});
 });
@@ -8292,12 +9129,42 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'two'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "1"
+            }
+            else if(chil == 'three'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "5"
+            }
+            else if(chil == 'four'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "9"
+            }
+            else if(chil == 'five'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "13"
+            }
+            else if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "17"
+            }
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "21"
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "25"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "29"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "33"
+            }
         }
 	});
 });
@@ -8355,24 +9222,57 @@ $(function(){
 			// 次の項目を表示
             var children_number = sessionStorage.getItem('number-children')
             var your_estate = document.getElementById("estate").value;
-            if(children_number == "two"){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "0"
-                // 登録ボタンを活性化
-                let last_state = document.querySelector(".last-state-page");
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-                comp_flg = true;
+            if(chil == 'two'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "0"
             }
-            else{
-                let box = document.querySelector('#yourthirdprimaryschool');
-                //styleのdisplayを変更する関数
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
-                const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) - 1)
+            else if(chil == 'three'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "4"
+                let box = document.querySelector("#yourthirdprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'four'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "8"
+                let box = document.querySelector("#yourthirdprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'five'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "12"
+                let box = document.querySelector("#yourthirdprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "16"
+                let box = document.querySelector("#yourthirdprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "20"
+                let box = document.querySelector("#yourthirdprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "24"
+                let box = document.querySelector("#yourthirdprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "28"
+                let box = document.querySelector("#yourthirdprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "32"
+                let box = document.querySelector("#yourthirdprimaryschool")
+                box.style.display = ''
             }
         }
 	});
@@ -8434,12 +9334,38 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'three'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "3"
+            }
+            else if(chil == 'four'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "7"
+            }
+            else if(chil == 'five'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "11"
+            }
+            else if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "15"
+            }
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "19"
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "23"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "27"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "31"
+            }
         }
 	});
 });
@@ -8499,12 +9425,38 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'three'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "2"
+            }
+            else if(chil == 'four'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "6"
+            }
+            else if(chil == 'five'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "10"
+            }
+            else if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "14"
+            }
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "18"
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "22"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "26"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "30"
+            }
         }
 	});
 });
@@ -8564,12 +9516,38 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'three'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "1"
+            }
+            else if(chil == 'four'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "5"
+            }
+            else if(chil == 'five'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "9"
+            }
+            else if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "13"
+            }
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "17"
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "21"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "25"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "29"
+            }
         }
 	});
 });
@@ -8627,24 +9605,51 @@ $(function(){
             name.classList.remove('input-invalid');
             var children_number = sessionStorage.getItem('number-children')
             var your_estate = document.getElementById("estate").value;
-            if(children_number == "three"){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "0"
-                // 登録ボタンを活性化
-                let last_state = document.querySelector(".last-state-page");
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-                comp_flg = true;
+            if(chil == 'three'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "0"
             }
-            else{
-                let box = document.querySelector('#yourfourprimaryschool');
-                //styleのdisplayを変更する関数
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
-                const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) - 1)
+            else if(chil == 'four'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "4"
+                let box = document.querySelector("#yourfourprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'five'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "8"
+                let box = document.querySelector("#yourfourprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "12"
+                let box = document.querySelector("#yourfourprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "16"
+                let box = document.querySelector("#yourfourprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "20"
+                let box = document.querySelector("#yourfourprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "24"
+                let box = document.querySelector("#yourfourprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "28"
+                let box = document.querySelector("#yourfourprimaryschool")
+                box.style.display = ''
             }
         }
 	});
@@ -8705,12 +9710,34 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'four'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "3"
+            }
+            else if(chil == 'five'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "7"
+            }
+            else if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "11"
+            }
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "15"
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "19"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "23"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "27"
+            }
         }
 	});
 });
@@ -8770,12 +9797,34 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'four'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "2"
+            }
+            else if(chil == 'five'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "6"
+            }
+            else if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "10"
+            }
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "14"
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "18"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "22"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "26"
+            }
         }
 	});
 });
@@ -8835,12 +9884,34 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'four'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "1"
+            }
+            else if(chil == 'five'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "5"
+            }
+            else if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "9"
+            }
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "13"
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "17"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "21"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "25"
+            }
         }
 	});
 });
@@ -8897,24 +9968,45 @@ $(function(){
             name.classList.remove('input-invalid');
             var children_number = sessionStorage.getItem('number-children')
             var your_estate = document.getElementById("estate").value;
-            if(children_number == "four"){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "0"
-                // 登録ボタンを活性化
-                let last_state = document.querySelector(".last-state-page");
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-                comp_flg = true;
+            if(chil == 'four'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "0"
             }
-            else{
-                let box = document.querySelector('#yourfiveprimaryschool');
-                //styleのdisplayを変更する関数
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
-                const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) - 1)
+            else if(chil == 'five'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "4"
+                let box = document.querySelector("#yourfiveprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "8"
+                let box = document.querySelector("#yourfiveprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "12"
+                let box = document.querySelector("#yourfiveprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "16"
+                let box = document.querySelector("#yourfiveprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "20"
+                let box = document.querySelector("#yourfiveprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "24"
+                let box = document.querySelector("#yourfiveprimaryschool")
+                box.style.display = ''
             }
         }
 	});
@@ -8975,12 +10067,30 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'five'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "3"
+            }
+            else if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "7"
+            }
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "11"
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "15"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "19"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "23"
+            }
         }
 	});
 });
@@ -9040,12 +10150,30 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'five'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "2"
+            }
+            else if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "6"
+            }
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "10"
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "14"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "18"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "22"
+            }
         }
 	});
 });
@@ -9105,12 +10233,30 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'five'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "1"
+            }
+            else if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "5"
+            }
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "9"
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "13"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "17"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "21"
+            }
         }
 	});
 });
@@ -9167,24 +10313,41 @@ $(function(){
             name.classList.remove('input-invalid');
             var children_number = sessionStorage.getItem('number-children')
             var your_estate = document.getElementById("estate").value;
-            if(children_number == "five"){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "0"
-                // 登録ボタンを活性化
-                let last_state = document.querySelector(".last-state-page");
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-                comp_flg = true;
+            if(chil == 'five'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "0"
+                let box = document.querySelector("#yoursixprimaryschool")
+                box.style.display = ''
             }
-            else{
-                let box = document.querySelector('#yoursixprimaryschool');
-                //styleのdisplayを変更する関数
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
-                const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) - 1)
+            else if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "4"
+                let box = document.querySelector("#yoursixprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "8"
+                let box = document.querySelector("#yoursixprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "12"
+                let box = document.querySelector("#yoursixprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "16"
+                let box = document.querySelector("#yoursixprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "20"
+                let box = document.querySelector("#yoursixprimaryschool")
+                box.style.display = ''
             }
         }
 	});
@@ -9245,12 +10408,26 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "3"
+            }
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "7"
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "11"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "15"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "19"
+            }
         }
 	});
 });
@@ -9310,12 +10487,26 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "2"
+            }
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "6"
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "10"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "14"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "18"
+            }
         }
 	});
 });
@@ -9375,12 +10566,26 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "1"
+            }
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "5"
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "9"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "13"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "17"
+            }
         }
 	});
 });
@@ -9437,24 +10642,33 @@ $(function(){
             name.classList.remove('input-invalid');
             var children_number = sessionStorage.getItem('number-children')
             var your_estate = document.getElementById("estate").value;
-            if(children_number == "six"){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "0"
-                // 登録ボタンを活性化
-                let last_state = document.querySelector(".last-state-page");
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-                comp_flg = true;
+            if(chil == 'six'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "0"
             }
-            else{
-                let box = document.querySelector('#yoursevenprimaryschool');
-                //styleのdisplayを変更する関数
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
-                const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) - 1)
+            else if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "4"
+                let box = document.querySelector("#yoursevenprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "8"
+                let box = document.querySelector("#yoursevenprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "12"
+                let box = document.querySelector("#yoursevenprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "16"
+                let box = document.querySelector("#yoursevenprimaryschool")
+                box.style.display = ''
             }
         }
 	});
@@ -9515,12 +10729,22 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "3"
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "7"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "11"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "15"
+            }
         }
 	});
 });
@@ -9580,12 +10804,22 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "2"
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "6"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "10"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "14"
+            }
         }
 	});
 });
@@ -9645,12 +10879,22 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "1"
+            }
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "5"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "9"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "13"
+            }
         }
 	});
 });
@@ -9707,24 +10951,27 @@ $(function(){
             name.classList.remove('input-invalid');
             var children_number = sessionStorage.getItem('number-children')
             var your_estate = document.getElementById("estate").value;
-            if(children_number == "seven"){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "0"
-                // 登録ボタンを活性化
-                let last_state = document.querySelector(".last-state-page");
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-                comp_flg = true;
+            if(chil == 'seven'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "0"
             }
-            else{
-                let box = document.querySelector('#youreightprimaryschool');
-                //styleのdisplayを変更する関数
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
-                const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) - 1)
+            else if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "4"
+                let box = document.querySelector("#youreightprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "8"
+                let box = document.querySelector("#youreightprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "12"
+                let box = document.querySelector("#youreightprimaryschool")
+                box.style.display = ''
             }
         }
 	});
@@ -9785,12 +11032,18 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "3"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "7"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "11"
+            }
         }
 	});
 });
@@ -9850,12 +11103,18 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "2"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "6"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "10"
+            }
         }
 	});
 });
@@ -9915,12 +11174,18 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "1"
+            }
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "5"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "9"
+            }
         }
 	});
 });
@@ -9977,24 +11242,21 @@ $(function(){
             name.classList.remove('input-invalid');
             var children_number = sessionStorage.getItem('number-children')
             var your_estate = document.getElementById("estate").value;
-            if(children_number == "eight"){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "0"
-                // 登録ボタンを活性化
-                let last_state = document.querySelector(".last-state-page");
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-                comp_flg = true;
+            if(chil == 'eight'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "0"
             }
-            else{
-                let box = document.querySelector('#yournineprimaryschool');
-                //styleのdisplayを変更する関数
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
-                const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) - 1)
+            else if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "4"
+                let box = document.querySelector("#yournineprimaryschool")
+                box.style.display = ''
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "8"
+                let box = document.querySelector("#yournineprimaryschool")
+                box.style.display = ''
             }
         }
 	});
@@ -10055,12 +11317,14 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "3"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "7"
+            }
         }
 	});
 });
@@ -10120,12 +11384,14 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "2"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "6"
+            }
         }
 	});
 });
@@ -10185,12 +11451,14 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "1"
+            }
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "5"
+            }
         }
 	});
 });
@@ -10247,24 +11515,15 @@ $(function(){
             name.classList.remove('input-invalid');
             var children_number = sessionStorage.getItem('number-children')
             var your_estate = document.getElementById("estate").value;
-            if(children_number == "nine"){
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "0"
-                // 登録ボタンを活性化
-                let last_state = document.querySelector(".last-state-page");
-                let next_button = document.querySelector("#next_page2-not");
-                $('#next_page2-not').prop('disabled', false);
-                next_button.id = "next_page2"
-                comp_flg = true;
+            if(chil == 'nine'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "0"
             }
-            else{
-                let box = document.querySelector('#yourtenprimaryschool');
-                //styleのdisplayを変更する関数
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
-                const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) - 1)
+            else if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "4"
+                let box = document.querySelector("#yourtenprimaryschool")
+                box.style.display = ''
             }
         }
 	});
@@ -10325,12 +11584,10 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "3"
+            }
         }
 	});
 });
@@ -10390,12 +11647,10 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "2"
+            }
         }
 	});
 });
@@ -10455,15 +11710,14 @@ $(function(){
 			//styleのdisplayを変更する関数
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                }
+            if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "1"
+            }
         }
 	});
 });
+
 
 $(function(){
 
@@ -10498,11 +11752,10 @@ $(function(){
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "0"
             // 登録ボタンを活性化
-            let last_state = document.querySelector(".last-state-page");
-            let next_button = document.querySelector("#next_page2-not");
-            $('#next_page2-not').prop('disabled', false);
-            next_button.id = "next_page2"
-            comp_flg = true;
+            if(chil == 'ten'){
+                var a = document.querySelector('.last-state-page');
+                a.textContent = "0"
+            }
         }
 	});
 });
@@ -10539,4 +11792,21 @@ $(function(){
             name.classList.remove('input-invalid');
         }
 	});
+});
+
+
+$(function(){
+
+    let ele = document.getElementById("number-children")
+    let len = ele.length;
+    let checkValue = '';
+    ele.addEventListener('change', (e) => {
+        var zan = document.querySelector(".last-state-page").textContent
+        console.log(String(zan))
+        if(String(zan) != '0'){
+            let next_button = document.querySelector("#next_page2");
+            $('#next_page2').prop('disabled', true);
+            next_button.id = "next_page2-not"
+        }
+    });
 });
