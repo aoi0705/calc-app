@@ -6187,6 +6187,22 @@ $(function(){
                 infomess.style.display = 'none';
             }
 
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
+
         }else{
 
             if(respone > 0){
@@ -6226,6 +6242,21 @@ $(function(){
                     let count = document.querySelector('.last-state-page');
                     count.textContent = Number(count.textContent) - 1
                     submit.setAttribute("count_yet","not_yet");
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
         }
@@ -6273,6 +6304,21 @@ $(function(){
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
 
         }else{
@@ -6728,6 +6774,21 @@ $(function(){
 
                 estate_oldval = Number(estate_value)
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             
         }
 	});
@@ -6770,6 +6831,21 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
             document.querySelector("#yourfirstestate").setAttribute("spone","n")
 
@@ -6799,6 +6875,21 @@ $(function(){
                 let count = document.querySelector('.last-state-page');
                 count.textContent = Number(count.textContent) - 1
                 submit.setAttribute("count_yet","not_yet");
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             document.querySelector("#yourfirstestate").setAttribute("spone","y")
         }
@@ -6841,6 +6932,21 @@ $(function(){
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             document.querySelector("#yourfirstrentalincome").setAttribute("spone","n")
 
@@ -6887,6 +6993,21 @@ $(function(){
                     submit.setAttribute("count_yet","not_yet");
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             document.querySelector("#yourfirstrentalincome").setAttribute("spone","y")
         }
 	});
@@ -6929,6 +7050,21 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             document.querySelector("#yoursecondestate").setAttribute("spone","n")
 
         }else{
@@ -6957,6 +7093,21 @@ $(function(){
                 let count = document.querySelector('.last-state-page');
                 count.textContent = Number(count.textContent) - 1;
                 submit.setAttribute("count_yet","not_yet");
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             document.querySelector("#yoursecondestate").setAttribute("spone","y")
         }
@@ -6999,6 +7150,21 @@ $(function(){
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             document.querySelector("#yoursecondrentalincome").setAttribute("spone","n")
 
@@ -7045,6 +7211,21 @@ $(function(){
                     submit.setAttribute("count_yet","not_yet");
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             document.querySelector("#yoursecondrentalincome").setAttribute("spone","y")
         }
 	});
@@ -7087,6 +7268,21 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             document.querySelector("#yourthirdestate").setAttribute("spone","n")
 
         }else{
@@ -7115,6 +7311,21 @@ $(function(){
                 let count = document.querySelector('.last-state-page');
                 count.textContent = Number(count.textContent) - 1;
                 submit.setAttribute("count_yet","not_yet");
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             document.querySelector("#yourthirdestate").setAttribute("spone","y")
         }
@@ -7157,6 +7368,21 @@ $(function(){
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             document.querySelector("#yourthirdrentalincome").setAttribute("spone","n")
 
@@ -7203,6 +7429,21 @@ $(function(){
                     submit.setAttribute("count_yet","not_yet");
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             document.querySelector("#yourthirdrentalincome").setAttribute("spone","y")
         }
 	});
@@ -7245,6 +7486,21 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             document.querySelector("#yourfourestate").setAttribute("spone","n")
 
         }else{
@@ -7273,6 +7529,21 @@ $(function(){
                 let count = document.querySelector('.last-state-page');
                 count.textContent = Number(count.textContent) - 1;
                 submit.setAttribute("count_yet","not_yet");
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             document.querySelector("#yourfourestate").setAttribute("spone","y")
         }
@@ -7316,6 +7587,21 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             document.querySelector("#yourfourrentalincome").setAttribute("spone","n")
 
         }else{
@@ -7354,6 +7640,21 @@ $(function(){
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             document.querySelector("#yourfourrentalincome").setAttribute("spone","y")
         }
@@ -7397,6 +7698,21 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             document.querySelector("#yourfiveestate").setAttribute("spone","n")
 
         }else{
@@ -7421,12 +7737,27 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1;
+                submit.setAttribute("count_yet","not_yet");
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
                 }
-                document.querySelector("#yourfiveestate").setAttribute("spone","y")
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
+            document.querySelector("#yourfiveestate").setAttribute("spone","y")
         }
 	});
 });
@@ -7468,6 +7799,21 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             document.querySelector("#yourfiverentalincome").setAttribute("spone","n")
 
         }else{
@@ -7506,6 +7852,21 @@ $(function(){
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             document.querySelector("#yourfiverentalincome").setAttribute("spone","y")
         }
@@ -7549,6 +7910,21 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             document.querySelector("#yoursixestate").setAttribute("spone","n")
 
         }else{
@@ -7573,12 +7949,27 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1;
+                submit.setAttribute("count_yet","not_yet");
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
                 }
-                document.querySelector("#yoursixestate").setAttribute("spone","y")
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
+            document.querySelector("#yoursixestate").setAttribute("spone","y")
         }
 	});
 });
@@ -7620,6 +8011,21 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             document.querySelector("#yoursixrentalincome").setAttribute("spone","n")
 
         }else{
@@ -7658,6 +8064,21 @@ $(function(){
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             document.querySelector("#yoursixrentalincome").setAttribute("spone","y")
         }
@@ -7701,6 +8122,21 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             document.querySelector("#yoursevenestate").setAttribute("spone","n")
 
         }else{
@@ -7725,12 +8161,27 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1;
+                submit.setAttribute("count_yet","not_yet");
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
                 }
-                document.querySelector("#yoursevenestate").setAttribute("spone","y")
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
+            document.querySelector("#yoursevenestate").setAttribute("spone","y")
         }
 	});
 });
@@ -7772,6 +8223,21 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             document.querySelector("#yoursevenrentalincome").setAttribute("spone","n")
 
         }else{
@@ -7810,6 +8276,21 @@ $(function(){
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             document.querySelector("#yoursevenrentalincome").setAttribute("spone","y")
         }
@@ -7853,6 +8334,21 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             document.querySelector("#youreightestate").setAttribute("spone","n")
 
         }else{
@@ -7877,12 +8373,27 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1;
+                submit.setAttribute("count_yet","not_yet");
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
                 }
-                document.querySelector("#youreightestate").setAttribute("spone","y")
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
+            document.querySelector("#youreightestate").setAttribute("spone","y")
         }
 	});
 });
@@ -7924,6 +8435,21 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             document.querySelector("#youreightrentalincome").setAttribute("spone","n")
 
         }else{
@@ -7962,6 +8488,21 @@ $(function(){
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             document.querySelector("#youreightrentalincome").setAttribute("spone","y")
         }
@@ -8005,6 +8546,21 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             document.querySelector("#yournineestate").setAttribute("spone","n")
 
         }else{
@@ -8029,12 +8585,27 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1;
+                submit.setAttribute("count_yet","not_yet");
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
                 }
-                document.querySelector("#yournineestate").setAttribute("spone","y")
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
+            document.querySelector("#yournineestate").setAttribute("spone","y")
         }
 	});
 });
@@ -8076,6 +8647,21 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             document.querySelector("#yourninerentalincome").setAttribute("spone","n")
 
         }else{
@@ -8114,6 +8700,21 @@ $(function(){
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             document.querySelector("#yourninerentalincome").setAttribute("spone","y")
         }
@@ -8157,6 +8758,21 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             document.querySelector("#yourtenestate").setAttribute("spone","n")
 
         }else{
@@ -8181,12 +8797,27 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1;
+                submit.setAttribute("count_yet","not_yet");
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
                 }
-                document.querySelector("#yourtenestate").setAttribute("spone","y")
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
+            document.querySelector("#yourtenestate").setAttribute("spone","y")
         }
 	});
 });
@@ -8228,6 +8859,21 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             document.querySelector("#yourtenrentalincome").setAttribute("spone","n")
 
         }else{
@@ -8254,12 +8900,27 @@ $(function(){
             box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
-                } 
-                document.querySelector("#yourtenrentalincome").setAttribute("spone","y")
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1;
+                submit.setAttribute("count_yet","not_yet");
+            } 
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
+            document.querySelector("#yourtenrentalincome").setAttribute("spone","y")
         }
 	});
 });
@@ -8300,6 +8961,21 @@ $(function(){
             var infomess = document.querySelector("#text");
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
 
         }else{
@@ -8348,6 +9024,21 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -8389,6 +9080,21 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -8412,11 +9118,26 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1;
+                submit.setAttribute("count_yet","not_yet");
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
                 }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -8458,6 +9179,21 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -8481,11 +9217,26 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1;
+                submit.setAttribute("count_yet","not_yet");
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
                 }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -8527,6 +9278,21 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -8553,11 +9319,26 @@ $(function(){
             box2.style.display='';
             box2.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1;
+                submit.setAttribute("count_yet","not_yet");
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
                 }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -8595,6 +9376,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -8618,11 +9414,26 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1;
+                submit.setAttribute("count_yet","not_yet");
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
                 }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -8660,6 +9471,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -8683,11 +9509,26 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1;
+                submit.setAttribute("count_yet","not_yet");
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
                 }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -8725,6 +9566,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -8748,11 +9604,26 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1;
+                submit.setAttribute("count_yet","not_yet");
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
                 }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -8787,6 +9658,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -8835,6 +9721,21 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -8872,6 +9773,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -8896,11 +9812,26 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1;
+                submit.setAttribute("count_yet","not_yet");
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
                 }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -8938,6 +9869,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -8961,11 +9907,26 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1;
+                submit.setAttribute("count_yet","not_yet");
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
                 }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -9003,6 +9964,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -9026,11 +10002,26 @@ $(function(){
 			box.style.display='';
             box.setAttribute('element_yet','not_yet');
             const base_laststate = document.querySelector(".last-state-page").textContent
-                if(submit.getAttribute("count_yet") != "not_yet"){
-                    let count = document.querySelector('.last-state-page');
-                    count.textContent = Number(count.textContent) - 1;
-                    submit.setAttribute("count_yet","not_yet");
+            if(submit.getAttribute("count_yet") != "not_yet"){
+                let count = document.querySelector('.last-state-page');
+                count.textContent = Number(count.textContent) - 1;
+                submit.setAttribute("count_yet","not_yet");
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
                 }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -9065,6 +10056,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -9104,6 +10110,21 @@ $(function(){
                 next_button.id = "next_page2"
                 comp_flg = true;
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -9140,6 +10161,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -9206,6 +10242,21 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "39"
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -9241,6 +10292,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -9305,6 +10371,21 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "38"
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -9340,6 +10421,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -9404,6 +10500,21 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "37"
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -9441,6 +10552,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -9465,6 +10591,11 @@ $(function(){
             if(chil == 'one'){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "0"
+                if(document.getElementsByClassName("btn btn-primary mx-auto d-block")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             else if(chil == 'two'){
                 var a = document.querySelector('.last-state-page');
@@ -9520,6 +10651,21 @@ $(function(){
                 let box = document.querySelector("#yoursecondprimaryschool");
                 box.style.display = '';
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -9555,6 +10701,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -9615,6 +10776,21 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "35"
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -9650,6 +10826,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -9710,6 +10901,21 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "34"
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -9745,6 +10951,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -9805,6 +11026,21 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "33"
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -9842,6 +11078,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -9865,6 +11116,11 @@ $(function(){
             if(chil == 'two'){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "0"
+                if(document.getElementsByClassName("btn btn-primary mx-auto d-block")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             else if(chil == 'three'){
                 var a = document.querySelector('.last-state-page');
@@ -9914,6 +11170,21 @@ $(function(){
                 let box = document.querySelector("#yourthirdprimaryschool")
                 box.style.display = ''
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -9949,6 +11220,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -10006,6 +11292,21 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "31"
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -10041,6 +11342,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -10097,6 +11413,21 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "30"
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -10132,6 +11463,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -10188,6 +11534,21 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "29"
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -10225,6 +11586,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
             
         }else{
@@ -10248,6 +11624,11 @@ $(function(){
             if(chil == 'three'){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "0"
+                if(document.getElementsByClassName("btn btn-primary mx-auto d-block")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             else if(chil == 'four'){
                 var a = document.querySelector('.last-state-page');
@@ -10291,6 +11672,21 @@ $(function(){
                 let box = document.querySelector("#yourfourprimaryschool")
                 box.style.display = ''
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -10326,6 +11722,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -10378,6 +11789,21 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "27"
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -10413,6 +11839,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -10465,6 +11906,21 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "26"
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -10500,6 +11956,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -10552,6 +12023,21 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "25"
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -10589,6 +12075,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -10611,6 +12112,11 @@ $(function(){
             if(chil == 'four'){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "0"
+                if(document.getElementsByClassName("btn btn-primary mx-auto d-block")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             else if(chil == 'five'){
                 var a = document.querySelector('.last-state-page');
@@ -10648,6 +12154,21 @@ $(function(){
                 let box = document.querySelector("#yourfiveprimaryschool")
                 box.style.display = ''
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -10683,6 +12204,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -10731,6 +12267,21 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "23"
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -10766,6 +12317,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -10814,6 +12380,21 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "22"
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -10849,6 +12430,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -10897,6 +12493,21 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "21"
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -10934,6 +12545,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -10956,8 +12582,11 @@ $(function(){
             if(chil == 'five'){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "0"
-                let box = document.querySelector("#yoursixprimaryschool")
-                box.style.display = ''
+                if(document.getElementsByClassName("btn btn-primary mx-auto d-block")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             else if(chil == 'six'){
                 var a = document.querySelector('.last-state-page');
@@ -10988,6 +12617,21 @@ $(function(){
                 a.textContent = "20"
                 let box = document.querySelector("#yoursixprimaryschool")
                 box.style.display = ''
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
         }
 	});
@@ -11024,6 +12668,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -11068,6 +12727,21 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "19"
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -11103,6 +12777,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -11147,6 +12836,21 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "18"
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -11182,6 +12886,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -11226,6 +12945,21 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "17"
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -11263,6 +12997,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -11285,6 +13034,11 @@ $(function(){
             if(chil == 'six'){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "0"
+                if(document.getElementsByClassName("btn btn-primary mx-auto d-block")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             else if(chil == 'seven'){
                 var a = document.querySelector('.last-state-page');
@@ -11309,6 +13063,21 @@ $(function(){
                 a.textContent = "16"
                 let box = document.querySelector("#yoursevenprimaryschool")
                 box.style.display = ''
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
         }
 	});
@@ -11345,6 +13114,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -11385,6 +13169,21 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "15"
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -11420,6 +13219,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -11460,6 +13274,21 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "14"
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -11495,6 +13324,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -11535,6 +13379,21 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "13"
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }
 	});
 });
@@ -11572,6 +13431,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -11594,6 +13468,11 @@ $(function(){
             if(chil == 'seven'){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "0"
+                if(document.getElementsByClassName("btn btn-primary mx-auto d-block")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             else if(chil == 'eight'){
                 var a = document.querySelector('.last-state-page');
@@ -11612,6 +13491,21 @@ $(function(){
                 a.textContent = "12"
                 let box = document.querySelector("#youreightprimaryschool")
                 box.style.display = ''
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
         }
 	});
@@ -11650,6 +13544,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -11683,6 +13592,21 @@ $(function(){
             else if(chil == 'ten'){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "11"
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
         }
 	});
@@ -11721,6 +13645,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -11754,6 +13693,21 @@ $(function(){
             else if(chil == 'ten'){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "10"
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
         }
 	});
@@ -11792,6 +13746,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -11825,6 +13794,21 @@ $(function(){
             else if(chil == 'ten'){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "9"
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
         }
 	});
@@ -11863,6 +13847,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -11885,6 +13884,11 @@ $(function(){
             if(chil == 'eight'){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "0"
+                if(document.getElementsByClassName("btn btn-primary mx-auto d-block")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             else if(chil == 'nine'){
                 var a = document.querySelector('.last-state-page');
@@ -11897,6 +13901,21 @@ $(function(){
                 a.textContent = "8"
                 let box = document.querySelector("#yournineprimaryschool")
                 box.style.display = ''
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
         }
 	});
@@ -11935,6 +13954,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -11964,6 +13998,21 @@ $(function(){
             else if(chil == 'ten'){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "7"
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
         }
 	});
@@ -12002,6 +14051,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -12031,6 +14095,21 @@ $(function(){
             else if(chil == 'ten'){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "6"
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
         }
 	});
@@ -12069,6 +14148,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -12098,6 +14192,21 @@ $(function(){
             else if(chil == 'ten'){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "5"
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
         }
 	});
@@ -12136,6 +14245,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -12158,12 +14282,32 @@ $(function(){
             if(chil == 'nine'){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "0"
+                if(document.getElementsByClassName("btn btn-primary mx-auto d-block")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             else if(chil == 'ten'){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "4"
                 let box = document.querySelector("#yourtenprimaryschool")
                 box.style.display = ''
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
         }
 	});
@@ -12202,6 +14346,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -12227,6 +14386,21 @@ $(function(){
             if(chil == 'ten'){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "3"
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
         }
 	});
@@ -12265,6 +14439,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -12290,6 +14479,21 @@ $(function(){
             if(chil == 'ten'){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "2"
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
         }
 	});
@@ -12328,6 +14532,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
 
@@ -12353,6 +14572,21 @@ $(function(){
             if(chil == 'ten'){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "1"
+            }
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
         }
 	});
@@ -12382,6 +14616,21 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -12395,6 +14644,11 @@ $(function(){
             if(chil == 'ten'){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "0"
+                if(document.getElementsByClassName("btn btn-primary mx-auto d-block")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
         }
 	});
