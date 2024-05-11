@@ -11,9 +11,5 @@ $(function(){
         $("#consent-button").prop('disabled', false);
         scrollend = true;
       }
-      else{
-        $("#consent-button").prop('disabled', true);
-        scrollend = false;
-      }
     });
   });

@@ -913,7 +913,8 @@ button:hover.btn-primary{
 	background-color: #FF9696;
 }
 
-#name,#email,#nickname,#onetime-password,#post-number,#job,#spouse-birthday,#spouse-job,#number-children,#first-birthday,#second-birthday,#third-birthday,#birthday{
+#name,#email,#nickname,#onetime-password,#post-number,#job,#spouse-birthday,#spouse-job,#number-children,#first-birthday,#second-birthday,#third-birthday,#four-birthday,
+#five-birthday,#six-birthday,#seven-birthday,#eight-birthday,#nine-birthday,#ten-birthday,#birthday{
 	width: 500px;
 }
 

@@ -1,7 +1,5 @@
 // const { stringify } = require("postcss");
 
-//const { stringify } = require("postcss");
-
 //タイマー
 $(function() {
 	var timer = false;
@@ -145,6 +143,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }else{
             if(submit.getAttribute("count_yet") != "not_yet"){
                 // エラーメッセージのテキストに空文字を代入
@@ -171,6 +184,21 @@ $(function(){
                         }
                     }
                 };
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
         }
 	});
@@ -211,6 +239,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }else{
             let box = document.querySelector('#yourbirthday');
             if(box.getAttribute("element_yet") != "not_yet"){
@@ -238,6 +281,21 @@ $(function(){
                         }
                     }
                 };
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
         }
 	});
@@ -276,6 +334,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }else{
             if(submit.getAttribute("count_yet") != "not_yet"){
                 // エラーメッセージのテキストに空文字を代入
@@ -302,6 +375,21 @@ $(function(){
                         }
                     }
                 };
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
         }
 	});
@@ -341,6 +429,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }else{
             if(submit.getAttribute("count_yet") != "not_yet"){
                 // エラーメッセージのテキストに空文字を代入
@@ -367,6 +470,21 @@ $(function(){
                         }
                     }
                 };
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
         }
 	});
@@ -406,6 +524,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }else{
             if(submit.getAttribute("count_yet") != "not_yet"){
                 // エラーメッセージのテキストに空文字を代入
@@ -432,6 +565,21 @@ $(function(){
                         }
                     }
                 };
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
         }
 	});
@@ -479,6 +627,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
         }else{
@@ -538,8 +701,23 @@ $(function(){
 
                 old_val = 'いない';
             }
-
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
             }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
+
+        }
 	});
 });
 
@@ -576,6 +754,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             spouse_flg1 = false;
         }else{
             if(submit.getAttribute("count_yet") != "not_yet"){
@@ -603,6 +796,21 @@ $(function(){
                         }
                     }
                 };
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             spouse_flg1 = true;
         }
@@ -642,6 +850,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             spouse_flg2 = false;
 
         }else{
@@ -670,6 +893,21 @@ $(function(){
                         }
                     }
                 };
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
             spouse_flg2 = true;
         }
@@ -720,6 +958,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
 
         }else{
             // 次の項目を表示
@@ -766,6 +1019,21 @@ $(function(){
                     next_button.id = "next_page2"
                 }
                 old_val2 = "いない";
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
         }
 	});
@@ -823,6 +1091,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
 
@@ -1693,11 +1976,20 @@ $(function(){
                 }
             }
 
-            var ele = document.querySelector(".last-state-page").textContent
-            if(String(ele) != '0'){
-                let next_button = document.querySelector("#next_page2");
-                $('#next_page2').prop('disabled', true);
-                next_button.id = "next_page2-not"
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
             }
         }
 	});
@@ -1735,6 +2027,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
             one_birth = false;
@@ -1832,6 +2139,21 @@ $(function(){
                     }
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             one_birth = true;
             document.querySelector("#firstchildrenbirth").setAttribute("spone","y")
         }
@@ -1869,6 +2191,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
             one_sex = false;
@@ -1969,6 +2306,21 @@ $(function(){
                     }
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             one_sex = true;
             document.querySelector("#firstchildrensex").setAttribute("spone","y")
         }
@@ -2006,6 +2358,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
             second_birth = false;
@@ -2097,6 +2464,21 @@ $(function(){
                     }
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             second_birth = true;
             document.querySelector("#secondchildrenbirth").setAttribute("spone","y")
         }
@@ -2134,6 +2516,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
             second_sex = false;
@@ -2228,6 +2625,21 @@ $(function(){
                     }
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             second_sex = true;
             document.querySelector("#secondchildrensex").setAttribute("spone","y")
         }
@@ -2265,6 +2677,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
             third_birth = false;
@@ -2348,6 +2775,21 @@ $(function(){
                     }
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             third_birth = true;
             document.querySelector("#thirdchildrenbirth").setAttribute("spone","y")
         }
@@ -2385,6 +2827,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
             third_sex = false;
@@ -2472,6 +2929,21 @@ $(function(){
                     }
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             third_sex = true;
             document.querySelector("#thirdchildrensex").setAttribute("spone","y")
         }
@@ -2509,6 +2981,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
             four_birth = false;
@@ -2590,6 +3077,21 @@ $(function(){
                     }
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             four_birth = true;
             document.querySelector("#fourchildrenbirth").setAttribute("spone","y")
         }
@@ -2627,6 +3129,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
             four_sex = false;
@@ -2702,6 +3219,21 @@ $(function(){
                     }
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             four_sex = true;
             document.querySelector("#fourchildrensex").setAttribute("spone","y")
 
@@ -2740,6 +3272,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
             five_birth = false;
@@ -2809,6 +3356,21 @@ $(function(){
                     }
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             five_birth = true;
             document.querySelector("#fivechildrenbirth").setAttribute("spone","y")
         }
@@ -2846,6 +3408,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
             five_sex = false;
@@ -2919,6 +3496,21 @@ $(function(){
                     }
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             five_sex = true;
             document.querySelector("#fivechildrensex").setAttribute("spone","y")
         }
@@ -2956,6 +3548,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
             six_birth = false;
@@ -3018,6 +3625,21 @@ $(function(){
                     }
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             six_birth = true;
             document.querySelector("#sixchildrenbirth").setAttribute("spone","y")
         }
@@ -3055,6 +3677,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
             six_sex = false;
@@ -3121,6 +3758,21 @@ $(function(){
                     }
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             six_sex = true;
             document.querySelector("#sixchildrensex").setAttribute("spone","y")
         }
@@ -3158,6 +3810,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
             seven_birth = false;
@@ -3213,6 +3880,21 @@ $(function(){
                     }
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             seven_birth = true;
             document.querySelector("#sevenchildrenbirth").setAttribute("spone","y")
         }
@@ -3250,6 +3932,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
             seven_sex = false;
@@ -3309,6 +4006,21 @@ $(function(){
                     }
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             seven_sex = true;
             document.querySelector("#sevenchildrensex").setAttribute("spone","y")
         }
@@ -3346,6 +4058,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
             eight_birth = false;
@@ -3394,6 +4121,21 @@ $(function(){
                     }
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             eight_birth = true;
             document.querySelector("#eightchildrenbirth").setAttribute("spone","y")
         }
@@ -3430,6 +4172,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
             eight_sex = false;
@@ -3482,6 +4239,21 @@ $(function(){
                     }
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             eight_sex = true;
             document.querySelector("#eightchildrensex").setAttribute("spone","y")
         }
@@ -3519,6 +4291,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
             nine_birth = false;
@@ -3560,6 +4347,21 @@ $(function(){
                     }
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             nine_birth = true;
             document.querySelector("#ninechildrenbirth").setAttribute("spone","y")
         }
@@ -3597,6 +4399,21 @@ $(function(){
                     ele_arr[i].style.display = 'none';
                     var st = document.querySelector('.last-state-page');
                     st.textContent = Number(st.textContent) + 1;
+                }
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
             nine_sex = false;
@@ -3642,6 +4459,21 @@ $(function(){
                     }
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             nine_sex = true;
             document.querySelector("#ninechildrensex").setAttribute("spone","y")
         }
@@ -3681,6 +4513,21 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             ten_birth = false;
             document.querySelector("#tenchildrenbirth").setAttribute("spone","n")
 
@@ -3711,6 +4558,21 @@ $(function(){
                         let count = document.querySelector('.last-state-page');
                         count.textContent = Number(count.textContent) - 1;
                     }
+                }
+            }
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
                 }
             }
             ten_birth = true;
@@ -3744,6 +4606,21 @@ $(function(){
             // 後続の処理を止める
             ten_sex = false;
             document.querySelector("#tenchildrensex").setAttribute("spone","n")
+            var cn = document.querySelector(".last-state-page").textContent
+            if(String(cn) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(cn) == '0'){
+                if(document.getElementsByClassName("btn btn-primary custom-btn-not")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
         }else{
             var ele_arr = document.getElementsByClassName("form-group");
             // エラーメッセージのテキストに空文字を代入
