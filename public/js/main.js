@@ -174,7 +174,11 @@ $(function(){
                 submit.setAttribute("count_yet","not_yet");
             }
             else{
-                for(var i=0;i<30;i++){
+                let box = document.querySelector('#yournickname');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                box.setAttribute('element_yet','not_yet');
+                for(var i=1;i<30;i++){
                     if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
                         if(ele_arr[i].style.display != ''){
                             ele_arr[i].style.display = ''
@@ -670,7 +674,7 @@ $(function(){
                 }
                 else if(old_val == '0'){
                     var st = document.querySelector('.last-state-page');
-                    st.textContent = Number(st.textContent) + 2
+                    st.textContent = Number(st.textContent) + 1
                     let box = document.querySelector("#partnerbirthday")
                     box.style.display = '';
                 }
@@ -917,6 +921,8 @@ $(function(){
 var number_arr = new Array();
 var old_val2 = "0";
 var last_s = 9;
+var old_state = 0;
+var sele_val;
 $(function(){
 
     // 「送信」ボタンの要素を取得
@@ -980,20 +986,59 @@ $(function(){
                 let box = document.querySelector('#childrennumber');
                 box.style.display = ''
                 if(old_val2 == 'いない'){
-                    for(var i=10;i<30;i++){
+                    if(sele_val == "one"){
+                        var numb = 12;
+                    }
+                    else if(sele_val == "two"){
+                        var numb = 14;
+                    }
+                    else if(sele_val == "three"){
+                        var numb = 16;
+                    }
+                    else if(sele_val == "four"){
+                        var numb = 18;
+                    }
+                    else if(sele_val == "five"){
+                        var numb = 20;
+                    }
+                    else if(sele_val == "six"){
+                        var numb = 22;
+                    }
+                    else if(sele_val == "seven"){
+                        var numb = 24;
+                    }
+                    else if(sele_val == "eight"){
+                        var numb = 26;
+                    }
+                    else if(sele_val == "nine"){
+                        var numb = 28;
+                    }
+                    else if(sele_val == "ten"){
+                        var numb = 30;
+                    }
+
+                    var check_flg = false;
+                    for(var i=10;i<numb;i++){
                         if(ele_arr[i].getAttribute("element_yet") == 'not_yet'){
                             ele_arr[i].style.display = ''
+                            //var st = document.querySelector('.last-state-page');
+                            //st.textContent = Number(st.textContent) + 1;
+                            check_flg = true;
+                        }
+                        else if(ele_arr[i].getAttribute("element_yet") != 'not_yet'){
                             var st = document.querySelector('.last-state-page');
                             st.textContent = Number(st.textContent) + 1;
+                            check_flg = true;
                         }
                     }
+                    if(document.querySelector('.last-state-page').textContent == '0' && check_flg == false){
+                        var st = document.querySelector('.last-state-page');
+                        st.textContent = '1';
+                    }
+
                     let next_button = document.querySelector("#next_page2");
                     $('#next_page2').prop('disabled', true);
                     next_button.id = "next_page2-not"
-                    if(document.querySelector('.last-state-page').textContent == '0'){
-                        var st = document.querySelector('.last-state-page');
-                        st.textContent = "1";
-                    }
                 }
                 else if(old_val2 == '0'){
                     box.style.display = '';
@@ -1991,6 +2036,8 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+
+            sele_val = document.getElementById("number-children").value
         }
 	});
 });
@@ -6857,9 +6904,11 @@ $(function(){
             //styleのdisplayを変更する関数
             box.style.display='';
             box.setAttribute('element_yet','not_yet');
-            const stat = document.querySelector('.last-state-page');
-            stat.textContent = Number(stat.textContent) - 1
-            input.setAttribute("count_yet","not_yet");
+            if(input.getAttribute("count_yet") != "not_yet"){
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = Number(stat.textContent) - 1
+                input.setAttribute("count_yet","not_yet");
+            }
         }
     });
 });
@@ -6881,9 +6930,11 @@ $(function(){
         //styleのdisplayを変更する関数
         box.style.display='';
         box.setAttribute('element_yet','not_yet');
-        const stat = document.querySelector('.last-state-page');
-        stat.textContent = Number(stat.textContent) - 1
-        input.setAttribute("count_yet","not_yet");
+        if(input.getAttribute("count_yet") != "not_yet"){
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = Number(stat.textContent) - 1
+            input.setAttribute("count_yet","not_yet");
+        }
     });
 });
 
@@ -6904,9 +6955,11 @@ $(function(){
         //styleのdisplayを変更する関数
         box.style.display='';
         box.setAttribute('element_yet','not_yet');
-        const stat = document.querySelector('.last-state-page');
-        stat.textContent = Number(stat.textContent) - 1
-        input.setAttribute("count_yet","not_yet");
+        if(input.getAttribute("count_yet") != "not_yet"){
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = Number(stat.textContent) - 1
+            input.setAttribute("count_yet","not_yet");
+        }
     });
 });
 
@@ -6927,9 +6980,11 @@ $(function(){
         //styleのdisplayを変更する関数
         box.style.display='';
         box.setAttribute('element_yet','not_yet');
-        const stat = document.querySelector('.last-state-page');
-        stat.textContent = Number(stat.textContent) - 1
-        input.setAttribute("count_yet","not_yet");
+        if(input.getAttribute("count_yet") != "not_yet"){
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = Number(stat.textContent) - 1
+            input.setAttribute("count_yet","not_yet");
+        }
     });
 });
 
@@ -6950,10 +7005,12 @@ $(function(){
         //styleのdisplayを変更する関数
         box.style.display='';
         box.setAttribute('element_yet','not_yet');
-        const stat = document.querySelector('.last-state-page');
-        stat.textContent = Number(stat.textContent) - 1
-        comp_flg = true;
-        input.setAttribute("count_yet","not_yet");
+        if(input.getAttribute("count_yet") != "not_yet"){
+            const stat = document.querySelector('.last-state-page');
+            stat.textContent = Number(stat.textContent) - 1
+            comp_flg = true;
+            input.setAttribute("count_yet","not_yet");
+        }
     });
 });
 
@@ -10570,16 +10627,7 @@ $(function(){
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
-            if(partner_bool == true){
-                let box = document.querySelector('#yourpartnerstratwork');
-                //styleのdisplayを変更する関数
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
-                const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = "16"
-            }
-            else if(partner_bool == false && children_bool == false){
+            if(partner_bool == false && children_bool == false){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "0"
                 // 登録ボタンを活性化
@@ -10598,6 +10646,25 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
             }
+            else if(partner_bool == true && children_bool == false){
+                let box = document.querySelector('#yourpartnerstratwork');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                box.setAttribute('element_yet','not_yet');
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+            else if(partner_bool == true && children_bool == true){
+                let box = document.querySelector('#yourpartnerstratwork');
+                //styleのdisplayを変更する関数
+                box.style.display='';
+                box.setAttribute('element_yet','not_yet');
+                const base_laststate = document.querySelector(".last-state-page").textContent
+                const stat = document.querySelector('.last-state-page');
+                stat.textContent = String(Number(base_laststate) - 1)
+            }
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){

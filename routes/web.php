@@ -4,6 +4,7 @@ use App\Http\Controllers\TopPagesController;
 use App\Http\Controllers\ModalController;
 use App\Http\Controllers\MailableController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailSendController;
 
 //Route::get('/', function () {
 //    return view('welcome');
@@ -41,6 +42,8 @@ Route::get('/privacy_policy', function () {
 Route::get('/result_screen', function () {
     return view('result_screen');
 });
+
+Route::get('/mail', [MailSendController::class, 'send']);
 
 
 //Route::get('/privacy_policy', [ModalController::class, 'privacy_policy']);

@@ -132,7 +132,7 @@ $(function(){
         }
         else if(partner_bool2 == true && myhome == true && children_bool2 == false){
             const stat = document.querySelector('.last-state-page');
-            var s = children_n * 4 + 13;
+            var s = 13;
             stat.textContent = String(s);
         }
         else if(partner_bool2 == true && myhome == false && children_bool2 == true){
@@ -142,7 +142,7 @@ $(function(){
         }
         else if(partner_bool2 == true && myhome == false && children_bool2 == false){
             const stat = document.querySelector('.last-state-page');
-            var s = children_n * 4 + 12;
+            var s = 12;
             stat.textContent = String(s);
         }
         else if(partner_bool2 == false && myhome == true && children_bool2 == true){
@@ -157,12 +157,12 @@ $(function(){
         }
         else if(partner_bool2 == false && myhome == true && children_bool2 == false){
             const stat = document.querySelector('.last-state-page');
-            var s = children_n * 4 + 9;
+            var s = 9;
             stat.textContent = String(s);
         }
         else if(partner_bool2 == false && myhome == false && children_bool2 == false){
             const stat = document.querySelector('.last-state-page');
-            var s = children_n * 4 + 8;
+            var s = 8;
             stat.textContent = String(s);
         }
 
