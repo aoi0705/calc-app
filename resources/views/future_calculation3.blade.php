@@ -856,7 +856,7 @@
                         </section>
                     </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary mx-auto d-block" disabled>同意してサービスを利用する</button>
+                            <button type="button" class="btn btn-primary mx-auto d-block" id="next_page2">同意してサービスを利用する</button>
                         </div>
                     </div>
                 </div>

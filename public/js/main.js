@@ -7074,6 +7074,27 @@ const base_laststate = document.querySelector(".last-state-page").textContent
 console.log(base_laststate)
 
 var load_state = '0';
+var first_buy = false;
+var first_income = false;
+var second_buy = false;
+var second_income = false;
+var third_buy = false;
+var third_income = false;
+var four_buy = false;
+var four_income = false;
+var five_buy = false;
+var five_income = false;
+var six_buy = false;
+var six_income = false;
+var seven_buy = false;
+var seven_income = false;
+var eight_buy = false;
+var eight_income = false;
+var nine_buy = false;
+var nine_income = false;
+var ten_buy = false;
+var ten_income = false;
+
 
 $(function(){
     window.addEventListener('load', function(){
@@ -7276,18 +7297,8 @@ $(function(){
             var temp_count = 0;
 
             if(estate_value == "1"){
-                if(Number(estate_oldval) > Number(estate_value)){
-                    var j = Number(estate_oldval) - Number(estate_value);
-                    j = j * 2;
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - j;
-                }
-                else if(Number(estate_oldval) < Number(estate_value)){
-                    var j = Number(estate_value) - Number(estate_oldval);
-                    j = j * 2;
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) + j;
-                }
+                var t = document.querySelector('.last-state-page');
+                t.textContent = Number(t.textContent) + 2;
 
                 for(var i=2;i<4;i++){
                     if(ele_arr[i].getAttribute("spone") == "y"){
@@ -7329,18 +7340,8 @@ $(function(){
     
             }
             else if(estate_value == "2"){
-                if(Number(estate_oldval) > Number(estate_value)){
-                    var j = Number(estate_oldval) - Number(estate_value);
-                    j = j * 2;
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - j;
-                }
-                else if(Number(estate_oldval) < Number(estate_value)){
-                    var j = Number(estate_value) - Number(estate_oldval);
-                    j = j * 2;
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) + j;
-                }
+                var t = document.querySelector('.last-state-page');
+                t.textContent = Number(t.textContent) + 4;
 
                 for(var i=2;i<6;i++){
                     if(ele_arr[i].getAttribute("spone") == "y"){
@@ -7379,18 +7380,8 @@ $(function(){
     
             }
             else if(estate_value == "3"){
-                if(Number(estate_oldval) > Number(estate_value)){
-                    var j = Number(estate_oldval) - Number(estate_value);
-                    j = j * 2;
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - j;
-                }
-                else if(Number(estate_oldval) < Number(estate_value)){
-                    var j = Number(estate_value) - Number(estate_oldval);
-                    j = j * 2;
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) + j;
-                }
+                var t = document.querySelector('.last-state-page');
+                t.textContent = Number(t.textContent) + 6;
 
                 for(var i=2;i<8;i++){
                     if(ele_arr[i].getAttribute("spone") == "y"){
@@ -7429,18 +7420,8 @@ $(function(){
                 
             }
             else if(estate_value == "4"){
-                if(Number(estate_oldval) > Number(estate_value)){
-                    var j = Number(estate_oldval) - Number(estate_value);
-                    j = j * 2;
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - j;
-                }
-                else if(Number(estate_oldval) < Number(estate_value)){
-                    var j = Number(estate_value) - Number(estate_oldval);
-                    j = j * 2;
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) + j;
-                }
+                var t = document.querySelector('.last-state-page');
+                t.textContent = Number(t.textContent) + 8;
 
                 for(var i=2;i<10;i++){
                     if(ele_arr[i].getAttribute("spone") == "y"){
@@ -7475,18 +7456,8 @@ $(function(){
                 
             }
             else if(estate_value == "5"){
-                if(Number(estate_oldval) > Number(estate_value)){
-                    var j = Number(estate_oldval) - Number(estate_value);
-                    j = j * 2;
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - j;
-                }
-                else if(Number(estate_oldval) < Number(estate_value)){
-                    var j = Number(estate_value) - Number(estate_oldval);
-                    j = j * 2;
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) + j;
-                }
+                var t = document.querySelector('.last-state-page');
+                t.textContent = Number(t.textContent) + 10;
 
                 for(var i=2;i<12;i++){
                     if(ele_arr[i].getAttribute("spone") == "y"){
@@ -7520,18 +7491,8 @@ $(function(){
                 
             }
             else if(estate_value == "6"){
-                if(Number(estate_oldval) > Number(estate_value)){
-                    var j = Number(estate_oldval) - Number(estate_value);
-                    j = j * 2;
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - j;
-                }
-                else if(Number(estate_oldval) < Number(estate_value)){
-                    var j = Number(estate_value) - Number(estate_oldval);
-                    j = j * 2;
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) + j;
-                }
+                var t = document.querySelector('.last-state-page');
+                t.textContent = Number(t.textContent) + 12;
 
                 for(var i=2;i<14;i++){
                     if(ele_arr[i].getAttribute("spone") == "y"){
@@ -7562,18 +7523,8 @@ $(function(){
                 estate_oldval = Number(estate_value)
             }
             else if(estate_value == "7"){
-                if(Number(estate_oldval) > Number(estate_value)){
-                    var j = Number(estate_oldval) - Number(estate_value);
-                    j = j * 2;
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - j;
-                }
-                else if(Number(estate_oldval) < Number(estate_value)){
-                    var j = Number(estate_value) - Number(estate_oldval);
-                    j = j * 2;
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) + j;
-                }
+                var t = document.querySelector('.last-state-page');
+                t.textContent = Number(t.textContent) + 14;
 
                 for(var i=2;i<16;i++){
                     if(ele_arr[i].getAttribute("spone") == "y"){
@@ -7601,18 +7552,8 @@ $(function(){
                 estate_oldval = Number(estate_value)
             }
             else if(estate_value == "8"){
-                if(Number(estate_oldval) > Number(estate_value)){
-                    var j = Number(estate_oldval) - Number(estate_value);
-                    j = j * 2;
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - j;
-                }
-                else if(Number(estate_oldval) < Number(estate_value)){
-                    var j = Number(estate_value) - Number(estate_oldval);
-                    j = j * 2;
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) + j;
-                }
+                var t = document.querySelector('.last-state-page');
+                t.textContent = Number(t.textContent) + 16;
 
                 for(var i=2;i<18;i++){
                     if(ele_arr[i].getAttribute("spone") == "y"){
@@ -7640,18 +7581,8 @@ $(function(){
     
             }
             else if(estate_value == "9"){
-                if(Number(estate_oldval) > Number(estate_value)){
-                    var j = Number(estate_oldval) - Number(estate_value);
-                    j = j * 2;
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - j;
-                }
-                else if(Number(estate_oldval) < Number(estate_value)){
-                    var j = Number(estate_value) - Number(estate_oldval);
-                    j = j * 2;
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) + j;
-                }
+                var t = document.querySelector('.last-state-page');
+                t.textContent = Number(t.textContent) + 18;
 
                 for(var i=2;i<20;i++){
                     if(ele_arr[i].getAttribute("spone") == "y"){
@@ -7677,19 +7608,9 @@ $(function(){
     
             }
             else if(estate_value == '10'){
-                if(Number(estate_oldval) > Number(estate_value)){
-                    var j = Number(estate_oldval) - Number(estate_value);
-                    j = j * 2;
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - j;
-                }
-                else if(Number(estate_oldval) < Number(estate_value)){
-                    var j = Number(estate_value) - Number(estate_oldval);
-                    j = j * 2;
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) + j;
-                }
-
+                var t = document.querySelector('.last-state-page');
+                t.textContent = Number(t.textContent) + 20;
+                
                 for(var i=2;i<22;i++){
                     if(ele_arr[i].getAttribute("spone") == "y"){
                         var t = document.querySelector('.last-state-page');
@@ -15646,5 +15567,180 @@ $(function(){
             $('#next_page2').prop('disabled', true);
             next_button.id = "next_page2-not"
         }
+    });
+});
+
+$(function(){
+    document.getElementsByClassName('btn btn-primary mx-auto d-block')[0].addEventListener('click', function() {
+        const myhomebuy = document.getElementById('myhome-buy').value;
+        sessionStorage.setItem('myhome-buy', myhomebuy);
+        const estate = document.getElementById('estate').value;
+        sessionStorage.setItem('estate', estate);
+        const firstestate = document.getElementById('first-estate').value;
+        sessionStorage.setItem('first-estate', firstestate);
+        const firstrentalincome = document.getElementById('first-rental-income').value;
+        sessionStorage.setItem('first-rental-income', firstrentalincome);
+        const secondestate = document.getElementById('second-estate').value;
+        sessionStorage.setItem('second-estate', secondestate);
+        const secondrentalincome = document.getElementById('second-rental-income').value;
+        sessionStorage.setItem('second-rental-income', secondrentalincome);
+        const thirdestate = document.getElementById('third-estate').value;
+        sessionStorage.setItem('third-estate', thirdestate);
+        const fourestate = document.getElementById('four-estate').value;
+        sessionStorage.setItem('four-estate', fourestate);
+        const fourrentalincome = document.getElementById('four-rental-income').value;
+        sessionStorage.setItem('four-rental-income', fourrentalincome);
+        const fiveestate = document.getElementById('five-estate').value;
+        sessionStorage.setItem('five-estate', fiveestate);
+        const fiverentalincome = document.getElementById('five-rental-income').value;
+        sessionStorage.setItem('five-rental-income', fiverentalincome);
+        const sixestate = document.getElementById('six-estate').value;
+        sessionStorage.setItem('six-estate', sixestate);
+        const sixrentalincome = document.getElementById('six-rental-income').value;
+        sessionStorage.setItem('six-rental-income', sixrentalincome);
+        const sevenestate = document.getElementById('seven-estate').value;
+        sessionStorage.setItem('seven-estate', sevenestate);
+        const sevenrentalincome = document.getElementById('seven-rental-income').value;
+        sessionStorage.setItem('seven-rental-income', sevenrentalincome);
+        const eightestate = document.getElementById('eight-estate').value;
+        sessionStorage.setItem('eight-estate', eightestate);
+        const eightrentalincome = document.getElementById('eight-rental-income').value;
+        sessionStorage.setItem('eight-rental-income', eightrentalincome);
+        const nineestate = document.getElementById('nine-estate').value;
+        sessionStorage.setItem('nine-estate', nineestate);
+        const ninerentalincome = document.getElementById('nine-rental-income').value;
+        sessionStorage.setItem('nine-rental-income', ninerentalincome);
+        const tenestate = document.getElementById('ten-estate').value;
+        sessionStorage.setItem('ten-estate', tenestate);
+        const tenrentalincome = document.getElementById('ten-rental-income').value;
+        sessionStorage.setItem('ten-rental-income', tenrentalincome);
+
+        const savingsbalance = document.getElementById('savings-balance').value;
+        sessionStorage.setItem('savings-balance', savingsbalance);
+        const lastEducationalinsurance = document.getElementById('last-Educational-insurance').value;
+        sessionStorage.setItem('last-Educational-insurance', lastEducationalinsurance);
+        const trip = document.getElementById('trip').value;
+        sessionStorage.setItem('trip', trip);
+        const otherexpense = document.getElementById('other-expense').value;
+        sessionStorage.setItem('other-expense', otherexpense);
+        const startwark = document.getElementById('start-wark').value;
+        sessionStorage.setItem('start-wark', startwark);
+        const Startingsalary = document.getElementById('Starting-salary').value;
+        sessionStorage.setItem('Starting-salary', Startingsalary);
+        const Estimatedannualincome = document.getElementById('Estimated-annual-income').value;
+        sessionStorage.setItem('Estimated-annual-income', Estimatedannualincome);
+
+        var ele6 = document.getElementsByName('Severance-pay');
+        var len6 = ele6.length;
+        var checkValue6 = '';
+        for (var i = 0; i < len6; i++){
+            if (ele6.item(i).checked){
+                checkValue6 = ele6.item(i).value;
+                console.log(checkValue6)
+            }
+        }
+        sessionStorage.setItem('yourSeverancepayinput', checkValue6);
+
+        const spousestartwork = document.getElementById('spouse-start-work').value;
+        sessionStorage.setItem('spouse-start-work', spousestartwork);
+        const spouseStartingsalary = document.getElementById('spouse-Starting-salary').value;
+        sessionStorage.setItem('spouse-Starting-salary', spouseStartingsalary);
+        const spouseEstimatedannualincome = document.getElementById('spouse-Estimated-annual-income').value;
+        sessionStorage.setItem('spouse-Estimated-annual-income', spouseEstimatedannualincome);
+
+        var ele7 = document.getElementsByName('Severance-pay');
+        var len7 = ele7.length;
+        var checkValue7 = '';
+        for (var i = 0; i < len7; i++){
+            if (ele7.item(i).checked){
+                checkValue7 = ele7.item(i).value;
+                console.log(checkValue7)
+            }
+        }
+        sessionStorage.setItem('yourpartnerSeverancepayinput', checkValue7);
+
+        const firstprimaryschool = document.getElementById('first-primary-school').value;
+        sessionStorage.setItem('first-primary-school', firstprimaryschool);
+        const firstjuniorhighschool = document.getElementById('first-junior-high-school').value;
+        sessionStorage.setItem('first-junior-high-school', firstjuniorhighschool);
+        const firsthighschool = document.getElementById('first-high-school').value;
+        sessionStorage.setItem('first-high-school', firsthighschool);
+        const firstuniversity = document.getElementById('first-university').value;
+        sessionStorage.setItem('first-university',firstuniversity);
+        const secondprimaryschool = document.getElementById('second-primary-school').value;
+        sessionStorage.setItem('second-primary-school', secondprimaryschool);
+        const secondjuniorhighschool = document.getElementById('second-junior-high-school').value;
+        sessionStorage.setItem('second-junior-high-school', secondjuniorhighschool);
+        const secondhighschool = document.getElementById('second-high-school').value;
+        sessionStorage.setItem('second-high-school', secondhighschool);
+        const seconduniversity = document.getElementById('second-university').value;
+        sessionStorage.setItem('second-university',seconduniversity);
+        const thirdprimaryschool = document.getElementById('third-primary-school').value;
+        sessionStorage.setItem('third-primary-school', thirdprimaryschool);
+        const thirdjuniorhighschool = document.getElementById('third-junior-high-school').value;
+        sessionStorage.setItem('third-junior-high-school', thirdjuniorhighschool);
+        const thirdhighschool = document.getElementById('third-high-school').value;
+        sessionStorage.setItem('third-high-school', thirdhighschool);
+        const thirduniversity = document.getElementById('third-university').value;
+        sessionStorage.setItem('third-university',thirduniversity);
+        const fourprimaryschool = document.getElementById('four-primary-school').value;
+        sessionStorage.setItem('four-primary-school', fourprimaryschool);
+        const fourjuniorhighschool = document.getElementById('four-junior-high-school').value;
+        sessionStorage.setItem('four-junior-high-school', fourjuniorhighschool);
+        const fourhighschool = document.getElementById('four-high-school').value;
+        sessionStorage.setItem('four-high-school', fourhighschool);
+        const fouruniversity = document.getElementById('four-university').value;
+        sessionStorage.setItem('four-university',fouruniversity);
+        const fiveprimaryschool = document.getElementById('five-primary-school').value;
+        sessionStorage.setItem('five-primary-school', fiveprimaryschool);
+        const fivejuniorhighschool = document.getElementById('five-junior-high-school').value;
+        sessionStorage.setItem('five-junior-high-school', fivejuniorhighschool);
+        const fivehighschool = document.getElementById('five-high-school').value;
+        sessionStorage.setItem('five-high-school', fivehighschool);
+        const fiveuniversity = document.getElementById('five-university').value;
+        sessionStorage.setItem('five-university',fiveuniversity);
+        const sixprimaryschool = document.getElementById('six-primary-school').value;
+        sessionStorage.setItem('six-primary-school', sixprimaryschool);
+        const sixjuniorhighschool = document.getElementById('six-junior-high-school').value;
+        sessionStorage.setItem('six-junior-high-school', sixjuniorhighschool);
+        const sixhighschool = document.getElementById('six-high-school').value;
+        sessionStorage.setItem('six-high-school', sixhighschool);
+        const sixuniversity = document.getElementById('six-university').value;
+        sessionStorage.setItem('six-university',sixuniversity);
+        const sevenprimaryschool = document.getElementById('seven-primary-school').value;
+        sessionStorage.setItem('seven-primary-school', sevenprimaryschool);
+        const sevenjuniorhighschool = document.getElementById('seven-junior-high-school').value;
+        sessionStorage.setItem('seven-junior-high-school', sevenjuniorhighschool);
+        const sevenhighschool = document.getElementById('seven-high-school').value;
+        sessionStorage.setItem('seven-high-school', sevenhighschool);
+        const sevenuniversity = document.getElementById('seven-university').value;
+        sessionStorage.setItem('seven-university',sevenuniversity);
+        const eightprimaryschool = document.getElementById('eight-primary-school').value;
+        sessionStorage.setItem('eight-primary-school', eightprimaryschool);
+        const eightjuniorhighschool = document.getElementById('eight-junior-high-school').value;
+        sessionStorage.setItem('eight-junior-high-school', eightjuniorhighschool);
+        const eighthighschool = document.getElementById('eight-high-school').value;
+        sessionStorage.setItem('eight-high-school', eighthighschool);
+        const eightuniversity = document.getElementById('eight-university').value;
+        sessionStorage.setItem('eight-university',eightuniversity);
+        const nineprimaryschool = document.getElementById('nine-primary-school').value;
+        sessionStorage.setItem('nine-primary-school', nineprimaryschool);
+        const ninejuniorhighschool = document.getElementById('nine-junior-high-school').value;
+        sessionStorage.setItem('nine-junior-high-school', ninejuniorhighschool);
+        const ninehighschool = document.getElementById('nine-high-school').value;
+        sessionStorage.setItem('nine-high-school', ninehighschool);
+        const nineuniversity = document.getElementById('nine-university').value;
+        sessionStorage.setItem('nine-university',nineuniversity);
+        const tenprimaryschool = document.getElementById('ten-primary-school').value;
+        sessionStorage.setItem('ten-primary-school', tenprimaryschool);
+        const tenjuniorhighschool = document.getElementById('ten-junior-high-school').value;
+        sessionStorage.setItem('ten-junior-high-school', tenjuniorhighschool);
+        const tenhighschool = document.getElementById('ten-high-school').value;
+        sessionStorage.setItem('ten-high-school', tenhighschool);
+        const tenuniversity = document.getElementById('ten-university').value;
+        sessionStorage.setItem('ten-university',tenuniversity);
+
+
+        window.location.href = '/mail';
     });
 });
