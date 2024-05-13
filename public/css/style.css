@@ -241,6 +241,8 @@ body{
 }
 #consent-button {
 	background-color: #FF9696;
+	height:70px;
+	width:50%;
 }
 
 /*テキストブロック*/
@@ -429,6 +431,7 @@ main p + p {margin-top: -15px;}
 
 .modal-footer{
   justify-content : center;
+  height:120px
 }
 
 .err-msg-name{

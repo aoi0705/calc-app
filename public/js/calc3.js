@@ -127,7 +127,7 @@ $(function(){
 
         if(partner_bool2 == true && myhome == true && children_bool2 == true){
             const stat = document.querySelector('.last-state-page');
-            var s = children_n * 4 + 14;
+            var s = (children_n * 4) + 13;
             stat.textContent = String(s);
         }
         else if(partner_bool2 == true && myhome == true && children_bool2 == false){
@@ -137,7 +137,7 @@ $(function(){
         }
         else if(partner_bool2 == true && myhome == false && children_bool2 == true){
             const stat = document.querySelector('.last-state-page');
-            var s = children_n * 4 + 13;
+            var s = (children_n * 4) + 12;
             stat.textContent = String(s);
         }
         else if(partner_bool2 == true && myhome == false && children_bool2 == false){
@@ -147,12 +147,12 @@ $(function(){
         }
         else if(partner_bool2 == false && myhome == true && children_bool2 == true){
             const stat = document.querySelector('.last-state-page');
-            var s = children_n * 4 + 10;
+            var s = (children_n * 4) + 9;
             stat.textContent = String(s);
         }
         else if(partner_bool2 == false && myhome == false && children_bool2 == true){
             const stat = document.querySelector('.last-state-page');
-            var s = children_n * 4 + 9;
+            var s = (children_n * 4) + 8;
             stat.textContent = String(s);
         }
         else if(partner_bool2 == false && myhome == true && children_bool2 == false){

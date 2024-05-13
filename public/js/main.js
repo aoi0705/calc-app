@@ -7233,6 +7233,7 @@ $(function(){
 var estate_oldval = 0;
 var last_estate = 0;
 var last_ele2 = 1;
+var first_flg = false;
 
 $(function(){
 
@@ -7373,7 +7374,9 @@ $(function(){
                 document.getElementById("yourtenestate").style.display = "none";
                 document.getElementById("yourtenrentalincome").style.display = "none";
 
-                estate_oldval = Number(estate_value)         
+                estate_oldval = Number(estate_value)      
+                var t = document.querySelector('.last-state-page');
+                t.textContent = 8;   
     
             }
             else if(estate_value == "2"){
@@ -7440,6 +7443,8 @@ $(function(){
                 document.getElementById("yourtenrentalincome").style.display = "none";
 
                 estate_oldval = Number(estate_value)
+                var t = document.querySelector('.last-state-page');
+                t.textContent = 10; 
     
             }
             else if(estate_value == "3"){
@@ -7505,6 +7510,8 @@ $(function(){
                 document.getElementById("yourtenrentalincome").style.display = "none";
 
                 estate_oldval = Number(estate_value)
+                var t = document.querySelector('.last-state-page');
+                t.textContent = 12; 
                 
             }
             else if(estate_value == "4"){
@@ -7567,6 +7574,8 @@ $(function(){
                 document.getElementById("yourtenrentalincome").style.display = "none";  
 
                 estate_oldval = Number(estate_value)
+                var t = document.querySelector('.last-state-page');
+                t.textContent = 14; 
                 
             }
             else if(estate_value == "5"){
@@ -7628,6 +7637,8 @@ $(function(){
                 document.getElementById("yourtenrentalincome").style.display = "none";
 
                 estate_oldval = Number(estate_value)
+                var t = document.querySelector('.last-state-page');
+                t.textContent = 16; 
                 
             }
             else if(estate_value == "6"){
@@ -7687,6 +7698,8 @@ $(function(){
    
 
                 estate_oldval = Number(estate_value)
+                var t = document.querySelector('.last-state-page');
+                t.textContent = 18; 
             }
             else if(estate_value == "7"){
                 var t = document.querySelector('.last-state-page');
@@ -7742,6 +7755,8 @@ $(function(){
                 document.getElementById("yourtenrentalincome").style.display = "none";
 
                 estate_oldval = Number(estate_value)
+                var t = document.querySelector('.last-state-page');
+                t.textContent = 20; 
             }
             else if(estate_value == "8"){
                 var t = document.querySelector('.last-state-page');
@@ -7794,6 +7809,8 @@ $(function(){
                 document.getElementById("yourtenrentalincome").style.display = "none";
 
                 estate_oldval = Number(estate_value)
+                var t = document.querySelector('.last-state-page');
+                t.textContent = 22; 
     
             }
             else if(estate_value == "9"){
@@ -7847,6 +7864,8 @@ $(function(){
                 document.getElementById("yourtenrentalincome").style.display = "none";  
 
                 estate_oldval = Number(estate_value)
+                var t = document.querySelector('.last-state-page');
+                t.textContent = 24; 
     
             }
             else if(estate_value == '10'){
@@ -7886,7 +7905,97 @@ $(function(){
                 }
 
                 estate_oldval = Number(estate_value)
+                var t = document.querySelector('.last-state-page');
+                t.textContent = 26; 
             }
+            if(sessionStorage.getItem('yourpartner') == "いる"){
+                var partner_bool2 = true;
+            }
+            else if(sessionStorage.getItem('yourpartner') == "いない"){
+                var partner_bool2 = false;
+            }
+            if(sessionStorage.getItem('children') == "いる"){
+                var children_bool2 = true;
+            }
+            else if(sessionStorage.getItem('children') == "いない"){
+                var children_bool2 = false;
+            }
+            
+            if(sessionStorage.getItem('number-children') == "one"){
+                var children_n = 1;
+            }
+            else if(sessionStorage.getItem('number-children') == "two"){
+                var children_n = 2;
+            }
+            else if(sessionStorage.getItem('number-children') == "three"){
+                var children_n = 3;
+            }
+            else if(sessionStorage.getItem('number-children') == "four"){
+                var children_n = 4;
+            }
+            else if(sessionStorage.getItem('number-children') == "five"){
+                var children_n = 5;
+            }
+            else if(sessionStorage.getItem('number-children') == "six"){
+                var children_n = 6;
+            }
+            else if(sessionStorage.getItem('number-children') == "seven"){
+                var children_n = 7;
+            }
+            else if(sessionStorage.getItem('number-children') == "eight"){
+                var children_n = 8;
+            }
+            else if(sessionStorage.getItem('number-children') == "nine"){
+                var children_n = 9;
+            }
+            else if(sessionStorage.getItem('number-children') == "ten"){
+                var children_n = 10;
+            }
+            else if(children_bool2 == false){
+                var children_n = 0;
+            }
+            
+            if(sessionStorage.getItem('house-class') == "rental"){
+                var myhome = true;
+            }
+            else{
+                var myhome = false;
+            }
+
+            if(partner_bool2 == true && children_bool2 == true){
+                var t = document.querySelector('.last-state-page');
+                var ch = Number(children_n) * 4
+                t.textContent = Number(t.textContent) + 5 + Number(ch);
+            }
+            else if(partner_bool2 == true && children_bool2 == false){
+                var t = document.querySelector('.last-state-page');
+                t.textContent = Number(t.textContent) + 4;
+            }
+            else if(partner_bool2 == false && children_bool2 == true){
+                var t = document.querySelector('.last-state-page');
+                var ch = Number(children_n) * 4
+                t.textContent = Number(t.textContent) + 1 + Number(ch);
+            }
+
+            for(var i=2;i<(Number(estate_value)*2)+2;i++){
+                if(ele_arr[i].getAttribute("spone") == 'y'){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - 1;
+                }
+            }
+
+            var last_ele3 = 0;
+            if(first_flg != false){
+                for(var i=22;73;i++){
+                    if(ele_arr[i].getAttribute("spone") != 'n' || ele_arr[i].getAttribute("spone") == null){
+                        var t = document.querySelector('.last-state-page');
+                        t.textContent = Number(t.textContent) - 1;
+                        last_ele3 = i;
+                    }
+                }
+                first_flg = true;
+            }
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -10137,6 +10246,9 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
             }
+
+            document.getElementById("yoursavingsbalance").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -10236,6 +10348,9 @@ $(function(){
                 count.textContent = Number(count.textContent) - 1;
                 submit.setAttribute("count_yet","not_yet");
             }
+
+            document.getElementById("yourlastEducationalinsurance").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -10335,6 +10450,9 @@ $(function(){
                 count.textContent = Number(count.textContent) - 1;
                 submit.setAttribute("count_yet","not_yet");
             }
+
+            document.getElementById("yourtrip").setAttribute("count_yet","not_yet")
+            
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -10437,6 +10555,9 @@ $(function(){
                 count.textContent = Number(count.textContent) - 1;
                 submit.setAttribute("count_yet","not_yet");
             }
+
+            document.getElementById("yourotherexpense").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -10532,6 +10653,9 @@ $(function(){
                 count.textContent = Number(count.textContent) - 1;
                 submit.setAttribute("count_yet","not_yet");
             }
+
+            document.getElementById("yourstartwork").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -10627,6 +10751,9 @@ $(function(){
                 count.textContent = Number(count.textContent) - 1;
                 submit.setAttribute("count_yet","not_yet");
             }
+
+            document.getElementById("yourstartingsalary").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -10722,6 +10849,9 @@ $(function(){
                 count.textContent = Number(count.textContent) - 1;
                 submit.setAttribute("count_yet","not_yet");
             }
+
+            document.getElementById("yourestimatedannualincome").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -10748,6 +10878,7 @@ $(function(){
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('click', (e) => {
+        var submit2 = document.querySelector('#yourSeverancepayinput');
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
@@ -10806,6 +10937,19 @@ $(function(){
             // クラスを削除
             name.classList.remove('input-invalid');
 			// 次の項目を表示
+            if(sessionStorage.getItem('yourpartner') == "いる"){
+                var partner_bool = true;
+            }
+            else if(sessionStorage.getItem('yourpartner') == "いない"){
+                var partner_bool = false;
+            }
+            
+            if(sessionStorage.getItem('children') == "いる"){
+                var children_bool = true;
+            }
+            else if(sessionStorage.getItem('children') == "いない"){
+                var children_bool = false;
+            }
             if(partner_bool == false && children_bool == false){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = "0"
@@ -10822,8 +10966,10 @@ $(function(){
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) - 1)
+                if(submit2.getAttribute("count_yet") != "not_yet"){
+                    const stat = document.querySelector('.last-state-page');
+                    stat.textContent = String(Number(stat.textContent) - 1)
+                }
             }
             else if(partner_bool == true && children_bool == false){
                 let box = document.querySelector('#yourpartnerstratwork');
@@ -10831,8 +10977,10 @@ $(function(){
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) - 1)
+                if(submit2.getAttribute("count_yet") != "not_yet"){
+                    const stat = document.querySelector('.last-state-page');
+                    stat.textContent = String(Number(stat.textContent) - 1)
+                }
             }
             else if(partner_bool == true && children_bool == true){
                 let box = document.querySelector('#yourpartnerstratwork');
@@ -10840,9 +10988,13 @@ $(function(){
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) - 1)
+                if(submit2.getAttribute("count_yet") != "not_yet"){
+                    const stat = document.querySelector('.last-state-page');
+                    stat.textContent = String(Number(stat.textContent) - 1)
+                }
             }
+
+            submit2.setAttribute("count_yet","not_yet")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -10940,6 +11092,9 @@ $(function(){
                 count.textContent = Number(count.textContent) - 1;
                 submit.setAttribute("count_yet","not_yet");
             }
+
+            document.getElementById("yourpartnerstratwork").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -11035,6 +11190,9 @@ $(function(){
                 count.textContent = Number(count.textContent) - 1;
                 submit.setAttribute("count_yet","not_yet");
             }
+
+            document.getElementById("yourpartnerstartingsalary").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -11130,6 +11288,9 @@ $(function(){
                 count.textContent = Number(count.textContent) - 1;
                 submit.setAttribute("count_yet","not_yet");
             }
+
+            document.getElementById("yourpartnerestimatedannualincome").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -11220,8 +11381,10 @@ $(function(){
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
                 const base_laststate = document.querySelector(".last-state-page").textContent
-                const stat = document.querySelector('.last-state-page');
-                stat.textContent = String(Number(base_laststate) - 1)
+                if(submit.getAttribute("count_yet") != "not_yet"){
+                    const stat = document.querySelector('.last-state-page');
+                    stat.textContent = String(Number(base_laststate) - 1)
+                }
             }
             else if(children_bool == false){
                 const stat = document.querySelector('.last-state-page');
@@ -11233,6 +11396,9 @@ $(function(){
                 next_button.id = "next_page2"
                 comp_flg = true;
             }
+
+            submit.setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -11365,6 +11531,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "39"
             }
+
+            document.getElementById("yourfirstprimaryschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -11494,6 +11663,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "38"
             }
+
+            document.getElementById("yourfirstjuniorhighschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -11623,6 +11795,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "37"
             }
+
+            document.getElementById("yourfirsthighschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -11774,6 +11949,9 @@ $(function(){
                 let box = document.querySelector("#yoursecondprimaryschool");
                 box.style.display = '';
             }
+
+            document.getElementById("yourfirstuniversity").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -11899,6 +12077,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "35"
             }
+
+            document.getElementById("yoursecondprimaryschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -12024,6 +12205,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "34"
             }
+
+            document.getElementById("yoursecondjuniorhighschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -12149,6 +12333,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "33"
             }
+
+            document.getElementById("yoursecondhighschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -12293,6 +12480,9 @@ $(function(){
                 let box = document.querySelector("#yourthirdprimaryschool")
                 box.style.display = ''
             }
+
+            document.getElementById("yourseconduniversity").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -12415,6 +12605,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "31"
             }
+
+            document.getElementById("yourthirdprimaryschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -12536,6 +12729,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "30"
             }
+
+            document.getElementById("yourthirdjuniorhighschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -12657,6 +12853,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "29"
             }
+
+            document.getElementById("yourthirdhighschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -12795,6 +12994,9 @@ $(function(){
                 let box = document.querySelector("#yourfourprimaryschool")
                 box.style.display = ''
             }
+
+            document.getElementById("yourthirduniversity").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -12912,6 +13114,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "27"
             }
+
+            document.getElementById("yourfourprimaryschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -13029,6 +13234,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "26"
             }
+
+            document.getElementById("yourfourjuniorhighschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -13146,6 +13354,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "25"
             }
+
+            document.getElementById("yourfourhighschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -13277,6 +13488,9 @@ $(function(){
                 let box = document.querySelector("#yourfiveprimaryschool")
                 box.style.display = ''
             }
+
+            document.getElementById("yourfouruniversity").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -13390,6 +13604,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "23"
             }
+
+            document.getElementById("yourfiveprimaryschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -13503,6 +13720,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "22"
             }
+
+            document.getElementById("yourfivejuniorhighschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -13616,6 +13836,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "21"
             }
+
+            document.getElementById("yourfivehighschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -13741,6 +13964,9 @@ $(function(){
                 let box = document.querySelector("#yoursixprimaryschool")
                 box.style.display = ''
             }
+
+            document.getElementById("yourfiveuniversity").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -13850,6 +14076,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "19"
             }
+
+            document.getElementById("yoursixprimaryschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -13959,6 +14188,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "18"
             }
+
+            document.getElementById("yoursixjuniorhighschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -14068,6 +14300,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "17"
             }
+
+            document.getElementById("yoursixhighschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -14187,6 +14422,9 @@ $(function(){
                 let box = document.querySelector("#yoursevenprimaryschool")
                 box.style.display = ''
             }
+
+            document.getElementById("yoursixuniversity").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -14292,6 +14530,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "15"
             }
+
+            document.getElementById("yoursevenprimaryschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -14397,6 +14638,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "14"
             }
+
+            document.getElementById("yoursevenjuniorhighschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -14502,6 +14746,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "13"
             }
+
+            document.getElementById("yoursevenhighschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -14615,6 +14862,9 @@ $(function(){
                 let box = document.querySelector("#youreightprimaryschool")
                 box.style.display = ''
             }
+
+            document.getElementById("yoursevenuniversity").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -14716,6 +14966,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "11"
             }
+
+            document.getElementById("youreightprimaryschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -14817,6 +15070,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "10"
             }
+
+            document.getElementById("youreightjuniorhighschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -14918,6 +15174,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "9"
             }
+
+            document.getElementById("youreighthighschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -15025,6 +15284,9 @@ $(function(){
                 let box = document.querySelector("#yournineprimaryschool")
                 box.style.display = ''
             }
+
+            document.getElementById("youreightuniversity").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -15122,6 +15384,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "7"
             }
+
+            document.getElementById("yournineprimaryschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -15174,6 +15439,7 @@ $(function(){
                     st.textContent = Number(st.textContent) + 1;
                 }
             }
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -15219,6 +15485,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "6"
             }
+
+            document.getElementById("yourninejuniorhighschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -15316,6 +15585,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "5"
             }
+
+            document.getElementById("yourninehighschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -15417,6 +15689,9 @@ $(function(){
                 let box = document.querySelector("#yourtenprimaryschool")
                 box.style.display = ''
             }
+
+            document.getElementById("yournineuniversity").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -15510,6 +15785,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "3"
             }
+
+            document.getElementById("yourtenprimaryschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -15603,6 +15881,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "2"
             }
+
+            document.getElementById("yourtenjuniorhighschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -15696,6 +15977,9 @@ $(function(){
                 var a = document.querySelector('.last-state-page');
                 a.textContent = "1"
             }
+
+            document.getElementById("yourtenhighschool").setAttribute("count_yet","not_yet")
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -15773,6 +16057,9 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+
+
+            document.getElementById("yourtenuniversity").setAttribute("count_yet","not_yet")
         }
 	});
 });
