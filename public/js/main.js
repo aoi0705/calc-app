@@ -228,7 +228,7 @@ $(function(){
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#nicknameerr');
         var ele_arr = document.getElementsByClassName("form-group");
-        if(!name.value){
+        if(!name.value == ''){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
