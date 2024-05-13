@@ -174,11 +174,15 @@ $(function(){
                 submit.setAttribute("count_yet","not_yet");
             }
             else{
+                // エラーメッセージのテキストに空文字を代入
+                errMsgName.textContent ='';
+                // クラスを削除
+                name.classList.remove('input-invalid');
                 let box = document.querySelector('#yournickname');
                 //styleのdisplayを変更する関数
                 box.style.display='';
                 box.setAttribute('element_yet','not_yet');
-                for(var i=1;i<30;i++){
+                for(var i=3;i<30;i++){
                     if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
                         if(ele_arr[i].style.display != ''){
                             ele_arr[i].style.display = ''
@@ -275,7 +279,7 @@ $(function(){
                 submit.setAttribute("count_yet","not_yet");
             }
             else{
-                for(var i=1;i<30;i++){
+                for(var i=3;i<30;i++){
                     if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
                         if(ele_arr[i].style.display != ''){
                             ele_arr[i].style.display = ''
@@ -369,6 +373,14 @@ $(function(){
                 submit.setAttribute("count_yet","not_yet");
             }
             else{
+                // エラーメッセージのテキストに空文字を代入
+                errMsgName.textContent ='';
+                // クラスを削除
+                name.classList.remove('input-invalid');
+                // 次の項目を表示
+                let box = document.querySelector('#yourpost');
+                //styleのdisplayを変更する関数
+                box.style.display='';
                 for(var i=2;i<30;i++){
                     if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
                         if(ele_arr[i].style.display != ''){
@@ -7302,11 +7314,36 @@ $(function(){
 
                 for(var i=2;i<4;i++){
                     if(ele_arr[i].getAttribute("spone") == "y"){
-                        var t = document.querySelector('.last-state-page');
-                        t.textContent = Number(t.textContent) - 1;
+                        ele_arr[i].style.display = '';
                         last_ele2 = i;
                     }
                 }
+
+                if(Number(estate_oldval) > Number(estate_value)){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - 2;
+                    for(var i=4;i<Number(estate_oldval)*2+2;i++){
+                        if(ele_arr[i].getAttribute("spone") != "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                        }
+                    }
+                }
+                else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - 2;
+                    var b = (Number(estate_value) - Number(estate_oldval)) * 2;
+                    t.textContent = Number(t.textContent) + b;
+
+                    for(var i=2;i<4;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                        }
+                    }
+                    
+                }
+
                 if(last_ele2 == 3){
                     let next_box = document.querySelector("#yoursavingsbalance");
                     next_box.style.display = ''
@@ -7345,10 +7382,36 @@ $(function(){
 
                 for(var i=2;i<6;i++){
                     if(ele_arr[i].getAttribute("spone") == "y"){
-                        var t = document.querySelector('.last-state-page');
-                        t.textContent = Number(t.textContent) - 1;
+                        ele_arr[i].style.display = '';
+                        last_ele2 = i;
                     }
                 }
+
+                if(Number(estate_oldval) > Number(estate_value)){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - 4;
+                    for(var i=6;i<Number(estate_oldval)*2+2;i++){
+                        if(ele_arr[i].getAttribute("spone") != "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                        }
+                    }
+                }
+                else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - 4;
+                    var b = (Number(estate_value) - Number(estate_oldval)) * 2;
+                    t.textContent = Number(t.textContent) + b;
+
+                    for(var i=2;i<6;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                        }
+                    }
+                    
+                }
+
                 if(last_ele2 == 5){
                     let next_box = document.querySelector("#yoursavingsbalance");
                     next_box.style.display = ''
@@ -7385,11 +7448,36 @@ $(function(){
 
                 for(var i=2;i<8;i++){
                     if(ele_arr[i].getAttribute("spone") == "y"){
-                        var t = document.querySelector('.last-state-page');
-                        t.textContent = Number(t.textContent) - 1;
+                        ele_arr[i].style.display = '';
                         last_ele2 = i;
                     }
                 }
+
+                if(Number(estate_oldval) > Number(estate_value)){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - 6;
+                    for(var i=8;i<Number(estate_oldval)*2+2;i++){
+                        if(ele_arr[i].getAttribute("spone") != "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                        }
+                    }
+                }
+                else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - 6;
+                    var b = (Number(estate_value) - Number(estate_oldval)) * 2;
+                    t.textContent = Number(t.textContent) + b;
+
+                    for(var i=2;i<8;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                        }
+                    }
+                    
+                }
+
                 if(last_ele2 == 7){
                     let next_box = document.querySelector("#yoursavingsbalance");
                     next_box.style.display = ''
@@ -7425,10 +7513,36 @@ $(function(){
 
                 for(var i=2;i<10;i++){
                     if(ele_arr[i].getAttribute("spone") == "y"){
-                        var t = document.querySelector('.last-state-page');
-                        t.textContent = Number(t.textContent) - 1;
+                        ele_arr[i].style.display = '';
+                        last_ele2 = i;
                     }
                 }
+
+                if(Number(estate_oldval) > Number(estate_value)){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - 8;
+                    for(var i=10;i<Number(estate_oldval)*2+2;i++){
+                        if(ele_arr[i].getAttribute("spone") != "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                        }
+                    }
+                }
+                else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - 8;
+                    var b = (Number(estate_value) - Number(estate_oldval)) * 2;
+                    t.textContent = Number(t.textContent) + b;
+
+                    for(var i=2;i<10;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                        }
+                    }
+                    
+                }
+
                 if(last_ele2 == 9){
                     let next_box = document.querySelector("#yoursavingsbalance");
                     next_box.style.display = ''
@@ -7461,10 +7575,36 @@ $(function(){
 
                 for(var i=2;i<12;i++){
                     if(ele_arr[i].getAttribute("spone") == "y"){
-                        var t = document.querySelector('.last-state-page');
-                        t.textContent = Number(t.textContent) - 1;
+                        ele_arr[i].style.display = '';
+                        last_ele2 = i;
                     }
                 }
+
+                if(Number(estate_oldval) > Number(estate_value)){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - 10;
+                    for(var i=12;i<Number(estate_oldval)*2+2;i++){
+                        if(ele_arr[i].getAttribute("spone") != "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                        }
+                    }
+                }
+                else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - 10;
+                    var b = (Number(estate_value) - Number(estate_oldval)) * 2;
+                    t.textContent = Number(t.textContent) + b;
+
+                    for(var i=2;i<12;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                        }
+                    }
+                    
+                }
+
                 if(last_ele2 == 11){
                     let next_box = document.querySelector("#yoursavingsbalance");
                     next_box.style.display = ''
@@ -7496,10 +7636,36 @@ $(function(){
 
                 for(var i=2;i<14;i++){
                     if(ele_arr[i].getAttribute("spone") == "y"){
-                        var t = document.querySelector('.last-state-page');
-                        t.textContent = Number(t.textContent) - 1;
+                        ele_arr[i].style.display = '';
+                        last_ele2 = i;
                     }
                 }
+
+                if(Number(estate_oldval) > Number(estate_value)){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - 12;
+                    for(var i=14;i<Number(estate_oldval)*2+2;i++){
+                        if(ele_arr[i].getAttribute("spone") != "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                        }
+                    }
+                }
+                else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - 12;
+                    var b = (Number(estate_value) - Number(estate_oldval)) * 2;
+                    t.textContent = Number(t.textContent) + b;
+
+                    for(var i=2;i<14;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                        }
+                    }
+                    
+                }
+
                 if(last_ele2 == 13){
                     let next_box = document.querySelector("#yoursavingsbalance");
                     next_box.style.display = ''
@@ -7528,10 +7694,36 @@ $(function(){
 
                 for(var i=2;i<16;i++){
                     if(ele_arr[i].getAttribute("spone") == "y"){
-                        var t = document.querySelector('.last-state-page');
-                        t.textContent = Number(t.textContent) - 1;
+                        ele_arr[i].style.display = '';
+                        last_ele2 = i;
                     }
                 }
+
+                if(Number(estate_oldval) > Number(estate_value)){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - 14;
+                    for(var i=16;i<Number(estate_oldval)*2+2;i++){
+                        if(ele_arr[i].getAttribute("spone") != "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                        }
+                    }
+                }
+                else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - 14;
+                    var b = (Number(estate_value) - Number(estate_oldval)) * 2;
+                    t.textContent = Number(t.textContent) + b;
+
+                    for(var i=2;i<16;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                        }
+                    }
+                    
+                }
+
                 if(last_ele2 == 15){
                     let next_box = document.querySelector("#yoursavingsbalance");
                     next_box.style.display = ''
@@ -7557,10 +7749,34 @@ $(function(){
 
                 for(var i=2;i<18;i++){
                     if(ele_arr[i].getAttribute("spone") == "y"){
-                        var t = document.querySelector('.last-state-page');
-                        t.textContent = Number(t.textContent) - 1;
+                        ele_arr[i].style.display = '';
+                        last_ele2 = i;
                     }
                 }
+
+                if(Number(estate_oldval) > Number(estate_value)){
+                    for(var i=18;i<Number(estate_oldval)*2+2;i++){
+                        if(ele_arr[i].getAttribute("spone") != "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                        }
+                    }
+                }
+                else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - 16;
+                    var b = (Number(estate_value) - Number(estate_oldval)) * 2;
+                    t.textContent = Number(t.textContent) + b;
+
+                    for(var i=2;i<18;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                        }
+                    }
+                    
+                }
+
                 if(last_ele2 == 17){
                     let next_box = document.querySelector("#yoursavingsbalance");
                     next_box.style.display = ''
@@ -7586,10 +7802,36 @@ $(function(){
 
                 for(var i=2;i<20;i++){
                     if(ele_arr[i].getAttribute("spone") == "y"){
-                        var t = document.querySelector('.last-state-page');
-                        t.textContent = Number(t.textContent) - 1;
+                        ele_arr[i].style.display = '';
+                        last_ele2 = i;
                     }
                 }
+
+                if(Number(estate_oldval) > Number(estate_value)){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - 18;
+                    for(var i=20;i<Number(estate_oldval)*2+2;i++){
+                        if(ele_arr[i].getAttribute("spone") != "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                        }
+                    }
+                }
+                else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - 18;
+                    var b = (Number(estate_value) - Number(estate_oldval)) * 2;
+                    t.textContent = Number(t.textContent) + b;
+
+                    for(var i=2;i<20;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                        }
+                    }
+                    
+                }
+
                 if(last_ele2 == 19){
                     let next_box = document.querySelector("#yoursavingsbalance");
                     next_box.style.display = ''
@@ -7610,13 +7852,29 @@ $(function(){
             else if(estate_value == '10'){
                 var t = document.querySelector('.last-state-page');
                 t.textContent = Number(t.textContent) + 20;
-                
+
                 for(var i=2;i<22;i++){
                     if(ele_arr[i].getAttribute("spone") == "y"){
-                        var t = document.querySelector('.last-state-page');
-                        t.textContent = Number(t.textContent) - 1;
+                        ele_arr[i].style.display = '';
+                        last_ele2 = i;
                     }
                 }
+
+                if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) - 20;
+                    var b = (Number(estate_value) - Number(estate_oldval)) * 2;
+                    t.textContent = Number(t.textContent) + b;
+
+                    for(var i=2;i<22;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                        }
+                    }
+                    
+                }
+
                 if(last_ele2 == 21){
                     let next_box = document.querySelector("#yoursavingsbalance");
                     next_box.style.display = ''

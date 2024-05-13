@@ -32,7 +32,7 @@ class SendTestMail extends Mailable
 
         return $this->view('email.text')
                 ->to('kuwaaoi0@gmail.com','桑村蒼生')
-                ->from('info@wealthjourneynavi.com','株式会社wealth journey navigators')
+                ->from('kuwaaoi0@gmail.com','株式会社wealth journey navigators')
                 ->subject('テストメールです。');
     }
 }
