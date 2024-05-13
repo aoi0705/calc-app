@@ -159,6 +159,9 @@ $(function(){
                 }
             }
         }else{
+            const email = document.getElementById('email').value;
+            sessionStorage.setItem('email', email);
+
             if(submit.getAttribute("count_yet") != "not_yet"){
                 // エラーメッセージのテキストに空文字を代入
                 errMsgName.textContent ='';
@@ -263,6 +266,7 @@ $(function(){
                 }
             }
         }else{
+            
             let box = document.querySelector('#yourbirthday');
             if(box.getAttribute("element_yet") != "not_yet"){
                 // エラーメッセージのテキストに空文字を代入
@@ -4715,8 +4719,6 @@ $(function(){
 // 2ページ目に遷移するボタンにセッションストレージに保存する処理
 $(function(){
     document.getElementsByClassName('btn btn-primary custom-btn-not')[0].addEventListener('click', function() {
-        const email = document.getElementById('email').value;
-        sessionStorage.setItem('email', email);
         const nickname = document.getElementById('nickname').value;
         sessionStorage.setItem('nickname', nickname);
         const birthday = document.getElementById('birthday').value;
@@ -4784,7 +4786,12 @@ $(function(){
         }
         sessionStorage.setItem('third-male', checkValue5);
 
-        window.location.href = '/future_calculation2';
+        if(sessionStorage.getItem('annual-income') == null){
+            window.location.href = '/future_calculation2';
+        }
+        else{
+            history.forward();
+        }
   });
 });
 
@@ -4857,6 +4864,9 @@ $(function(){
             }
 
         }else{
+            const annualincome = document.getElementById('annual-income').value;
+            sessionStorage.setItem('annual-income', annualincome);
+
             if(respone > 0){
                 // var ele_arr = document.getElementsByClassName("form-group");
                 // for(var j=0;j<22;j++){
