@@ -830,7 +830,7 @@
     <label class="last-state-page"></label>
     <label class="last-state">項目</label>
 <button  class="btn btn-primary custom-btn" id="next_page2-not" type="button" data-target="#modal1" data-toggle="modal" disabled>未来家計簿を計算する</button><br>
-<a href="javascript:history.back();">現在家計簿情報入力へ戻る</a>
+<a href="javascript:void(0)" onclick="history.back()">現在家計簿情報入力へ戻る</a>
 </footer>
         <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable" role="document">

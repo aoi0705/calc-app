@@ -7376,7 +7376,7 @@ $(function(){
 
                 estate_oldval = Number(estate_value)      
                 var t = document.querySelector('.last-state-page');
-                t.textContent = 9;   
+                t.textContent = 8;   
     
             }
             else if(estate_value == "2"){
@@ -7444,7 +7444,7 @@ $(function(){
 
                 estate_oldval = Number(estate_value)
                 var t = document.querySelector('.last-state-page');
-                t.textContent = 11; 
+                t.textContent = 10; 
     
             }
             else if(estate_value == "3"){
@@ -7511,7 +7511,7 @@ $(function(){
 
                 estate_oldval = Number(estate_value)
                 var t = document.querySelector('.last-state-page');
-                t.textContent = 13; 
+                t.textContent = 12; 
                 
             }
             else if(estate_value == "4"){
@@ -7575,7 +7575,7 @@ $(function(){
 
                 estate_oldval = Number(estate_value)
                 var t = document.querySelector('.last-state-page');
-                t.textContent = 15; 
+                t.textContent = 14; 
                 
             }
             else if(estate_value == "5"){
@@ -7638,7 +7638,7 @@ $(function(){
 
                 estate_oldval = Number(estate_value)
                 var t = document.querySelector('.last-state-page');
-                t.textContent = 17; 
+                t.textContent = 16; 
                 
             }
             else if(estate_value == "6"){
@@ -7699,7 +7699,7 @@ $(function(){
 
                 estate_oldval = Number(estate_value)
                 var t = document.querySelector('.last-state-page');
-                t.textContent = 19; 
+                t.textContent = 18; 
             }
             else if(estate_value == "7"){
                 var t = document.querySelector('.last-state-page');
@@ -7756,7 +7756,7 @@ $(function(){
 
                 estate_oldval = Number(estate_value)
                 var t = document.querySelector('.last-state-page');
-                t.textContent = 21; 
+                t.textContent = 20; 
             }
             else if(estate_value == "8"){
                 var t = document.querySelector('.last-state-page');
@@ -7810,7 +7810,7 @@ $(function(){
 
                 estate_oldval = Number(estate_value)
                 var t = document.querySelector('.last-state-page');
-                t.textContent = 23; 
+                t.textContent = 22; 
     
             }
             else if(estate_value == "9"){
@@ -7865,7 +7865,7 @@ $(function(){
 
                 estate_oldval = Number(estate_value)
                 var t = document.querySelector('.last-state-page');
-                t.textContent = 25; 
+                t.textContent = 24; 
     
             }
             else if(estate_value == '10'){
@@ -7906,7 +7906,7 @@ $(function(){
 
                 estate_oldval = Number(estate_value)
                 var t = document.querySelector('.last-state-page');
-                t.textContent = 27; 
+                t.textContent = 26; 
             }
             if(sessionStorage.getItem('yourpartner') == "いる"){
                 var partner_bool2 = true;
@@ -7989,12 +7989,20 @@ $(function(){
             }
 
             var last_ele3 = 0;
+            var ele_arr = document.getElementsByClassName("form-group");
             if(ele_arr[22].getAttribute("spone") == 'y' || ele_arr[22].getAttribute("spone") == "n"){
                 for(var i=22;73;i++){
                     console.log("sssssssss")
                     if(l != (Number(estate_value)*2)+1){
                         console.log("トリガ")
-                        ele_arr[i].style.display = 'none';
+                        if(ele_arr[i].style.display == ""){
+                            ele_arr[i].style.display = 'none';
+                        }
+                    }
+                    else if(l == (Number(estate_value)*2)+1){
+                        if(ele_arr[i].style.display == "none"){
+                            ele_arr[i].style.display = '';
+                        }
                     }
 
                     if(ele_arr[i].getAttribute("spone") != 'n' || ele_arr[i].getAttribute("spone") == null){
@@ -8044,6 +8052,7 @@ $(function(){
         const name = document.querySelector('#first-estate');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourfirstestateerr');
+        var ele_arr = document.getElementsByClassName("form-group");
         if(!name.value.match(/^([0-9]{4})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
@@ -8111,6 +8120,7 @@ $(function(){
                 count.textContent = Number(count.textContent) - 1
                 submit.setAttribute("count_yet","not_yet");
             }
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -8146,6 +8156,7 @@ $(function(){
         const name = document.querySelector('#first-rental-income');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourfirstrentalincomeerr');
+        var ele_arr = document.getElementsByClassName("form-group");
         if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
@@ -8168,6 +8179,7 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -8229,6 +8241,25 @@ $(function(){
                 }
             }
 
+            var last_kou = 0;
+            if(document.getElementById("yoursavingsbalance").getAttribute("spone") == "y"){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var i=22;i<73;i++){
+                    if(ele_arr[i].getAttribute("spone") == "y"){
+                        if(ele_arr[i].style.display == 'none'){
+                            ele_arr[i].style.display = ""
+                        }
+                        last_kou = i;
+                        var st = document.querySelector('.last-state-page');
+                        st.textContent = Number(st.textContent) - 1;
+                    }
+                }
+            }
+
+            if(ele_arr[last_kou+1].style.display == 'none'){
+                ele_arr[last_kou+1].style.display = '';
+            }
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -8264,6 +8295,7 @@ $(function(){
         const name = document.querySelector('#second-estate');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yoursecondestateerr');
+        var ele_arr = document.getElementsByClassName("form-group");
         if(!name.value.match(/^([0-9]{4})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
@@ -8365,6 +8397,7 @@ $(function(){
         const name = document.querySelector('#second-rental-income');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yoursecondrentalincomeerr');
+        var ele_arr = document.getElementsByClassName("form-group");
         if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
@@ -8434,6 +8467,25 @@ $(function(){
                     count.textContent = Number(count.textContent) - 1;
                     submit.setAttribute("count_yet","not_yet");
                 }
+                var last_kou = 0;
+                if(document.getElementById("yoursavingsbalance").getAttribute("spone") == "y"){
+                    var ele_arr = document.getElementsByClassName("form-group");
+                    for(var i=22;i<73;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            if(ele_arr[i].style.display == 'none'){
+                                ele_arr[i].style.display = ""
+                            }
+                            last_kou = i;
+                            var st = document.querySelector('.last-state-page');
+                            st.textContent = Number(st.textContent) - 1;
+                        }
+                    }
+                }
+    
+                if(ele_arr[last_kou+1].style.display == 'none'){
+                    ele_arr[last_kou+1].style.display = '';
+                }
+    
             }
             else{
                 let box = document.querySelector('#yourthirdestate');
@@ -8447,6 +8499,7 @@ $(function(){
                     submit.setAttribute("count_yet","not_yet");
                 }
             }
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -8482,6 +8535,7 @@ $(function(){
         const name = document.querySelector('#third-estate');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourthirdestateerr');
+        var ele_arr = document.getElementsByClassName("form-group");
         if(!name.value.match(/^([0-9]{4})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
@@ -8583,6 +8637,7 @@ $(function(){
         const name = document.querySelector('#third-rental-income');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourthirdrentalincomeerr');
+        var ele_arr = document.getElementsByClassName("form-group");
         if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
@@ -8652,6 +8707,25 @@ $(function(){
                     count.textContent = Number(count.textContent) - 1;
                     submit.setAttribute("count_yet","not_yet");
                 }
+                var last_kou = 0;
+                if(document.getElementById("yoursavingsbalance").getAttribute("spone") == "y"){
+                    var ele_arr = document.getElementsByClassName("form-group");
+                    for(var i=22;i<73;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            if(ele_arr[i].style.display == 'none'){
+                                ele_arr[i].style.display = ""
+                            }
+                            last_kou = i;
+                            var st = document.querySelector('.last-state-page');
+                            st.textContent = Number(st.textContent) - 1;
+                        }
+                    }
+                }
+    
+                if(ele_arr[last_kou+1].style.display == 'none'){
+                    ele_arr[last_kou+1].style.display = '';
+                }
+    
             }
             else{
                 let box = document.querySelector('#yourfourestate');
@@ -8665,6 +8739,7 @@ $(function(){
                     submit.setAttribute("count_yet","not_yet");
                 }
             }
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -8700,6 +8775,7 @@ $(function(){
         const name = document.querySelector('#four-estate');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourfourestateerr');
+        var ele_arr = document.getElementsByClassName("form-group");
         if(!name.value.match(/^([0-9]{4})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
@@ -8801,6 +8877,7 @@ $(function(){
         const name = document.querySelector('#four-rental-income');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourfourrentalincomeerr');
+        var ele_arr = document.getElementsByClassName("form-group");
         if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
@@ -8867,6 +8944,24 @@ $(function(){
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1) 
+                var last_kou = 0;
+                if(document.getElementById("yoursavingsbalance").getAttribute("spone") == "y"){
+                    var ele_arr = document.getElementsByClassName("form-group");
+                    for(var i=22;i<73;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            if(ele_arr[i].style.display == 'none'){
+                                ele_arr[i].style.display = ""
+                            }
+                            last_kou = i;
+                            var st = document.querySelector('.last-state-page');
+                            st.textContent = Number(st.textContent) - 1;
+                        }
+                    }
+                }
+    
+                if(ele_arr[last_kou+1].style.display == 'none'){
+                    ele_arr[last_kou+1].style.display = '';
+                }
             }
             else{
                 let box = document.querySelector('#yourfiveestate');
@@ -8877,6 +8972,8 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
             }
+
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -8912,6 +9009,7 @@ $(function(){
         const name = document.querySelector('#five-estate');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourfiveestateerr');
+        var ele_arr = document.getElementsByClassName("form-group");
         if(!name.value.match(/^([0-9]{4})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
@@ -9013,6 +9111,7 @@ $(function(){
         const name = document.querySelector('#five-rental-income');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourfiverentalincomeerr');
+        var ele_arr = document.getElementsByClassName("form-group");
         if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
@@ -9079,6 +9178,24 @@ $(function(){
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1) 
+                var last_kou = 0;
+                if(document.getElementById("yoursavingsbalance").getAttribute("spone") == "y"){
+                    var ele_arr = document.getElementsByClassName("form-group");
+                    for(var i=22;i<73;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            if(ele_arr[i].style.display == 'none'){
+                                ele_arr[i].style.display = ""
+                            }
+                            last_kou = i;
+                            var st = document.querySelector('.last-state-page');
+                            st.textContent = Number(st.textContent) - 1;
+                        }
+                    }
+                }
+    
+                if(ele_arr[last_kou+1].style.display == 'none'){
+                    ele_arr[last_kou+1].style.display = '';
+                }
             }
             else{
                 let box = document.querySelector('#yoursixestate');
@@ -9089,6 +9206,8 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
             }
+
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -9124,6 +9243,7 @@ $(function(){
         const name = document.querySelector('#six-estate');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yoursixestateerr');
+        var ele_arr = document.getElementsByClassName("form-group");
         if(!name.value.match(/^([0-9]{4})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
@@ -9225,6 +9345,7 @@ $(function(){
         const name = document.querySelector('#six-rental-income');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yoursixrentalincomeerr');
+        var ele_arr = document.getElementsByClassName("form-group");
         if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
@@ -9291,6 +9412,25 @@ $(function(){
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1) 
+
+                var last_kou = 0;
+                if(document.getElementById("yoursavingsbalance").getAttribute("spone") == "y"){
+                    var ele_arr = document.getElementsByClassName("form-group");
+                    for(var i=22;i<73;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            if(ele_arr[i].style.display == 'none'){
+                                ele_arr[i].style.display = ""
+                            }
+                            last_kou = i;
+                            var st = document.querySelector('.last-state-page');
+                            st.textContent = Number(st.textContent) - 1;
+                        }
+                    }
+                }
+    
+                if(ele_arr[last_kou+1].style.display == 'none'){
+                    ele_arr[last_kou+1].style.display = '';
+                }
             }
             else{
                 let box = document.querySelector('#yoursevenestate');
@@ -9301,6 +9441,7 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
             }
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -9336,6 +9477,7 @@ $(function(){
         const name = document.querySelector('#seven-estate');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yoursevenestateerr');
+        var ele_arr = document.getElementsByClassName("form-group");
         if(!name.value.match(/^([0-9]{4})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
@@ -9437,6 +9579,7 @@ $(function(){
         const name = document.querySelector('#seven-rental-income');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yoursevenrentalincomeerr');
+        var ele_arr = document.getElementsByClassName("form-group");
         if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
@@ -9459,6 +9602,7 @@ $(function(){
             if(infomess.style.display != "none"){
                 infomess.style.display = 'none';
             }
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -9503,6 +9647,25 @@ $(function(){
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1) 
+
+                var last_kou = 0;
+                if(document.getElementById("yoursavingsbalance").getAttribute("spone") == "y"){
+                    var ele_arr = document.getElementsByClassName("form-group");
+                    for(var i=22;i<73;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            if(ele_arr[i].style.display == 'none'){
+                                ele_arr[i].style.display = ""
+                            }
+                            last_kou = i;
+                            var st = document.querySelector('.last-state-page');
+                            st.textContent = Number(st.textContent) - 1;
+                        }
+                    }
+                }
+    
+                if(ele_arr[last_kou+1].style.display == 'none'){
+                    ele_arr[last_kou+1].style.display = '';
+                }
             }
             else{
                 let box = document.querySelector('#youreightestate');
@@ -9513,6 +9676,7 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
             }
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -9548,6 +9712,7 @@ $(function(){
         const name = document.querySelector('#eight-estate');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#youreightestateerr');
+        var ele_arr = document.getElementsByClassName("form-group");
         if(!name.value.match(/^([0-9]{4})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
@@ -9649,6 +9814,7 @@ $(function(){
         const name = document.querySelector('#eight-rental-income');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#youreightrentalincomeerr');
+        var ele_arr = document.getElementsByClassName("form-group");
         if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
@@ -9715,6 +9881,25 @@ $(function(){
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1) 
+                
+                var last_kou = 0;
+                if(document.getElementById("yoursavingsbalance").getAttribute("spone") == "y"){
+                    var ele_arr = document.getElementsByClassName("form-group");
+                    for(var i=22;i<73;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            if(ele_arr[i].style.display == 'none'){
+                                ele_arr[i].style.display = ""
+                            }
+                            last_kou = i;
+                            var st = document.querySelector('.last-state-page');
+                            st.textContent = Number(st.textContent) - 1;
+                        }
+                    }
+                }
+
+                if(ele_arr[last_kou+1].style.display == 'none'){
+                    ele_arr[last_kou+1].style.display = '';
+                }
             }
             else{
                 let box = document.querySelector('#yournineestate');
@@ -9725,6 +9910,7 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
             }
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -9760,6 +9946,7 @@ $(function(){
         const name = document.querySelector('#nine-estate');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yournineestateerr');
+        var ele_arr = document.getElementsByClassName("form-group");
         if(!name.value.match(/^([0-9]{4})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
@@ -9861,6 +10048,7 @@ $(function(){
         const name = document.querySelector('#nine-rental-income');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourninerentalincomeerr');
+        var ele_arr = document.getElementsByClassName("form-group");
         if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
@@ -9927,6 +10115,25 @@ $(function(){
                 const base_laststate = document.querySelector(".last-state-page").textContent
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1) 
+
+                var last_kou = 0;
+                if(document.getElementById("yoursavingsbalance").getAttribute("spone") == "y"){
+                    var ele_arr = document.getElementsByClassName("form-group");
+                    for(var i=22;i<73;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            if(ele_arr[i].style.display == 'none'){
+                                ele_arr[i].style.display = ""
+                            }
+                            last_kou = i;
+                            var st = document.querySelector('.last-state-page');
+                            st.textContent = Number(st.textContent) - 1;
+                        }
+                    }
+                }
+    
+                if(ele_arr[last_kou+1].style.display == 'none'){
+                    ele_arr[last_kou+1].style.display = '';
+                }
             }
             else{
                 let box = document.querySelector('#yourtenestate');
@@ -9937,6 +10144,8 @@ $(function(){
                 const stat = document.querySelector('.last-state-page');
                 stat.textContent = String(Number(base_laststate) - 1)
             }
+
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -9972,6 +10181,7 @@ $(function(){
         const name = document.querySelector('#ten-estate');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourtenestateerr');
+        var ele_arr = document.getElementsByClassName("form-group");
         if(!name.value.match(/^([0-9]{4})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
@@ -10073,6 +10283,7 @@ $(function(){
         const name = document.querySelector('#ten-rental-income');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourtenrentalincomeerr');
+        var ele_arr = document.getElementsByClassName("form-group");
         if(!name.value.match(/^([0-9]{1,9})$/)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
@@ -10141,6 +10352,26 @@ $(function(){
                 count.textContent = Number(count.textContent) - 1;
                 submit.setAttribute("count_yet","not_yet");
             } 
+
+            var last_kou = 0;
+            if(document.getElementById("yoursavingsbalance").getAttribute("spone") == "y"){
+                var ele_arr = document.getElementsByClassName("form-group");
+                for(var i=22;i<73;i++){
+                    if(ele_arr[i].getAttribute("spone") == "y"){
+                        if(ele_arr[i].style.display == 'none'){
+                            ele_arr[i].style.display = ""
+                        }
+                        last_kou = i;
+                        var st = document.querySelector('.last-state-page');
+                        st.textContent = Number(st.textContent) - 1;
+                    }
+                }
+            }
+
+            if(ele_arr[last_kou+1].style.display == 'none'){
+                ele_arr[last_kou+1].style.display = '';
+            }
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
