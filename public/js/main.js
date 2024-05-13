@@ -218,7 +218,7 @@ $(function(){
     const submit = document.querySelector('#nickname');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
