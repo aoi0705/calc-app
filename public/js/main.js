@@ -228,7 +228,7 @@ $(function(){
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#nicknameerr');
         var ele_arr = document.getElementsByClassName("form-group");
-        if(!name.value == ''){
+        if(!name.value){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -7376,7 +7376,7 @@ $(function(){
 
                 estate_oldval = Number(estate_value)      
                 var t = document.querySelector('.last-state-page');
-                t.textContent = 8;   
+                t.textContent = 9;   
     
             }
             else if(estate_value == "2"){
@@ -7444,7 +7444,7 @@ $(function(){
 
                 estate_oldval = Number(estate_value)
                 var t = document.querySelector('.last-state-page');
-                t.textContent = 10; 
+                t.textContent = 11; 
     
             }
             else if(estate_value == "3"){
@@ -7511,7 +7511,7 @@ $(function(){
 
                 estate_oldval = Number(estate_value)
                 var t = document.querySelector('.last-state-page');
-                t.textContent = 12; 
+                t.textContent = 13; 
                 
             }
             else if(estate_value == "4"){
@@ -7575,7 +7575,7 @@ $(function(){
 
                 estate_oldval = Number(estate_value)
                 var t = document.querySelector('.last-state-page');
-                t.textContent = 14; 
+                t.textContent = 15; 
                 
             }
             else if(estate_value == "5"){
@@ -7638,7 +7638,7 @@ $(function(){
 
                 estate_oldval = Number(estate_value)
                 var t = document.querySelector('.last-state-page');
-                t.textContent = 16; 
+                t.textContent = 17; 
                 
             }
             else if(estate_value == "6"){
@@ -7699,7 +7699,7 @@ $(function(){
 
                 estate_oldval = Number(estate_value)
                 var t = document.querySelector('.last-state-page');
-                t.textContent = 18; 
+                t.textContent = 19; 
             }
             else if(estate_value == "7"){
                 var t = document.querySelector('.last-state-page');
@@ -7756,7 +7756,7 @@ $(function(){
 
                 estate_oldval = Number(estate_value)
                 var t = document.querySelector('.last-state-page');
-                t.textContent = 20; 
+                t.textContent = 21; 
             }
             else if(estate_value == "8"){
                 var t = document.querySelector('.last-state-page');
@@ -7810,7 +7810,7 @@ $(function(){
 
                 estate_oldval = Number(estate_value)
                 var t = document.querySelector('.last-state-page');
-                t.textContent = 22; 
+                t.textContent = 23; 
     
             }
             else if(estate_value == "9"){
@@ -7865,7 +7865,7 @@ $(function(){
 
                 estate_oldval = Number(estate_value)
                 var t = document.querySelector('.last-state-page');
-                t.textContent = 24; 
+                t.textContent = 25; 
     
             }
             else if(estate_value == '10'){
@@ -7906,7 +7906,7 @@ $(function(){
 
                 estate_oldval = Number(estate_value)
                 var t = document.querySelector('.last-state-page');
-                t.textContent = 26; 
+                t.textContent = 27; 
             }
             if(sessionStorage.getItem('yourpartner') == "いる"){
                 var partner_bool2 = true;
@@ -7977,17 +7977,30 @@ $(function(){
                 t.textContent = Number(t.textContent) + 1 + Number(ch);
             }
 
+            var l = 0;
             for(var i=2;i<(Number(estate_value)*2)+2;i++){
                 if(ele_arr[i].getAttribute("spone") == 'y'){
                     var t = document.querySelector('.last-state-page');
                     t.textContent = Number(t.textContent) - 1;
+                    l = i;
+                    console.log(l)
+                    console.log((Number(estate_value)*2)+1)
                 }
             }
 
             var last_ele3 = 0;
-            if(first_flg != false){
+            if(ele_arr[22].getAttribute("spone") == 'y' || ele_arr[22].getAttribute("spone") == "n"){
                 for(var i=22;73;i++){
+                    console.log("sssssssss")
+                    if(l != (Number(estate_value)*2)+1){
+                        console.log("トリガ")
+                        ele_arr[i].style.display = 'none';
+                    }
+
                     if(ele_arr[i].getAttribute("spone") != 'n' || ele_arr[i].getAttribute("spone") == null){
+                        var tet = 0;
+                    }
+                    else{
                         var t = document.querySelector('.last-state-page');
                         t.textContent = Number(t.textContent) - 1;
                         last_ele3 = i;
@@ -8215,6 +8228,7 @@ $(function(){
                     submit.setAttribute("count_yet","not_yet");
                 }
             }
+
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -10200,6 +10214,8 @@ $(function(){
                 }
             }
 
+            document.getElementById("yoursavingsbalance").setAttribute("spone","n")
+
         }else{
 
             if(respone > 0){
@@ -10247,7 +10263,7 @@ $(function(){
                 stat.textContent = String(Number(base_laststate) - 1)
             }
 
-            document.getElementById("yoursavingsbalance").setAttribute("count_yet","not_yet")
+            document.getElementById("yoursavingsbalance").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -10321,6 +10337,8 @@ $(function(){
                 }
             }
 
+            document.getElementById("yourlastEducationalinsurance").setAttribute("spone","n")
+
         }else{
 
             if(respone > 0){
@@ -10349,7 +10367,7 @@ $(function(){
                 submit.setAttribute("count_yet","not_yet");
             }
 
-            document.getElementById("yourlastEducationalinsurance").setAttribute("count_yet","not_yet")
+            document.getElementById("yourlastEducationalinsurance").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -10423,6 +10441,8 @@ $(function(){
                 }
             }
 
+            document.getElementById("yourtrip").setAttribute("spone","n")
+
         }else{
 
             if(respone > 0){
@@ -10451,7 +10471,7 @@ $(function(){
                 submit.setAttribute("count_yet","not_yet");
             }
 
-            document.getElementById("yourtrip").setAttribute("count_yet","not_yet")
+            document.getElementById("yourtrip").setAttribute("spone","y")
             
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -10524,6 +10544,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourotherexpense").setAttribute("spone","n")
 
         }else{
 
@@ -10556,7 +10577,7 @@ $(function(){
                 submit.setAttribute("count_yet","not_yet");
             }
 
-            document.getElementById("yourotherexpense").setAttribute("count_yet","not_yet")
+            document.getElementById("yourotherexpense").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -10625,6 +10646,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourstartwork").setAttribute("spone","n")
 
         }else{
 
@@ -10654,7 +10676,7 @@ $(function(){
                 submit.setAttribute("count_yet","not_yet");
             }
 
-            document.getElementById("yourstartwork").setAttribute("count_yet","not_yet")
+            document.getElementById("yourstartwork").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -10723,6 +10745,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourstartingsalary").setAttribute("spone","n")
 
         }else{
 
@@ -10752,7 +10775,7 @@ $(function(){
                 submit.setAttribute("count_yet","not_yet");
             }
 
-            document.getElementById("yourstartingsalary").setAttribute("count_yet","not_yet")
+            document.getElementById("yourstartingsalary").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -10821,6 +10844,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourestimatedannualincome").setAttribute("spone","n")
 
         }else{
 
@@ -10850,7 +10874,7 @@ $(function(){
                 submit.setAttribute("count_yet","not_yet");
             }
 
-            document.getElementById("yourestimatedannualincome").setAttribute("count_yet","not_yet")
+            document.getElementById("yourestimatedannualincome").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -10919,6 +10943,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourSeverancepay").setAttribute("spone","n")
 
         }else{
 
@@ -10995,6 +11020,7 @@ $(function(){
             }
 
             submit2.setAttribute("count_yet","not_yet")
+            document.getElementById("yourSeverancepay").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -11063,6 +11089,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourpartnerstratwork").setAttribute("spone","n")
 
         }else{
 
@@ -11093,7 +11120,7 @@ $(function(){
                 submit.setAttribute("count_yet","not_yet");
             }
 
-            document.getElementById("yourpartnerstratwork").setAttribute("count_yet","not_yet")
+            document.getElementById("yourpartnerstratwork").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -11162,6 +11189,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourpartnerstartingsalary").setAttribute("spone","n")
 
         }else{
 
@@ -11191,7 +11219,7 @@ $(function(){
                 submit.setAttribute("count_yet","not_yet");
             }
 
-            document.getElementById("yourpartnerstartingsalary").setAttribute("count_yet","not_yet")
+            document.getElementById("yourpartnerstartingsalary").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -11260,6 +11288,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourpartnerestimatedannualincome").setAttribute("spone","n")
 
         }else{
 
@@ -11289,7 +11318,7 @@ $(function(){
                 submit.setAttribute("count_yet","not_yet");
             }
 
-            document.getElementById("yourpartnerestimatedannualincome").setAttribute("count_yet","not_yet")
+            document.getElementById("yourpartnerestimatedannualincome").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -11357,6 +11386,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourpartnerSeverancepay").setAttribute("spone","n")
 
         }else{
 
@@ -11397,6 +11427,7 @@ $(function(){
                 comp_flg = true;
             }
 
+            document.getElementById("yourpartnerSeverancepay").setAttribute("spone","y")
             submit.setAttribute("count_yet","not_yet")
 
             var ele = document.querySelector(".last-state-page").textContent
@@ -11467,6 +11498,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourfirstprimaryschool").setAttribute("spone","n")
 
         }else{
 
@@ -11532,7 +11564,7 @@ $(function(){
                 a.textContent = "39"
             }
 
-            document.getElementById("yourfirstprimaryschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yourfirstprimaryschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -11601,6 +11633,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourfirstjuniorhighschool").setAttribute("spone","n")
 
         }else{
 
@@ -11664,7 +11697,7 @@ $(function(){
                 a.textContent = "38"
             }
 
-            document.getElementById("yourfirstjuniorhighschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yourfirstjuniorhighschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -11733,6 +11766,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourfirsthighschool").setAttribute("spone","n")
 
         }else{
 
@@ -11796,7 +11830,7 @@ $(function(){
                 a.textContent = "37"
             }
 
-            document.getElementById("yourfirsthighschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yourfirsthighschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -11865,6 +11899,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourfirstuniversity").setAttribute("spone","n")
 
         }else{
 
@@ -11950,7 +11985,7 @@ $(function(){
                 box.style.display = '';
             }
 
-            document.getElementById("yourfirstuniversity").setAttribute("count_yet","not_yet")
+            document.getElementById("yourfirstuniversity").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -12019,6 +12054,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yoursecondprimaryschool").setAttribute("spone","n")
 
         }else{
 
@@ -12078,7 +12114,7 @@ $(function(){
                 a.textContent = "35"
             }
 
-            document.getElementById("yoursecondprimaryschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yoursecondprimaryschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -12147,6 +12183,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yoursecondjuniorhighschool").setAttribute("spone","y")
 
         }else{
 
@@ -12206,7 +12243,7 @@ $(function(){
                 a.textContent = "34"
             }
 
-            document.getElementById("yoursecondjuniorhighschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yoursecondjuniorhighschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -12275,6 +12312,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yoursecondhighschool").setAttribute("spone","n")
 
         }else{
 
@@ -12334,7 +12372,7 @@ $(function(){
                 a.textContent = "33"
             }
 
-            document.getElementById("yoursecondhighschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yoursecondhighschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -12403,6 +12441,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourseconduniversity").setAttribute("spone","n")
 
         }else{
 
@@ -12481,7 +12520,7 @@ $(function(){
                 box.style.display = ''
             }
 
-            document.getElementById("yourseconduniversity").setAttribute("count_yet","not_yet")
+            document.getElementById("yourseconduniversity").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -12550,6 +12589,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourthirdprimaryschool").setAttribute("spone","n")
 
             
         }else{
@@ -12606,7 +12646,7 @@ $(function(){
                 a.textContent = "31"
             }
 
-            document.getElementById("yourthirdprimaryschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yourthirdprimaryschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -12675,6 +12715,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourthirdjuniorhighschool").setAttribute("spone","n")
 
         }else{
 
@@ -12730,7 +12771,7 @@ $(function(){
                 a.textContent = "30"
             }
 
-            document.getElementById("yourthirdjuniorhighschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yourthirdjuniorhighschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -12799,6 +12840,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourthirdhighschool").setAttribute("spone","n")
 
         }else{
 
@@ -12854,7 +12896,7 @@ $(function(){
                 a.textContent = "29"
             }
 
-            document.getElementById("yourthirdhighschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yourthirdhighschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -12923,7 +12965,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
-
+            document.getElementById("yourthirduniversity").setAttribute("spone","n")
             
         }else{
 
@@ -12995,7 +13037,7 @@ $(function(){
                 box.style.display = ''
             }
 
-            document.getElementById("yourthirduniversity").setAttribute("count_yet","not_yet")
+            document.getElementById("yourthirduniversity").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -13064,6 +13106,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourfourprimaryschool").setAttribute("spone","n")
 
         }else{
 
@@ -13115,7 +13158,7 @@ $(function(){
                 a.textContent = "27"
             }
 
-            document.getElementById("yourfourprimaryschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yourfourprimaryschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -13184,6 +13227,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourfourjuniorhighschool").setAttribute("spone","n")
 
         }else{
 
@@ -13235,7 +13279,7 @@ $(function(){
                 a.textContent = "26"
             }
 
-            document.getElementById("yourfourjuniorhighschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yourfourjuniorhighschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -13304,6 +13348,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourfourhighschool").setAttribute("spone","n")
 
         }else{
 
@@ -13355,7 +13400,7 @@ $(function(){
                 a.textContent = "25"
             }
 
-            document.getElementById("yourfourhighschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yourfourhighschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -13424,6 +13469,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourfouruniversity").setAttribute("spone","n")
 
         }else{
 
@@ -13489,7 +13535,7 @@ $(function(){
                 box.style.display = ''
             }
 
-            document.getElementById("yourfouruniversity").setAttribute("count_yet","not_yet")
+            document.getElementById("yourfouruniversity").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -13558,6 +13604,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourfiveprimaryschool").setAttribute("spone","n")
 
         }else{
 
@@ -13605,7 +13652,7 @@ $(function(){
                 a.textContent = "23"
             }
 
-            document.getElementById("yourfiveprimaryschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yourfiveprimaryschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -13674,6 +13721,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourfivejuniorhighschool").setAttribute("spone","n")
 
         }else{
 
@@ -13721,7 +13769,7 @@ $(function(){
                 a.textContent = "22"
             }
 
-            document.getElementById("yourfivejuniorhighschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yourfivejuniorhighschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -13790,6 +13838,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourfivehighschool").setAttribute("spone","y")
 
         }else{
 
@@ -13837,7 +13886,7 @@ $(function(){
                 a.textContent = "21"
             }
 
-            document.getElementById("yourfivehighschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yourfivehighschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -13906,6 +13955,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourfiveuniversity").setAttribute("spone","n")
 
         }else{
 
@@ -13965,7 +14015,7 @@ $(function(){
                 box.style.display = ''
             }
 
-            document.getElementById("yourfiveuniversity").setAttribute("count_yet","not_yet")
+            document.getElementById("yourfiveuniversity").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -14034,6 +14084,8 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            
+            document.getElementById("yoursixprimaryschool").setAttribute("spone","n")
 
         }else{
 
@@ -14077,7 +14129,7 @@ $(function(){
                 a.textContent = "19"
             }
 
-            document.getElementById("yoursixprimaryschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yoursixprimaryschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -14146,7 +14198,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
-
+            document.getElementById("yoursixjuniorhighschool").setAttribute("spone","n")
         }else{
 
             if(respone > 0){
@@ -14189,7 +14241,7 @@ $(function(){
                 a.textContent = "18"
             }
 
-            document.getElementById("yoursixjuniorhighschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yoursixjuniorhighschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -14258,6 +14310,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yoursixhighschool").setAttribute("spone","n")
 
         }else{
 
@@ -14301,7 +14354,7 @@ $(function(){
                 a.textContent = "17"
             }
 
-            document.getElementById("yoursixhighschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yoursixhighschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -14370,6 +14423,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yoursixuniversity").setAttribute("spone","n")
 
         }else{
 
@@ -14423,7 +14477,7 @@ $(function(){
                 box.style.display = ''
             }
 
-            document.getElementById("yoursixuniversity").setAttribute("count_yet","not_yet")
+            document.getElementById("yoursixuniversity").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -14492,6 +14546,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yoursevenprimaryschool").setAttribute("spone","n")
 
         }else{
 
@@ -14531,7 +14586,7 @@ $(function(){
                 a.textContent = "15"
             }
 
-            document.getElementById("yoursevenprimaryschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yoursevenprimaryschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -14600,6 +14655,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yoursevenjuniorhighschool").setAttribute("spone","n")
 
         }else{
 
@@ -14639,7 +14695,7 @@ $(function(){
                 a.textContent = "14"
             }
 
-            document.getElementById("yoursevenjuniorhighschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yoursevenjuniorhighschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -14708,6 +14764,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yoursevenhighschool").setAttribute("spone","n")
 
         }else{
 
@@ -14747,7 +14804,7 @@ $(function(){
                 a.textContent = "13"
             }
 
-            document.getElementById("yoursevenhighschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yoursevenhighschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -14816,6 +14873,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yoursevenuniversity").setAttribute("spone","n")
 
         }else{
 
@@ -14863,7 +14921,7 @@ $(function(){
                 box.style.display = ''
             }
 
-            document.getElementById("yoursevenuniversity").setAttribute("count_yet","not_yet")
+            document.getElementById("yoursevenuniversity").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -14932,6 +14990,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("youreightprimaryschool").setAttribute("spone","n")
 
         }else{
 
@@ -14967,7 +15026,7 @@ $(function(){
                 a.textContent = "11"
             }
 
-            document.getElementById("youreightprimaryschool").setAttribute("count_yet","not_yet")
+            document.getElementById("youreightprimaryschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -15036,6 +15095,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("youreightjuniorhighschool").setAttribute("spone","n")
 
         }else{
 
@@ -15071,7 +15131,7 @@ $(function(){
                 a.textContent = "10"
             }
 
-            document.getElementById("youreightjuniorhighschool").setAttribute("count_yet","not_yet")
+            document.getElementById("youreightjuniorhighschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -15140,6 +15200,8 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            
+            document.getElementById("youreighthighschool").setAttribute("spone","n")
 
         }else{
 
@@ -15175,7 +15237,7 @@ $(function(){
                 a.textContent = "9"
             }
 
-            document.getElementById("youreighthighschool").setAttribute("count_yet","not_yet")
+            document.getElementById("youreighthighschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -15244,6 +15306,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("youreightuniversity").setAttribute("spone","n")
 
         }else{
 
@@ -15285,7 +15348,7 @@ $(function(){
                 box.style.display = ''
             }
 
-            document.getElementById("youreightuniversity").setAttribute("count_yet","not_yet")
+            document.getElementById("youreightuniversity").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -15354,6 +15417,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yournineprimaryschool").setAttribute("spone","n")
 
         }else{
 
@@ -15385,7 +15449,7 @@ $(function(){
                 a.textContent = "7"
             }
 
-            document.getElementById("yournineprimaryschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yournineprimaryschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -15455,6 +15519,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourninejuniorhighschool").setAttribute("spone","n")
 
         }else{
 
@@ -15486,7 +15551,7 @@ $(function(){
                 a.textContent = "6"
             }
 
-            document.getElementById("yourninejuniorhighschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yourninejuniorhighschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -15555,6 +15620,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourninehighschool").setAttribute("spone","n")
 
         }else{
 
@@ -15586,7 +15652,7 @@ $(function(){
                 a.textContent = "5"
             }
 
-            document.getElementById("yourninehighschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yourninehighschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -15655,6 +15721,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yournineuniversity").setAttribute("spone","n")
 
         }else{
 
@@ -15690,7 +15757,7 @@ $(function(){
                 box.style.display = ''
             }
 
-            document.getElementById("yournineuniversity").setAttribute("count_yet","not_yet")
+            document.getElementById("yournineuniversity").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -15759,6 +15826,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourtenprimaryschool").setAttribute("spone","n")
 
         }else{
 
@@ -15786,7 +15854,7 @@ $(function(){
                 a.textContent = "3"
             }
 
-            document.getElementById("yourtenprimaryschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yourtenprimaryschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -15855,6 +15923,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourtenjuniorhighschool").setAttribute("spone","n")
 
         }else{
 
@@ -15882,7 +15951,7 @@ $(function(){
                 a.textContent = "2"
             }
 
-            document.getElementById("yourtenjuniorhighschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yourtenjuniorhighschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -15951,6 +16020,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourtenhighschool").setAttribute("spone","n")
 
         }else{
 
@@ -15978,7 +16048,7 @@ $(function(){
                 a.textContent = "1"
             }
 
-            document.getElementById("yourtenhighschool").setAttribute("count_yet","not_yet")
+            document.getElementById("yourtenhighschool").setAttribute("spone","y")
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -16038,6 +16108,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.getElementById("yourtenuniversity").setAttribute("spone","n")
 
         }else{
             // エラーメッセージのテキストに空文字を代入
@@ -16059,7 +16130,7 @@ $(function(){
             }
 
 
-            document.getElementById("yourtenuniversity").setAttribute("count_yet","not_yet")
+            document.getElementById("yourtenuniversity").setAttribute("spone","y")
         }
 	});
 });
@@ -16102,8 +16173,6 @@ $(function(){
 $(function(){
 
     let ele = document.getElementById("number-children")
-    let len = ele.length;
-    let checkValue = '';
     ele.addEventListener('change', (e) => {
         var zan = document.querySelector(".last-state-page").textContent
         console.log(String(zan))

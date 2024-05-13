@@ -77,7 +77,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title">
-                    個人情報取り扱い同意書
+                    個人情報取り扱い<br class="br-sp">同意書
                 </h3>
             </div>
             <div class="modal-body">

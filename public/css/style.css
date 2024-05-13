@@ -239,10 +239,10 @@ body{
 #consent-button:disabled {
 	background-color: #8a8a8a;
 }
-#consent-button {
+#consent-button .btn.btn-primary.mx-auto.d-block {
 	background-color: #FF9696;
-	height:70px;
-	width:50%;
+	height:35px !important;
+	width:50% !important;
 }
 
 /*テキストブロック*/
@@ -431,7 +431,7 @@ main p + p {margin-top: -15px;}
 
 .modal-footer{
   justify-content : center;
-  height:120px
+  height: 60px;
 }
 
 .err-msg-name{
@@ -1049,6 +1049,32 @@ body{
 
 .br-sp {
 display: inline-block;
+}
+
+.modal-content{
+	height:80% !important;
+	width:80% !important;
+	margin-left: 10%;
+}
+
+#consent-button:disabled {
+	background-color: #8a8a8a;
+}
+#consent-button {
+	background-color: #FF9696;
+	height:35px !important;
+	width:50% !important;
+}
+#next_page2_serv {
+	background-color: #FF9696;
+	height:35px !important;
+	width:95% !important;
+	/*margin-top: 30px !important;*/
+	font-size: 12px !important;
+}
+
+#modal{
+	height:350% !important;
 }
 
 .privacy_policy_section{

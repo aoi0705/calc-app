@@ -836,7 +836,7 @@
             <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3 class="modal-title">情報共有の同意のお願い</h3>
+                        <h3 class="modal-title">情報共有の同意の<br class="br-sp">お願い</h3>
                     </div>
                     <div class="modal-body">
                         <section>
@@ -856,7 +856,7 @@
                         </section>
                     </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary mx-auto d-block" id="next_page2">同意してサービスを利用する</button>
+                            <button type="button" class="btn btn-primary mx-auto d-block" id="next_page2_serv">同意してサービスを利用する</button>
                         </div>
                     </div>
                 </div>
