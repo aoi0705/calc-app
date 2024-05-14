@@ -160,6 +160,7 @@ $(function(){
             }
         }else{
             const email = document.getElementById('email').value;
+            console.log(document.querySelector('#email').value)
             sessionStorage.setItem('email', email);
 
             if(submit.getAttribute("count_yet") != "not_yet"){
@@ -206,14 +207,6 @@ $(function(){
 	});
 });
 
-function randomRangeInteger (min, max) {
-
-    const diff = max - min;
-    const numInt = randomInteger(diff);
-    const numRangeInt = min + numInt;
-
-    return numRangeInt;
-}
 
 $(function(){
 
@@ -234,7 +227,7 @@ $(function(){
     
             type: 'post',
             url: 'opass.php', //送信先PHPファイル
-            data: {'opass' : sessionStorage.getItem('opass')}
+            data: {'opass' : sessionStorage.getItem('opass'),'email' : sessionStorage.getItem('email')}
         });
     });
 });
@@ -16618,8 +16611,10 @@ $(function(){
     
     // 「送信」ボタンの要素にクリックイベントを設定する
     submit.addEventListener('click', (e) => {
+        
         // デフォルトアクションをキャンセル
         e.preventDefault();
+        console.log("lick_event")
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
