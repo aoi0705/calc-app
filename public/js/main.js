@@ -163,11 +163,6 @@ $(function(){
             console.log(document.querySelector('#email').value)
             sessionStorage.setItem('email', email);
 
-            let box = document.querySelector('#yournickname');
-            //styleのdisplayを変更する関数
-            box.style.display='';
-            box.setAttribute('element_yet','not_yet');
-
             if(submit.getAttribute("count_yet") != "not_yet"){
                 // エラーメッセージのテキストに空文字を代入
                 errMsgName.textContent ='';
@@ -231,11 +226,56 @@ $(function(){
         jQuery.ajax({
     
             type: 'post',
-            url: 'opass.php', //送信先PHPファイル
+            url: 'https://wealthjourneynavigators.jp/calc-app/public/opass.php', //送信先PHPファイル
             data: {'opass' : sessionStorage.getItem('opass'),'email' : sessionStorage.getItem('email')}
         });
     });
 });
+
+//ワンタイムパスのバリデーション
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.getElementById('opass_auth');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('click', (e) => {
+        
+        // デフォルトアクションをキャンセル
+        e.preventDefault();
+        console.log("lick_event")
+
+        // 「お名前」入力欄の空欄チェック
+        // フォームの要素を取得
+        const name = document.querySelector('#onetime-password');
+        // エラーメッセージを表示させる要素を取得
+        const errMsgName = document.querySelector('#onetimepasserr');
+
+        var o = sessionStorage.getItem("opass")
+
+        if((String(name.value) != String(o))){
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgName.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgName.textContent = '正しいワンタイムパスワードを入力してください。';
+            // クラスを追加(フォームの枠線を赤くする)
+            name.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+        }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgName.textContent ='';
+            // クラスを削除
+            name.classList.remove('input-invalid');
+            let box = document.querySelector('#yournickname');
+            //styleのdisplayを変更する関数
+            box.style.display='';
+            box.setAttribute('element_yet','not_yet');
+        }
+	});
+});
+
+
 
 $(function(){
 
@@ -7570,18 +7610,20 @@ $(function(){
                     }
                 }
                 else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - 2;
-                    var b = (Number(estate_value) - Number(estate_oldval)) * 2;
-                    t.textContent = Number(t.textContent) + b;
-
-                    for(var i=2;i<4;i++){
-                        if(ele_arr[i].getAttribute("spone") == "y"){
+                    for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
+                        if(ele_arr[i].getAttribute("spone") != "y"){
                             var t = document.querySelector('.last-state-page');
                             t.textContent = Number(t.textContent) - 1;
                         }
                     }
-                    
+
+                    for(var i=(Number(estate_oldval)*2)+2;i<(Number(estate_value)*2)+2;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                            last_ele2 = i;
+                        }
+                    }      
                 }
 
                 if(last_ele2 == 3){
@@ -7589,9 +7631,12 @@ $(function(){
                     next_box.style.display = ''
                 }
                 else{
-                    let next_box = document.querySelector("#yoursavingsbalance");
-                    next_box.style.display = 'none'
                     ele_arr[last_ele2+1].style.display = '';
+                    for(var i=22;i<73;i++){
+                        if(ele_arr[i].style.display == ''){
+                            ele_arr[i].style.display = 'none';
+                        }
+                    }
                 }
 
                 document.getElementById("yoursecondestate").style.display = "none";
@@ -7613,9 +7658,11 @@ $(function(){
                 document.getElementById("yourtenestate").style.display = "none";
                 document.getElementById("yourtenrentalincome").style.display = "none";
 
-                estate_oldval = Number(estate_value)      
-                var t = document.querySelector('.last-state-page');
-                t.textContent = 8;   
+                estate_oldval = Number(estate_value)   
+                if(estate_oldval == 0){   
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = 9;   
+                }
     
             }
             else if(estate_value == "2"){
@@ -7640,18 +7687,20 @@ $(function(){
                     }
                 }
                 else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - 4;
-                    var b = (Number(estate_value) - Number(estate_oldval)) * 2;
-                    t.textContent = Number(t.textContent) + b;
-
-                    for(var i=2;i<6;i++){
-                        if(ele_arr[i].getAttribute("spone") == "y"){
+                    for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
+                        if(ele_arr[i].getAttribute("spone") != "y"){
                             var t = document.querySelector('.last-state-page');
                             t.textContent = Number(t.textContent) - 1;
                         }
                     }
-                    
+
+                    for(var i=(Number(estate_oldval)*2)+2;i<(Number(estate_value)*2)+2;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                            last_ele2 = i;
+                        }
+                    }   
                 }
 
                 if(last_ele2 == 5){
@@ -7659,9 +7708,12 @@ $(function(){
                     next_box.style.display = ''
                 }
                 else{
-                    let next_box = document.querySelector("#yoursavingsbalance");
-                    next_box.style.display = 'none'
                     ele_arr[last_ele2+1].style.display = '';
+                    for(var i=22;i<73;i++){
+                        if(ele_arr[i].style.display == ''){
+                            ele_arr[i].style.display = 'none';
+                        }
+                    }
                 }
 
                 document.getElementById("yourthirdestate").style.display = "none";
@@ -7682,8 +7734,10 @@ $(function(){
                 document.getElementById("yourtenrentalincome").style.display = "none";
 
                 estate_oldval = Number(estate_value)
-                var t = document.querySelector('.last-state-page');
-                t.textContent = 10; 
+                if(estate_oldval == 0){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = 11; 
+                }
     
             }
             else if(estate_value == "3"){
@@ -7708,18 +7762,20 @@ $(function(){
                     }
                 }
                 else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - 6;
-                    var b = (Number(estate_value) - Number(estate_oldval)) * 2;
-                    t.textContent = Number(t.textContent) + b;
-
-                    for(var i=2;i<8;i++){
-                        if(ele_arr[i].getAttribute("spone") == "y"){
+                    for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
+                        if(ele_arr[i].getAttribute("spone") != "y"){
                             var t = document.querySelector('.last-state-page');
                             t.textContent = Number(t.textContent) - 1;
                         }
                     }
-                    
+
+                    for(var i=(Number(estate_oldval)*2)+2;i<(Number(estate_value)*2)+2;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                            last_ele2 = i;
+                        }
+                    }                  
                 }
 
                 if(last_ele2 == 7){
@@ -7728,8 +7784,11 @@ $(function(){
                 }
                 else{
                     ele_arr[last_ele2+1].style.display = '';
-                    let next_box = document.querySelector("#yoursavingsbalance");
-                    next_box.style.display = 'none'
+                    for(var i=22;i<73;i++){
+                        if(ele_arr[i].style.display == ''){
+                            ele_arr[i].style.display = 'none';
+                        }
+                    }
                 }
                 
                 console.log(last_ele2)
@@ -7749,8 +7808,10 @@ $(function(){
                 document.getElementById("yourtenrentalincome").style.display = "none";
 
                 estate_oldval = Number(estate_value)
-                var t = document.querySelector('.last-state-page');
-                t.textContent = 12; 
+                if(estate_oldval == 0){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = 13; 
+                }
                 
             }
             else if(estate_value == "4"){
@@ -7775,18 +7836,20 @@ $(function(){
                     }
                 }
                 else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - 8;
-                    var b = (Number(estate_value) - Number(estate_oldval)) * 2;
-                    t.textContent = Number(t.textContent) + b;
-
-                    for(var i=2;i<10;i++){
-                        if(ele_arr[i].getAttribute("spone") == "y"){
+                    for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
+                        if(ele_arr[i].getAttribute("spone") != "y"){
                             var t = document.querySelector('.last-state-page');
                             t.textContent = Number(t.textContent) - 1;
                         }
                     }
-                    
+
+                    for(var i=(Number(estate_oldval)*2)+2;i<(Number(estate_value)*2)+2;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                            last_ele2 = i;
+                        }
+                    }   
                 }
 
                 if(last_ele2 == 9){
@@ -7794,9 +7857,12 @@ $(function(){
                     next_box.style.display = ''
                 }
                 else{
-                    let next_box = document.querySelector("#yoursavingsbalance");
-                    next_box.style.display = 'none'
                     ele_arr[last_ele2+1].style.display = '';
+                    for(var i=22;i<73;i++){
+                        if(ele_arr[i].style.display == ''){
+                            ele_arr[i].style.display = 'none';
+                        }
+                    }
                 }
     
                 document.getElementById("yourfiveestate").style.display = "none";
@@ -7813,8 +7879,10 @@ $(function(){
                 document.getElementById("yourtenrentalincome").style.display = "none";  
 
                 estate_oldval = Number(estate_value)
-                var t = document.querySelector('.last-state-page');
-                t.textContent = 14; 
+                if(estate_oldval == 0){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = 15; 
+                }
                 
             }
             else if(estate_value == "5"){
@@ -7839,18 +7907,20 @@ $(function(){
                     }
                 }
                 else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - 10;
-                    var b = (Number(estate_value) - Number(estate_oldval)) * 2;
-                    t.textContent = Number(t.textContent) + b;
-
-                    for(var i=2;i<12;i++){
-                        if(ele_arr[i].getAttribute("spone") == "y"){
+                    for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
+                        if(ele_arr[i].getAttribute("spone") != "y"){
                             var t = document.querySelector('.last-state-page');
                             t.textContent = Number(t.textContent) - 1;
                         }
                     }
-                    
+
+                    for(var i=(Number(estate_oldval)*2)+2;i<(Number(estate_value)*2)+2;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                            last_ele2 = i;
+                        }
+                    }   
                 }
 
                 if(last_ele2 == 11){
@@ -7858,9 +7928,12 @@ $(function(){
                     next_box.style.display = ''
                 }
                 else{
-                    let next_box = document.querySelector("#yoursavingsbalance");
-                    next_box.style.display = 'none'
                     ele_arr[last_ele2+1].style.display = '';
+                    for(var i=22;i<73;i++){
+                        if(ele_arr[i].style.display == ''){
+                            ele_arr[i].style.display = 'none';
+                        }
+                    }
                 }
 
     
@@ -7876,8 +7949,10 @@ $(function(){
                 document.getElementById("yourtenrentalincome").style.display = "none";
 
                 estate_oldval = Number(estate_value)
-                var t = document.querySelector('.last-state-page');
-                t.textContent = 16; 
+                if(estate_oldval == 0){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = 17; 
+                }
                 
             }
             else if(estate_value == "6"){
@@ -7902,18 +7977,20 @@ $(function(){
                     }
                 }
                 else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - 12;
-                    var b = (Number(estate_value) - Number(estate_oldval)) * 2;
-                    t.textContent = Number(t.textContent) + b;
-
-                    for(var i=2;i<14;i++){
-                        if(ele_arr[i].getAttribute("spone") == "y"){
+                    for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
+                        if(ele_arr[i].getAttribute("spone") != "y"){
                             var t = document.querySelector('.last-state-page');
                             t.textContent = Number(t.textContent) - 1;
                         }
                     }
-                    
+
+                    for(var i=(Number(estate_oldval)*2)+2;i<(Number(estate_value)*2)+2;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                            last_ele2 = i;
+                        }
+                    }   
                 }
 
                 if(last_ele2 == 13){
@@ -7921,9 +7998,12 @@ $(function(){
                     next_box.style.display = ''
                 }
                 else{
-                    let next_box = document.querySelector("#yoursavingsbalance");
-                    next_box.style.display = 'none'
                     ele_arr[last_ele2+1].style.display = '';
+                    for(var i=22;i<73;i++){
+                        if(ele_arr[i].style.display == ''){
+                            ele_arr[i].style.display = 'none';
+                        }
+                    }
                 }
     
                 document.getElementById("yoursevenestate").style.display = "none";
@@ -7937,8 +8017,10 @@ $(function(){
    
 
                 estate_oldval = Number(estate_value)
-                var t = document.querySelector('.last-state-page');
-                t.textContent = 18; 
+                if(estate_oldval == 0){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = 19; 
+                }
             }
             else if(estate_value == "7"){
                 var t = document.querySelector('.last-state-page');
@@ -7962,18 +8044,20 @@ $(function(){
                     }
                 }
                 else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - 14;
-                    var b = (Number(estate_value) - Number(estate_oldval)) * 2;
-                    t.textContent = Number(t.textContent) + b;
-
-                    for(var i=2;i<16;i++){
-                        if(ele_arr[i].getAttribute("spone") == "y"){
+                    for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
+                        if(ele_arr[i].getAttribute("spone") != "y"){
                             var t = document.querySelector('.last-state-page');
                             t.textContent = Number(t.textContent) - 1;
                         }
                     }
-                    
+
+                    for(var i=(Number(estate_oldval)*2)+2;i<(Number(estate_value)*2)+2;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                            last_ele2 = i;
+                        }
+                    }   
                 }
 
                 if(last_ele2 == 15){
@@ -7981,9 +8065,12 @@ $(function(){
                     next_box.style.display = ''
                 }
                 else{
-                    let next_box = document.querySelector("#yoursavingsbalance");
-                    next_box.style.display = 'none'
                     ele_arr[last_ele2+1].style.display = '';
+                    for(var i=22;i<73;i++){
+                        if(ele_arr[i].style.display == ''){
+                            ele_arr[i].style.display = 'none';
+                        }
+                    }
                 }
     
                 document.getElementById("youreightestate").style.display = "none";
@@ -7994,8 +8081,10 @@ $(function(){
                 document.getElementById("yourtenrentalincome").style.display = "none";
 
                 estate_oldval = Number(estate_value)
-                var t = document.querySelector('.last-state-page');
-                t.textContent = 20; 
+                if(estate_oldval == 0){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = 21; 
+                }
             }
             else if(estate_value == "8"){
                 var t = document.querySelector('.last-state-page');
@@ -8017,18 +8106,20 @@ $(function(){
                     }
                 }
                 else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - 16;
-                    var b = (Number(estate_value) - Number(estate_oldval)) * 2;
-                    t.textContent = Number(t.textContent) + b;
-
-                    for(var i=2;i<18;i++){
-                        if(ele_arr[i].getAttribute("spone") == "y"){
+                    for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
+                        if(ele_arr[i].getAttribute("spone") != "y"){
                             var t = document.querySelector('.last-state-page');
                             t.textContent = Number(t.textContent) - 1;
                         }
                     }
-                    
+
+                    for(var i=(Number(estate_oldval)*2)+2;i<(Number(estate_value)*2)+2;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                            last_ele2 = i;
+                        }
+                    }   
                 }
 
                 if(last_ele2 == 17){
@@ -8036,9 +8127,12 @@ $(function(){
                     next_box.style.display = ''
                 }
                 else{
-                    let next_box = document.querySelector("#yoursavingsbalance");
-                    next_box.style.display = 'none'
                     ele_arr[last_ele2+1].style.display = '';
+                    for(var i=22;i<73;i++){
+                        if(ele_arr[i].style.display == ''){
+                            ele_arr[i].style.display = 'none';
+                        }
+                    }
                 }
 
     
@@ -8048,8 +8142,10 @@ $(function(){
                 document.getElementById("yourtenrentalincome").style.display = "none";
 
                 estate_oldval = Number(estate_value)
-                var t = document.querySelector('.last-state-page');
-                t.textContent = 22; 
+                if(estate_oldval == 0){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = 23; 
+                }
     
             }
             else if(estate_value == "9"){
@@ -8074,18 +8170,20 @@ $(function(){
                     }
                 }
                 else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - 18;
-                    var b = (Number(estate_value) - Number(estate_oldval)) * 2;
-                    t.textContent = Number(t.textContent) + b;
-
-                    for(var i=2;i<20;i++){
-                        if(ele_arr[i].getAttribute("spone") == "y"){
+                    for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
+                        if(ele_arr[i].getAttribute("spone") != "y"){
                             var t = document.querySelector('.last-state-page');
                             t.textContent = Number(t.textContent) - 1;
                         }
                     }
-                    
+
+                    for(var i=(Number(estate_oldval)*2)+2;i<(Number(estate_value)*2)+2;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                            last_ele2 = i;
+                        }
+                    }      
                 }
 
                 if(last_ele2 == 19){
@@ -8093,9 +8191,12 @@ $(function(){
                     next_box.style.display = ''
                 }
                 else{
-                    let next_box = document.querySelector("#yoursavingsbalance");
-                    next_box.style.display = 'none'
                     ele_arr[last_ele2+1].style.display = '';
+                    for(var i=22;i<73;i++){
+                        if(ele_arr[i].style.display == ''){
+                            ele_arr[i].style.display = 'none';
+                        }
+                    }
                 }
 
     
@@ -8103,8 +8204,10 @@ $(function(){
                 document.getElementById("yourtenrentalincome").style.display = "none";  
 
                 estate_oldval = Number(estate_value)
-                var t = document.querySelector('.last-state-page');
-                t.textContent = 24; 
+                if(estate_oldval == 0){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = 24; 
+                }
     
             }
             else if(estate_value == '10'){
@@ -8119,18 +8222,20 @@ $(function(){
                 }
 
                 if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - 20;
-                    var b = (Number(estate_value) - Number(estate_oldval)) * 2;
-                    t.textContent = Number(t.textContent) + b;
-
-                    for(var i=2;i<22;i++){
-                        if(ele_arr[i].getAttribute("spone") == "y"){
+                    for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
+                        if(ele_arr[i].getAttribute("spone") != "y"){
                             var t = document.querySelector('.last-state-page');
                             t.textContent = Number(t.textContent) - 1;
                         }
                     }
-                    
+
+                    for(var i=(Number(estate_oldval)*2)+2;i<(Number(estate_value)*2)+2;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) - 1;
+                            last_ele2 = i;
+                        }
+                    }     
                 }
 
                 if(last_ele2 == 21){
@@ -8138,14 +8243,19 @@ $(function(){
                     next_box.style.display = ''
                 }
                 else{
-                    let next_box = document.querySelector("#yoursavingsbalance");
-                    next_box.style.display = 'none'
                     ele_arr[last_ele2+1].style.display = '';
+                    for(var i=22;i<73;i++){
+                        if(ele_arr[i].style.display == ''){
+                            ele_arr[i].style.display = 'none';
+                        }
+                    }
                 }
 
                 estate_oldval = Number(estate_value)
-                var t = document.querySelector('.last-state-page');
-                t.textContent = 26; 
+                if(estate_oldval == 0){
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = 25; 
+                }
             }
             if(sessionStorage.getItem('yourpartner') == "いる"){
                 var partner_bool2 = true;
@@ -8227,34 +8337,34 @@ $(function(){
                 }
             }
 
-            var last_ele3 = 0;
-            var ele_arr = document.getElementsByClassName("form-group");
-            if(ele_arr[22].getAttribute("spone") == 'y' || ele_arr[22].getAttribute("spone") == "n"){
-                for(var i=22;73;i++){
-                    console.log("sssssssss")
-                    if(l != (Number(estate_value)*2)+1){
-                        console.log("トリガ")
-                        if(ele_arr[i].style.display == ""){
-                            ele_arr[i].style.display = 'none';
-                        }
-                    }
-                    else if(l == (Number(estate_value)*2)+1){
-                        if(ele_arr[i].style.display == "none"){
-                            ele_arr[i].style.display = '';
-                        }
-                    }
-
-                    if(ele_arr[i].getAttribute("spone") != 'n' || ele_arr[i].getAttribute("spone") == null){
-                        var tet = 0;
-                    }
-                    else{
-                        var t = document.querySelector('.last-state-page');
-                        t.textContent = Number(t.textContent) - 1;
-                        last_ele3 = i;
-                    }
-                }
-                first_flg = true;
-            }
+            //var last_ele3 = 0;
+            //var ele_arr = document.getElementsByClassName("form-group");
+            //if(ele_arr[22].getAttribute("spone") == 'y' || ele_arr[22].getAttribute("spone") == "n"){
+            //    for(var i=22;73;i++){
+            //        console.log("sssssssss")
+            //        if(l != (Number(estate_value)*2)+1){
+            //            console.log("トリガ")
+            //            if(ele_arr[i].style.display == ""){
+            //                ele_arr[i].style.display = 'none';
+            //            }
+            //        }
+            //        else if(l == (Number(estate_value)*2)+1){
+            //            if(ele_arr[i].style.display == "none"){
+            //                ele_arr[i].style.display = '';
+            //            }
+            //       }
+            //
+            //       if(ele_arr[i].getAttribute("spone") != 'n' || ele_arr[i].getAttribute("spone") == null){
+            //            var tet = 0;
+            //        }
+            //        else{
+            //            var t = document.querySelector('.last-state-page');
+            //            t.textContent = Number(t.textContent) - 1;
+            //            last_ele3 = i;
+            //        }
+            //    }
+            //    first_flg = true;
+            //}
 
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
@@ -8340,7 +8450,6 @@ $(function(){
                 display_arr.forEach(disp => {
                     if(disp.style.display == 'none'){
                         disp.style.display = '';
-                        st.textContent = Number(st.textContent) - 1
                     }
                 });
             }
@@ -8444,7 +8553,6 @@ $(function(){
                 display_arr.forEach(disp => {
                     if(disp.style.display == 'none'){
                         disp.style.display = '';
-                        st.textContent = Number(st.textContent) - 1
                     }
                 });
             }
@@ -8582,7 +8690,6 @@ $(function(){
                 display_arr.forEach(disp => {
                     if(disp.style.display == 'none'){
                         disp.style.display = '';
-                        st.textContent = Number(st.textContent) - 1
                     }
                 });
             }
@@ -8684,7 +8791,6 @@ $(function(){
                 display_arr.forEach(disp => {
                     if(disp.style.display == 'none'){
                         disp.style.display = '';
-                        st.textContent = Number(st.textContent) - 1
                     }
                 });
             }
@@ -8822,7 +8928,6 @@ $(function(){
                 display_arr.forEach(disp => {
                     if(disp.style.display == 'none'){
                         disp.style.display = '';
-                        st.textContent = Number(st.textContent) - 1
                     }
                 });
             }
@@ -8924,7 +9029,6 @@ $(function(){
                 display_arr.forEach(disp => {
                     if(disp.style.display == 'none'){
                         disp.style.display = '';
-                        st.textContent = Number(st.textContent) - 1
                     }
                 });
             }
@@ -9062,7 +9166,6 @@ $(function(){
                 display_arr.forEach(disp => {
                     if(disp.style.display == 'none'){
                         disp.style.display = '';
-                        st.textContent = Number(st.textContent) - 1
                     }
                 });
             }
@@ -9164,7 +9267,6 @@ $(function(){
                 display_arr.forEach(disp => {
                     if(disp.style.display == 'none'){
                         disp.style.display = '';
-                        st.textContent = Number(st.textContent) - 1
                     }
                 });
             }
@@ -9296,7 +9398,6 @@ $(function(){
                 display_arr.forEach(disp => {
                     if(disp.style.display == 'none'){
                         disp.style.display = '';
-                        st.textContent = Number(st.textContent) - 1
                     }
                 });
             }
@@ -9398,7 +9499,6 @@ $(function(){
                 display_arr.forEach(disp => {
                     if(disp.style.display == 'none'){
                         disp.style.display = '';
-                        st.textContent = Number(st.textContent) - 1
                     }
                 });
             }
@@ -9530,7 +9630,6 @@ $(function(){
                 display_arr.forEach(disp => {
                     if(disp.style.display == 'none'){
                         disp.style.display = '';
-                        st.textContent = Number(st.textContent) - 1
                     }
                 });
             }
@@ -9632,7 +9731,6 @@ $(function(){
                 display_arr.forEach(disp => {
                     if(disp.style.display == 'none'){
                         disp.style.display = '';
-                        st.textContent = Number(st.textContent) - 1
                     }
                 });
             }
@@ -9764,7 +9862,6 @@ $(function(){
                 display_arr.forEach(disp => {
                     if(disp.style.display == 'none'){
                         disp.style.display = '';
-                        st.textContent = Number(st.textContent) - 1
                     }
                 });
             }
@@ -9867,7 +9964,6 @@ $(function(){
                 display_arr.forEach(disp => {
                     if(disp.style.display == 'none'){
                         disp.style.display = '';
-                        st.textContent = Number(st.textContent) - 1
                     }
                 });
             }
@@ -9999,7 +10095,6 @@ $(function(){
                 display_arr.forEach(disp => {
                     if(disp.style.display == 'none'){
                         disp.style.display = '';
-                        st.textContent = Number(st.textContent) - 1
                     }
                 });
             }
@@ -10101,7 +10196,6 @@ $(function(){
                 display_arr.forEach(disp => {
                     if(disp.style.display == 'none'){
                         disp.style.display = '';
-                        st.textContent = Number(st.textContent) - 1
                     }
                 });
             }
@@ -10233,7 +10327,6 @@ $(function(){
                 display_arr.forEach(disp => {
                     if(disp.style.display == 'none'){
                         disp.style.display = '';
-                        st.textContent = Number(st.textContent) - 1
                     }
                 });
             }
@@ -10335,7 +10428,6 @@ $(function(){
                 display_arr.forEach(disp => {
                     if(disp.style.display == 'none'){
                         disp.style.display = '';
-                        st.textContent = Number(st.textContent) - 1
                     }
                 });
             }
@@ -10468,7 +10560,6 @@ $(function(){
                 display_arr.forEach(disp => {
                     if(disp.style.display == 'none'){
                         disp.style.display = '';
-                        st.textContent = Number(st.textContent) - 1
                     }
                 });
             }
@@ -10570,7 +10661,6 @@ $(function(){
                 display_arr.forEach(disp => {
                     if(disp.style.display == 'none'){
                         disp.style.display = '';
-                        st.textContent = Number(st.textContent) - 1
                     }
                 });
             }
@@ -16608,48 +16698,6 @@ $(function(){
 	});
 });
 
-//ワンタイムパスのバリデーション
-$(function(){
-
-    // 「送信」ボタンの要素を取得
-    const submit = document.getElementById('opass_auth');
-    
-    // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('click', (e) => {
-        
-        // デフォルトアクションをキャンセル
-        e.preventDefault();
-        console.log("lick_event")
-
-        // 「お名前」入力欄の空欄チェック
-        // フォームの要素を取得
-        const name = document.querySelector('#onetime-password');
-        // エラーメッセージを表示させる要素を取得
-        const errMsgName = document.querySelector('#onetimepasserr');
-
-        var o = sessionStorage.getItem("opass")
-
-        if((String(name.value) != String(o))){
-            // クラスを追加(エラーメッセージを表示する)
-            errMsgName.classList.add('form-invalid');
-            // エラーメッセージのテキスト
-            errMsgName.textContent = '正しいワンタイムパスワードを入力してください。';
-            // クラスを追加(フォームの枠線を赤くする)
-            name.classList.add('input-invalid');
-            // 後続の処理を止める
-            return;
-        }else{
-            // エラーメッセージのテキストに空文字を代入
-            errMsgName.textContent ='';
-            // クラスを削除
-            name.classList.remove('input-invalid');
-            let box = document.querySelector('#yournickname');
-            //styleのdisplayを変更する関数
-            box.style.display='';
-            box.setAttribute('element_yet','not_yet');
-        }
-	});
-});
 
 
 $(function(){

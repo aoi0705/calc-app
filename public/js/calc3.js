@@ -157,7 +157,7 @@ $(function(){
         }
         else if(partner_bool2 == false && myhome == true && children_bool2 == false){
             const stat = document.querySelector('.last-state-page');
-            var s = 8;
+            var s = 9;
             stat.textContent = String(s);
         }
         else if(partner_bool2 == false && myhome == false && children_bool2 == false){
