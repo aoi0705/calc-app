@@ -163,6 +163,11 @@ $(function(){
             console.log(document.querySelector('#email').value)
             sessionStorage.setItem('email', email);
 
+            let box = document.querySelector('#yournickname');
+            //styleのdisplayを変更する関数
+            box.style.display='';
+            box.setAttribute('element_yet','not_yet');
+
             if(submit.getAttribute("count_yet") != "not_yet"){
                 // エラーメッセージのテキストに空文字を代入
                 errMsgName.textContent ='';
