@@ -291,7 +291,7 @@
     <label class="last-state-page"></label>
     <label class="last-state">項目</label>
     <button type="button" class="btn btn-primary custom-btn" id="next_page2-not" disabled>未来家計簿入力へ進む</button><br>
-    <a href="javascript:void(0)" onclick="history.back()">本人・家族構成情報へ戻る</a>
+    <a href="javascript:void(0)" onclick="history.back()" id="back_url">本人・家族構成情報へ戻る</a>
 </footer>
 </form>
 

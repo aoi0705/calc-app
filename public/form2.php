@@ -1,30 +1,30 @@
 <?php
 
-$annualincome = $_POST['annual-income'];
+session_start();
+
+$annualincome = $_POST['annualincome'];
 $bonus = $_POST['bonus'];
-$spouseannualincome = $_POST['spouse-annual-income'];
-$spousebonus = $_POST['spouse-bonus'];
-$foodexpenses = $_POST['food-expenses'];
-$livingcost = $_POST['living-cost'];
-$beautybill = $_POST['beauty-bill'];
-$houseclass = $_POST['house-class'];
-$housecost = $_POST['house-cost'];
-$managecost = $_POST['manage-cost'];
+$spouseannualincome = $_POST['spouseannualincome'];
+$spousebonus = $_POST['spousebonus'];
+$foodexpenses = $_POST['foodexpenses'];
+$livingcost = $_POST['livingcost'];
+$beautybill = $_POST['beautybill'];
+$houseclass = $_POST['houseclass'];
+$housecost = $_POST['housecost'];
+$managecost = $_POST['managecost'];
 $bill = $_POST['bill'];
-$pcbill = $_POST['pc-bill'];
-
-$phonebill = $_POST['phone-bill'];
+$pcbill = $_POST['pcbill'];
+$phonebill = $_POST['phonebill'];
 $lone = $_POST['lone'];
-$Insurancebill = $_POST['Insurance-bill'];
-$Educationalinsurance = $_POST['Educational-insurance'];
-
-$educationexpenses = $_POST['education-expenses'];
-$medicalinsurance = $_POST['medical-insurance'];
-$lifeinsurance = $_POST['life-insurance'];
-$EstateInvestment = $_POST['Estate-Investment'];
-
-$assetmanagement = $_POST['asset-management'];
+$Insurancebill = $_POST['Insurancebill'];
+$Educationalinsurance = $_POST['Educationalinsurance'];
+$medicalinsurance = $_POST['medicalinsurance'];
+$educationexpenses = $_POST['educationexpenses'];
+$lifeinsurance = $_POST['lifeinsurance'];
+$EstateInvestment = $_POST['EstateInvestment'];
+$assetmanagement = $_POST['assetmanagement'];
 $savings = $_POST['savings'];
+
 
 $_SESSION['annualincome'] = $annualincome;
 $_SESSION['bonus'] = $bonus;

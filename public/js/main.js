@@ -167,11 +167,6 @@ $(function(){
                 errMsgName.textContent ='';
                 // クラスを削除
                 name.classList.remove('input-invalid');
-                // 次の項目を表示
-                let box = document.querySelector('#yournickname');
-                //styleのdisplayを変更する関数
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
                 let count = document.querySelector('.last-state-page');
                 count.textContent = Number(count.textContent) - 1
                 submit.setAttribute("count_yet","not_yet");
@@ -181,10 +176,6 @@ $(function(){
                 errMsgName.textContent ='';
                 // クラスを削除
                 name.classList.remove('input-invalid');
-                let box = document.querySelector('#yournickname');
-                //styleのdisplayを変更する関数
-                box.style.display='';
-                box.setAttribute('element_yet','not_yet');
                 for(var i=3;i<30;i++){
                     if(ele_arr[i].getAttribute('element_yet') == 'not_yet'){
                         if(ele_arr[i].style.display != ''){
@@ -215,13 +206,46 @@ $(function(){
 	});
 });
 
+function randomRangeInteger (min, max) {
+
+    const diff = max - min;
+    const numInt = randomInteger(diff);
+    const numRangeInt = min + numInt;
+
+    return numRangeInt;
+}
+
+$(function(){
+
+    // 「送信」ボタンの要素を取得
+    const submit = document.getElementById('onetimepass');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('click', (e) => {
+
+        e.preventDefault();
+        let min = 100000 ;
+        let max = 999999 ;
+        
+        var numRangeInt = (Math.floor( Math.random() * (max + 1 - min) ) + min)
+        sessionStorage.setItem('opass', String(numRangeInt));
+
+        jQuery.ajax({
+    
+            type: 'post',
+            url: 'opass.php', //送信先PHPファイル
+            data: {'opass' : sessionStorage.getItem('opass')}
+        });
+    });
+});
+
 $(function(){
 
     // 「送信」ボタンの要素を取得
     const submit = document.querySelector('#nickname');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('change', (e) => {
+    submit.addEventListener('input', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -4719,6 +4743,8 @@ $(function(){
 // 2ページ目に遷移するボタンにセッションストレージに保存する処理
 $(function(){
     document.getElementsByClassName('btn btn-primary custom-btn-not')[0].addEventListener('click', function() {
+        const email = document.getElementById("email").value;
+        sessionStorage.setItem('email', email);
         const nickname = document.getElementById('nickname').value;
         sessionStorage.setItem('nickname', nickname);
         const birthday = document.getElementById('birthday').value;
@@ -4785,6 +4811,83 @@ $(function(){
             }
         }
         sessionStorage.setItem('third-male', checkValue5);
+        const fourbirthday = document.getElementById('four-birthday').value;
+        sessionStorage.setItem('four-birthday', fourbirthday);
+        var ele = document.getElementsByName('four-male');
+        var len = ele.length;
+        var checkValue7 = '';
+        for (var i = 0; i < len; i++){
+            if (ele.item(i).checked){
+                checkValue7 = ele.item(i).value;
+            }
+        }
+        sessionStorage.setItem('four-male', checkValue7);
+        const fivebirthday = document.getElementById('five-birthday').value;
+        sessionStorage.setItem('five-birthday', fivebirthday);
+        var ele = document.getElementsByName('five-male');
+        var len = ele.length;
+        var checkValue8 = '';
+        for (var i = 0; i < len; i++){
+            if (ele.item(i).checked){
+                checkValue7 = ele.item(i).value;
+            }
+        }
+        sessionStorage.setItem('five-male', checkValue8);
+        const sixbirthday = document.getElementById('six-birthday').value;
+        sessionStorage.setItem('six-birthday', sixbirthday);
+        var ele = document.getElementsByName('six-male');
+        var len = ele.length;
+        var checkValue9 = '';
+        for (var i = 0; i < len; i++){
+            if (ele.item(i).checked){
+                checkValue9 = ele.item(i).value;
+            }
+        }
+        sessionStorage.setItem('six-male', checkValue9);
+        const sevenbirthday = document.getElementById('seven-birthday').value;
+        sessionStorage.setItem('seven-birthday', sevenbirthday);
+        var ele = document.getElementsByName('seven-male');
+        var len = ele.length;
+        var checkValue10 = '';
+        for (var i = 0; i < len; i++){
+            if (ele.item(i).checked){
+                checkValue10 = ele.item(i).value;
+            }
+        }
+        sessionStorage.setItem('seven-male', checkValue10);
+        const eightbirthday = document.getElementById('eight-birthday').value;
+        sessionStorage.setItem('eight-birthday', eightbirthday);
+        var ele = document.getElementsByName('eight-male');
+        var len = ele.length;
+        var checkValue11 = '';
+        for (var i = 0; i < len; i++){
+            if (ele.item(i).checked){
+                checkValue11 = ele.item(i).value;
+            }
+        }
+        sessionStorage.setItem('eight-male', checkValue11);
+        const ninebirthday = document.getElementById('nine-birthday').value;
+        sessionStorage.setItem('nine-birthday', ninebirthday);
+        var ele = document.getElementsByName('nine-male');
+        var len = ele.length;
+        var checkValue12 = '';
+        for (var i = 0; i < len; i++){
+            if (ele.item(i).checked){
+                checkValue12 = ele.item(i).value;
+            }
+        }
+        sessionStorage.setItem('nine-male', checkValue12);
+        const tenbirthday = document.getElementById('ten-birthday').value;
+        sessionStorage.setItem('ten-birthday', tenbirthday);
+        var ele = document.getElementsByName('ten-male');
+        var len = ele.length;
+        var checkValue13 = '';
+        for (var i = 0; i < len; i++){
+            if (ele.item(i).checked){
+                checkValue13 = ele.item(i).value;
+            }
+        }
+        sessionStorage.setItem('ten-male', checkValue13);
 
         if(sessionStorage.getItem('annual-income') == null){
             window.location.href = '/future_calculation2';
@@ -4792,6 +4895,25 @@ $(function(){
         else{
             history.forward();
         }
+
+        jQuery.ajax({
+    
+            type: 'post',
+            url: 'form1.php', //送信先PHPファイル
+            data: {'email' : sessionStorage.getItem('email'),'nickname' : sessionStorage.getItem('nickname'), 'birthday': sessionStorage.getItem('birthday'), 'post-number': sessionStorage.getItem('post-number'),
+            'job' : sessionStorage.getItem('job'),'yourpartner' : sessionStorage.getItem('yourpartner'),'spouse-birthday' : sessionStorage.getItem('spouse-birthday'),
+            'spouse-job' : sessionStorage.getItem('spouse-job'),'children' : sessionStorage.getItem('children'),'number-children' : sessionStorage.getItem('number-children'),
+            'first-birthday' : sessionStorage.getItem('first-birthday'),'first-male' : sessionStorage.getItem('first-male'),'second-birthday' : sessionStorage.getItem('second-birthday'),
+            'second-male' : sessionStorage.getItem('second-male'),'third-birthday' : sessionStorage.getItem('third-birthday'),'third-male' : sessionStorage.getItem('third-male'),
+            'four-birthday' : sessionStorage.getItem('four-birthday'),'four-male' : sessionStorage.getItem('four-male'),
+            'five-birthday' : sessionStorage.getItem('five-birthday'),'five-male' : sessionStorage.getItem('five-male'),
+            'six-birthday' : sessionStorage.getItem('six-birthday'),'six-male' : sessionStorage.getItem('six-male'),
+            'seven-birthday' : sessionStorage.getItem('seven-birthday'),'seven-male' : sessionStorage.getItem('seven-male'),
+            'eight-birthday' : sessionStorage.getItem('eight-birthday'),'eight-male' : sessionStorage.getItem('eight-male'),
+            'nine-birthday' : sessionStorage.getItem('nine-birthday'),'nine-male' : sessionStorage.getItem('nine-male'),
+            'ten-birthday' : sessionStorage.getItem('ten-birthday'),'ten-male' : sessionStorage.getItem('ten-male')
+        }
+        });
   });
 });
 
@@ -7085,7 +7207,111 @@ $(function(){
         const savings = document.getElementById('savings').value;
         sessionStorage.setItem('savings', savings);
 
-        window.location.href = '/future_calculation3';
+        jQuery.ajax({
+    
+            type: 'post',
+            url: 'form2.php', //送信先PHPファイル
+            data: {'annualincome' : sessionStorage.getItem('annual-income'), 'bonus': sessionStorage.getItem('bonus'), 
+            'spouseannualincome' : sessionStorage.getItem('spouse-annual-income'), 'spousebonus': sessionStorage.getItem('spouse-bonus'),
+            'foodexpenses' : sessionStorage.getItem('food-expenses'), 'livingcost': sessionStorage.getItem('living-cost'), 
+            'beautybill' : sessionStorage.getItem('beauty-bill'), 'houseclass': sessionStorage.getItem('house-class'),  
+            'housecost' : sessionStorage.getItem('house-cost'), 'managecost': sessionStorage.getItem('manage-cost'), 
+            'bill' : sessionStorage.getItem('bill'), 'pcbill': sessionStorage.getItem('pc-bill'),
+            'phonebill' : sessionStorage.getItem('phone-bill'), 'lone': sessionStorage.getItem('lone'),  
+            'Insurancebill' : sessionStorage.getItem('Insurance-bill'), 'Educationalinsurance': sessionStorage.getItem('Educational-insurance'),
+            'medicalinsurance' : sessionStorage.getItem('medical-insurance'), 'educationexpenses': sessionStorage.getItem('education-expenses'),
+            'lifeinsurance' : sessionStorage.getItem('life-insurance'), 'EstateInvestment': sessionStorage.getItem('Estate-Investment'), 
+            'assetmanagement' : sessionStorage.getItem('asset-management'), 'savings': sessionStorage.getItem('savings')
+        }
+        });
+
+
+        if(sessionStorage.getItem('yourpartner') == "いる"){
+            var partner_bool2 = true;
+        }
+        else if(sessionStorage.getItem('yourpartner') == "いない"){
+            var partner_bool2 = false;
+        }
+        
+        if(sessionStorage.getItem('children') == "いる"){
+            var children_bool2 = true;
+        }
+        else if(sessionStorage.getItem('children') == "いない"){
+            var children_bool2 = false;
+        }
+        
+        if(sessionStorage.getItem('number-children') == "one"){
+            var children_n = 1;
+        }
+        else if(sessionStorage.getItem('number-children') == "two"){
+            var children_n = 2;
+        }
+        else if(sessionStorage.getItem('number-children') == "three"){
+            var children_n = 3;
+        }
+        else if(sessionStorage.getItem('number-children') == "four"){
+            var children_n = 4;
+        }
+        else if(sessionStorage.getItem('number-children') == "five"){
+            var children_n = 5;
+        }
+        else if(sessionStorage.getItem('number-children') == "six"){
+            var children_n = 6;
+        }
+        else if(sessionStorage.getItem('number-children') == "seven"){
+            var children_n = 7;
+        }
+        else if(sessionStorage.getItem('number-children') == "eight"){
+            var children_n = 8;
+        }
+        else if(sessionStorage.getItem('number-children') == "nine"){
+            var children_n = 9;
+        }
+        else if(sessionStorage.getItem('number-children') == "ten"){
+            var children_n = 10;
+        }
+        else if(children_bool2 == false){
+            var children_n = 0;
+        }
+        
+        if(sessionStorage.getItem('house-class') == "rental"){
+            var myhome = true;
+        }
+        else{
+            var myhome = false;
+        }
+
+        if(sessionStorage.getItem('Estate-Investment') == "0"){
+            var estate_bool = false;
+        }
+        else{
+            var estate_bool = true;
+        }
+
+        if(myhome == true){
+            if(sessionStorage.getItem('myhome-buy') == null){
+                window.location.href = '/future_calculation3';
+            }
+            else{
+                history.forward();
+            }
+        }
+        else if(estate_bool == true){
+            if(sessionStorage.getItem('estate') == null){
+                window.location.href = '/future_calculation3';
+            }
+            else{
+                history.forward();
+            }
+        }
+        else if(myhome == false && estate_bool == false){
+            if( sessionStorage.getItem('savings-balance') == null){
+                window.location.href = '/future_calculation3';
+            }
+            else{
+                history.forward();
+            }
+        }
     });
 });
 
@@ -7181,6 +7407,8 @@ $(function(){
             }
 
         }else{
+            const myhomebuy = document.getElementById('myhome-buy').value;
+            sessionStorage.setItem('myhome-buy', myhomebuy);
 
             if(respone > 0){
                 respone = 0;
@@ -7300,6 +7528,9 @@ $(function(){
             }
 
         }else{
+            const estate = document.getElementById('estate').value;
+            sessionStorage.setItem('estate', estate);
+
             // エラーメッセージのテキストに空文字を代入
             errMsgName.textContent ='';
             // クラスを削除
@@ -10458,6 +10689,9 @@ $(function(){
             document.getElementById("yoursavingsbalance").setAttribute("spone","n")
 
         }else{
+
+            const savingsbalance = document.getElementById('savings-balance').value;
+            sessionStorage.setItem('savings-balance', savingsbalance);
 
             if(respone > 0){
                 respone = 0;
@@ -16380,10 +16614,10 @@ $(function(){
 $(function(){
 
     // 「送信」ボタンの要素を取得
-    const submit = document.querySelector('#onetime-password');
+    const submit = document.getElementById('opass_auth');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('click', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -16392,11 +16626,14 @@ $(function(){
         const name = document.querySelector('#onetime-password');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#onetimepasserr');
-        if((!name.value.match(/^([0-9]{6})$/))){
+
+        var o = sessionStorage.getItem("opass")
+
+        if((String(name.value) != String(o))){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
-            errMsgName.textContent = 'いずれかを選択してください';
+            errMsgName.textContent = '正しいワンタイムパスワードを入力してください。';
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
@@ -16406,6 +16643,10 @@ $(function(){
             errMsgName.textContent ='';
             // クラスを削除
             name.classList.remove('input-invalid');
+            let box = document.querySelector('#yournickname');
+            //styleのdisplayを変更する関数
+            box.style.display='';
+            box.setAttribute('element_yet','not_yet');
         }
 	});
 });
@@ -16595,7 +16836,50 @@ $(function(){
         const tenuniversity = document.getElementById('ten-university').value;
         sessionStorage.setItem('ten-university',tenuniversity);
 
-
-        window.location.href = '/mail';
+        jQuery.ajax({
+    
+            type: 'post',
+            url: 'form3.php', //送信先PHPファイル
+            data: {'myhomebuy' : sessionStorage.getItem('myhome-buy'), 'estate': sessionStorage.getItem('estate'), 
+            'firstestate' : sessionStorage.getItem('first-estate'), 'firstrentalincome': sessionStorage.getItem('first-rental-income'), 
+            'secondestate' : sessionStorage.getItem('second-estate'), 'secondrentalincome': sessionStorage.getItem('second-rental-income'), 
+            'thirdestate' : sessionStorage.getItem('third-estate'), 'thirdrentalincome': sessionStorage.getItem('third-rental-income'), 
+            'fourestate' : sessionStorage.getItem('four-estate'), 'fourrentalincome': sessionStorage.getItem('four-rental-income'), 
+            'fiveestate' : sessionStorage.getItem('five-estate'), 'fiverentalincome': sessionStorage.getItem('five-rental-income'), 
+            'sixestate' : sessionStorage.getItem('six-estate'), 'sixrentalincome': sessionStorage.getItem('six-rental-income'), 
+            'sevenestate' : sessionStorage.getItem('seven-estate'), 'sevenrentalincome': sessionStorage.getItem('seven-rental-income'), 
+            'eightestate' : sessionStorage.getItem('eight-estate'), 'eightrentalincome': sessionStorage.getItem('eight-rental-income'), 
+            'nineestate' : sessionStorage.getItem('nine-estate'), 'ninerentalincome': sessionStorage.getItem('nine-rental-income'), 
+            'tenestate' : sessionStorage.getItem('ten-estate'), 'tenrentalincome': sessionStorage.getItem('ten-rental-income'), 
+            'savingsbalance' : sessionStorage.getItem('savings-balance'), 'lastEducationalinsurance': sessionStorage.getItem('last-Educational-insurance'), 
+            'trip' : sessionStorage.getItem('trip'), 'otherexpense': sessionStorage.getItem('other-expense'), 
+            'startwark' : sessionStorage.getItem('start-wark'), 'Startingsalary': sessionStorage.getItem('Starting-salary'), 
+            'Estimatedannualincome' : sessionStorage.getItem('Estimated-annual-income'), 'yourSeverancepayinput': sessionStorage.getItem('yourSeverancepayinput'), 
+            'spousestartwork' : sessionStorage.getItem('spouse-start-work'), 'spouseStartingsalary': sessionStorage.getItem('spouse-Starting-salary'), 
+            'spouseEstimatedannualincome' : sessionStorage.getItem('spouse-Estimated-annual-income'), 'yourpartnerSeverancepayinput': sessionStorage.getItem('yourpartnerSeverancepayinput'), 
+            'firstprimaryschool' : sessionStorage.getItem('first-primary-school'), 'firstjuniorhighschool': sessionStorage.getItem('first-junior-high-school'), 
+            'firsthighschool' : sessionStorage.getItem('first-high-school'), 'firstuniversity': sessionStorage.getItem('firstuniversity'), 
+            'secondprimaryschool' : sessionStorage.getItem('second-primary-school'), 'secondjuniorhighschool': sessionStorage.getItem('second-junior-high-school'), 
+            'secondhighschool' : sessionStorage.getItem('second-high-school'), 'seconduniversity': sessionStorage.getItem('second-university'), 
+            'thirdprimaryschool' : sessionStorage.getItem('third-primary-school'), 'thirdjuniorhighschool': sessionStorage.getItem('third-junior-high-school'), 
+            'thirdhighschool' : sessionStorage.getItem('third-high-school'), 'thirduniversity': sessionStorage.getItem('third-university'), 
+            'fourprimaryschool' : sessionStorage.getItem('four-primary-school'), 'fourjuniorhighschool': sessionStorage.getItem('four-junior-high-school'), 
+            'fourhighschool' : sessionStorage.getItem('four-high-school'), 'fouruniversity': sessionStorage.getItem('four-university'), 
+            'fiveprimaryschool' : sessionStorage.getItem('five-primary-school'), 'fivejuniorhighschool': sessionStorage.getItem('five-junior-high-school'), 
+            'fivehighschool' : sessionStorage.getItem('five-high-school'), 'fiveuniversity': sessionStorage.getItem('five-university'), 
+            'sixprimaryschool' : sessionStorage.getItem('six-primary-school'), 'sixjuniorhighschool': sessionStorage.getItem('six-junior-high-school'), 
+            'sixhighschool' : sessionStorage.getItem('six-high-school'), 'sixuniversity': sessionStorage.getItem('six-university'), 
+            'sevenprimaryschool' : sessionStorage.getItem('seven-primary-school'), 'sevenjuniorhighschool': sessionStorage.getItem('seven-junior-high-school'), 
+            'sevenhighschool' : sessionStorage.getItem('seven-high-school'), 'sevenuniversity': sessionStorage.getItem('seven-university'), 
+            'eightprimaryschool' : sessionStorage.getItem('eight-primary-school'), 'eightjuniorhighschool': sessionStorage.getItem('eight-junior-high-school'), 
+            'eighthighschool' : sessionStorage.getItem('eight-high-school'), 'eightuniversity': sessionStorage.getItem('eight-university'), 
+            'nineprimaryschool' : sessionStorage.getItem('nine-primary-school'), 'ninejuniorhighschool': sessionStorage.getItem('nine-junior-high-school'), 
+            'ninehighschool' : sessionStorage.getItem('nine-high-school'), 'nineuniversity': sessionStorage.getItem('nine-university'), 
+            'tenprimaryschool' : sessionStorage.getItem('ten-primary-school'), 'tenjuniorhighschool': sessionStorage.getItem('ten-junior-high-school'), 
+            'tenhighschool' : sessionStorage.getItem('ten-high-school'), 'tenuniversity': sessionStorage.getItem('ten-university')
+        }
+        });
+        
+        // window.location.href = '/mail';
     });
 });

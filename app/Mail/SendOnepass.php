@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class SendTestMail extends Mailable
+class SendOnepass extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -28,9 +28,9 @@ class SendTestMail extends Mailable
      */
     public function build()
     {
-        return $this->view('email.text')
+        return $this->view('email.opass')
                 ->to($_SESSION['email'])
                 ->from('info@wealthjourneynavi.com','株式会社wealth journey navigators')
-                ->subject('テストメールです。');
+                ->subject('ワンタイムパスワード');
     }
 }

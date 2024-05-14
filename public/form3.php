@@ -1,39 +1,91 @@
 <?php
 
-$myhomebuy = $_POST['myhome-buy'];
+session_start();
+
+$myhomebuy = $_POST['myhomebuy'];
 $estate = $_POST['estate'];
-$firstestate = $_POST['first-estate'];
-$firstrentalincome = $_POST['first-rental-income'];
-$secondestate = $_POST['second-estate'];
-$secondrentalincome = $_POST['second-rental-income'];
-$savingsbalance = $_POST['savings-balance'];
-$lastEducationalinsurance = $_POST['last-Educational-insurance'];
+$firstestate = $_POST['firstestate'];
+$firstrentalincome = $_POST['firstrentalincome'];
+$secondestate = $_POST['secondestate'];
+$secondrentalincome = $_POST['secondrentalincome'];
+$thirdestate = $_POST['thirdestate'];
+$thirdrentalincome = $_POST['thirdrentalincome'];
+$fourestate = $_POST['fourestate'];
+$fourrentalincome = $_POST['fourrentalincome'];
+$fiveestate = $_POST['fiveestate'];
+$fiverentalincome = $_POST['fiverentalincome'];
+$sixestate = $_POST['sixestate'];
+$sixrentalincome = $_POST['sixrentalincome'];
+$sevenestate = $_POST['sevenestate'];
+$sevenrentalincome = $_POST['sevenrentalincome'];
+$eightestate = $_POST['eightestate'];
+$eightrentalincome = $_POST['eightrentalincome'];
+$nineestate = $_POST['nineestate'];
+$ninerentalincome = $_POST['ninerentalincome'];
+$tenestate = $_POST['tenestate'];
+$tenrentalincome = $_POST['tenrentalincome'];
+$savingsbalance = $_POST['savingsbalance'];
+$lastEducationalinsurance = $_POST['lastEducationalinsurance'];
 $trip = $_POST['trip'];
-$otherexpense = $_POST['other-expense'];
-$startwork = $_POST['start-work'];
-$Startingsalary = $_POST['Starting-salary'];
+$otherexpense = $_POST['otherexpense'];
+$startwark = $_POST['startwark'];
+$Startingsalary = $_POST['Startingsalary'];
+$Estimatedannualincome = $_POST['Estimatedannualincome'];
+$yourSeverancepayinput = $_POST['yourSeverancepayinput'];
+$spousestartwork = $_POST['spousestartwork'];
+$spouseStartingsalary = $_POST['spouseStartingsalary'];
+$spouseEstimatedannualincome = $_POST['spouseEstimatedannualincome'];
+$yourpartnerSeverancepayinput = $_POST['yourpartnerSeverancepayinput'];
 
-$Estimatedannualincome = $_POST['Estimated-annual-income'];
-$Severancepay = $_POST['Severance-pay'];
-$spousestartwork = $_POST['spouse-start-work'];
-$spouseStartingsalary = $_POST['spouse-Starting-salary'];
+$firstprimaryschool = $_POST['firstprimaryschool'];
+$firstjuniorhighschool = $_POST['firstjuniorhighschool'];
+$firsthighschool = $_POST['firsthighschool'];
+$firstuniversity = $_POST['firstuniversity'];
 
-$spouseEstimatedannualincome = $_POST['spouse-Estimated-annual-income'];
-$spouseSeverancepay = $_POST['spouse-Severance-pay'];
-$firstprimaryschool = $_POST['first-primary-school'];
-$firstjuniorhighschool = $_POST['first-junior-high-school'];
-$firsthighschool = $_POST['first-high-school'];
-$firstuniversity = $_POST['first-university'];
+$secondprimaryschool = $_POST['secondprimaryschool'];
+$secondjuniorhighschool = $_POST['secondjuniorhighschool'];
+$secondhighschool = $_POST['secondhighschool'];
+$seconduniversity = $_POST['seconduniversity'];
 
-$secondprimaryschool = $_POST['second-primary-school'];
-$secondjuniorhighschool = $_POST['second-junior-high-school'];
-$secondhighschool = $_POST['second-high-school'];
-$seconduniversity = $_POST['second-university'];
+$thirdprimaryschool = $_POST['thirdprimaryschool'];
+$thirdjuniorhighschool = $_POST['thirdjuniorhighschool'];
+$thirdhighschool = $_POST['thirdhighschool'];
+$thirduniversity = $_POST['thirduniversity'];
 
-$thirdprimaryschool = $_POST['third-primary-school'];
-$thirdjuniorhighschool = $_POST['third-junior-high-school'];
-$thirdhighschool = $_POST['third-high-school'];
-$thirduniversity = $_POST['third-university'];
+$fourprimaryschool = $_POST['fourprimaryschool'];
+$fourjuniorhighschool = $_POST['fourjuniorhighschool'];
+$fourhighschool = $_POST['fourhighschool'];
+$fouruniversity = $_POST['fouruniversity'];
+
+$fiveprimaryschool = $_POST['fiveprimaryschool'];
+$fivejuniorhighschool = $_POST['fivejuniorhighschool'];
+$fivehighschool = $_POST['fivehighschool'];
+$fiveuniversity = $_POST['fiveuniversity'];
+
+$sixprimaryschool = $_POST['sixprimaryschool'];
+$sixjuniorhighschool = $_POST['sixjuniorhighschool'];
+$sixhighschool = $_POST['sixhighschool'];
+$sixuniversity = $_POST['sixuniversity'];
+
+$sevenprimaryschool = $_POST['sevenprimaryschool'];
+$sevenjuniorhighschool = $_POST['sevenjuniorhighschool'];
+$sevenhighschool = $_POST['sevenhighschool'];
+$sevenuniversity = $_POST['sevenuniversity'];
+
+$eightprimaryschool = $_POST['eightprimaryschool'];
+$eightjuniorhighschool = $_POST['eightjuniorhighschool'];
+$eighthighschool = $_POST['eighthighschool'];
+$eightuniversity = $_POST['eightuniversity'];
+
+$nineprimaryschool = $_POST['nineprimaryschool'];
+$ninejuniorhighschool = $_POST['ninejuniorhighschool'];
+$ninehighschool = $_POST['ninehighschool'];
+$nineuniversity = $_POST['nineuniversity'];
+
+$tenprimaryschool = $_POST['tenprimaryschool'];
+$tenjuniorhighschool = $_POST['tenjuniorhighschool'];
+$tenhighschool = $_POST['tenhighschool'];
+$tenuniversity = $_POST['tenuniversity'];
 
 
 $_SESSION['myhomebuy'] = $myhomebuy;
@@ -42,6 +94,23 @@ $_SESSION['firstestate'] = $firstestate;
 $_SESSION['firstrentalincome'] = $firstrentalincome;
 $_SESSION['secondestate'] = $secondestate;
 $_SESSION['secondrentalincome'] = $secondrentalincome;
+$_SESSION['thirdestate'] = $thirdestate;
+$_SESSION['thirdrentalincome'] = $thirdrentalincome;
+$_SESSION['fourestate'] = $fourestate;
+$_SESSION['fourrentalincome'] = $fourrentalincome;
+$_SESSION['fiveestate'] = $fiveestate;
+$_SESSION['fiverentalincome'] = $fiverentalincome;
+$_SESSION['sixestate'] = $sixestate;
+$_SESSION['sixrentalincome'] = $sixrentalincome;
+$_SESSION['sevenestate'] = $sevenestate;
+$_SESSION['sevenrentalincome'] = $sevenrentalincome;
+$_SESSION['eightestate'] = $eightestate;
+$_SESSION['eightrentalincome'] = $eightrentalincome;
+$_SESSION['nineestate'] = $nineestate;
+$_SESSION['ninerentalincome'] = $ninerentalincome;
+$_SESSION['tenestate'] = $tenestate;
+$_SESSION['tenrentalincome'] = $tenrentalincome;
+
 $_SESSION['savingsbalance'] = $savingsbalance;
 $_SESSION['lastEducationalinsurance'] = $lastEducationalinsurance;
 $_SESSION['trip'] = $trip;
@@ -49,6 +118,7 @@ $_SESSION['otherexpense'] = $otherexpense;
 $_SESSION['startwork'] = $startwork;
 $_SESSION['Startingsalary'] = $Startingsalary;
 $_SESSION['Estimatedannualincome'] = $Estimatedannualincome;
+$_SESSION['yourSeverancepayinput'] = $yourSeverancepayinput;
 $_SESSION['Severancepay'] = $Severancepay;
 $_SESSION['spousestartwork'] = $spousestartwork;
 $_SESSION['spouseStartingsalary'] = $spouseStartingsalary;
@@ -65,9 +135,46 @@ $_SESSION['secondjuniorhighschool'] = $secondjuniorhighschool;
 $_SESSION['secondhighschool'] = $secondhighschool;
 $_SESSION['seconduniversity'] = $seconduniversity;
 
-$_SESSION['thirdprimaryschool'] = $firstprimaryschool;
-$_SESSION['thirdjuniorhighschool'] = $firstjuniorhighschool;
-$_SESSION['thirdhighschool'] = $firsthighschool;
-$_SESSION['thirduniversity'] = $firstuniversity;
+$_SESSION['thirdprimaryschool'] = $thirdprimaryschool;
+$_SESSION['thirdjuniorhighschool'] = $thirdjuniorhighschool;
+$_SESSION['thirdhighschool'] = $thirdhighschool;
+$_SESSION['thirduniversity'] = $thirduniversity;
 
-header('Location:/result_screen');
+$_SESSION['fourprimaryschool'] = $fourprimaryschool;
+$_SESSION['fourjuniorhighschool'] = $fourjuniorhighschool;
+$_SESSION['fourhighschool'] = $fourhighschool;
+$_SESSION['fouruniversity'] = $fouruniversity;
+
+$_SESSION['fiveprimaryschool'] = $fiveprimaryschool;
+$_SESSION['fivejuniorhighschool'] = $fivejuniorhighschool;
+$_SESSION['fivehighschool'] = $fivehighschool;
+$_SESSION['fiveuniversity'] = $fiveuniversity;
+
+$_SESSION['sixprimaryschool'] = $sixprimaryschool;
+$_SESSION['sixjuniorhighschool'] = $sixjuniorhighschool;
+$_SESSION['sixhighschool'] = $sixhighschool;
+$_SESSION['sixuniversity'] = $sixuniversity;
+
+$_SESSION['sevenprimaryschool'] = $sevenprimaryschool;
+$_SESSION['sevenjuniorhighschool'] = $sevenjuniorhighschool;
+$_SESSION['sevenhighschool'] = $sevenhighschool;
+$_SESSION['sevenuniversity'] = $sevenuniversity;
+
+$_SESSION['eightprimaryschool'] = $eightprimaryschool;
+$_SESSION['eightjuniorhighschool'] = $eightjuniorhighschool;
+$_SESSION['eighthighschool'] = $eighthighschool;
+$_SESSION['eightuniversity'] = $eightuniversity;
+
+$_SESSION['nineprimaryschool'] = $nineprimaryschool;
+$_SESSION['ninejuniorhighschool'] = $ninejuniorhighschool;
+$_SESSION['ninehighschool'] = $ninehighschool;
+$_SESSION['nineuniversity'] = $nineuniversity;
+
+$_SESSION['tenprimaryschool'] = $tenprimaryschool;
+$_SESSION['tenjuniorhighschool'] = $tenjuniorhighschool;
+$_SESSION['tenhighschool'] = $tenhighschool;
+$_SESSION['tenuniversity'] = $tenuniversity;
+
+header("Location:/mail");
+
+// header('Location:/result_screen');

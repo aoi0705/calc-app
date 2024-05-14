@@ -51,11 +51,11 @@
            <label for="text">メールアドレス</label><br>
            <input type="text" id="email" name="email" class="form-control" placeholder="Wealth Journey＠gmail.com"><br>
            <div class="err-msg-name" id="err-msg-email"></div>
-           <button type=submit class="form_button">ワンタイムパスワードを送付</button><br><br>
+           <button type=button class="form_button" id="onetimepass">ワンタイムパスワードを送付</button><br><br>
            <label for="text">メールアドレス宛に送付したワンタイムパスワードを入力してください（6桁）</label><br>
            <input type="text" id="onetime-password" name="onetime_password" class="form-control" placeholder="123456"><br>
            <div class="err-msg-name" id="onetimepasserr"></div>
-           <button type=submit class="form_button">認証</button><br>
+           <button type=submit class="form_button" id="opass_auth">認証</button><br>
         </div>
 
         <div class="form-group" style="display: none;" name="nickname_form" id="yournickname">
