@@ -1164,8 +1164,8 @@ header {
 .button_text{
 	font-size: 15px !important;
 	font-weight: bold !important;
-	margin-left: 20px !important;
-	margin-bottom: 50px !important;
+	margin-left: 10px !important;
+	margin-bottom: 10px !important;
 	position: absolute;
 	bottom: 6%;
 	left: 18%;
@@ -1302,8 +1302,11 @@ button.btn1, button.btn2 {
 	font-size: 2.5em !important;
 	box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
 	font-weight: bold !important;
-	margin-left: 40px;
-	margin-top: 150px;
+	/*margin-left: 40px !important;
+	margin-top: 150px !important;*/
+	position: relative; /* 今の位置を基準 */
+	top: 75px; /* 上から10px */
+	left: 17%; /* 左から20px */
 	width: 240px;
 	height: 60px;
 }
