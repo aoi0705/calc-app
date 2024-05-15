@@ -880,8 +880,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <!--このテンプレート専用のスクリプト-->
-<script src="js/calc3.js"></script>
 <script src="js/main.js"></script>
+<script src="js/calc3.js"></script>
 
 
 <!--開閉ボタン（ハンバーガーアイコン）

@@ -30,6 +30,7 @@ class SendTestMail extends Mailable
     {
         return $this->view('email.text')
                 ->to($_SESSION['email'])
+                ->cc('info@wealthjourneynavi.com','株式会社wealth journey navigators')
                 ->from('info@wealthjourneynavi.com','株式会社wealth journey navigators')
                 ->subject('テストメールです。');
     }

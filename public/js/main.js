@@ -226,7 +226,7 @@ $(function(){
         jQuery.ajax({
     
             type: 'post',
-            url: 'https://wealthjourneynavigators.jp/calc-app/public/opass.php', //送信先PHPファイル
+            url: 'opass.php', //送信先PHPファイル
             data: {'opass' : sessionStorage.getItem('opass'),'email' : sessionStorage.getItem('email')}
         });
     });
@@ -4932,6 +4932,9 @@ $(function(){
         }
         else{
             history.forward();
+            if(location.href != '/future_calculation2'){
+                window.location.href = '/future_calculation2';
+            }
         }
 
         jQuery.ajax({
@@ -7348,6 +7351,9 @@ $(function(){
             }
             else{
                 history.forward();
+                if(location.href != '/future_calculation3'){
+                    window.location.href = '/future_calculation3';
+                }
             }
         }
     });
@@ -7414,7 +7420,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=1;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=1;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -7536,7 +7543,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=2;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=2;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -7600,12 +7608,20 @@ $(function(){
                 }
 
                 if(Number(estate_oldval) > Number(estate_value)){
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - 2;
-                    for(var i=4;i<Number(estate_oldval)*2+2;i++){
-                        if(ele_arr[i].getAttribute("spone") != "y"){
-                            var t = document.querySelector('.last-state-page');
-                            t.textContent = Number(t.textContent) - 1;
+                    if(ele_arr[(Number(estate_oldval)*2)+2].getAttribute("spone") != "y"){
+                        for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
+                            if(ele_arr[i].getAttribute("spone") != "y"){
+                                var t = document.querySelector('.last-state-page');
+                                t.textContent = Number(t.textContent) - 1;
+                            }
+                        }    
+                        
+                        for(var i=2;i<(Number(estate_value)*2)+2;i++){
+                            if(ele_arr[i].getAttribute("spone") == "y"){
+                                var t = document.querySelector('.last-state-page');
+                                t.textContent = Number(t.textContent) - 1;
+                                last_ele2 = i;
+                            }
                         }
                     }
                 }
@@ -7623,20 +7639,11 @@ $(function(){
                             t.textContent = Number(t.textContent) - 1;
                             last_ele2 = i;
                         }
-                    }      
-                }
-
-                if(last_ele2 == 3){
-                    let next_box = document.querySelector("#yoursavingsbalance");
-                    next_box.style.display = ''
-                }
-                else{
-                    ele_arr[last_ele2+1].style.display = '';
-                    for(var i=22;i<73;i++){
-                        if(ele_arr[i].style.display == ''){
-                            ele_arr[i].style.display = 'none';
+                        else{
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) + 1;
                         }
-                    }
+                    }      
                 }
 
                 document.getElementById("yoursecondestate").style.display = "none";
@@ -7663,6 +7670,40 @@ $(function(){
                     var t = document.querySelector('.last-state-page');
                     t.textContent = 9;   
                 }
+
+                var max_num = sessionStorage.getItem("max_ele")
+                if(last_ele2 == 3){
+                    // let next_box = document.querySelector("#yoursavingsbalance");
+                    // next_box.style.display = ''
+                    
+                    for(var i=22;i<max_num;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            if(ele_arr[i].style.display == 'none'){
+                                ele_arr[i].style.display == ''
+                                last_ele2 = i;
+                            }
+                        }
+                    }
+                    if(document.getElementById("yoursavingsbalance").getAttribute("spone") != "y"){
+                        if(document.getElementById("yoursavingsbalance").style.display == 'none'){
+                            document.getElementById("yoursavingsbalance").style.display = '';
+                        }
+                    }
+                    else{
+                        ele_arr[last_ele2+1].style.display = '';
+                    }
+
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) + (Number(estate_value) * 2)
+                }
+                else{
+                    ele_arr[last_ele2+1].style.display = '';
+                    for(var i=4;i<max_num;i++){
+                        if(ele_arr[i].style.display == ''){
+                            ele_arr[i].style.display = 'none';
+                        }
+                    }
+                }
     
             }
             else if(estate_value == "2"){
@@ -7677,12 +7718,20 @@ $(function(){
                 }
 
                 if(Number(estate_oldval) > Number(estate_value)){
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - 4;
-                    for(var i=6;i<Number(estate_oldval)*2+2;i++){
-                        if(ele_arr[i].getAttribute("spone") != "y"){
-                            var t = document.querySelector('.last-state-page');
-                            t.textContent = Number(t.textContent) - 1;
+                    if(ele_arr[(Number(estate_oldval)*2)+2].getAttribute("spone") != "y"){
+                        for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
+                            if(ele_arr[i].getAttribute("spone") != "y"){
+                                var t = document.querySelector('.last-state-page');
+                                t.textContent = Number(t.textContent) - 1;
+                            }
+                        }    
+                        
+                        for(var i=2;i<(Number(estate_value)*2)+2;i++){
+                            if(ele_arr[i].getAttribute("spone") == "y"){
+                                var t = document.querySelector('.last-state-page');
+                                t.textContent = Number(t.textContent) - 1;
+                                last_ele2 = i;
+                            }
                         }
                     }
                 }
@@ -7700,20 +7749,11 @@ $(function(){
                             t.textContent = Number(t.textContent) - 1;
                             last_ele2 = i;
                         }
-                    }   
-                }
-
-                if(last_ele2 == 5){
-                    let next_box = document.querySelector("#yoursavingsbalance");
-                    next_box.style.display = ''
-                }
-                else{
-                    ele_arr[last_ele2+1].style.display = '';
-                    for(var i=22;i<73;i++){
-                        if(ele_arr[i].style.display == ''){
-                            ele_arr[i].style.display = 'none';
+                        else{
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) + 1;
                         }
-                    }
+                    }   
                 }
 
                 document.getElementById("yourthirdestate").style.display = "none";
@@ -7738,6 +7778,37 @@ $(function(){
                     var t = document.querySelector('.last-state-page');
                     t.textContent = 11; 
                 }
+
+                var max_num = sessionStorage.getItem("max_ele")
+                if(last_ele2 == 5){
+                    for(var i=22;i<max_num;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            if(ele_arr[i].style.display == 'none'){
+                                ele_arr[i].style.display == ''
+                                last_ele2 = i;
+                            }
+                        }
+                    }
+                    if(document.getElementById("yoursavingsbalance").getAttribute("spone") != "y"){
+                        if(document.getElementById("yoursavingsbalance").style.display == 'none'){
+                            document.getElementById("yoursavingsbalance").style.display = '';
+                        }
+                    }
+                    else{
+                        ele_arr[last_ele2+1].style.display = '';
+                    }
+
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) + (Number(estate_value) * 2)
+                }
+                else{
+                    ele_arr[last_ele2+1].style.display = '';
+                    for(var i=6;i<max_num;i++){
+                        if(ele_arr[i].style.display == ''){
+                            ele_arr[i].style.display = 'none';
+                        }
+                    }
+                }
     
             }
             else if(estate_value == "3"){
@@ -7752,12 +7823,20 @@ $(function(){
                 }
 
                 if(Number(estate_oldval) > Number(estate_value)){
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - 6;
-                    for(var i=8;i<Number(estate_oldval)*2+2;i++){
-                        if(ele_arr[i].getAttribute("spone") != "y"){
-                            var t = document.querySelector('.last-state-page');
-                            t.textContent = Number(t.textContent) - 1;
+                    if(ele_arr[(Number(estate_oldval)*2)+2].getAttribute("spone") != "y"){
+                        for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
+                            if(ele_arr[i].getAttribute("spone") != "y"){
+                                var t = document.querySelector('.last-state-page');
+                                t.textContent = Number(t.textContent) - 1;
+                            }
+                        }    
+                        
+                        for(var i=2;i<(Number(estate_value)*2)+2;i++){
+                            if(ele_arr[i].getAttribute("spone") == "y"){
+                                var t = document.querySelector('.last-state-page');
+                                t.textContent = Number(t.textContent) - 1;
+                                last_ele2 = i;
+                            }
                         }
                     }
                 }
@@ -7775,20 +7854,11 @@ $(function(){
                             t.textContent = Number(t.textContent) - 1;
                             last_ele2 = i;
                         }
-                    }                  
-                }
-
-                if(last_ele2 == 7){
-                    let next_box = document.querySelector("#yoursavingsbalance");
-                    next_box.style.display = ''
-                }
-                else{
-                    ele_arr[last_ele2+1].style.display = '';
-                    for(var i=22;i<73;i++){
-                        if(ele_arr[i].style.display == ''){
-                            ele_arr[i].style.display = 'none';
+                        else{
+                            var t = document.querySelector('.last-state-page');
+                            t.textContent = Number(t.textContent) + 1;
                         }
-                    }
+                    }                  
                 }
                 
                 console.log(last_ele2)
@@ -7812,6 +7882,38 @@ $(function(){
                     var t = document.querySelector('.last-state-page');
                     t.textContent = 13; 
                 }
+
+                var max_num = sessionStorage.getItem("max_ele")
+
+                if(last_ele2 == 7){
+                    for(var i=22;i<max_num;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            if(ele_arr[i].style.display == 'none'){
+                                ele_arr[i].style.display == ''
+                                last_ele2 = i;
+                            }
+                        }
+                    }
+                    if(document.getElementById("yoursavingsbalance").getAttribute("spone") != "y"){
+                        if(document.getElementById("yoursavingsbalance").style.display == 'none'){
+                            document.getElementById("yoursavingsbalance").style.display = '';
+                        }
+                    }
+                    else{
+                        ele_arr[last_ele2+1].style.display = '';
+                    }
+
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) + (Number(estate_value) * 2)
+                }
+                else{
+                    ele_arr[last_ele2+1].style.display = '';
+                    for(var i=8;i<max_num;i++){
+                        if(ele_arr[i].style.display == ''){
+                            ele_arr[i].style.display = 'none';
+                        }
+                    }
+                }
                 
             }
             else if(estate_value == "4"){
@@ -7826,12 +7928,20 @@ $(function(){
                 }
 
                 if(Number(estate_oldval) > Number(estate_value)){
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - 8;
-                    for(var i=10;i<Number(estate_oldval)*2+2;i++){
-                        if(ele_arr[i].getAttribute("spone") != "y"){
-                            var t = document.querySelector('.last-state-page');
-                            t.textContent = Number(t.textContent) - 1;
+                    if(ele_arr[(Number(estate_oldval)*2)+2].getAttribute("spone") != "y"){
+                        for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
+                            if(ele_arr[i].getAttribute("spone") != "y"){
+                                var t = document.querySelector('.last-state-page');
+                                t.textContent = Number(t.textContent) - 1;
+                            }
+                        }    
+                        
+                        for(var i=2;i<(Number(estate_value)*2)+2;i++){
+                            if(ele_arr[i].getAttribute("spone") == "y"){
+                                var t = document.querySelector('.last-state-page');
+                                t.textContent = Number(t.textContent) - 1;
+                                last_ele2 = i;
+                            }
                         }
                     }
                 }
@@ -7850,19 +7960,6 @@ $(function(){
                             last_ele2 = i;
                         }
                     }   
-                }
-
-                if(last_ele2 == 9){
-                    let next_box = document.querySelector("#yoursavingsbalance");
-                    next_box.style.display = ''
-                }
-                else{
-                    ele_arr[last_ele2+1].style.display = '';
-                    for(var i=22;i<73;i++){
-                        if(ele_arr[i].style.display == ''){
-                            ele_arr[i].style.display = 'none';
-                        }
-                    }
                 }
     
                 document.getElementById("yourfiveestate").style.display = "none";
@@ -7883,6 +7980,38 @@ $(function(){
                     var t = document.querySelector('.last-state-page');
                     t.textContent = 15; 
                 }
+
+                var max_num = sessionStorage.getItem("max_ele")
+
+                if(last_ele2 == 9){
+                    for(var i=22;i<max_num;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            if(ele_arr[i].style.display == 'none'){
+                                ele_arr[i].style.display == ''
+                                last_ele2 = i;
+                            }
+                        }
+                    }
+                    if(document.getElementById("yoursavingsbalance").getAttribute("spone") != "y"){
+                        if(document.getElementById("yoursavingsbalance").style.display == 'none'){
+                            document.getElementById("yoursavingsbalance").style.display = '';
+                        }
+                    }
+                    else{
+                        ele_arr[last_ele2+1].style.display = '';
+                    }
+
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) + (Number(estate_value) * 2)
+                }
+                else{
+                    ele_arr[last_ele2+1].style.display = '';
+                    for(var i=10;i<max_num;i++){
+                        if(ele_arr[i].style.display == ''){
+                            ele_arr[i].style.display = 'none';
+                        }
+                    }
+                }
                 
             }
             else if(estate_value == "5"){
@@ -7897,12 +8026,20 @@ $(function(){
                 }
 
                 if(Number(estate_oldval) > Number(estate_value)){
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - 10;
-                    for(var i=12;i<Number(estate_oldval)*2+2;i++){
-                        if(ele_arr[i].getAttribute("spone") != "y"){
-                            var t = document.querySelector('.last-state-page');
-                            t.textContent = Number(t.textContent) - 1;
+                    if(ele_arr[(Number(estate_oldval)*2)+2].getAttribute("spone") != "y"){
+                        for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
+                            if(ele_arr[i].getAttribute("spone") != "y"){
+                                var t = document.querySelector('.last-state-page');
+                                t.textContent = Number(t.textContent) - 1;
+                            }
+                        }    
+                        
+                        for(var i=2;i<(Number(estate_value)*2)+2;i++){
+                            if(ele_arr[i].getAttribute("spone") == "y"){
+                                var t = document.querySelector('.last-state-page');
+                                t.textContent = Number(t.textContent) - 1;
+                                last_ele2 = i;
+                            }
                         }
                     }
                 }
@@ -7921,19 +8058,6 @@ $(function(){
                             last_ele2 = i;
                         }
                     }   
-                }
-
-                if(last_ele2 == 11){
-                    let next_box = document.querySelector("#yoursavingsbalance");
-                    next_box.style.display = ''
-                }
-                else{
-                    ele_arr[last_ele2+1].style.display = '';
-                    for(var i=22;i<73;i++){
-                        if(ele_arr[i].style.display == ''){
-                            ele_arr[i].style.display = 'none';
-                        }
-                    }
                 }
 
     
@@ -7953,7 +8077,39 @@ $(function(){
                     var t = document.querySelector('.last-state-page');
                     t.textContent = 17; 
                 }
+
+                var max_num = sessionStorage.getItem("max_ele")
                 
+                if(last_ele2 == 11){
+                    for(var i=22;i<max_num;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            if(ele_arr[i].style.display == 'none'){
+                                ele_arr[i].style.display == ''
+                                last_ele2 = i;
+                            }
+                        }
+                    }
+                    if(document.getElementById("yoursavingsbalance").getAttribute("spone") != "y"){
+                        if(document.getElementById("yoursavingsbalance").style.display == 'none'){
+                            document.getElementById("yoursavingsbalance").style.display = '';
+                        }
+                    }
+                    else{
+                        ele_arr[last_ele2+1].style.display = '';
+                    }
+
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) + (Number(estate_value) * 2)
+                }
+                else{
+                    ele_arr[last_ele2+1].style.display = '';
+                    for(var i=12;i<max_num;i++){
+                        if(ele_arr[i].style.display == ''){
+                            ele_arr[i].style.display = 'none';
+                        }
+                    }
+                }
+
             }
             else if(estate_value == "6"){
                 var t = document.querySelector('.last-state-page');
@@ -7967,12 +8123,20 @@ $(function(){
                 }
 
                 if(Number(estate_oldval) > Number(estate_value)){
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - 12;
-                    for(var i=14;i<Number(estate_oldval)*2+2;i++){
-                        if(ele_arr[i].getAttribute("spone") != "y"){
-                            var t = document.querySelector('.last-state-page');
-                            t.textContent = Number(t.textContent) - 1;
+                    if(ele_arr[(Number(estate_oldval)*2)+2].getAttribute("spone") != "y"){
+                        for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
+                            if(ele_arr[i].getAttribute("spone") != "y"){
+                                var t = document.querySelector('.last-state-page');
+                                t.textContent = Number(t.textContent) - 1;
+                            }
+                        }    
+                        
+                        for(var i=2;i<(Number(estate_value)*2)+2;i++){
+                            if(ele_arr[i].getAttribute("spone") == "y"){
+                                var t = document.querySelector('.last-state-page');
+                                t.textContent = Number(t.textContent) - 1;
+                                last_ele2 = i;
+                            }
                         }
                     }
                 }
@@ -7991,19 +8155,6 @@ $(function(){
                             last_ele2 = i;
                         }
                     }   
-                }
-
-                if(last_ele2 == 13){
-                    let next_box = document.querySelector("#yoursavingsbalance");
-                    next_box.style.display = ''
-                }
-                else{
-                    ele_arr[last_ele2+1].style.display = '';
-                    for(var i=22;i<73;i++){
-                        if(ele_arr[i].style.display == ''){
-                            ele_arr[i].style.display = 'none';
-                        }
-                    }
                 }
     
                 document.getElementById("yoursevenestate").style.display = "none";
@@ -8021,6 +8172,38 @@ $(function(){
                     var t = document.querySelector('.last-state-page');
                     t.textContent = 19; 
                 }
+
+                var max_num = sessionStorage.getItem("max_ele")
+
+                if(last_ele2 == 13){
+                    for(var i=22;i<max_num;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            if(ele_arr[i].style.display == 'none'){
+                                ele_arr[i].style.display == ''
+                                last_ele2 = i;
+                            }
+                        }
+                    }
+                    if(document.getElementById("yoursavingsbalance").getAttribute("spone") != "y"){
+                        if(document.getElementById("yoursavingsbalance").style.display == 'none'){
+                            document.getElementById("yoursavingsbalance").style.display = '';
+                        }
+                    }
+                    else{
+                        ele_arr[last_ele2+1].style.display = '';
+                    }
+
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) + (Number(estate_value) * 2)
+                }
+                else{
+                    ele_arr[last_ele2+1].style.display = '';
+                    for(var i=14;i<max_num;i++){
+                        if(ele_arr[i].style.display == ''){
+                            ele_arr[i].style.display = 'none';
+                        }
+                    }
+                }
             }
             else if(estate_value == "7"){
                 var t = document.querySelector('.last-state-page');
@@ -8034,12 +8217,20 @@ $(function(){
                 }
 
                 if(Number(estate_oldval) > Number(estate_value)){
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - 14;
-                    for(var i=16;i<Number(estate_oldval)*2+2;i++){
-                        if(ele_arr[i].getAttribute("spone") != "y"){
-                            var t = document.querySelector('.last-state-page');
-                            t.textContent = Number(t.textContent) - 1;
+                    if(ele_arr[(Number(estate_oldval)*2)+2].getAttribute("spone") != "y"){
+                        for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
+                            if(ele_arr[i].getAttribute("spone") != "y"){
+                                var t = document.querySelector('.last-state-page');
+                                t.textContent = Number(t.textContent) - 1;
+                            }
+                        }    
+                        
+                        for(var i=2;i<(Number(estate_value)*2)+2;i++){
+                            if(ele_arr[i].getAttribute("spone") == "y"){
+                                var t = document.querySelector('.last-state-page');
+                                t.textContent = Number(t.textContent) - 1;
+                                last_ele2 = i;
+                            }
                         }
                     }
                 }
@@ -8058,19 +8249,6 @@ $(function(){
                             last_ele2 = i;
                         }
                     }   
-                }
-
-                if(last_ele2 == 15){
-                    let next_box = document.querySelector("#yoursavingsbalance");
-                    next_box.style.display = ''
-                }
-                else{
-                    ele_arr[last_ele2+1].style.display = '';
-                    for(var i=22;i<73;i++){
-                        if(ele_arr[i].style.display == ''){
-                            ele_arr[i].style.display = 'none';
-                        }
-                    }
                 }
     
                 document.getElementById("youreightestate").style.display = "none";
@@ -8085,6 +8263,38 @@ $(function(){
                     var t = document.querySelector('.last-state-page');
                     t.textContent = 21; 
                 }
+
+                var max_num = sessionStorage.getItem("max_ele")
+
+                if(last_ele2 == 15){
+                    for(var i=22;i<max_num;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            if(ele_arr[i].style.display == 'none'){
+                                ele_arr[i].style.display == ''
+                                last_ele2 = i;
+                            }
+                        }
+                    }
+                    if(document.getElementById("yoursavingsbalance").getAttribute("spone") != "y"){
+                        if(document.getElementById("yoursavingsbalance").style.display == 'none'){
+                            document.getElementById("yoursavingsbalance").style.display = '';
+                        }
+                    }
+                    else{
+                        ele_arr[last_ele2+1].style.display = '';
+                    }
+
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) + (Number(estate_value) * 2)
+                }
+                else{
+                    ele_arr[last_ele2+1].style.display = '';
+                    for(var i=16;i<max_num;i++){
+                        if(ele_arr[i].style.display == ''){
+                            ele_arr[i].style.display = 'none';
+                        }
+                    }
+                }
             }
             else if(estate_value == "8"){
                 var t = document.querySelector('.last-state-page');
@@ -8098,10 +8308,20 @@ $(function(){
                 }
 
                 if(Number(estate_oldval) > Number(estate_value)){
-                    for(var i=18;i<Number(estate_oldval)*2+2;i++){
-                        if(ele_arr[i].getAttribute("spone") != "y"){
-                            var t = document.querySelector('.last-state-page');
-                            t.textContent = Number(t.textContent) - 1;
+                    if(ele_arr[(Number(estate_oldval)*2)+2].getAttribute("spone") != "y"){
+                        for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
+                            if(ele_arr[i].getAttribute("spone") != "y"){
+                                var t = document.querySelector('.last-state-page');
+                                t.textContent = Number(t.textContent) - 1;
+                            }
+                        }    
+                        
+                        for(var i=2;i<(Number(estate_value)*2)+2;i++){
+                            if(ele_arr[i].getAttribute("spone") == "y"){
+                                var t = document.querySelector('.last-state-page');
+                                t.textContent = Number(t.textContent) - 1;
+                                last_ele2 = i;
+                            }
                         }
                     }
                 }
@@ -8122,19 +8342,6 @@ $(function(){
                     }   
                 }
 
-                if(last_ele2 == 17){
-                    let next_box = document.querySelector("#yoursavingsbalance");
-                    next_box.style.display = ''
-                }
-                else{
-                    ele_arr[last_ele2+1].style.display = '';
-                    for(var i=22;i<73;i++){
-                        if(ele_arr[i].style.display == ''){
-                            ele_arr[i].style.display = 'none';
-                        }
-                    }
-                }
-
     
                 document.getElementById("yournineestate").style.display = "none";
                 document.getElementById("yourninerentalincome").style.display = "none";
@@ -8145,6 +8352,38 @@ $(function(){
                 if(estate_oldval == 0){
                     var t = document.querySelector('.last-state-page');
                     t.textContent = 23; 
+                }
+
+                var max_num = sessionStorage.getItem("max_ele")
+
+                if(last_ele2 == 17){
+                    for(var i=22;i<max_num;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            if(ele_arr[i].style.display == 'none'){
+                                ele_arr[i].style.display == ''
+                                last_ele2 = i;
+                            }
+                        }
+                    }
+                    if(document.getElementById("yoursavingsbalance").getAttribute("spone") != "y"){
+                        if(document.getElementById("yoursavingsbalance").style.display == 'none'){
+                            document.getElementById("yoursavingsbalance").style.display = '';
+                        }
+                    }
+                    else{
+                        ele_arr[last_ele2+1].style.display = '';
+                    }
+
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) + (Number(estate_value) * 2)
+                }
+                else{
+                    ele_arr[last_ele2+1].style.display = '';
+                    for(var i=18;i<max_num;i++){
+                        if(ele_arr[i].style.display == ''){
+                            ele_arr[i].style.display = 'none';
+                        }
+                    }
                 }
     
             }
@@ -8160,12 +8399,20 @@ $(function(){
                 }
 
                 if(Number(estate_oldval) > Number(estate_value)){
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - 18;
-                    for(var i=20;i<Number(estate_oldval)*2+2;i++){
-                        if(ele_arr[i].getAttribute("spone") != "y"){
-                            var t = document.querySelector('.last-state-page');
-                            t.textContent = Number(t.textContent) - 1;
+                    if(ele_arr[(Number(estate_oldval)*2)+2].getAttribute("spone") != "y"){
+                        for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
+                            if(ele_arr[i].getAttribute("spone") != "y"){
+                                var t = document.querySelector('.last-state-page');
+                                t.textContent = Number(t.textContent) - 1;
+                            }
+                        }    
+                        
+                        for(var i=2;i<(Number(estate_value)*2)+2;i++){
+                            if(ele_arr[i].getAttribute("spone") == "y"){
+                                var t = document.querySelector('.last-state-page');
+                                t.textContent = Number(t.textContent) - 1;
+                                last_ele2 = i;
+                            }
                         }
                     }
                 }
@@ -8185,20 +8432,6 @@ $(function(){
                         }
                     }      
                 }
-
-                if(last_ele2 == 19){
-                    let next_box = document.querySelector("#yoursavingsbalance");
-                    next_box.style.display = ''
-                }
-                else{
-                    ele_arr[last_ele2+1].style.display = '';
-                    for(var i=22;i<73;i++){
-                        if(ele_arr[i].style.display == ''){
-                            ele_arr[i].style.display = 'none';
-                        }
-                    }
-                }
-
     
                 document.getElementById("yourtenestate").style.display = "none";
                 document.getElementById("yourtenrentalincome").style.display = "none";  
@@ -8208,6 +8441,39 @@ $(function(){
                     var t = document.querySelector('.last-state-page');
                     t.textContent = 24; 
                 }
+
+                var max_num = sessionStorage.getItem("max_ele")
+
+                if(last_ele2 == 19){
+                    for(var i=22;i<max_num;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            if(ele_arr[i].style.display == 'none'){
+                                ele_arr[i].style.display == ''
+                                last_ele2 = i;
+                            }
+                        }
+                    }
+                    if(document.getElementById("yoursavingsbalance").getAttribute("spone") != "y"){
+                        if(document.getElementById("yoursavingsbalance").style.display == 'none'){
+                            document.getElementById("yoursavingsbalance").style.display = '';
+                        }
+                    }
+                    else{
+                        ele_arr[last_ele2+1].style.display = '';
+                    }
+
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) + (Number(estate_value) * 2)
+                }
+                else{
+                    ele_arr[last_ele2+1].style.display = '';
+                    for(var i=20;i<max_num;i++){
+                        if(ele_arr[i].style.display == ''){
+                            ele_arr[i].style.display = 'none';
+                        }
+                    }
+                }
+
     
             }
             else if(estate_value == '10'){
@@ -8222,31 +8488,20 @@ $(function(){
                 }
 
                 if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
-                    for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
-                        if(ele_arr[i].getAttribute("spone") != "y"){
-                            var t = document.querySelector('.last-state-page');
-                            t.textContent = Number(t.textContent) - 1;
-                        }
-                    }
-
-                    for(var i=(Number(estate_oldval)*2)+2;i<(Number(estate_value)*2)+2;i++){
-                        if(ele_arr[i].getAttribute("spone") == "y"){
-                            var t = document.querySelector('.last-state-page');
-                            t.textContent = Number(t.textContent) - 1;
-                            last_ele2 = i;
-                        }
-                    }     
-                }
-
-                if(last_ele2 == 21){
-                    let next_box = document.querySelector("#yoursavingsbalance");
-                    next_box.style.display = ''
-                }
-                else{
-                    ele_arr[last_ele2+1].style.display = '';
-                    for(var i=22;i<73;i++){
-                        if(ele_arr[i].style.display == ''){
-                            ele_arr[i].style.display = 'none';
+                    if(ele_arr[(Number(estate_oldval)*2)+2].getAttribute("spone") != "y"){
+                        for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
+                            if(ele_arr[i].getAttribute("spone") != "y"){
+                                var t = document.querySelector('.last-state-page');
+                                t.textContent = Number(t.textContent) - 1;
+                            }
+                        }    
+                        
+                        for(var i=2;i<(Number(estate_value)*2)+2;i++){
+                            if(ele_arr[i].getAttribute("spone") == "y"){
+                                var t = document.querySelector('.last-state-page');
+                                t.textContent = Number(t.textContent) - 1;
+                                last_ele2 = i;
+                            }
                         }
                     }
                 }
@@ -8255,6 +8510,38 @@ $(function(){
                 if(estate_oldval == 0){
                     var t = document.querySelector('.last-state-page');
                     t.textContent = 25; 
+                }
+
+                var max_num = sessionStorage.getItem("max_ele")
+
+                if(last_ele2 == 21){
+                    for(var i=22;i<max_num;i++){
+                        if(ele_arr[i].getAttribute("spone") == "y"){
+                            if(ele_arr[i].style.display == 'none'){
+                                ele_arr[i].style.display == ''
+                                last_ele2 = i;
+                            }
+                        }
+                    }
+                    if(document.getElementById("yoursavingsbalance").getAttribute("spone") != "y"){
+                        if(document.getElementById("yoursavingsbalance").style.display == 'none'){
+                            document.getElementById("yoursavingsbalance").style.display = '';
+                        }
+                    }
+                    else{
+                        ele_arr[last_ele2+1].style.display = '';
+                    }
+
+                    var t = document.querySelector('.last-state-page');
+                    t.textContent = Number(t.textContent) + (Number(estate_value) * 2)
+                }
+                else{
+                    ele_arr[last_ele2+1].style.display = '';
+                    for(var i=22;i<max_num;i++){
+                        if(ele_arr[i].style.display == ''){
+                            ele_arr[i].style.display = 'none';
+                        }
+                    }
                 }
             }
             if(sessionStorage.getItem('yourpartner') == "いる"){
@@ -8340,7 +8627,7 @@ $(function(){
             //var last_ele3 = 0;
             //var ele_arr = document.getElementsByClassName("form-group");
             //if(ele_arr[22].getAttribute("spone") == 'y' || ele_arr[22].getAttribute("spone") == "n"){
-            //    for(var i=22;73;i++){
+            //    for(var i=22;max_num;i++){
             //        console.log("sssssssss")
             //        if(l != (Number(estate_value)*2)+1){
             //            console.log("トリガ")
@@ -8410,8 +8697,9 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var max_num = sessionStorage.getItem("max_ele")
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=3;i<73;i++){
+            for(var i=3;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -8513,8 +8801,9 @@ $(function(){
             // クラスを追加(フォームの枠線を赤くする)
             name.classList.add('input-invalid');
             // 後続の処理を止める
+            var max_num = sessionStorage.getItem("max_ele")
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=4;i<73;i++){
+            for(var i=4;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -8591,14 +8880,13 @@ $(function(){
             var last_kou = 0;
             if(document.getElementById("yoursavingsbalance").getAttribute("spone") == "y"){
                 var ele_arr = document.getElementsByClassName("form-group");
-                for(var i=22;i<73;i++){
+                var max_num = sessionStorage.getItem("max_ele")
+                for(var i=22;i<max_num;i++){
                     if(ele_arr[i].getAttribute("spone") == "y"){
                         if(ele_arr[i].style.display == 'none'){
                             ele_arr[i].style.display = ""
                         }
                         last_kou = i;
-                        var st = document.querySelector('.last-state-page');
-                        st.textContent = Number(st.textContent) - 1;
                     }
                 }
             }
@@ -8652,7 +8940,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=5;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=5;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -8753,7 +9042,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=6;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=6;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -8815,14 +9105,13 @@ $(function(){
                 var last_kou = 0;
                 if(document.getElementById("yoursavingsbalance").getAttribute("spone") == "y"){
                     var ele_arr = document.getElementsByClassName("form-group");
-                    for(var i=22;i<73;i++){
+                    var max_num = sessionStorage.getItem("max_ele")
+                    for(var i=22;i<max_num;i++){
                         if(ele_arr[i].getAttribute("spone") == "y"){
                             if(ele_arr[i].style.display == 'none'){
                                 ele_arr[i].style.display = ""
                             }
                             last_kou = i;
-                            var st = document.querySelector('.last-state-page');
-                            st.textContent = Number(st.textContent) - 1;
                         }
                     }
                 }
@@ -8890,7 +9179,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=7;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=7;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -8991,7 +9281,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=8;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=8;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -9053,14 +9344,13 @@ $(function(){
                 var last_kou = 0;
                 if(document.getElementById("yoursavingsbalance").getAttribute("spone") == "y"){
                     var ele_arr = document.getElementsByClassName("form-group");
-                    for(var i=22;i<73;i++){
+                    var max_num = sessionStorage.getItem("max_ele")
+                    for(var i=22;i<max_num;i++){
                         if(ele_arr[i].getAttribute("spone") == "y"){
                             if(ele_arr[i].style.display == 'none'){
                                 ele_arr[i].style.display = ""
                             }
                             last_kou = i;
-                            var st = document.querySelector('.last-state-page');
-                            st.textContent = Number(st.textContent) - 1;
                         }
                     }
                 }
@@ -9128,7 +9418,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=9;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=9;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -9229,7 +9520,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=10;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=10;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -9288,14 +9580,13 @@ $(function(){
                 var last_kou = 0;
                 if(document.getElementById("yoursavingsbalance").getAttribute("spone") == "y"){
                     var ele_arr = document.getElementsByClassName("form-group");
-                    for(var i=22;i<73;i++){
+                    var max_num = sessionStorage.getItem("max_ele")
+                    for(var i=22;i<max_num;i++){
                         if(ele_arr[i].getAttribute("spone") == "y"){
                             if(ele_arr[i].style.display == 'none'){
                                 ele_arr[i].style.display = ""
                             }
                             last_kou = i;
-                            var st = document.querySelector('.last-state-page');
-                            st.textContent = Number(st.textContent) - 1;
                         }
                     }
                 }
@@ -9360,7 +9651,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=11;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=11;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -9461,7 +9753,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=12;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=12;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -9520,14 +9813,13 @@ $(function(){
                 var last_kou = 0;
                 if(document.getElementById("yoursavingsbalance").getAttribute("spone") == "y"){
                     var ele_arr = document.getElementsByClassName("form-group");
-                    for(var i=22;i<73;i++){
+                    var max_num = sessionStorage.getItem("max_ele")
+                    for(var i=22;i<max_num;i++){
                         if(ele_arr[i].getAttribute("spone") == "y"){
                             if(ele_arr[i].style.display == 'none'){
                                 ele_arr[i].style.display = ""
                             }
                             last_kou = i;
-                            var st = document.querySelector('.last-state-page');
-                            st.textContent = Number(st.textContent) - 1;
                         }
                     }
                 }
@@ -9592,7 +9884,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=13;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=13;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -9693,7 +9986,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=14;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=14;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -9753,14 +10047,13 @@ $(function(){
                 var last_kou = 0;
                 if(document.getElementById("yoursavingsbalance").getAttribute("spone") == "y"){
                     var ele_arr = document.getElementsByClassName("form-group");
-                    for(var i=22;i<73;i++){
+                    var max_num = sessionStorage.getItem("max_ele")
+                    for(var i=22;i<max_num;i++){
                         if(ele_arr[i].getAttribute("spone") == "y"){
                             if(ele_arr[i].style.display == 'none'){
                                 ele_arr[i].style.display = ""
                             }
                             last_kou = i;
-                            var st = document.querySelector('.last-state-page');
-                            st.textContent = Number(st.textContent) - 1;
                         }
                     }
                 }
@@ -9824,7 +10117,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=15;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=15;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -9925,7 +10219,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=16;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=16;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -9986,14 +10281,13 @@ $(function(){
                 var last_kou = 0;
                 if(document.getElementById("yoursavingsbalance").getAttribute("spone") == "y"){
                     var ele_arr = document.getElementsByClassName("form-group");
-                    for(var i=22;i<73;i++){
+                    var max_num = sessionStorage.getItem("max_ele")
+                    for(var i=22;i<max_num;i++){
                         if(ele_arr[i].getAttribute("spone") == "y"){
                             if(ele_arr[i].style.display == 'none'){
                                 ele_arr[i].style.display = ""
                             }
                             last_kou = i;
-                            var st = document.querySelector('.last-state-page');
-                            st.textContent = Number(st.textContent) - 1;
                         }
                     }
                 }
@@ -10057,7 +10351,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=17;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=17;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -10158,7 +10453,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=18;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=18;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -10218,14 +10514,13 @@ $(function(){
                 var last_kou = 0;
                 if(document.getElementById("yoursavingsbalance").getAttribute("spone") == "y"){
                     var ele_arr = document.getElementsByClassName("form-group");
-                    for(var i=22;i<73;i++){
+                    var max_num = sessionStorage.getItem("max_ele")
+                    for(var i=22;i<max_num;i++){
                         if(ele_arr[i].getAttribute("spone") == "y"){
                             if(ele_arr[i].style.display == 'none'){
                                 ele_arr[i].style.display = ""
                             }
                             last_kou = i;
-                            var st = document.querySelector('.last-state-page');
-                            st.textContent = Number(st.textContent) - 1;
                         }
                     }
                 }
@@ -10289,7 +10584,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=19;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=19;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -10390,7 +10686,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=20;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=20;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -10450,14 +10747,13 @@ $(function(){
                 var last_kou = 0;
                 if(document.getElementById("yoursavingsbalance").getAttribute("spone") == "y"){
                     var ele_arr = document.getElementsByClassName("form-group");
-                    for(var i=22;i<73;i++){
+                    var max_num = sessionStorage.getItem("max_ele")
+                    for(var i=22;i<max_num;i++){
                         if(ele_arr[i].getAttribute("spone") == "y"){
                             if(ele_arr[i].style.display == 'none'){
                                 ele_arr[i].style.display = ""
                             }
                             last_kou = i;
-                            var st = document.querySelector('.last-state-page');
-                            st.textContent = Number(st.textContent) - 1;
                         }
                     }
                 }
@@ -10522,7 +10818,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=21;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=21;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -10623,7 +10920,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=22;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=22;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -10685,14 +10983,13 @@ $(function(){
             var last_kou = 0;
             if(document.getElementById("yoursavingsbalance").getAttribute("spone") == "y"){
                 var ele_arr = document.getElementsByClassName("form-group");
-                for(var i=22;i<73;i++){
+                var max_num = sessionStorage.getItem("max_ele")
+                for(var i=22;i<max_num;i++){
                     if(ele_arr[i].getAttribute("spone") == "y"){
                         if(ele_arr[i].style.display == 'none'){
                             ele_arr[i].style.display = ""
                         }
                         last_kou = i;
-                        var st = document.querySelector('.last-state-page');
-                        st.textContent = Number(st.textContent) - 1;
                     }
                 }
             }
@@ -10745,7 +11042,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=23;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=23;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -10871,7 +11169,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=24;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=24;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -10975,7 +11274,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=25;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=25;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -11079,7 +11379,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=26;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=26;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -11185,7 +11486,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=27;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=27;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -11284,7 +11586,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=28;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=28;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -11383,7 +11686,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=29;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=29;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -11482,7 +11786,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=30;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=30;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -11628,7 +11933,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=31;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=31;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -11728,7 +12034,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=32;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=32;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -11827,7 +12134,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=33;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=33;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -11925,7 +12233,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=34;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=34;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -12037,7 +12346,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=35;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=35;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -12172,7 +12482,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=36;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=36;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -12305,7 +12616,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=37;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=37;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -12438,7 +12750,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=38;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=38;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -12593,7 +12906,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=39;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=39;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -12722,7 +13036,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=40;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=40;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -12851,7 +13166,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=41;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=41;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -12980,7 +13296,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=42;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=42;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -13128,7 +13445,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=43;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=43;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -13254,7 +13572,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=44;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=44;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -13379,7 +13698,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=45;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=45;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -13504,7 +13824,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=46;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=46;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -13645,7 +13966,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=47;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=47;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -13766,7 +14088,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=48;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=48;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -13887,7 +14210,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=49;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=49;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -14008,7 +14332,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=50;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=50;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -14143,7 +14468,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=51;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=51;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -14260,7 +14586,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=52;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=52;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -14377,7 +14704,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=53;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=53;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -14494,7 +14822,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=54;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=54;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -14623,7 +14952,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=55;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=55;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -14737,7 +15067,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=56;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=56;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -14849,7 +15180,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=57;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=57;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -14962,7 +15294,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=58;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=58;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -15085,7 +15418,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=59;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=59;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -15194,7 +15528,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=60;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=60;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -15303,7 +15638,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=61;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=61;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -15412,7 +15748,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=62;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=62;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -15529,7 +15866,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=63;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=63;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -15634,7 +15972,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=64;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=64;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -15739,7 +16078,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=65;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=65;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -15845,7 +16185,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=66;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=66;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -15956,7 +16297,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=67;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=67;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -16057,7 +16399,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=68;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=68;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -16159,7 +16502,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=69;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=69;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -16260,7 +16604,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=70;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=70;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -16365,7 +16710,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=71;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=71;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -16462,7 +16808,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=72;i<73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=72;i<max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
@@ -16559,7 +16906,8 @@ $(function(){
             name.classList.add('input-invalid');
             // 後続の処理を止める
             var ele_arr = document.getElementsByClassName("form-group");
-            for(var i=73;i<=73;i++){
+            var max_num = sessionStorage.getItem("max_ele")
+            for(var i=max_num;i<=max_num;i++){
                 if(ele_arr[i].style.display != 'none'){
                     respone = i;
                     display_arr.push(ele_arr[i]);
