@@ -293,7 +293,7 @@ $(function(){
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#nicknameerr');
         var ele_arr = document.getElementsByClassName("form-group");
-        if(!name.value){
+        if(!String(name.value)){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -7335,6 +7335,9 @@ $(function(){
             }
             else{
                 history.forward();
+                if(location.href != '/future_calculation3'){
+                    window.location.href = '/future_calculation3';
+                }
             }
         }
         else if(estate_bool == true){
@@ -7343,6 +7346,9 @@ $(function(){
             }
             else{
                 history.forward();
+                if(location.href != '/future_calculation3'){
+                    window.location.href = '/future_calculation3';
+                }
             }
         }
         else if(myhome == false && estate_bool == false){
@@ -17064,53 +17070,142 @@ $(function(){
 
 $(function(){
     document.getElementsByClassName('btn btn-primary mx-auto d-block')[0].addEventListener('click', function() {
-        const myhomebuy = document.getElementById('myhome-buy').value;
-        sessionStorage.setItem('myhome-buy', myhomebuy);
-        const estate = document.getElementById('estate').value;
-        sessionStorage.setItem('estate', estate);
-        const firstestate = document.getElementById('first-estate').value;
-        sessionStorage.setItem('first-estate', firstestate);
-        const firstrentalincome = document.getElementById('first-rental-income').value;
-        sessionStorage.setItem('first-rental-income', firstrentalincome);
-        const secondestate = document.getElementById('second-estate').value;
-        sessionStorage.setItem('second-estate', secondestate);
-        const secondrentalincome = document.getElementById('second-rental-income').value;
-        sessionStorage.setItem('second-rental-income', secondrentalincome);
-        const thirdestate = document.getElementById('third-estate').value;
-        sessionStorage.setItem('third-estate', thirdestate);
-        const fourestate = document.getElementById('four-estate').value;
-        sessionStorage.setItem('four-estate', fourestate);
-        const fourrentalincome = document.getElementById('four-rental-income').value;
-        sessionStorage.setItem('four-rental-income', fourrentalincome);
-        const fiveestate = document.getElementById('five-estate').value;
-        sessionStorage.setItem('five-estate', fiveestate);
-        const fiverentalincome = document.getElementById('five-rental-income').value;
-        sessionStorage.setItem('five-rental-income', fiverentalincome);
-        const sixestate = document.getElementById('six-estate').value;
-        sessionStorage.setItem('six-estate', sixestate);
-        const sixrentalincome = document.getElementById('six-rental-income').value;
-        sessionStorage.setItem('six-rental-income', sixrentalincome);
-        const sevenestate = document.getElementById('seven-estate').value;
-        sessionStorage.setItem('seven-estate', sevenestate);
-        const sevenrentalincome = document.getElementById('seven-rental-income').value;
-        sessionStorage.setItem('seven-rental-income', sevenrentalincome);
-        const eightestate = document.getElementById('eight-estate').value;
-        sessionStorage.setItem('eight-estate', eightestate);
-        const eightrentalincome = document.getElementById('eight-rental-income').value;
-        sessionStorage.setItem('eight-rental-income', eightrentalincome);
-        const nineestate = document.getElementById('nine-estate').value;
-        sessionStorage.setItem('nine-estate', nineestate);
-        const ninerentalincome = document.getElementById('nine-rental-income').value;
-        sessionStorage.setItem('nine-rental-income', ninerentalincome);
-        const tenestate = document.getElementById('ten-estate').value;
-        sessionStorage.setItem('ten-estate', tenestate);
-        const tenrentalincome = document.getElementById('ten-rental-income').value;
-        sessionStorage.setItem('ten-rental-income', tenrentalincome);
+
+        if(sessionStorage.getItem('yourpartner') == "いる"){
+            var partner_bool2 = true;
+        }
+        else if(sessionStorage.getItem('yourpartner') == "いない"){
+            var partner_bool2 = false;
+        }
+        
+        if(sessionStorage.getItem('children') == "いる"){
+            var children_bool2 = true;
+        }
+        else if(sessionStorage.getItem('children') == "いない"){
+            var children_bool2 = false;
+        }
+        
+        if(sessionStorage.getItem('number-children') == "one"){
+            var children_n = 1;
+        }
+        else if(sessionStorage.getItem('number-children') == "two"){
+            var children_n = 2;
+        }
+        else if(sessionStorage.getItem('number-children') == "three"){
+            var children_n = 3;
+        }
+        else if(sessionStorage.getItem('number-children') == "four"){
+            var children_n = 4;
+        }
+        else if(sessionStorage.getItem('number-children') == "five"){
+            var children_n = 5;
+        }
+        else if(sessionStorage.getItem('number-children') == "six"){
+            var children_n = 6;
+        }
+        else if(sessionStorage.getItem('number-children') == "seven"){
+            var children_n = 7;
+        }
+        else if(sessionStorage.getItem('number-children') == "eight"){
+            var children_n = 8;
+        }
+        else if(sessionStorage.getItem('number-children') == "nine"){
+            var children_n = 9;
+        }
+        else if(sessionStorage.getItem('number-children') == "ten"){
+            var children_n = 10;
+        }
+        
+        if(sessionStorage.getItem('house-class') == "rental"){
+            var myhome = true;
+        }
+        else{
+            var myhome = false;
+        }
+        
+        var children_number = sessionStorage.getItem('number-children')
+        
+        if(String(sessionStorage.getItem('Estate-Investment')) == "0"){
+            var estate_bool = false;
+        }
+        else{
+            var estate_bool = true;
+        }
+        
+        if(myhome == false){
+            const myhomebuy = document.getElementById('myhome-buy').value;
+            sessionStorage.setItem('myhome-buy', myhomebuy);
+        }
+
+        if(estate_bool == true){
+            const estate = document.getElementById('estate').value;
+            sessionStorage.setItem('estate', estate);
+            const firstestate = document.getElementById('first-estate').value;
+            sessionStorage.setItem('first-estate', firstestate);
+            const firstrentalincome = document.getElementById('first-rental-income').value;
+            sessionStorage.setItem('first-rental-income', firstrentalincome);
+            if(Number(document.getElementById("estate").value) > 1){
+                const secondestate = document.getElementById('second-estate').value;
+                sessionStorage.setItem('second-estate', secondestate);
+                const secondrentalincome = document.getElementById('second-rental-income').value;
+                sessionStorage.setItem('second-rental-income', secondrentalincome);
+            }
+            if(Number(document.getElementById("estate").value) > 2){
+                const thirdestate = document.getElementById('third-estate').value;
+                sessionStorage.setItem('third-estate', thirdestate);
+                const thirdrentalincome = document.getElementById('third-rental-income').value;
+                sessionStorage.setItem('third-rental-income', thirdrentalincome);
+            }
+            if(Number(document.getElementById("estate").value) > 3){
+                const fourestate = document.getElementById('four-estate').value;
+                sessionStorage.setItem('four-estate', fourestate);
+                const fourrentalincome = document.getElementById('four-rental-income').value;
+                sessionStorage.setItem('four-rental-income', fourrentalincome);
+            }
+            if(Number(document.getElementById("estate").value) > 4){
+                const fiveestate = document.getElementById('five-estate').value;
+                sessionStorage.setItem('five-estate', fiveestate);
+                const fiverentalincome = document.getElementById('five-rental-income').value;
+                sessionStorage.setItem('five-rental-income', fiverentalincome);
+            }
+            if(Number(document.getElementById("estate").value) > 5){
+                const sixestate = document.getElementById('six-estate').value;
+                sessionStorage.setItem('six-estate', sixestate);
+                const sixrentalincome = document.getElementById('six-rental-income').value;
+                sessionStorage.setItem('six-rental-income', sixrentalincome);
+            }
+            if(Number(document.getElementById("estate").value) > 6){
+                const sevenestate = document.getElementById('seven-estate').value;
+                sessionStorage.setItem('seven-estate', sevenestate);
+                const sevenrentalincome = document.getElementById('seven-rental-income').value;
+                sessionStorage.setItem('seven-rental-income', sevenrentalincome);
+            }
+            if(Number(document.getElementById("estate").value) > 7){
+                const eightestate = document.getElementById('eight-estate').value;
+                sessionStorage.setItem('eight-estate', eightestate);
+                const eightrentalincome = document.getElementById('eight-rental-income').value;
+                sessionStorage.setItem('eight-rental-income', eightrentalincome);
+            }
+            if(Number(document.getElementById("estate").value) > 8){
+                const nineestate = document.getElementById('nine-estate').value;
+                sessionStorage.setItem('nine-estate', nineestate);
+                const ninerentalincome = document.getElementById('nine-rental-income').value;
+                sessionStorage.setItem('nine-rental-income', ninerentalincome);
+            }
+            if(Number(document.getElementById("estate").value) > 9){
+                const tenestate = document.getElementById('ten-estate').value;
+                sessionStorage.setItem('ten-estate', tenestate);
+                const tenrentalincome = document.getElementById('ten-rental-income').value;
+                sessionStorage.setItem('ten-rental-income', tenrentalincome);
+            }
+        }
 
         const savingsbalance = document.getElementById('savings-balance').value;
         sessionStorage.setItem('savings-balance', savingsbalance);
-        const lastEducationalinsurance = document.getElementById('last-Educational-insurance').value;
-        sessionStorage.setItem('last-Educational-insurance', lastEducationalinsurance);
+        if(children_bool2 == true){
+            const lastEducationalinsurance = document.getElementById('last-Educational-insurance').value;
+            sessionStorage.setItem('last-Educational-insurance', lastEducationalinsurance);
+        }
         const trip = document.getElementById('trip').value;
         sessionStorage.setItem('trip', trip);
         const otherexpense = document.getElementById('other-expense').value;
@@ -17133,146 +17228,206 @@ $(function(){
         }
         sessionStorage.setItem('yourSeverancepayinput', checkValue6);
 
-        const spousestartwork = document.getElementById('spouse-start-work').value;
-        sessionStorage.setItem('spouse-start-work', spousestartwork);
-        const spouseStartingsalary = document.getElementById('spouse-Starting-salary').value;
-        sessionStorage.setItem('spouse-Starting-salary', spouseStartingsalary);
-        const spouseEstimatedannualincome = document.getElementById('spouse-Estimated-annual-income').value;
-        sessionStorage.setItem('spouse-Estimated-annual-income', spouseEstimatedannualincome);
+        if(partner_bool2 == true){
+            const spousestartwork = document.getElementById('spouse-start-work').value;
+            sessionStorage.setItem('spouse-start-work', spousestartwork);
+            const spouseStartingsalary = document.getElementById('spouse-Starting-salary').value;
+            sessionStorage.setItem('spouse-Starting-salary', spouseStartingsalary);
+            const spouseEstimatedannualincome = document.getElementById('spouse-Estimated-annual-income').value;
+            sessionStorage.setItem('spouse-Estimated-annual-income', spouseEstimatedannualincome);
 
-        var ele7 = document.getElementsByName('Severance-pay');
-        var len7 = ele7.length;
-        var checkValue7 = '';
-        for (var i = 0; i < len7; i++){
-            if (ele7.item(i).checked){
-                checkValue7 = ele7.item(i).value;
-                console.log(checkValue7)
+            var ele7 = document.getElementsByName('Severance-pay');
+            var len7 = ele7.length;
+            var checkValue7 = '';
+            for (var i = 0; i < len7; i++){
+                if (ele7.item(i).checked){
+                    checkValue7 = ele7.item(i).value;
+                    console.log(checkValue7)
+                }
+            }
+            sessionStorage.setItem('yourpartnerSeverancepayinput', checkValue7);
+        }
+
+        if(children_bool2 == true){
+            const firstprimaryschool = document.getElementById('first-primary-school').value;
+            sessionStorage.setItem('first-primary-school', firstprimaryschool);
+            const firstjuniorhighschool = document.getElementById('first-junior-high-school').value;
+            sessionStorage.setItem('first-junior-high-school', firstjuniorhighschool);
+            const firsthighschool = document.getElementById('first-high-school').value;
+            sessionStorage.setItem('first-high-school', firsthighschool);
+            const firstuniversity = document.getElementById('first-university').value;
+            sessionStorage.setItem('first-university',firstuniversity);
+            if(children_n > 1){
+                const secondprimaryschool = document.getElementById('second-primary-school').value;
+                sessionStorage.setItem('second-primary-school', secondprimaryschool);
+                const secondjuniorhighschool = document.getElementById('second-junior-high-school').value;
+                sessionStorage.setItem('second-junior-high-school', secondjuniorhighschool);
+                const secondhighschool = document.getElementById('second-high-school').value;
+                sessionStorage.setItem('second-high-school', secondhighschool);
+                const seconduniversity = document.getElementById('second-university').value;
+                sessionStorage.setItem('second-university',seconduniversity);
+            }
+            if(children_n > 2){
+                const thirdprimaryschool = document.getElementById('third-primary-school').value;
+                sessionStorage.setItem('third-primary-school', thirdprimaryschool);
+                const thirdjuniorhighschool = document.getElementById('third-junior-high-school').value;
+                sessionStorage.setItem('third-junior-high-school', thirdjuniorhighschool);
+                const thirdhighschool = document.getElementById('third-high-school').value;
+                sessionStorage.setItem('third-high-school', thirdhighschool);
+                const thirduniversity = document.getElementById('third-university').value;
+                sessionStorage.setItem('third-university',thirduniversity);
+            }
+            if(children_n > 3){
+                const fourprimaryschool = document.getElementById('four-primary-school').value;
+                sessionStorage.setItem('four-primary-school', fourprimaryschool);
+                const fourjuniorhighschool = document.getElementById('four-junior-high-school').value;
+                sessionStorage.setItem('four-junior-high-school', fourjuniorhighschool);
+                const fourhighschool = document.getElementById('four-high-school').value;
+                sessionStorage.setItem('four-high-school', fourhighschool);
+                const fouruniversity = document.getElementById('four-university').value;
+                sessionStorage.setItem('four-university',fouruniversity);
+            }
+            if(children_n > 4){
+                const fiveprimaryschool = document.getElementById('five-primary-school').value;
+                sessionStorage.setItem('five-primary-school', fiveprimaryschool);
+                const fivejuniorhighschool = document.getElementById('five-junior-high-school').value;
+                sessionStorage.setItem('five-junior-high-school', fivejuniorhighschool);
+                const fivehighschool = document.getElementById('five-high-school').value;
+                sessionStorage.setItem('five-high-school', fivehighschool);
+                const fiveuniversity = document.getElementById('five-university').value;
+                sessionStorage.setItem('five-university',fiveuniversity);
+            }
+            if(children_n > 5){
+                const sixprimaryschool = document.getElementById('six-primary-school').value;
+                sessionStorage.setItem('six-primary-school', sixprimaryschool);
+                const sixjuniorhighschool = document.getElementById('six-junior-high-school').value;
+                sessionStorage.setItem('six-junior-high-school', sixjuniorhighschool);
+                const sixhighschool = document.getElementById('six-high-school').value;
+                sessionStorage.setItem('six-high-school', sixhighschool);
+                const sixuniversity = document.getElementById('six-university').value;
+                sessionStorage.setItem('six-university',sixuniversity);
+            }
+            if(children_n > 6){
+                const sevenprimaryschool = document.getElementById('seven-primary-school').value;
+                sessionStorage.setItem('seven-primary-school', sevenprimaryschool);
+                const sevenjuniorhighschool = document.getElementById('seven-junior-high-school').value;
+                sessionStorage.setItem('seven-junior-high-school', sevenjuniorhighschool);
+                const sevenhighschool = document.getElementById('seven-high-school').value;
+                sessionStorage.setItem('seven-high-school', sevenhighschool);
+                const sevenuniversity = document.getElementById('seven-university').value;
+                sessionStorage.setItem('seven-university',sevenuniversity);
+            }
+            if(children_n > 7){
+                const eightprimaryschool = document.getElementById('eight-primary-school').value;
+                sessionStorage.setItem('eight-primary-school', eightprimaryschool);
+                const eightjuniorhighschool = document.getElementById('eight-junior-high-school').value;
+                sessionStorage.setItem('eight-junior-high-school', eightjuniorhighschool);
+                const eighthighschool = document.getElementById('eight-high-school').value;
+                sessionStorage.setItem('eight-high-school', eighthighschool);
+                const eightuniversity = document.getElementById('eight-university').value;
+                sessionStorage.setItem('eight-university',eightuniversity);
+            }
+            if(children_n > 8){
+                const nineprimaryschool = document.getElementById('nine-primary-school').value;
+                sessionStorage.setItem('nine-primary-school', nineprimaryschool);
+                const ninejuniorhighschool = document.getElementById('nine-junior-high-school').value;
+                sessionStorage.setItem('nine-junior-high-school', ninejuniorhighschool);
+                const ninehighschool = document.getElementById('nine-high-school').value;
+                sessionStorage.setItem('nine-high-school', ninehighschool);
+                const nineuniversity = document.getElementById('nine-university').value;
+                sessionStorage.setItem('nine-university',nineuniversity);
+            }
+            if(children_n > 9){
+                const tenprimaryschool = document.getElementById('ten-primary-school').value;
+                sessionStorage.setItem('ten-primary-school', tenprimaryschool);
+                const tenjuniorhighschool = document.getElementById('ten-junior-high-school').value;
+                sessionStorage.setItem('ten-junior-high-school', tenjuniorhighschool);
+                const tenhighschool = document.getElementById('ten-high-school').value;
+                sessionStorage.setItem('ten-high-school', tenhighschool);
+                const tenuniversity = document.getElementById('ten-university').value;
+                sessionStorage.setItem('ten-university',tenuniversity);
             }
         }
-        sessionStorage.setItem('yourpartnerSeverancepayinput', checkValue7);
-
-        const firstprimaryschool = document.getElementById('first-primary-school').value;
-        sessionStorage.setItem('first-primary-school', firstprimaryschool);
-        const firstjuniorhighschool = document.getElementById('first-junior-high-school').value;
-        sessionStorage.setItem('first-junior-high-school', firstjuniorhighschool);
-        const firsthighschool = document.getElementById('first-high-school').value;
-        sessionStorage.setItem('first-high-school', firsthighschool);
-        const firstuniversity = document.getElementById('first-university').value;
-        sessionStorage.setItem('first-university',firstuniversity);
-        const secondprimaryschool = document.getElementById('second-primary-school').value;
-        sessionStorage.setItem('second-primary-school', secondprimaryschool);
-        const secondjuniorhighschool = document.getElementById('second-junior-high-school').value;
-        sessionStorage.setItem('second-junior-high-school', secondjuniorhighschool);
-        const secondhighschool = document.getElementById('second-high-school').value;
-        sessionStorage.setItem('second-high-school', secondhighschool);
-        const seconduniversity = document.getElementById('second-university').value;
-        sessionStorage.setItem('second-university',seconduniversity);
-        const thirdprimaryschool = document.getElementById('third-primary-school').value;
-        sessionStorage.setItem('third-primary-school', thirdprimaryschool);
-        const thirdjuniorhighschool = document.getElementById('third-junior-high-school').value;
-        sessionStorage.setItem('third-junior-high-school', thirdjuniorhighschool);
-        const thirdhighschool = document.getElementById('third-high-school').value;
-        sessionStorage.setItem('third-high-school', thirdhighschool);
-        const thirduniversity = document.getElementById('third-university').value;
-        sessionStorage.setItem('third-university',thirduniversity);
-        const fourprimaryschool = document.getElementById('four-primary-school').value;
-        sessionStorage.setItem('four-primary-school', fourprimaryschool);
-        const fourjuniorhighschool = document.getElementById('four-junior-high-school').value;
-        sessionStorage.setItem('four-junior-high-school', fourjuniorhighschool);
-        const fourhighschool = document.getElementById('four-high-school').value;
-        sessionStorage.setItem('four-high-school', fourhighschool);
-        const fouruniversity = document.getElementById('four-university').value;
-        sessionStorage.setItem('four-university',fouruniversity);
-        const fiveprimaryschool = document.getElementById('five-primary-school').value;
-        sessionStorage.setItem('five-primary-school', fiveprimaryschool);
-        const fivejuniorhighschool = document.getElementById('five-junior-high-school').value;
-        sessionStorage.setItem('five-junior-high-school', fivejuniorhighschool);
-        const fivehighschool = document.getElementById('five-high-school').value;
-        sessionStorage.setItem('five-high-school', fivehighschool);
-        const fiveuniversity = document.getElementById('five-university').value;
-        sessionStorage.setItem('five-university',fiveuniversity);
-        const sixprimaryschool = document.getElementById('six-primary-school').value;
-        sessionStorage.setItem('six-primary-school', sixprimaryschool);
-        const sixjuniorhighschool = document.getElementById('six-junior-high-school').value;
-        sessionStorage.setItem('six-junior-high-school', sixjuniorhighschool);
-        const sixhighschool = document.getElementById('six-high-school').value;
-        sessionStorage.setItem('six-high-school', sixhighschool);
-        const sixuniversity = document.getElementById('six-university').value;
-        sessionStorage.setItem('six-university',sixuniversity);
-        const sevenprimaryschool = document.getElementById('seven-primary-school').value;
-        sessionStorage.setItem('seven-primary-school', sevenprimaryschool);
-        const sevenjuniorhighschool = document.getElementById('seven-junior-high-school').value;
-        sessionStorage.setItem('seven-junior-high-school', sevenjuniorhighschool);
-        const sevenhighschool = document.getElementById('seven-high-school').value;
-        sessionStorage.setItem('seven-high-school', sevenhighschool);
-        const sevenuniversity = document.getElementById('seven-university').value;
-        sessionStorage.setItem('seven-university',sevenuniversity);
-        const eightprimaryschool = document.getElementById('eight-primary-school').value;
-        sessionStorage.setItem('eight-primary-school', eightprimaryschool);
-        const eightjuniorhighschool = document.getElementById('eight-junior-high-school').value;
-        sessionStorage.setItem('eight-junior-high-school', eightjuniorhighschool);
-        const eighthighschool = document.getElementById('eight-high-school').value;
-        sessionStorage.setItem('eight-high-school', eighthighschool);
-        const eightuniversity = document.getElementById('eight-university').value;
-        sessionStorage.setItem('eight-university',eightuniversity);
-        const nineprimaryschool = document.getElementById('nine-primary-school').value;
-        sessionStorage.setItem('nine-primary-school', nineprimaryschool);
-        const ninejuniorhighschool = document.getElementById('nine-junior-high-school').value;
-        sessionStorage.setItem('nine-junior-high-school', ninejuniorhighschool);
-        const ninehighschool = document.getElementById('nine-high-school').value;
-        sessionStorage.setItem('nine-high-school', ninehighschool);
-        const nineuniversity = document.getElementById('nine-university').value;
-        sessionStorage.setItem('nine-university',nineuniversity);
-        const tenprimaryschool = document.getElementById('ten-primary-school').value;
-        sessionStorage.setItem('ten-primary-school', tenprimaryschool);
-        const tenjuniorhighschool = document.getElementById('ten-junior-high-school').value;
-        sessionStorage.setItem('ten-junior-high-school', tenjuniorhighschool);
-        const tenhighschool = document.getElementById('ten-high-school').value;
-        sessionStorage.setItem('ten-high-school', tenhighschool);
-        const tenuniversity = document.getElementById('ten-university').value;
-        sessionStorage.setItem('ten-university',tenuniversity);
 
         jQuery.ajax({
     
             type: 'post',
             url: 'form3.php', //送信先PHPファイル
-            data: {'myhomebuy' : sessionStorage.getItem('myhome-buy'), 'estate': sessionStorage.getItem('estate'), 
-            'firstestate' : sessionStorage.getItem('first-estate'), 'firstrentalincome': sessionStorage.getItem('first-rental-income'), 
-            'secondestate' : sessionStorage.getItem('second-estate'), 'secondrentalincome': sessionStorage.getItem('second-rental-income'), 
-            'thirdestate' : sessionStorage.getItem('third-estate'), 'thirdrentalincome': sessionStorage.getItem('third-rental-income'), 
-            'fourestate' : sessionStorage.getItem('four-estate'), 'fourrentalincome': sessionStorage.getItem('four-rental-income'), 
-            'fiveestate' : sessionStorage.getItem('five-estate'), 'fiverentalincome': sessionStorage.getItem('five-rental-income'), 
-            'sixestate' : sessionStorage.getItem('six-estate'), 'sixrentalincome': sessionStorage.getItem('six-rental-income'), 
-            'sevenestate' : sessionStorage.getItem('seven-estate'), 'sevenrentalincome': sessionStorage.getItem('seven-rental-income'), 
-            'eightestate' : sessionStorage.getItem('eight-estate'), 'eightrentalincome': sessionStorage.getItem('eight-rental-income'), 
-            'nineestate' : sessionStorage.getItem('nine-estate'), 'ninerentalincome': sessionStorage.getItem('nine-rental-income'), 
-            'tenestate' : sessionStorage.getItem('ten-estate'), 'tenrentalincome': sessionStorage.getItem('ten-rental-income'), 
-            'savingsbalance' : sessionStorage.getItem('savings-balance'), 'lastEducationalinsurance': sessionStorage.getItem('last-Educational-insurance'), 
-            'trip' : sessionStorage.getItem('trip'), 'otherexpense': sessionStorage.getItem('other-expense'), 
-            'startwark' : sessionStorage.getItem('start-wark'), 'Startingsalary': sessionStorage.getItem('Starting-salary'), 
-            'Estimatedannualincome' : sessionStorage.getItem('Estimated-annual-income'), 'yourSeverancepayinput': sessionStorage.getItem('yourSeverancepayinput'), 
-            'spousestartwork' : sessionStorage.getItem('spouse-start-work'), 'spouseStartingsalary': sessionStorage.getItem('spouse-Starting-salary'), 
-            'spouseEstimatedannualincome' : sessionStorage.getItem('spouse-Estimated-annual-income'), 'yourpartnerSeverancepayinput': sessionStorage.getItem('yourpartnerSeverancepayinput'), 
-            'firstprimaryschool' : sessionStorage.getItem('first-primary-school'), 'firstjuniorhighschool': sessionStorage.getItem('first-junior-high-school'), 
-            'firsthighschool' : sessionStorage.getItem('first-high-school'), 'firstuniversity': sessionStorage.getItem('firstuniversity'), 
-            'secondprimaryschool' : sessionStorage.getItem('second-primary-school'), 'secondjuniorhighschool': sessionStorage.getItem('second-junior-high-school'), 
-            'secondhighschool' : sessionStorage.getItem('second-high-school'), 'seconduniversity': sessionStorage.getItem('second-university'), 
-            'thirdprimaryschool' : sessionStorage.getItem('third-primary-school'), 'thirdjuniorhighschool': sessionStorage.getItem('third-junior-high-school'), 
-            'thirdhighschool' : sessionStorage.getItem('third-high-school'), 'thirduniversity': sessionStorage.getItem('third-university'), 
-            'fourprimaryschool' : sessionStorage.getItem('four-primary-school'), 'fourjuniorhighschool': sessionStorage.getItem('four-junior-high-school'), 
-            'fourhighschool' : sessionStorage.getItem('four-high-school'), 'fouruniversity': sessionStorage.getItem('four-university'), 
-            'fiveprimaryschool' : sessionStorage.getItem('five-primary-school'), 'fivejuniorhighschool': sessionStorage.getItem('five-junior-high-school'), 
-            'fivehighschool' : sessionStorage.getItem('five-high-school'), 'fiveuniversity': sessionStorage.getItem('five-university'), 
-            'sixprimaryschool' : sessionStorage.getItem('six-primary-school'), 'sixjuniorhighschool': sessionStorage.getItem('six-junior-high-school'), 
-            'sixhighschool' : sessionStorage.getItem('six-high-school'), 'sixuniversity': sessionStorage.getItem('six-university'), 
-            'sevenprimaryschool' : sessionStorage.getItem('seven-primary-school'), 'sevenjuniorhighschool': sessionStorage.getItem('seven-junior-high-school'), 
-            'sevenhighschool' : sessionStorage.getItem('seven-high-school'), 'sevenuniversity': sessionStorage.getItem('seven-university'), 
-            'eightprimaryschool' : sessionStorage.getItem('eight-primary-school'), 'eightjuniorhighschool': sessionStorage.getItem('eight-junior-high-school'), 
-            'eighthighschool' : sessionStorage.getItem('eight-high-school'), 'eightuniversity': sessionStorage.getItem('eight-university'), 
-            'nineprimaryschool' : sessionStorage.getItem('nine-primary-school'), 'ninejuniorhighschool': sessionStorage.getItem('nine-junior-high-school'), 
-            'ninehighschool' : sessionStorage.getItem('nine-high-school'), 'nineuniversity': sessionStorage.getItem('nine-university'), 
-            'tenprimaryschool' : sessionStorage.getItem('ten-primary-school'), 'tenjuniorhighschool': sessionStorage.getItem('ten-junior-high-school'), 
-            'tenhighschool' : sessionStorage.getItem('ten-high-school'), 'tenuniversity': sessionStorage.getItem('ten-university')
+            data: {
+            'myhomebuy' : sessionStorage.getItem('myhome-buy'),
+             'estate': sessionStorage.getItem('estate'), 
+            'firstestate' : sessionStorage.getItem('first-estate'), 
+            'firstrentalincome': sessionStorage.getItem('first-rental-income'), 
+            'secondestate' : sessionStorage.getItem('second-estate'),
+             'secondrentalincome': sessionStorage.getItem('second-rental-income'), 
+            'thirdestate' : sessionStorage.getItem('third-estate'),
+             'thirdrentalincome': sessionStorage.getItem('third-rental-income'), 
+            'fourestate' : sessionStorage.getItem('four-estate'), 
+            'fourrentalincome': sessionStorage.getItem('four-rental-income'), 
+            'fiveestate' : sessionStorage.getItem('five-estate'),
+             'fiverentalincome': sessionStorage.getItem('five-rental-income'), 
+            'sixestate' : sessionStorage.getItem('six-estate'),
+             'sixrentalincome': sessionStorage.getItem('six-rental-income'), 
+            'sevenestate' : sessionStorage.getItem('seven-estate'),
+             'sevenrentalincome': sessionStorage.getItem('seven-rental-income'), 
+            'eightestate' : sessionStorage.getItem('eight-estate'),
+             'eightrentalincome': sessionStorage.getItem('eight-rental-income'), 
+            'nineestate' : sessionStorage.getItem('nine-estate'), 
+            'ninerentalincome': sessionStorage.getItem('nine-rental-income'), 
+            'tenestate' : sessionStorage.getItem('ten-estate'), 
+            'tenrentalincome': sessionStorage.getItem('ten-rental-income'), 
+            'savingsbalance' : sessionStorage.getItem('savings-balance'), 
+            'lastEducationalinsurance': sessionStorage.getItem('last-Educational-insurance'), 
+            'trip' : sessionStorage.getItem('trip'), 
+            'otherexpense': sessionStorage.getItem('other-expense'), 
+            'startwark' : sessionStorage.getItem('start-wark'),
+             'Startingsalary': sessionStorage.getItem('Starting-salary'), 
+            'Estimatedannualincome' : sessionStorage.getItem('Estimated-annual-income'),
+             'yourSeverancepayinput': sessionStorage.getItem('yourSeverancepayinput'), 
+            'spousestartwork' : sessionStorage.getItem('spouse-start-work'),
+             'spouseStartingsalary': sessionStorage.getItem('spouse-Starting-salary'), 
+            'spouseEstimatedannualincome' : sessionStorage.getItem('spouse-Estimated-annual-income'), 
+            'yourpartnerSeverancepayinput': sessionStorage.getItem('yourpartnerSeverancepayinput'), 
+            'firstprimaryschool' : sessionStorage.getItem('first-primary-school'), 
+            'firstjuniorhighschool': sessionStorage.getItem('first-junior-high-school'), 
+            'firsthighschool' : sessionStorage.getItem('first-high-school'),
+             'firstuniversity': sessionStorage.getItem('firstuniversity'), 
+            'secondprimaryschool' : sessionStorage.getItem('second-primary-school'),
+             'secondjuniorhighschool': sessionStorage.getItem('second-junior-high-school'), 
+            'secondhighschool' : sessionStorage.getItem('second-high-school'), 
+            'seconduniversity': sessionStorage.getItem('second-university'), 
+            'thirdprimaryschool' : sessionStorage.getItem('third-primary-school'),
+             'thirdjuniorhighschool': sessionStorage.getItem('third-junior-high-school'), 
+            'thirdhighschool' : sessionStorage.getItem('third-high-school'), 
+            'thirduniversity': sessionStorage.getItem('third-university'), 
+            'fourprimaryschool' : sessionStorage.getItem('four-primary-school'), 
+            'fourjuniorhighschool': sessionStorage.getItem('four-junior-high-school'), 
+            'fourhighschool' : sessionStorage.getItem('four-high-school'),
+             'fouruniversity': sessionStorage.getItem('four-university'), 
+            'fiveprimaryschool' : sessionStorage.getItem('five-primary-school'),
+             'fivejuniorhighschool': sessionStorage.getItem('five-junior-high-school'), 
+            'fivehighschool' : sessionStorage.getItem('five-high-school'),
+             'fiveuniversity': sessionStorage.getItem('five-university'), 
+            'sixprimaryschool' : sessionStorage.getItem('six-primary-school'),
+             'sixjuniorhighschool': sessionStorage.getItem('six-junior-high-school'), 
+            'sixhighschool' : sessionStorage.getItem('six-high-school'),
+             'sixuniversity': sessionStorage.getItem('six-university'), 
+            'sevenprimaryschool' : sessionStorage.getItem('seven-primary-school'), 
+            'sevenjuniorhighschool': sessionStorage.getItem('seven-junior-high-school'), 
+            'sevenhighschool' : sessionStorage.getItem('seven-high-school'),
+             'sevenuniversity': sessionStorage.getItem('seven-university'), 
+            'eightprimaryschool' : sessionStorage.getItem('eight-primary-school'), 
+            'eightjuniorhighschool': sessionStorage.getItem('eight-junior-high-school'), 
+            'eighthighschool' : sessionStorage.getItem('eight-high-school'), 
+            'eightuniversity': sessionStorage.getItem('eight-university'), 
+            'nineprimaryschool' : sessionStorage.getItem('nine-primary-school'),
+             'ninejuniorhighschool': sessionStorage.getItem('nine-junior-high-school'), 
+            'ninehighschool' : sessionStorage.getItem('nine-high-school'), 
+            'nineuniversity': sessionStorage.getItem('nine-university'), 
+            'tenprimaryschool' : sessionStorage.getItem('ten-primary-school'),
+             'tenjuniorhighschool': sessionStorage.getItem('ten-junior-high-school'), 
+            'tenhighschool' : sessionStorage.getItem('ten-high-school'), 
+            'tenuniversity': sessionStorage.getItem('ten-university')
         }
         });
         

@@ -813,8 +813,11 @@ a.btn1 {
 }
 button.btn1, button.btn2 {
 	/*display: inline-block;text-decoration: none;*/
-	margin-top: 850px;
-	margin-left:405px;
+	/*margin-top: 850px;
+	margin-left:405px;*/
+	position: relative; /* 今の位置を基準 */
+	top: 450px; /* 上から10px */
+	left: 55%; /* 左から20px */
 	letter-spacing: 0.1em;
 	border-radius: 3px;
 	padding: 40px 300px;
