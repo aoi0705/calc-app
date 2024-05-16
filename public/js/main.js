@@ -7456,6 +7456,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.querySelector("#yourhome").setAttribute("spone","n")
 
         }else{
             const myhomebuy = document.getElementById('myhome-buy').value;
@@ -7515,6 +7516,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.querySelector("#yourhome").setAttribute("spone","y")
         }
 	});
 });
@@ -7578,6 +7580,7 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
+            document.querySelector("#estate").setAttribute("spone","n")
 
         }else{
             const estate = document.getElementById('estate').value;
@@ -7633,10 +7636,8 @@ $(function(){
                 }
                 else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
                     for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
-                        if(ele_arr[i].getAttribute("spone") != "y"){
-                            var t = document.querySelector('.last-state-page');
-                            t.textContent = Number(t.textContent) - 1;
-                        }
+                        var t = document.querySelector('.last-state-page');
+                        t.textContent = Number(t.textContent) - 1;
                     }
 
                     for(var i=(Number(estate_oldval)*2)+2;i<(Number(estate_value)*2)+2;i++){
@@ -7644,10 +7645,6 @@ $(function(){
                             var t = document.querySelector('.last-state-page');
                             t.textContent = Number(t.textContent) - 1;
                             last_ele2 = i;
-                        }
-                        else{
-                            var t = document.querySelector('.last-state-page');
-                            t.textContent = Number(t.textContent) + 1;
                         }
                     }      
                 }
@@ -7743,10 +7740,8 @@ $(function(){
                 }
                 else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
                     for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
-                        if(ele_arr[i].getAttribute("spone") != "y"){
-                            var t = document.querySelector('.last-state-page');
-                            t.textContent = Number(t.textContent) - 1;
-                        }
+                        var t = document.querySelector('.last-state-page');
+                        t.textContent = Number(t.textContent) - 1;
                     }
 
                     for(var i=(Number(estate_oldval)*2)+2;i<(Number(estate_value)*2)+2;i++){
@@ -7755,11 +7750,7 @@ $(function(){
                             t.textContent = Number(t.textContent) - 1;
                             last_ele2 = i;
                         }
-                        else{
-                            var t = document.querySelector('.last-state-page');
-                            t.textContent = Number(t.textContent) + 1;
-                        }
-                    }   
+                    }      
                 }
 
                 document.getElementById("yourthirdestate").style.display = "none";
@@ -7848,10 +7839,8 @@ $(function(){
                 }
                 else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
                     for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
-                        if(ele_arr[i].getAttribute("spone") != "y"){
-                            var t = document.querySelector('.last-state-page');
-                            t.textContent = Number(t.textContent) - 1;
-                        }
+                        var t = document.querySelector('.last-state-page');
+                        t.textContent = Number(t.textContent) - 1;
                     }
 
                     for(var i=(Number(estate_oldval)*2)+2;i<(Number(estate_value)*2)+2;i++){
@@ -7860,11 +7849,7 @@ $(function(){
                             t.textContent = Number(t.textContent) - 1;
                             last_ele2 = i;
                         }
-                        else{
-                            var t = document.querySelector('.last-state-page');
-                            t.textContent = Number(t.textContent) + 1;
-                        }
-                    }                  
+                    }                      
                 }
                 
                 console.log(last_ele2)
@@ -7953,10 +7938,8 @@ $(function(){
                 }
                 else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
                     for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
-                        if(ele_arr[i].getAttribute("spone") != "y"){
-                            var t = document.querySelector('.last-state-page');
-                            t.textContent = Number(t.textContent) - 1;
-                        }
+                        var t = document.querySelector('.last-state-page');
+                        t.textContent = Number(t.textContent) - 1;
                     }
 
                     for(var i=(Number(estate_oldval)*2)+2;i<(Number(estate_value)*2)+2;i++){
@@ -7965,7 +7948,7 @@ $(function(){
                             t.textContent = Number(t.textContent) - 1;
                             last_ele2 = i;
                         }
-                    }   
+                    }      
                 }
     
                 document.getElementById("yourfiveestate").style.display = "none";
@@ -8051,10 +8034,8 @@ $(function(){
                 }
                 else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
                     for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
-                        if(ele_arr[i].getAttribute("spone") != "y"){
-                            var t = document.querySelector('.last-state-page');
-                            t.textContent = Number(t.textContent) - 1;
-                        }
+                        var t = document.querySelector('.last-state-page');
+                        t.textContent = Number(t.textContent) - 1;
                     }
 
                     for(var i=(Number(estate_oldval)*2)+2;i<(Number(estate_value)*2)+2;i++){
@@ -8063,7 +8044,7 @@ $(function(){
                             t.textContent = Number(t.textContent) - 1;
                             last_ele2 = i;
                         }
-                    }   
+                    }      
                 }
 
     
@@ -8148,10 +8129,8 @@ $(function(){
                 }
                 else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
                     for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
-                        if(ele_arr[i].getAttribute("spone") != "y"){
-                            var t = document.querySelector('.last-state-page');
-                            t.textContent = Number(t.textContent) - 1;
-                        }
+                        var t = document.querySelector('.last-state-page');
+                        t.textContent = Number(t.textContent) - 1;
                     }
 
                     for(var i=(Number(estate_oldval)*2)+2;i<(Number(estate_value)*2)+2;i++){
@@ -8160,7 +8139,7 @@ $(function(){
                             t.textContent = Number(t.textContent) - 1;
                             last_ele2 = i;
                         }
-                    }   
+                    }      
                 }
     
                 document.getElementById("yoursevenestate").style.display = "none";
@@ -8242,10 +8221,8 @@ $(function(){
                 }
                 else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
                     for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
-                        if(ele_arr[i].getAttribute("spone") != "y"){
-                            var t = document.querySelector('.last-state-page');
-                            t.textContent = Number(t.textContent) - 1;
-                        }
+                        var t = document.querySelector('.last-state-page');
+                        t.textContent = Number(t.textContent) - 1;
                     }
 
                     for(var i=(Number(estate_oldval)*2)+2;i<(Number(estate_value)*2)+2;i++){
@@ -8254,7 +8231,7 @@ $(function(){
                             t.textContent = Number(t.textContent) - 1;
                             last_ele2 = i;
                         }
-                    }   
+                    }        
                 }
     
                 document.getElementById("youreightestate").style.display = "none";
@@ -8333,10 +8310,8 @@ $(function(){
                 }
                 else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
                     for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
-                        if(ele_arr[i].getAttribute("spone") != "y"){
-                            var t = document.querySelector('.last-state-page');
-                            t.textContent = Number(t.textContent) - 1;
-                        }
+                        var t = document.querySelector('.last-state-page');
+                        t.textContent = Number(t.textContent) - 1;
                     }
 
                     for(var i=(Number(estate_oldval)*2)+2;i<(Number(estate_value)*2)+2;i++){
@@ -8345,7 +8320,7 @@ $(function(){
                             t.textContent = Number(t.textContent) - 1;
                             last_ele2 = i;
                         }
-                    }   
+                    }      
                 }
 
     
@@ -8424,10 +8399,8 @@ $(function(){
                 }
                 else if(Number(estate_oldval) < Number(estate_value) && estate_oldval != 0){
                     for(var i=2;i<(Number(estate_oldval)*2)+2;i++){
-                        if(ele_arr[i].getAttribute("spone") != "y"){
-                            var t = document.querySelector('.last-state-page');
-                            t.textContent = Number(t.textContent) - 1;
-                        }
+                        var t = document.querySelector('.last-state-page');
+                        t.textContent = Number(t.textContent) - 1;
                     }
 
                     for(var i=(Number(estate_oldval)*2)+2;i<(Number(estate_value)*2)+2;i++){
@@ -8436,7 +8409,7 @@ $(function(){
                             t.textContent = Number(t.textContent) - 1;
                             last_ele2 = i;
                         }
-                    }      
+                    }          
                 }
     
                 document.getElementById("yourtenestate").style.display = "none";
@@ -8604,31 +8577,31 @@ $(function(){
                 var myhome = false;
             }
 
-            if(partner_bool2 == true && children_bool2 == true){
-                var t = document.querySelector('.last-state-page');
-                var ch = Number(children_n) * 4
-                t.textContent = Number(t.textContent) + 5 + Number(ch);
-            }
-            else if(partner_bool2 == true && children_bool2 == false){
-                var t = document.querySelector('.last-state-page');
-                t.textContent = Number(t.textContent) + 4;
-            }
-            else if(partner_bool2 == false && children_bool2 == true){
-                var t = document.querySelector('.last-state-page');
-                var ch = Number(children_n) * 4
-                t.textContent = Number(t.textContent) + 1 + Number(ch);
-            }
+            //if(partner_bool2 == true && children_bool2 == true){
+            //    var t = document.querySelector('.last-state-page');
+            //    var ch = Number(children_n) * 4
+            //    t.textContent = Number(t.textContent) + 5 + Number(ch);
+            //}
+            //else if(partner_bool2 == true && children_bool2 == false){
+            //    var t = document.querySelector('.last-state-page');
+            //    t.textContent = Number(t.textContent) + 4;
+            //}
+            //else if(partner_bool2 == false && children_bool2 == true){
+            //    var t = document.querySelector('.last-state-page');
+            //    var ch = Number(children_n) * 4
+            //    t.textContent = Number(t.textContent) + 1 + Number(ch);
+            //}
 
-            var l = 0;
-            for(var i=2;i<(Number(estate_value)*2)+2;i++){
-                if(ele_arr[i].getAttribute("spone") == 'y'){
-                    var t = document.querySelector('.last-state-page');
-                    t.textContent = Number(t.textContent) - 1;
-                    l = i;
-                    console.log(l)
-                    console.log((Number(estate_value)*2)+1)
-                }
-            }
+            //var l = 0;
+            //for(var i=2;i<(Number(estate_value)*2)+2;i++){
+            //    if(ele_arr[i].getAttribute("spone") == 'y'){
+            //        var t = document.querySelector('.last-state-page');
+            //        t.textContent = Number(t.textContent) - 1;
+            //        l = i;
+            //        console.log(l)
+            //        console.log((Number(estate_value)*2)+1)
+            //    }
+            //}
 
             //var last_ele3 = 0;
             //var ele_arr = document.getElementsByClassName("form-group");
@@ -8659,7 +8632,25 @@ $(function(){
             //    first_flg = true;
             //}
 
+            var ele_arr = document.getElementsByClassName("form-group");
+            var elearr_length = ele_arr.length;
+            var estate_num = Number(document.getElementById("estate").value) * 2
+            // elearr_length = Number(elearr_length) - Number(estate_num);
+            var hiku = 0;
+            for(var i=0;i<Number(elearr_length);i++){
+                if(ele_arr[i].getAttribute("spone") == 'y'){
+                    hiku = hiku + 1;
+                }
+            }
+            console.log(hiku)
+
+            hiku = hiku + (22 - estate_num)
+
+            var t = document.querySelector('.last-state-page');
+            t.textContent = Number(elearr_length) - hiku;
+
             var ele = document.querySelector(".last-state-page").textContent
+            document.querySelector("#estate").setAttribute("spone","y")
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
                     let next_button = document.querySelector("#next_page2");
@@ -8763,6 +8754,26 @@ $(function(){
                 submit.setAttribute("count_yet","not_yet");
             }
 
+            document.querySelector("#yourfirstestate").setAttribute("spone","y")
+
+
+            
+            var ele_arr = document.getElementsByClassName("form-group");
+            var elearr_length = ele_arr.length;
+            var estate_num = Number(document.getElementById("estate").value) * 2
+            // elearr_length = Number(elearr_length) - Number(estate_num);
+            var hiku = 0;
+            for(var i=0;i<Number(elearr_length);i++){
+                if(ele_arr[i].getAttribute("spone") == 'y'){
+                    hiku = hiku + 1;
+                }
+            }
+            console.log(hiku)
+
+            hiku = hiku + (22 - estate_num)
+
+            var t = document.querySelector('.last-state-page');
+            t.textContent = Number(elearr_length) - hiku;
             var ele = document.querySelector(".last-state-page").textContent
             if(String(ele) != "0"){
                 if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
@@ -8778,7 +8789,6 @@ $(function(){
                     next_button.id = "next_page2"
                 }
             }
-            document.querySelector("#yourfirstestate").setAttribute("spone","y")
         }
 	});
 });
@@ -8917,6 +8927,23 @@ $(function(){
                 }
             }
             document.querySelector("#yourfirstrentalincome").setAttribute("spone","y")
+
+            var ele_arr = document.getElementsByClassName("form-group");
+            var elearr_length = ele_arr.length;
+            var estate_num = Number(document.getElementById("estate").value) * 2
+            // elearr_length = Number(elearr_length) - Number(estate_num);
+            var hiku = 0;
+            for(var i=0;i<Number(elearr_length);i++){
+                if(ele_arr[i].getAttribute("spone") == 'y'){
+                    hiku = hiku + 1;
+                }
+            }
+            console.log(hiku)
+
+            hiku = hiku + (22 - estate_num)
+
+            var t = document.querySelector('.last-state-page');
+            t.textContent = Number(elearr_length) - hiku;
         }
 	});
 });
@@ -9019,6 +9046,23 @@ $(function(){
                 }
             }
             document.querySelector("#yoursecondestate").setAttribute("spone","y")
+
+            var ele_arr = document.getElementsByClassName("form-group");
+            var elearr_length = ele_arr.length;
+            var estate_num = Number(document.getElementById("estate").value) * 2
+            // elearr_length = Number(elearr_length) - Number(estate_num);
+            var hiku = 0;
+            for(var i=0;i<Number(elearr_length);i++){
+                if(ele_arr[i].getAttribute("spone") == 'y'){
+                    hiku = hiku + 1;
+                }
+            }
+            console.log(hiku)
+
+            hiku = hiku + (22 - estate_num)
+
+            var t = document.querySelector('.last-state-page');
+            t.textContent = Number(elearr_length) - hiku;
         }
 	});
 });
@@ -9156,6 +9200,23 @@ $(function(){
                 }
             }
             document.querySelector("#yoursecondrentalincome").setAttribute("spone","y")
+
+            var ele_arr = document.getElementsByClassName("form-group");
+            var elearr_length = ele_arr.length;
+            var estate_num = Number(document.getElementById("estate").value) * 2
+            // elearr_length = Number(elearr_length) - Number(estate_num);
+            var hiku = 0;
+            for(var i=0;i<Number(elearr_length);i++){
+                if(ele_arr[i].getAttribute("spone") == 'y'){
+                    hiku = hiku + 1;
+                }
+            }
+            console.log(hiku)
+
+            hiku = hiku + (22 - estate_num)
+
+            var t = document.querySelector('.last-state-page');
+            t.textContent = Number(elearr_length) - hiku;
         }
 	});
 });
@@ -9258,6 +9319,23 @@ $(function(){
                 }
             }
             document.querySelector("#yourthirdestate").setAttribute("spone","y")
+
+            var ele_arr = document.getElementsByClassName("form-group");
+            var elearr_length = ele_arr.length;
+            var estate_num = Number(document.getElementById("estate").value) * 2
+            // elearr_length = Number(elearr_length) - Number(estate_num);
+            var hiku = 0;
+            for(var i=0;i<Number(elearr_length);i++){
+                if(ele_arr[i].getAttribute("spone") == 'y'){
+                    hiku = hiku + 1;
+                }
+            }
+            console.log(hiku)
+
+            hiku = hiku + (22 - estate_num)
+
+            var t = document.querySelector('.last-state-page');
+            t.textContent = Number(elearr_length) - hiku;
         }
 	});
 });
@@ -9395,6 +9473,24 @@ $(function(){
                 }
             }
             document.querySelector("#yourthirdrentalincome").setAttribute("spone","y")
+
+
+            var ele_arr = document.getElementsByClassName("form-group");
+            var elearr_length = ele_arr.length;
+            var estate_num = Number(document.getElementById("estate").value) * 2
+            // elearr_length = Number(elearr_length) - Number(estate_num);
+            var hiku = 0;
+            for(var i=0;i<Number(elearr_length);i++){
+                if(ele_arr[i].getAttribute("spone") == 'y'){
+                    hiku = hiku + 1;
+                }
+            }
+            console.log(hiku)
+
+            hiku = hiku + (22 - estate_num)
+
+            var t = document.querySelector('.last-state-page');
+            t.textContent = Number(elearr_length) - hiku;
         }
 	});
 });
@@ -9497,6 +9593,23 @@ $(function(){
                 }
             }
             document.querySelector("#yourfourestate").setAttribute("spone","y")
+
+            var ele_arr = document.getElementsByClassName("form-group");
+            var elearr_length = ele_arr.length;
+            var estate_num = Number(document.getElementById("estate").value) * 2
+            // elearr_length = Number(elearr_length) - Number(estate_num);
+            var hiku = 0;
+            for(var i=0;i<Number(elearr_length);i++){
+                if(ele_arr[i].getAttribute("spone") == 'y'){
+                    hiku = hiku + 1;
+                }
+            }
+            console.log(hiku)
+
+            hiku = hiku + (22 - estate_num)
+
+            var t = document.querySelector('.last-state-page');
+            t.textContent = Number(elearr_length) - hiku;
         }
 	});
 });
@@ -9628,6 +9741,23 @@ $(function(){
                 }
             }
             document.querySelector("#yourfourrentalincome").setAttribute("spone","y")
+
+            var ele_arr = document.getElementsByClassName("form-group");
+            var elearr_length = ele_arr.length;
+            var estate_num = Number(document.getElementById("estate").value) * 2
+            // elearr_length = Number(elearr_length) - Number(estate_num);
+            var hiku = 0;
+            for(var i=0;i<Number(elearr_length);i++){
+                if(ele_arr[i].getAttribute("spone") == 'y'){
+                    hiku = hiku + 1;
+                }
+            }
+            console.log(hiku)
+
+            hiku = hiku + (22 - estate_num)
+
+            var t = document.querySelector('.last-state-page');
+            t.textContent = Number(elearr_length) - hiku;
         }
 	});
 });
@@ -9730,6 +9860,23 @@ $(function(){
                 }
             }
             document.querySelector("#yourfiveestate").setAttribute("spone","y")
+
+            var ele_arr = document.getElementsByClassName("form-group");
+            var elearr_length = ele_arr.length;
+            var estate_num = Number(document.getElementById("estate").value) * 2
+            // elearr_length = Number(elearr_length) - Number(estate_num);
+            var hiku = 0;
+            for(var i=0;i<Number(elearr_length);i++){
+                if(ele_arr[i].getAttribute("spone") == 'y'){
+                    hiku = hiku + 1;
+                }
+            }
+            console.log(hiku)
+
+            hiku = hiku + (22 - estate_num)
+
+            var t = document.querySelector('.last-state-page');
+            t.textContent = Number(elearr_length) - hiku;
         }
 	});
 });
@@ -9861,6 +10008,23 @@ $(function(){
                 }
             }
             document.querySelector("#yourfiverentalincome").setAttribute("spone","y")
+
+            var ele_arr = document.getElementsByClassName("form-group");
+            var elearr_length = ele_arr.length;
+            var estate_num = Number(document.getElementById("estate").value) * 2
+            // elearr_length = Number(elearr_length) - Number(estate_num);
+            var hiku = 0;
+            for(var i=0;i<Number(elearr_length);i++){
+                if(ele_arr[i].getAttribute("spone") == 'y'){
+                    hiku = hiku + 1;
+                }
+            }
+            console.log(hiku)
+
+            hiku = hiku + (22 - estate_num)
+
+            var t = document.querySelector('.last-state-page');
+            t.textContent = Number(elearr_length) - hiku;
         }
 	});
 });
@@ -9963,6 +10127,23 @@ $(function(){
                 }
             }
             document.querySelector("#yoursixestate").setAttribute("spone","y")
+
+            var ele_arr = document.getElementsByClassName("form-group");
+            var elearr_length = ele_arr.length;
+            var estate_num = Number(document.getElementById("estate").value) * 2
+            // elearr_length = Number(elearr_length) - Number(estate_num);
+            var hiku = 0;
+            for(var i=0;i<Number(elearr_length);i++){
+                if(ele_arr[i].getAttribute("spone") == 'y'){
+                    hiku = hiku + 1;
+                }
+            }
+            console.log(hiku)
+
+            hiku = hiku + (22 - estate_num)
+
+            var t = document.querySelector('.last-state-page');
+            t.textContent = Number(elearr_length) - hiku;
         }
 	});
 });
@@ -10094,6 +10275,22 @@ $(function(){
                 }
             }
             document.querySelector("#yoursixrentalincome").setAttribute("spone","y")
+            var ele_arr = document.getElementsByClassName("form-group");
+            var elearr_length = ele_arr.length;
+            var estate_num = Number(document.getElementById("estate").value) * 2
+            // elearr_length = Number(elearr_length) - Number(estate_num);
+            var hiku = 0;
+            for(var i=0;i<Number(elearr_length);i++){
+                if(ele_arr[i].getAttribute("spone") == 'y'){
+                    hiku = hiku + 1;
+                }
+            }
+            console.log(hiku)
+
+            hiku = hiku + (22 - estate_num)
+
+            var t = document.querySelector('.last-state-page');
+            t.textContent = Number(elearr_length) - hiku;
         }
 	});
 });
@@ -10196,6 +10393,23 @@ $(function(){
                 }
             }
             document.querySelector("#yoursevenestate").setAttribute("spone","y")
+
+            var ele_arr = document.getElementsByClassName("form-group");
+            var elearr_length = ele_arr.length;
+            var estate_num = Number(document.getElementById("estate").value) * 2
+            // elearr_length = Number(elearr_length) - Number(estate_num);
+            var hiku = 0;
+            for(var i=0;i<Number(elearr_length);i++){
+                if(ele_arr[i].getAttribute("spone") == 'y'){
+                    hiku = hiku + 1;
+                }
+            }
+            console.log(hiku)
+
+            hiku = hiku + (22 - estate_num)
+
+            var t = document.querySelector('.last-state-page');
+            t.textContent = Number(elearr_length) - hiku;
         }
 	});
 });
@@ -10328,6 +10542,23 @@ $(function(){
                 }
             }
             document.querySelector("#yoursevenrentalincome").setAttribute("spone","y")
+
+            var ele_arr = document.getElementsByClassName("form-group");
+            var elearr_length = ele_arr.length;
+            var estate_num = Number(document.getElementById("estate").value) * 2
+            // elearr_length = Number(elearr_length) - Number(estate_num);
+            var hiku = 0;
+            for(var i=0;i<Number(elearr_length);i++){
+                if(ele_arr[i].getAttribute("spone") == 'y'){
+                    hiku = hiku + 1;
+                }
+            }
+            console.log(hiku)
+
+            hiku = hiku + (22 - estate_num)
+
+            var t = document.querySelector('.last-state-page');
+            t.textContent = Number(elearr_length) - hiku;
         }
 	});
 });
@@ -10430,6 +10661,23 @@ $(function(){
                 }
             }
             document.querySelector("#youreightestate").setAttribute("spone","y")
+
+            var ele_arr = document.getElementsByClassName("form-group");
+            var elearr_length = ele_arr.length;
+            var estate_num = Number(document.getElementById("estate").value) * 2
+            // elearr_length = Number(elearr_length) - Number(estate_num);
+            var hiku = 0;
+            for(var i=0;i<Number(elearr_length);i++){
+                if(ele_arr[i].getAttribute("spone") == 'y'){
+                    hiku = hiku + 1;
+                }
+            }
+            console.log(hiku)
+
+            hiku = hiku + (22 - estate_num)
+
+            var t = document.querySelector('.last-state-page');
+            t.textContent = Number(elearr_length) - hiku;
         }
 	});
 });
@@ -10561,6 +10809,23 @@ $(function(){
                 }
             }
             document.querySelector("#youreightrentalincome").setAttribute("spone","y")
+
+            var ele_arr = document.getElementsByClassName("form-group");
+            var elearr_length = ele_arr.length;
+            var estate_num = Number(document.getElementById("estate").value) * 2
+            // elearr_length = Number(elearr_length) - Number(estate_num);
+            var hiku = 0;
+            for(var i=0;i<Number(elearr_length);i++){
+                if(ele_arr[i].getAttribute("spone") == 'y'){
+                    hiku = hiku + 1;
+                }
+            }
+            console.log(hiku)
+
+            hiku = hiku + (22 - estate_num)
+
+            var t = document.querySelector('.last-state-page');
+            t.textContent = Number(elearr_length) - hiku;
         }
 	});
 });
@@ -10663,6 +10928,23 @@ $(function(){
                 }
             }
             document.querySelector("#yournineestate").setAttribute("spone","y")
+
+            var ele_arr = document.getElementsByClassName("form-group");
+            var elearr_length = ele_arr.length;
+            var estate_num = Number(document.getElementById("estate").value) * 2
+            // elearr_length = Number(elearr_length) - Number(estate_num);
+            var hiku = 0;
+            for(var i=0;i<Number(elearr_length);i++){
+                if(ele_arr[i].getAttribute("spone") == 'y'){
+                    hiku = hiku + 1;
+                }
+            }
+            console.log(hiku)
+
+            hiku = hiku + (22 - estate_num)
+
+            var t = document.querySelector('.last-state-page');
+            t.textContent = Number(elearr_length) - hiku;
         }
 	});
 });
@@ -10795,6 +11077,23 @@ $(function(){
                 }
             }
             document.querySelector("#yourninerentalincome").setAttribute("spone","y")
+
+            var ele_arr = document.getElementsByClassName("form-group");
+            var elearr_length = ele_arr.length;
+            var estate_num = Number(document.getElementById("estate").value) * 2
+            // elearr_length = Number(elearr_length) - Number(estate_num);
+            var hiku = 0;
+            for(var i=0;i<Number(elearr_length);i++){
+                if(ele_arr[i].getAttribute("spone") == 'y'){
+                    hiku = hiku + 1;
+                }
+            }
+            console.log(hiku)
+
+            hiku = hiku + (22 - estate_num)
+
+            var t = document.querySelector('.last-state-page');
+            t.textContent = Number(elearr_length) - hiku;
         }
 	});
 });
@@ -10897,6 +11196,23 @@ $(function(){
                 }
             }
             document.querySelector("#yourtenestate").setAttribute("spone","y")
+
+            var ele_arr = document.getElementsByClassName("form-group");
+            var elearr_length = ele_arr.length;
+            var estate_num = Number(document.getElementById("estate").value) * 2
+            // elearr_length = Number(elearr_length) - Number(estate_num);
+            var hiku = 0;
+            for(var i=0;i<Number(elearr_length);i++){
+                if(ele_arr[i].getAttribute("spone") == 'y'){
+                    hiku = hiku + 1;
+                }
+            }
+            console.log(hiku)
+
+            hiku = hiku + (22 - estate_num)
+
+            var t = document.querySelector('.last-state-page');
+            t.textContent = Number(elearr_length) - hiku;
         }
 	});
 });
@@ -11020,6 +11336,23 @@ $(function(){
                 }
             }
             document.querySelector("#yourtenrentalincome").setAttribute("spone","y")
+
+            var ele_arr = document.getElementsByClassName("form-group");
+            var elearr_length = ele_arr.length;
+            var estate_num = Number(document.getElementById("estate").value) * 2
+            // elearr_length = Number(elearr_length) - Number(estate_num);
+            var hiku = 0;
+            for(var i=0;i<Number(elearr_length);i++){
+                if(ele_arr[i].getAttribute("spone") == 'y'){
+                    hiku = hiku + 1;
+                }
+            }
+            console.log(hiku)
+
+            hiku = hiku + (22 - estate_num)
+
+            var t = document.querySelector('.last-state-page');
+            t.textContent = Number(elearr_length) - hiku;
         }
 	});
 });

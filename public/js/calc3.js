@@ -583,6 +583,8 @@ $(function(){
         
         if(sessionStorage.getItem('house-class') == "rental"){
             var myhome = true;
+            var ele = document.getElementById("yourhome");
+            ele.remove();
         }
         else{
             var myhome = false;
