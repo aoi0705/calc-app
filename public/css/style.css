@@ -293,6 +293,33 @@ body{
 	padding: 10px;			/*メニュー内の余白*/
 }
 
+#flash-msg-area {
+    opacity: 0 !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: -20px !important;
+    transform: translateX(-50%) !important;
+    transition: all 200ms ease-out !important;
+}
+#flash-msg-area.show {
+    opacity: 1 !important;
+    top: 20px !important;
+}
+#flash-msg-area .flash_message {
+    display: inline-block !important;
+    width: 400px !important;
+    text-align: center !important;
+    font-size: 15px !important;
+    padding: 10px 20px !important;
+    color: #fff !important;
+    background-color: #82e7a4 !important;
+    box-shadow: 1px 1px 2px 1px #ddd !important;
+}
+#flash-msg-area .flash_message.error {
+    background-color: #ff8e86 !important;
+}
+
+
 
 /*小さな端末用の設定（開閉ブロック）
 ---------------------------------------------------------------------------*/

@@ -56,13 +56,17 @@ $(function(){
 			// 次の項目を表示
 			let box = document.querySelector('#yourhome');
 			//styleのdisplayを変更する関数
-			box.style.display='';
+            if(box.style.display == 'none'){
+			    box.style.display='';
+            }
         }
         else{
             // 次の項目を表示
 			let box = document.querySelector('#yourestate');
 			//styleのdisplayを変更する関数
-			box.style.display='';
+            if(box.style.display == 'none'){
+			    box.style.display='';
+            }
         }
     });
 });

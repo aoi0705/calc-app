@@ -229,8 +229,51 @@ $(function(){
             url: 'opass.php', //送信先PHPファイル
             data: {'opass' : sessionStorage.getItem('opass'),'email' : sessionStorage.getItem('email')}
         });
+
     });
 });
+
+$(function(){
+    //フラッシュメッセージ用の関数をjqueryに登録
+    $.fn.flash_message = function(options) {
+        //デフォルト値
+        options = $.extend({
+            text: '完了しました',
+            time: 3000,
+            how: 'before',
+            class_name: ''
+        }, options);
+
+        return $(this).each(function() {
+            //指定したセレクタを探して取得
+            if ($(this).find('.flash_message').get(0)) {
+                $(this).find('.flash_message').remove();
+            }
+
+            var message = $('<span />', {
+                'class': 'flash_message ' + options.class_name,
+                text: options.text
+            //フェードイン表示
+            });
+
+            $(this)[options.how](message).addClass('show');
+            //delayさせてからフェードアウト
+            message.delay(options.time).queue(function(){
+                $(this).parents('#flash-msg-area').removeClass('show');
+            });
+        });
+    };
+
+    // ボタンクリックでフラッシュメッセージ（成功）を表示
+    $('#onetimepass').click(function() {
+        $('#flash-msg-area').flash_message({
+            text: 'ワンタイムパスワードが送付されました。',
+            how: 'append'
+        });
+    });
+
+})
+
 
 //ワンタイムパスのバリデーション
 $(function(){
@@ -4707,6 +4750,36 @@ $(function(){
 });
 
 $(function(){
+    const submit = document.querySelector('#back_url');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('click', (e) => {
+        var ele_arr = document.getElementsByClassName("form-group");
+
+        for(var i=0;i<30;i++){
+            if(sessionStorage.getItem("spone-"+i) == 'y'){
+                ele_arr[i].style.display = '';
+            }
+        }
+    });
+});
+
+$(function(){
+    const submit = document.querySelector('#back_url2');
+    
+    // 「送信」ボタンの要素にクリックイベントを設定する
+    submit.addEventListener('click', (e) => {
+        var ele_arr = document.getElementsByClassName("form-group");
+
+        for(var i=0;i<22;i++){
+            if(sessionStorage.getItem("spone2-"+i) == 'y'){
+                ele_arr[i].style.display = '';
+            }
+        }
+    });
+});
+
+$(function(){
 
     // 「送信」ボタンの要素を取得
     const submit = document.querySelector('#tenchildrensexinput');
@@ -4955,6 +5028,15 @@ $(function(){
             'ten-birthday' : sessionStorage.getItem('ten-birthday'),'ten-male' : sessionStorage.getItem('ten-male')
         }
         });
+
+        var ele_arr = document.getElementsByClassName("form-group");
+        for(var i=0;i<30;i++){
+            if(ele_arr[i].getAttribute("spone") != 'n'){
+                if(ele_arr[i].style.display == ''){
+                    sessionStorage.setItem('spone-'+String(i), 'y');
+                }
+            }
+        }
   });
 });
 
@@ -7266,6 +7348,14 @@ $(function(){
         }
         });
 
+        var ele_arr = document.getElementsByClassName("form-group");
+        for(var i=0;i<22;i++){
+            if(ele_arr[i].getAttribute("spone") != 'n'){
+                if(ele_arr[i].style.display == ''){
+                    sessionStorage.setItem('spone2-'+String(i), 'y');
+                }
+            }
+        }
 
         if(sessionStorage.getItem('yourpartner') == "いる"){
             var partner_bool2 = true;
@@ -17332,7 +17422,7 @@ $(function(){
 
         // 「お名前」入力欄の空欄チェック
         // フォームの要素を取得
-        const name = document.querySelector('#nine-university');
+        const name = document.querySelector('#ten-university');
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#yourtenuniversityerr');
         if(!name.value){
@@ -17379,7 +17469,21 @@ $(function(){
                 }
             }
 
-
+            var ele = document.querySelector(".last-state-page").textContent
+            if(String(ele) != "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2"){
+                    let next_button = document.querySelector("#next_page2");
+                    $('#next_page2').prop('disabled', true);
+                    next_button.id = "next_page2-not"
+                }
+            }
+            else if(String(ele) == "0"){
+                if(document.getElementsByClassName("btn btn-primary custom-btn")[0].id == "next_page2-not"){
+                    let next_button = document.querySelector("#next_page2-not");
+                    $('#next_page2-not').prop('disabled', false);
+                    next_button.id = "next_page2"
+                }
+            }
             document.getElementById("yourtenuniversity").setAttribute("spone","y")
         }
 	});
@@ -17402,7 +17506,7 @@ $(function(){
 });
 
 $(function(){
-    document.getElementsByClassName('btn btn-primary mx-auto d-block')[0].addEventListener('click', function() {
+    document.getElementById('next_page2_serv').addEventListener('click', function() {
 
         if(sessionStorage.getItem('yourpartner') == "いる"){
             var partner_bool2 = true;
@@ -17569,7 +17673,7 @@ $(function(){
             const spouseEstimatedannualincome = document.getElementById('spouse-Estimated-annual-income').value;
             sessionStorage.setItem('spouse-Estimated-annual-income', spouseEstimatedannualincome);
 
-            var ele7 = document.getElementsByName('Severance-pay');
+            var ele7 = document.getElementsByName('spouse-Severance-pay');
             var len7 = ele7.length;
             var checkValue7 = '';
             for (var i = 0; i < len7; i++){
@@ -17683,28 +17787,27 @@ $(function(){
         }
 
         jQuery.ajax({
-    
             type: 'post',
             url: 'form3.php', //送信先PHPファイル
             data: {
             'myhomebuy' : sessionStorage.getItem('myhome-buy'),
-             'estate': sessionStorage.getItem('estate'), 
+            'estate': sessionStorage.getItem('estate'), 
             'firstestate' : sessionStorage.getItem('first-estate'), 
             'firstrentalincome': sessionStorage.getItem('first-rental-income'), 
             'secondestate' : sessionStorage.getItem('second-estate'),
-             'secondrentalincome': sessionStorage.getItem('second-rental-income'), 
+            'secondrentalincome': sessionStorage.getItem('second-rental-income'), 
             'thirdestate' : sessionStorage.getItem('third-estate'),
-             'thirdrentalincome': sessionStorage.getItem('third-rental-income'), 
+            'thirdrentalincome': sessionStorage.getItem('third-rental-income'), 
             'fourestate' : sessionStorage.getItem('four-estate'), 
             'fourrentalincome': sessionStorage.getItem('four-rental-income'), 
             'fiveestate' : sessionStorage.getItem('five-estate'),
-             'fiverentalincome': sessionStorage.getItem('five-rental-income'), 
+            'fiverentalincome': sessionStorage.getItem('five-rental-income'), 
             'sixestate' : sessionStorage.getItem('six-estate'),
-             'sixrentalincome': sessionStorage.getItem('six-rental-income'), 
+            'sixrentalincome': sessionStorage.getItem('six-rental-income'), 
             'sevenestate' : sessionStorage.getItem('seven-estate'),
-             'sevenrentalincome': sessionStorage.getItem('seven-rental-income'), 
+            'sevenrentalincome': sessionStorage.getItem('seven-rental-income'), 
             'eightestate' : sessionStorage.getItem('eight-estate'),
-             'eightrentalincome': sessionStorage.getItem('eight-rental-income'), 
+            'eightrentalincome': sessionStorage.getItem('eight-rental-income'), 
             'nineestate' : sessionStorage.getItem('nine-estate'), 
             'ninerentalincome': sessionStorage.getItem('nine-rental-income'), 
             'tenestate' : sessionStorage.getItem('ten-estate'), 
@@ -17714,56 +17817,58 @@ $(function(){
             'trip' : sessionStorage.getItem('trip'), 
             'otherexpense': sessionStorage.getItem('other-expense'), 
             'startwark' : sessionStorage.getItem('start-wark'),
-             'Startingsalary': sessionStorage.getItem('Starting-salary'), 
+            'Startingsalary': sessionStorage.getItem('Starting-salary'), 
             'Estimatedannualincome' : sessionStorage.getItem('Estimated-annual-income'),
-             'yourSeverancepayinput': sessionStorage.getItem('yourSeverancepayinput'), 
+            'yourSeverancepayinput': sessionStorage.getItem('yourSeverancepayinput'), 
             'spousestartwork' : sessionStorage.getItem('spouse-start-work'),
-             'spouseStartingsalary': sessionStorage.getItem('spouse-Starting-salary'), 
+            'spouseStartingsalary': sessionStorage.getItem('spouse-Starting-salary'), 
             'spouseEstimatedannualincome' : sessionStorage.getItem('spouse-Estimated-annual-income'), 
             'yourpartnerSeverancepayinput': sessionStorage.getItem('yourpartnerSeverancepayinput'), 
             'firstprimaryschool' : sessionStorage.getItem('first-primary-school'), 
             'firstjuniorhighschool': sessionStorage.getItem('first-junior-high-school'), 
             'firsthighschool' : sessionStorage.getItem('first-high-school'),
-             'firstuniversity': sessionStorage.getItem('firstuniversity'), 
+            'firstuniversity': sessionStorage.getItem('first-university'), 
             'secondprimaryschool' : sessionStorage.getItem('second-primary-school'),
-             'secondjuniorhighschool': sessionStorage.getItem('second-junior-high-school'), 
+            'secondjuniorhighschool': sessionStorage.getItem('second-junior-high-school'), 
             'secondhighschool' : sessionStorage.getItem('second-high-school'), 
             'seconduniversity': sessionStorage.getItem('second-university'), 
             'thirdprimaryschool' : sessionStorage.getItem('third-primary-school'),
-             'thirdjuniorhighschool': sessionStorage.getItem('third-junior-high-school'), 
+            'thirdjuniorhighschool': sessionStorage.getItem('third-junior-high-school'), 
             'thirdhighschool' : sessionStorage.getItem('third-high-school'), 
             'thirduniversity': sessionStorage.getItem('third-university'), 
             'fourprimaryschool' : sessionStorage.getItem('four-primary-school'), 
             'fourjuniorhighschool': sessionStorage.getItem('four-junior-high-school'), 
             'fourhighschool' : sessionStorage.getItem('four-high-school'),
-             'fouruniversity': sessionStorage.getItem('four-university'), 
+            'fouruniversity': sessionStorage.getItem('four-university'), 
             'fiveprimaryschool' : sessionStorage.getItem('five-primary-school'),
-             'fivejuniorhighschool': sessionStorage.getItem('five-junior-high-school'), 
+            'fivejuniorhighschool': sessionStorage.getItem('five-junior-high-school'), 
             'fivehighschool' : sessionStorage.getItem('five-high-school'),
-             'fiveuniversity': sessionStorage.getItem('five-university'), 
+            'fiveuniversity': sessionStorage.getItem('five-university'), 
             'sixprimaryschool' : sessionStorage.getItem('six-primary-school'),
-             'sixjuniorhighschool': sessionStorage.getItem('six-junior-high-school'), 
+            'sixjuniorhighschool': sessionStorage.getItem('six-junior-high-school'), 
             'sixhighschool' : sessionStorage.getItem('six-high-school'),
-             'sixuniversity': sessionStorage.getItem('six-university'), 
+            'sixuniversity': sessionStorage.getItem('six-university'), 
             'sevenprimaryschool' : sessionStorage.getItem('seven-primary-school'), 
             'sevenjuniorhighschool': sessionStorage.getItem('seven-junior-high-school'), 
             'sevenhighschool' : sessionStorage.getItem('seven-high-school'),
-             'sevenuniversity': sessionStorage.getItem('seven-university'), 
+            'sevenuniversity': sessionStorage.getItem('seven-university'), 
             'eightprimaryschool' : sessionStorage.getItem('eight-primary-school'), 
             'eightjuniorhighschool': sessionStorage.getItem('eight-junior-high-school'), 
             'eighthighschool' : sessionStorage.getItem('eight-high-school'), 
             'eightuniversity': sessionStorage.getItem('eight-university'), 
             'nineprimaryschool' : sessionStorage.getItem('nine-primary-school'),
-             'ninejuniorhighschool': sessionStorage.getItem('nine-junior-high-school'), 
+            'ninejuniorhighschool': sessionStorage.getItem('nine-junior-high-school'), 
             'ninehighschool' : sessionStorage.getItem('nine-high-school'), 
             'nineuniversity': sessionStorage.getItem('nine-university'), 
             'tenprimaryschool' : sessionStorage.getItem('ten-primary-school'),
-             'tenjuniorhighschool': sessionStorage.getItem('ten-junior-high-school'), 
+            'tenjuniorhighschool': sessionStorage.getItem('ten-junior-high-school'), 
             'tenhighschool' : sessionStorage.getItem('ten-high-school'), 
             'tenuniversity': sessionStorage.getItem('ten-university')
         }
         });
         
         // window.location.href = '/mail';
+        window.location.href = '/result_screen';
+        sessionStorage.clear();
     });
 });

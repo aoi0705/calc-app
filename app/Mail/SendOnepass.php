@@ -28,6 +28,7 @@ class SendOnepass extends Mailable
      */
     public function build()
     {
+
         return $this->view('email.opass')
                 ->to($_SESSION['email'])
                 ->cc('info@wealthjourneynavi.com','株式会社wealth journey navigators')

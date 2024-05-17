@@ -413,8 +413,8 @@
            <label for="inputState">1人目のお子様の小学校区分を入力してください。（将来の希望ベースでかまいません！）</label><br>
            <select id="first-primary-school" name="first-primary-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yourfirstprimaryschoolerr"></div>
         </div>
@@ -423,8 +423,8 @@
            <label for="inputState">1人目のお子様の中学校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="first-junior-high-school" name="first-junior-high-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yourfirstjuniorhighschoolerr"></div>
         </div>
@@ -433,8 +433,8 @@
            <label for="inputState">1人目のお子様の高校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="first-high-school" name="first-high-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yourfirsthighschoolerr"></div>
         </div>
@@ -455,8 +455,8 @@
            <label for="inputState">2人目のお子様の小学校区分を入力してください。（将来の希望ベースでかまいません！）</label><br>
            <select id="second-primary-school" name="second-primary-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yoursecondprimaryschoolerr"></div>
         </div>
@@ -465,8 +465,8 @@
            <label for="inputState">2人目のお子様の中学校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="second-junior-high-school" name="second-junior-high-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yoursecondjuniorhighschoolerr"></div>
         </div>
@@ -475,8 +475,8 @@
            <label for="inputState">2人目のお子様の高校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="second-high-school" name="second-high-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yoursecondhighschoolerr"></div>
         </div>
@@ -497,8 +497,8 @@
            <label for="inputState">3人目のお子様の小学校区分を入力してください。（将来の希望ベースでかまいません！）</label><br>
            <select id="third-primary-school" name="third-primary-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yourthirdprimaryschoolerr"></div>
         </div>
@@ -507,8 +507,8 @@
            <label for="inputState">3人目のお子様の中学校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="third-junior-high-school" name="third-junior-high-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yourthirdjuniorhighschoolerr"></div>
         </div>
@@ -517,8 +517,8 @@
            <label for="inputState">3人目のお子様の高校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="third-high-school" name="third-high-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yourthirdhighschoolerr"></div>
         </div>
@@ -539,8 +539,8 @@
            <label for="inputState">4人目のお子様の小学校区分を入力してください。（将来の希望ベースでかまいません！）</label><br>
            <select id="four-primary-school" name="four-primary-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yourfourprimaryschoolerr"></div>
         </div>
@@ -549,8 +549,8 @@
            <label for="inputState">4人目のお子様の中学校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="four-junior-high-school" name="four-junior-high-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yourfourjuniorhighschoolerr"></div>
         </div>
@@ -559,8 +559,8 @@
            <label for="inputState">4人目のお子様の高校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="four-high-school" name="four-high-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yourfourhighschoolerr"></div>
         </div>
@@ -581,8 +581,8 @@
            <label for="inputState">5人目のお子様の小学校区分を入力してください。（将来の希望ベースでかまいません！）</label><br>
            <select id="five-primary-school" name="five-primary-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yourfiveprimaryschoolerr"></div>
         </div>
@@ -591,8 +591,8 @@
            <label for="inputState">5人目のお子様の中学校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="five-junior-high-school" name="five-junior-high-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yourfivejuniorhighschoolerr"></div>
         </div>
@@ -601,8 +601,8 @@
            <label for="inputState">5人目のお子様の高校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="five-high-school" name="five-high-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yourfivehighschoolerr"></div>
         </div>
@@ -623,8 +623,8 @@
            <label for="inputState">6人目のお子様の小学校区分を入力してください。（将来の希望ベースでかまいません！）</label><br>
            <select id="six-primary-school" name="six-primary-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yoursixprimaryschoolerr"></div>
         </div>
@@ -633,8 +633,8 @@
            <label for="inputState">6人目のお子様の中学校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="six-junior-high-school" name="six-junior-high-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yoursixjuniorhighschoolerr"></div>
         </div>
@@ -643,8 +643,8 @@
            <label for="inputState">6人目のお子様の高校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="six-high-school" name="six-high-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yoursixhighschoolerr"></div>
         </div>
@@ -665,8 +665,8 @@
            <label for="inputState">7人目のお子様の小学校区分を入力してください。（将来の希望ベースでかまいません！）</label><br>
            <select id="seven-primary-school" name="seven-primary-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yoursevenprimaryschoolerr"></div>
         </div>
@@ -675,8 +675,8 @@
            <label for="inputState">7人目のお子様の中学校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="seven-junior-high-school" name="seven-junior-high-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yoursevenjuniorhighschoolerr"></div>
         </div>
@@ -685,8 +685,8 @@
            <label for="inputState">7人目のお子様の高校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="seven-high-school" name="seven-high-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yoursevenhighschoolerr"></div>
         </div>
@@ -707,8 +707,8 @@
            <label for="inputState">8人目のお子様の小学校区分を入力してください。（将来の希望ベースでかまいません！）</label><br>
            <select id="eight-primary-school" name="eight-primary-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="youreightprimaryschoolerr"></div>
         </div>
@@ -717,8 +717,8 @@
            <label for="inputState">8人目のお子様の中学校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="eight-junior-high-school" name="eight-junior-high-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="youreightjuniorhighschoolerr"></div>
         </div>
@@ -727,8 +727,8 @@
            <label for="inputState">8人目のお子様の高校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="eight-high-school" name="eight-high-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="youreighthighschoolerr"></div>
         </div>
@@ -749,8 +749,8 @@
            <label for="inputState">9人目のお子様の小学校区分を入力してください。（将来の希望ベースでかまいません！）</label><br>
            <select id="nine-primary-school" name="nine-primary-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yournineprimaryschoolerr"></div>
         </div>
@@ -759,8 +759,8 @@
            <label for="inputState">9人目のお子様の中学校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="nine-junior-high-school" name="nine-junior-high-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yourninejuniorhighschoolerr"></div>
         </div>
@@ -769,8 +769,8 @@
            <label for="inputState">9人目のお子様の高校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="nine-high-school" name="nine-high-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yourninehighschoolerr"></div>
         </div>
@@ -791,8 +791,8 @@
            <label for="inputState">10人目のお子様の小学校区分を入力してください。（将来の希望ベースでかまいません！）</label><br>
            <select id="ten-primary-school" name="ten-primary-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yourtenprimaryschoolerr"></div>
         </div>
@@ -801,8 +801,8 @@
            <label for="inputState">10人目のお子様の中学校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="ten-junior-high-school" name="ten-junior-high-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yourtenjuniorhighschoolerr"></div>
         </div>
@@ -811,8 +811,8 @@
            <label for="inputState">10人目のお子様の高校区分を入力してください。 （将来の希望ベースでかまいません！）</label><br>
            <select id="ten-high-school" name="ten-high-school" class="form-control">
                 <option selected></option>
-                <option value="public">公立</option>
-                <option value="private">私立</option>
+                <option value="公立">公立</option>
+                <option value="私立">私立</option>
             </select>
             <div class="err-msg-name" id="yourtenhighschoolerr"></div>
         </div>
@@ -840,7 +840,7 @@
     <label class="last-state-page"></label>
     <label class="last-state">項目</label>
 <button  class="btn btn-primary custom-btn" id="next_page2-not" type="button" data-target="#modal1" data-toggle="modal" disabled>未来家計簿を計算する</button><br>
-<a href="javascript:void(0)" onclick="history.back()" id="back_url">現在家計簿情報入力へ戻る</a>
+<a href="javascript:void(0)" onclick="history.back()" id="back_url2">現在家計簿情報入力へ戻る</a>
 </footer>
         <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable" role="document">

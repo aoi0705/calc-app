@@ -47,6 +47,7 @@ Route::get('/mail', [MailSendController::class, 'send']);
 
 Route::get('/onetime_passmail', [MailSendController::class, 'opass_send']);
 
+Route::get('/onetime_pass_flash',[MailSendController::class, 'opass_flash']);
 
 //Route::get('/privacy_policy', [ModalController::class, 'privacy_policy']);
 Route::get('/modal', [ModalController::class, 'modal']);

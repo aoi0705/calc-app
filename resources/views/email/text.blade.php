@@ -35,7 +35,37 @@ echo $_SESSION['children'].nl2br("\n");
 
 if($_SESSION['children'] == 'いる'){
     echo '【子どもの人数】'.nl2br("\n");
-    echo $_SESSION['numberchildren'].nl2br("\n");
+    if($_SESSION['numberchildren'] == "one"){
+        echo '1人'.nl2br("\n");
+    }
+    else if($_SESSION['numberchildren'] == "two"){
+        echo '2人'.nl2br("\n");
+    }
+    else if($_SESSION['numberchildren'] == "three"){
+        echo '3人'.nl2br("\n");
+    }
+    else if($_SESSION['numberchildren'] == "four"){
+        echo '4人'.nl2br("\n");
+    }
+    else if($_SESSION['numberchildren'] == "five"){
+        echo '5人'.nl2br("\n");
+    }
+    else if($_SESSION['numberchildren'] == "six"){
+        echo '6人'.nl2br("\n");
+    }
+    else if($_SESSION['numberchildren'] == "seven"){
+        echo '7人'.nl2br("\n");
+    }
+    else if($_SESSION['numberchildren'] == "eight"){
+        echo '8人'.nl2br("\n");
+    }
+    else if($_SESSION['numberchildren'] == "nine"){
+        echo '9人'.nl2br("\n");
+    }
+    else if($_SESSION['numberchildren'] == "ten"){
+        echo '10人'.nl2br("\n");
+    }
+    
 
     if($_SESSION['firstbirthday'] != null){
         echo '【1人目の生年月日】'.nl2br("\n");
@@ -121,7 +151,15 @@ echo '【毎月の衣服・美容代】'.nl2br("\n");
 echo $_SESSION['beautybill'].nl2br("\n");
 
 echo '【住居区分】'.nl2br("\n");
-echo $_SESSION['houseclass'].nl2br("\n");
+if($_SESSION['houseclass'] == "myhouse"){
+    echo '持ち家（マンション）'.nl2br("\n");
+}
+else if($_SESSION['houseclass'] == "apartment"){
+    echo '持ち家（戸建て）'.nl2br("\n");
+}
+else if($_SESSION['houseclass'] == "rental"){
+    echo '賃貸'.nl2br("\n");
+}
 echo '【毎月の住居費】'.nl2br("\n");
 echo $_SESSION['housecost'].nl2br("\n");
 if($_SESSION['managecost'] != null){

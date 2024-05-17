@@ -122,6 +122,7 @@ $_SESSION['yourSeverancepayinput'] = $yourSeverancepayinput;
 $_SESSION['Severancepay'] = $Severancepay;
 $_SESSION['spousestartwork'] = $spousestartwork;
 $_SESSION['spouseStartingsalary'] = $spouseStartingsalary;
+$_SESSION['yourpartnerSeverancepayinput'] = $yourpartnerSeverancepayinput;
 
 $_SESSION['spouseEstimatedannualincome'] = $spouseEstimatedannualincome;
 $_SESSION['spouseSeverancepay'] = $spouseSeverancepay;
