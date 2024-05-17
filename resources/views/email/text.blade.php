@@ -280,7 +280,7 @@ echo $_SESSION['trip'].nl2br("\n");
 echo '【毎月のその他の出費（家電購入費やローンのボーナス払い等）】'.nl2br("\n");
 echo $_SESSION['otherexpense'].nl2br("\n");
 echo '【あなたの働き始めた年齢】'.nl2br("\n");
-echo $_SESSION['startwork'].nl2br("\n");
+echo $_SESSION['startwark'].nl2br("\n");
 echo '【あなたの初任給】'.nl2br("\n");
 echo $_SESSION['Startingsalary'].nl2br("\n");
 echo '【あなたの50歳の想定年収】'.nl2br("\n");
