@@ -116,7 +116,7 @@ $(function(){
     const submit = document.querySelector('#email');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -319,14 +319,13 @@ $(function(){
 });
 
 
-
 $(function(){
 
     // 「送信」ボタンの要素を取得
-    const submit = document.querySelector('#nickname');
+    const submit = document.getElementById('nickname');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -336,7 +335,7 @@ $(function(){
         // エラーメッセージを表示させる要素を取得
         const errMsgName = document.querySelector('#nicknameerr');
         var ele_arr = document.getElementsByClassName("form-group");
-        if(!String(name.value)){
+        if(name.value == ""){
             // クラスを追加(エラーメッセージを表示する)
             errMsgName.classList.add('form-invalid');
             // エラーメッセージのテキスト
@@ -424,7 +423,7 @@ $(function(){
     const submit = document.querySelector('#birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -526,7 +525,7 @@ $(function(){
     const submit = document.querySelector('#yourpost');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -621,7 +620,7 @@ $(function(){
     const submit = document.querySelector('#job');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -852,7 +851,7 @@ $(function(){
     const submit = document.querySelector('#spouse-birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -948,7 +947,7 @@ $(function(){
     const submit = document.querySelector('#spouse-job');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -1232,7 +1231,7 @@ $(function(){
     const submit = document.querySelector('#number-children');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -2170,7 +2169,7 @@ $(function(){
     const submit = document.querySelector('#first-birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -2501,7 +2500,7 @@ $(function(){
     const submit = document.querySelector('#second-birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -2820,7 +2819,7 @@ $(function(){
     const submit = document.querySelector('#third-birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -3124,7 +3123,7 @@ $(function(){
     const submit = document.querySelector('#four-birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -3415,7 +3414,7 @@ $(function(){
     const submit = document.querySelector('#five-birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -3691,7 +3690,7 @@ $(function(){
     const submit = document.querySelector('#six-birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -3953,7 +3952,7 @@ $(function(){
     const submit = document.querySelector('#seven-birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -4201,7 +4200,7 @@ $(function(){
     const submit = document.querySelector('#eight-birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -4434,7 +4433,7 @@ $(function(){
     const submit = document.querySelector('#nine-birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -4654,7 +4653,7 @@ $(function(){
     const submit = document.querySelector('#ten-birthday');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5064,7 +5063,7 @@ $(function(){
     const submit = document.querySelector('#annual-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5165,7 +5164,7 @@ $(function(){
     const submit = document.querySelector('#bonus');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5277,7 +5276,7 @@ $(function(){
     const submit = document.querySelector('#spouse-annual-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5371,7 +5370,7 @@ $(function(){
     const submit = document.querySelector('#spouse-bonus');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5465,7 +5464,7 @@ $(function(){
     const submit = document.querySelector('#food-expenses');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5559,7 +5558,7 @@ $(function(){
     const submit = document.querySelector('#living-cost');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5653,7 +5652,7 @@ $(function(){
     const submit = document.querySelector('#beauty-bill');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5748,7 +5747,7 @@ $(function(){
     const submit = document.querySelector('#house-class');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5849,7 +5848,7 @@ $(function(){
     const submit = document.querySelector('#house-cost');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -5958,7 +5957,7 @@ $(function(){
     const submit = document.querySelector('#manage-cost');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6052,7 +6051,7 @@ $(function(){
     const submit = document.querySelector('#bill');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6146,7 +6145,7 @@ $(function(){
     const submit = document.querySelector('#pc-bill');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6240,7 +6239,7 @@ $(function(){
     const submit = document.querySelector('#phone-bill');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6334,7 +6333,7 @@ $(function(){
     const submit = document.querySelector('#lone');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6428,7 +6427,7 @@ $(function(){
     const submit = document.querySelector('#Insurance-bill');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6532,7 +6531,7 @@ $(function(){
     const submit = document.querySelector('#Educational-insurance');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6626,7 +6625,7 @@ $(function(){
     const submit = document.querySelector('#education-expenses');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6720,7 +6719,7 @@ $(function(){
     const submit = document.querySelector('#medical-insurance');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6814,7 +6813,7 @@ $(function(){
     const submit = document.querySelector('#life-insurance');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -6908,7 +6907,7 @@ $(function(){
     const submit = document.querySelector('#Estate-Investment');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -7001,7 +7000,7 @@ $(function(){
     const submit = document.querySelector('#asset-management');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -7094,7 +7093,7 @@ $(function(){
     const submit = document.querySelector('#savings');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -7498,7 +7497,7 @@ $(function(){
     const submit = document.querySelector('#myhome-buy');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -8766,7 +8765,7 @@ $(function(){
     const submit = document.querySelector('#first-estate');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -8889,7 +8888,7 @@ $(function(){
     const submit = document.querySelector('#first-rental-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -9044,7 +9043,7 @@ $(function(){
     const submit = document.querySelector('#second-estate');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -9163,7 +9162,7 @@ $(function(){
     const submit = document.querySelector('#second-rental-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -9317,7 +9316,7 @@ $(function(){
     const submit = document.querySelector('#third-estate');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -9436,7 +9435,7 @@ $(function(){
     const submit = document.querySelector('#third-rental-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -9591,7 +9590,7 @@ $(function(){
     const submit = document.querySelector('#four-estate');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -9710,7 +9709,7 @@ $(function(){
     const submit = document.querySelector('#four-rental-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -9858,7 +9857,7 @@ $(function(){
     const submit = document.querySelector('#five-estate');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -9977,7 +9976,7 @@ $(function(){
     const submit = document.querySelector('#five-rental-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -10125,7 +10124,7 @@ $(function(){
     const submit = document.querySelector('#six-estate');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -10244,7 +10243,7 @@ $(function(){
     const submit = document.querySelector('#six-rental-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -10391,7 +10390,7 @@ $(function(){
     const submit = document.querySelector('#seven-estate');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -10510,7 +10509,7 @@ $(function(){
     const submit = document.querySelector('#seven-rental-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -10659,7 +10658,7 @@ $(function(){
     const submit = document.querySelector('#eight-estate');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -10778,7 +10777,7 @@ $(function(){
     const submit = document.querySelector('#eight-rental-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -10926,7 +10925,7 @@ $(function(){
     const submit = document.querySelector('#nine-estate');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -11045,7 +11044,7 @@ $(function(){
     const submit = document.querySelector('#nine-rental-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -11194,7 +11193,7 @@ $(function(){
     const submit = document.querySelector('#ten-estate');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -11313,7 +11312,7 @@ $(function(){
     const submit = document.querySelector('#ten-rental-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -11453,7 +11452,7 @@ $(function(){
     const submit = document.querySelector('#savings-balance');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -11580,7 +11579,7 @@ $(function(){
     const submit = document.querySelector('#last-Educational-insurance');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -11685,7 +11684,7 @@ $(function(){
     const submit = document.querySelector('#trip');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -11790,7 +11789,7 @@ $(function(){
     const submit = document.querySelector('#other-expense');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -11897,7 +11896,7 @@ $(function(){
     const submit = document.querySelector('#start-wark');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -11997,7 +11996,7 @@ $(function(){
     const submit = document.querySelector('#Starting-salary');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -12097,7 +12096,7 @@ $(function(){
     const submit = document.querySelector('#Estimated-annual-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -12344,7 +12343,7 @@ $(function(){
     const submit = document.querySelector('#spouse-start-work');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -12445,7 +12444,7 @@ $(function(){
     const submit = document.querySelector('#spouse-Starting-salary');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -12545,7 +12544,7 @@ $(function(){
     const submit = document.querySelector('#spouse-Estimated-annual-income');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -12757,7 +12756,7 @@ $(function(){
     const submit = document.querySelector('#first-primary-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -12893,7 +12892,7 @@ $(function(){
     const submit = document.querySelector('#first-junior-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -13027,7 +13026,7 @@ $(function(){
     const submit = document.querySelector('#first-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -13161,7 +13160,7 @@ $(function(){
     const submit = document.querySelector('#first-university');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -13317,7 +13316,7 @@ $(function(){
     const submit = document.querySelector('#second-primary-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -13447,7 +13446,7 @@ $(function(){
     const submit = document.querySelector('#second-junior-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -13577,7 +13576,7 @@ $(function(){
     const submit = document.querySelector('#second-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -13707,7 +13706,7 @@ $(function(){
     const submit = document.querySelector('#second-university');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -13856,7 +13855,7 @@ $(function(){
     const submit = document.querySelector('#third-primary-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -13983,7 +13982,7 @@ $(function(){
     const submit = document.querySelector('#third-junior-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -14109,7 +14108,7 @@ $(function(){
     const submit = document.querySelector('#third-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -14235,7 +14234,7 @@ $(function(){
     const submit = document.querySelector('#third-university');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -14377,7 +14376,7 @@ $(function(){
     const submit = document.querySelector('#four-primary-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -14499,7 +14498,7 @@ $(function(){
     const submit = document.querySelector('#four-junior-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -14621,7 +14620,7 @@ $(function(){
     const submit = document.querySelector('#four-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -14743,7 +14742,7 @@ $(function(){
     const submit = document.querySelector('#four-university');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -14879,7 +14878,7 @@ $(function(){
     const submit = document.querySelector('#five-primary-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -14997,7 +14996,7 @@ $(function(){
     const submit = document.querySelector('#five-junior-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -15115,7 +15114,7 @@ $(function(){
     const submit = document.querySelector('#five-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -15233,7 +15232,7 @@ $(function(){
     const submit = document.querySelector('#five-university');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -15363,7 +15362,7 @@ $(function(){
     const submit = document.querySelector('#six-primary-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -15478,7 +15477,7 @@ $(function(){
     const submit = document.querySelector('#six-junior-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -15591,7 +15590,7 @@ $(function(){
     const submit = document.querySelector('#six-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -15705,7 +15704,7 @@ $(function(){
     const submit = document.querySelector('#six-university');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -15829,7 +15828,7 @@ $(function(){
     const submit = document.querySelector('#seven-primary-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -15939,7 +15938,7 @@ $(function(){
     const submit = document.querySelector('#seven-junior-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -16049,7 +16048,7 @@ $(function(){
     const submit = document.querySelector('#seven-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -16159,7 +16158,7 @@ $(function(){
     const submit = document.querySelector('#seven-university');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -16277,7 +16276,7 @@ $(function(){
     const submit = document.querySelector('#eight-primary-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -16383,7 +16382,7 @@ $(function(){
     const submit = document.querySelector('#eight-junior-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -16489,7 +16488,7 @@ $(function(){
     const submit = document.querySelector('#eight-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -16596,7 +16595,7 @@ $(function(){
     const submit = document.querySelector('#eight-university');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -16708,7 +16707,7 @@ $(function(){
     const submit = document.querySelector('#nine-primary-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -16810,7 +16809,7 @@ $(function(){
     const submit = document.querySelector('#nine-junior-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -16913,7 +16912,7 @@ $(function(){
     const submit = document.querySelector('#nine-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -17015,7 +17014,7 @@ $(function(){
     const submit = document.querySelector('#nine-university');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -17121,7 +17120,7 @@ $(function(){
     const submit = document.querySelector('#ten-primary-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -17219,7 +17218,7 @@ $(function(){
     const submit = document.querySelector('#ten-junior-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -17317,7 +17316,7 @@ $(function(){
     const submit = document.querySelector('#ten-high-school');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
@@ -17416,7 +17415,7 @@ $(function(){
     const submit = document.querySelector('#ten-university');
     
     // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('input', (e) => {
+    submit.addEventListener('change', (e) => {
         // デフォルトアクションをキャンセル
         e.preventDefault();
 
