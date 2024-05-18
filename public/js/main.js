@@ -165,7 +165,7 @@ $(function(){
 
             if(submit.getAttribute("count_yet") != "not_yet"){
                 // エラーメッセージのテキストに空文字を代入
-                errMsgName.textContent ='';
+                errMsgName.textContent ="";
                 // クラスを削除
                 name.classList.remove('input-invalid');
                 let count = document.querySelector('.last-state-page');
@@ -17784,6 +17784,7 @@ $(function(){
                 sessionStorage.setItem('ten-university',tenuniversity);
             }
         }
+
 
         jQuery.ajax({
             type: 'post',

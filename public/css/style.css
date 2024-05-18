@@ -1121,6 +1121,10 @@ display: inline-block;
 	text-align: center !important;
 }
 
+.pinfo_text{
+	font-size: 11px !important;
+}
+
 /*headerの設定*/
 header {
 	display: flex;					/*flexボックスを使う指定*/
