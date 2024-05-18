@@ -137,6 +137,7 @@ $(function(){
             const stat = document.querySelector('.last-state-page');
             stat.textContent = "19"
         }
+
     });
 });
 

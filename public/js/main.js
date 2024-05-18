@@ -17789,6 +17789,7 @@ $(function(){
         jQuery.ajax({
             type: 'post',
             url: 'form3.php', //送信先PHPファイル
+            cache:false,
             data: {
             'myhomebuy' : sessionStorage.getItem('myhome-buy'),
             'estate': sessionStorage.getItem('estate'), 
@@ -17863,7 +17864,30 @@ $(function(){
             'tenprimaryschool' : sessionStorage.getItem('ten-primary-school'),
             'tenjuniorhighschool': sessionStorage.getItem('ten-junior-high-school'), 
             'tenhighschool' : sessionStorage.getItem('ten-high-school'), 
-            'tenuniversity': sessionStorage.getItem('ten-university')
+            'tenuniversity': sessionStorage.getItem('ten-university'),
+            'annualincome' : sessionStorage.getItem('annual-income'), 'bonus': sessionStorage.getItem('bonus'), 
+            'spouseannualincome' : sessionStorage.getItem('spouse-annual-income'), 'spousebonus': sessionStorage.getItem('spouse-bonus'),
+            'foodexpenses' : sessionStorage.getItem('food-expenses'), 'livingcost': sessionStorage.getItem('living-cost'), 
+            'beautybill' : sessionStorage.getItem('beauty-bill'), 'houseclass': sessionStorage.getItem('house-class'),  
+            'housecost' : sessionStorage.getItem('house-cost'), 'managecost': sessionStorage.getItem('manage-cost'), 
+            'bill' : sessionStorage.getItem('bill'), 'pcbill': sessionStorage.getItem('pc-bill'),
+            'phonebill' : sessionStorage.getItem('phone-bill'), 'lone': sessionStorage.getItem('lone'),  
+            'Insurancebill' : sessionStorage.getItem('Insurance-bill'), 'Educationalinsurance': sessionStorage.getItem('Educational-insurance'),
+            'medicalinsurance' : sessionStorage.getItem('medical-insurance'), 'educationexpenses': sessionStorage.getItem('education-expenses'),
+            'lifeinsurance' : sessionStorage.getItem('life-insurance'), 'EstateInvestment': sessionStorage.getItem('Estate-Investment'), 
+            'assetmanagement' : sessionStorage.getItem('asset-management'), 'savings': sessionStorage.getItem('savings'),
+            'email' : sessionStorage.getItem('email'),'nickname' : sessionStorage.getItem('nickname'), 'birthday': sessionStorage.getItem('birthday'), 'post-number': sessionStorage.getItem('post-number'),
+            'job' : sessionStorage.getItem('job'),'yourpartner' : sessionStorage.getItem('yourpartner'),'spouse-birthday' : sessionStorage.getItem('spouse-birthday'),
+            'spouse-job' : sessionStorage.getItem('spouse-job'),'children' : sessionStorage.getItem('children'),'number-children' : sessionStorage.getItem('number-children'),
+            'first-birthday' : sessionStorage.getItem('first-birthday'),'first-male' : sessionStorage.getItem('first-male'),'second-birthday' : sessionStorage.getItem('second-birthday'),
+            'second-male' : sessionStorage.getItem('second-male'),'third-birthday' : sessionStorage.getItem('third-birthday'),'third-male' : sessionStorage.getItem('third-male'),
+            'four-birthday' : sessionStorage.getItem('four-birthday'),'four-male' : sessionStorage.getItem('four-male'),
+            'five-birthday' : sessionStorage.getItem('five-birthday'),'five-male' : sessionStorage.getItem('five-male'),
+            'six-birthday' : sessionStorage.getItem('six-birthday'),'six-male' : sessionStorage.getItem('six-male'),
+            'seven-birthday' : sessionStorage.getItem('seven-birthday'),'seven-male' : sessionStorage.getItem('seven-male'),
+            'eight-birthday' : sessionStorage.getItem('eight-birthday'),'eight-male' : sessionStorage.getItem('eight-male'),
+            'nine-birthday' : sessionStorage.getItem('nine-birthday'),'nine-male' : sessionStorage.getItem('nine-male'),
+            'ten-birthday' : sessionStorage.getItem('ten-birthday'),'ten-male' : sessionStorage.getItem('ten-male')
         }
         });
         
