@@ -386,6 +386,7 @@
 <!--jQueryの読み込み-->
 
 <!--このテンプレート専用のスクリプト-->
+<script src="js/calc.js"></script>
 <script src="js/main.js"></script>
 
 <!--開閉ボタン（ハンバーガーアイコン）

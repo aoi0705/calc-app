@@ -4748,20 +4748,6 @@ $(function(){
 	});
 });
 
-$(function(){
-    const submit = document.querySelector('#back_url');
-    
-    // 「送信」ボタンの要素にクリックイベントを設定する
-    submit.addEventListener('click', (e) => {
-        var ele_arr = document.getElementsByClassName("form-group");
-
-        for(var i=0;i<30;i++){
-            if(sessionStorage.getItem("spone-"+i) == 'y'){
-                ele_arr[i].style.display = '';
-            }
-        }
-    });
-});
 
 $(function(){
     const submit = document.querySelector('#back_url2');
@@ -17788,6 +17774,7 @@ $(function(){
 
         jQuery.ajax({
             type: 'post',
+            async:false,
             url: 'form3.php', //送信先PHPファイル
             cache:false,
             data: {

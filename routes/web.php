@@ -39,11 +39,12 @@ Route::get('/privacy_policy', function () {
     return view('privacy_policy');
 });
 
+Route::get('/mail', [MailSendController::class, 'send']);
+
 Route::get('/result_screen', function () {
     return view('result_screen');
 });
 
-Route::get('/mail', [MailSendController::class, 'send']);
 
 Route::get('/onetime_passmail', [MailSendController::class, 'opass_send']);
 
