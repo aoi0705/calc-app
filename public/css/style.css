@@ -1073,12 +1073,44 @@ body{
 	margin-bottom: 80px !important;
 }
 
+/*mainブロック*/
+main {
+	margin-top: 25px !important;
+	padding-top: 0px !important;
+}
+
 .br-pc {
 	display: none;
 }
 
 .br-sp {
 display: inline-block;
+}
+
+#flash-msg-area {
+    opacity: 0 !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: -20px !important;
+    transform: translateX(-50%) !important;
+    transition: all 200ms ease-out !important;
+}
+#flash-msg-area.show {
+    opacity: 1 !important;
+    top: 20px !important;
+}
+#flash-msg-area .flash_message {
+    display: inline-block !important;
+    width: 400px !important;
+    text-align: center !important;
+    font-size: 15px !important;
+    padding: 10px 20px !important;
+    color: #fff !important;
+    background-color: #82e7a4 !important;
+    box-shadow: 1px 1px 2px 1px #ddd !important;
+}
+#flash-msg-area .flash_message.error {
+    background-color: #ff8e86 !important;
 }
 
 .modal-content{
@@ -1130,7 +1162,7 @@ header {
 	display: flex;					/*flexボックスを使う指定*/
 	justify-content: space-between;	/*並びかたの種類の指定*/
 	align-items: center;			/*垂直揃えの指定。天地中央に配置されるように。*/
-	background: #FF9696;			/*背景色*/
+	background: #ffffff;			/*背景色*/
 	/* position: fixed; z-index: 1;	/*スクロールしても動かないようにする指定*/
 	width: 100%;
 	/* padding: 0 3%;					/*上下、左右へのヘッダー内の余白*/
@@ -1213,7 +1245,7 @@ header {
 	padding: 0;
 	padding-top: 80.00%;
 	position: relative;
-	top: 60px;	/*headerのheightの数値と合わせて下さい。*/
+	top: 0px !important;	/*headerのheightの数値と合わせて下さい。*/
 	overflow: hidden;
 	background: #FF9696;	/*背景色、背景画像の読み込み、最後の100%は画像幅。*/
 	color: #fff;	/*文字色*/
