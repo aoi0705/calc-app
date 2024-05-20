@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>株式会社Wealth Journey Navigatore</title>
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
-<meta name="description" content="ここにサイト説明を入れます">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="株式会社Wealth Journey Navigatorsはご家庭に沿った未来家計簿を作成して、あなたのご家庭をサポート致します。">
 <link rel="stylesheet" href="css/style.css">
 <style>
     main{

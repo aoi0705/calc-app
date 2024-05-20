@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>株式会社Wealth Journey Navigatore</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="構築中">
+<meta name="description" content="株式会社Wealth Journey Navigatorsはご家庭に沿った未来家計簿を作成して、あなたのご家庭をサポート致します。">
 <link rel="stylesheet" href="css/style.css">
 <style>
     footer {
